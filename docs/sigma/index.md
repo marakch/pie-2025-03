@@ -1,3 +1,8 @@
+---
+layout: default
+custom_css: sigma/theme.css
+---
+<link rel="stylesheet" href="theme.css">
 # SIGMA
 A modernized take on the Enigma Machine used in WWII to encrypt messages.
 ---
