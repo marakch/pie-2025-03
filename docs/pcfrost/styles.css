@@ -1,0 +1,9 @@
+body, html {
+  overflow: hidden; /* Hide both horizontal and vertical scrollbars */
+  height: 100%;    /* Ensure the body and html take up the full viewport height */
+  margin: 0;       /* Remove default browser margins */
+  padding: 0;      /* Remove default browser padding */
+}
+#main_video{
+    
+}
