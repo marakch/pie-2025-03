@@ -26,7 +26,10 @@
 			}, 100);
 		});
 
-	// Scrolly.
-		$('.scrolly').scrolly();
+	// Smooth scroll with offset so the fixed top nav doesn't cover headings
+$('.scrolly').scrolly({
+    offset: $('#top-nav').outerHeight()  // nav height + a tiny gap
+});
+
 
 })(jQuery);
