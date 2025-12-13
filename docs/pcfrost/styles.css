@@ -1,12 +1,10 @@
 /* Global layout */
-html, body {
+html{
     height: 100%;
     margin: 0;
     padding: 0;
     overflow: hidden;
     font-family: 'Source Sans 3', sans-serif;
-    background: linear-gradient(135deg, #7ce03a, #b65bf7);
-    color: #ffffff;
 }
 
 /* Header */
@@ -28,8 +26,15 @@ h1 {
     color: #f0f8ff;
 }
 
+/*MAIN*/
+
+#main-body{
+    background: linear-gradient(135deg, #7ce03a, #b65bf7);
+    color: #ffffff;
+}
+
 /* Grid layout (unchanged structure) */
-#grid {
+#main-grid {
     display: grid;
     grid-template-areas: "buttons video";
     gap: 40px;
@@ -59,6 +64,7 @@ h1 {
     transition: 0.25s ease;
 }
 
+/*Buttons hovering*/
 .buttons button:hover {
     background-color: rgba(255, 255, 255, 0.25);
     transform: translateX(8px);
@@ -80,4 +86,37 @@ iframe {
     border-radius: 10px;
     border: 3px solid rgba(255, 255, 255, 0.4);
     box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+
+
+/*BOM*/
+
+/*The following is for the bill of materials table*/
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    font-family: 'Source Sans 3', sans-serif;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
+table th {
+    background: #3aa8e0;
+    color: white;
+    padding: 12px;
+    text-align: left;
+    font-size: 1.1rem;
+}
+
+table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    color: #333;
+}
+
+table tr:hover {
+    background: #f2f9ff;
 }
