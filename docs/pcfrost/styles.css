@@ -1,36 +1,83 @@
-body, html {
+/* Global layout */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
     overflow: hidden;
-  height: 100%;    /* Ensure the body and html take up the full viewport height */
-  margin: 0;       /* Remove default browser margins */
-  padding: 0;      /* Remove default browser padding */
-  font-family:'Source Sans 3', sans-serif;
-background-color: rgb(67, 170, 222);
+    font-family: 'Source Sans 3', sans-serif;
+    background: linear-gradient(135deg, #7ce03a, #b65bf7);
+    color: #ffffff;
 }
+
+/* Header */
 h1 {
-    display: block;
     text-align: center;
-
-}
-iframe{
-    display:block;
-    margin:auto;
-    grid-area: video;
+    margin-top: 20px;
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
-.buttons{
+/* Intro paragraph */
+.intro {
+    max-width: 900px;
+    margin: 10px auto 30px auto;
+    text-align: center;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    color: #f0f8ff;
+}
+
+/* Grid layout (unchanged structure) */
+#grid {
+    display: grid;
+    grid-template-areas: "buttons video";
+    gap: 40px;
+    align-items: start;
+    justify-content: center;
+}
+
+/* Buttons column */
+.buttons {
+    grid-area: buttons;
     display: flex;
     flex-direction: column;
-    font-family: 'Courier New', Courier, monospace;
-    gap: 10px;
-    width: 200px;
-    height: 50px;
-    font-size:xx-small;
-    grid-area: buttons;
+    gap: 12px;
+    width: 220px;
 }
 
-#grid{
-display: grid;
-grid-template-areas: "buttons video";
-  gap: 20px;
-  align-items: start;
+/* Button styling */
+.buttons button {
+    padding: 12px 16px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 6px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.buttons button:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: translateX(8px);
+}
+
+/*Button link control*/
+.buttons a {
+    text-decoration: none;      /* removes underline */
+    color: inherit;             /* uses the button's text color */
+    font: inherit;              /* matches the button's font family + size */
+    display: block;             /* makes the link fill the button */
+    width: 100%;                /* ensures full clickable area */
+}
+
+
+/* Video */
+iframe {
+    grid-area: video;
+    border-radius: 10px;
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
 }
