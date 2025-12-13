@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Fishbot Frenzy</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+        <link href="index.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div id="underwater-bg"></div>
+
+        <nav id="navbar">
+            <div class="nav-container">
+                <a href="#home" class="logo-container">
+                    <svg
+                        class="logo-svg"
+                        viewBox="0 0 100 100"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <!-- Ocean wave logo -->
+                        <path
+                            d="M10 50 Q30 30 50 50 T90 50"
+                            stroke="#06b6d4"
+                            stroke-width="3"
+                            fill="none"
+                            opacity="0.8"
+                        >
+                            <animate
+                                attributeName="d"
+                                dur="4s"
+                                repeatCount="indefinite"
+                                values="M10 50 Q30 30 50 50 T90 50;M10 50 Q30 70 50 50 T90 50;M10 50 Q30 30 50 50 T90 50"
+                            />
+                        </path>
+                        <path
+                            d="M10 60 Q30 40 50 60 T90 60"
+                            stroke="#10b981"
+                            stroke-width="2"
+                            fill="none"
+                            opacity="0.6"
+                        >
+                            <animate
+                                attributeName="d"
+                                dur="3s"
+                                repeatCount="indefinite"
+                                values="M10 60 Q30 40 50 60 T90 60;M10 60 Q30 80 50 60 T90 60;M10 60 Q30 40 50 60 T90 60"
+                            />
+                        </path>
+                        <circle
+                            cx="50"
+                            cy="20"
+                            r="8"
+                            fill="#f97316"
+                            opacity="0.8"
+                        />
+                        <circle cx="30" cy="75" r="4" fill="#06b6d4" />
+                        <circle cx="70" cy="80" r="3" fill="#10b981" />
+                    </svg>
+                    <span class="logo-text">FISHBOT FRENZY</span>
+                </a>
+
+                <div class="mobile-menu-toggle" id="mobile-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <div class="nav-menu" id="nav-menu">
+                    <ul>
+                        <li><a href="#home">HOME</a></li>
+                        <li><a href="#about">ABOUT</a></li>
+                        <li><a href="#timeline">TIMELINE</a></li>
+                        <li><a href="#subteams">SUBTEAMS</a></li>
+                        <li><a href="#equipment">EQUIPMENT</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1 class="ocean-title">FISHBOT FRENZY</h1>
+                <p class="subtitle">A fishing minigame</p>
+            </div>
+            <a href="#about" class="scroll-btn">
+                <div class="scroll-btn-inner">
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                    </svg>
+                </div>
+            </a>
+        </section>
+
+        <section id="about" class="fade-in">
+            <h2 class="section-title">The Project</h2>
+            <div class="about-section">
+                <div class="about-hero">
+                    <p class="about-description">
+                        Our goal was to blah blah blah blah
+                    </p>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-card">
+                        <span class="about-card-icon">🐠</span>
+                        <h4>Fishies</h4>
+                        <p>something about them</p>
+                    </div>
+
+                    <div class="about-card">
+                        <span class="about-card-icon">🪸</span>
+                        <h4>Engaging ga meplay</h4>
+                        <p>everyone wants that</p>
+                    </div>
+
+                    <div class="about-card">
+                        <span class="about-card-icon">🌊</span>
+                        <h4>something else</h4>
+                        <p>yeah</p>
+                    </div>
+                </div>
+
+                <!-- <div class="achievements-grid">
+                    <div class="achievement-item">
+                        <div class="achievement-number">127</div>
+                        <div class="achievement-label">Species Discovered</div>
+                    </div>
+                    <div class="achievement-item">
+                        <div class="achievement-number">2,450</div>
+                        <div class="achievement-label">Dive Hours</div>
+                    </div>
+                    <div class="achievement-item">
+                        <div class="achievement-number">34</div>
+                        <div class="achievement-label">Research Awards</div>
+                    </div>
+                    <div class="achievement-item">
+                        <div class="achievement-number">12</div>
+                        <div class="achievement-label">Ocean Expeditions</div>
+                    </div>
+                </div> -->
+            </div>
+        </section>
+
+        <section id="timeline" class="phase-section fade-in">
+            <h2 class="section-title">Project Timeline</h2>
+            <div class="phase-container">
+                <div class="phase-sidebar">
+                    <button class="phase-tab active" data-tab="phase-1">
+                        Phase 1
+                    </button>
+                    <button class="phase-tab" data-tab="phase-2">
+                        Phase 2
+                    </button>
+                    <button class="phase-tab" data-tab="phase-3">
+                        Phase 3
+                    </button>
+                    <button class="phase-tab" data-tab="phase-4">
+                        Phase 4
+                    </button>
+                </div>
+
+                <div class="phase-content-area">
+                    <div class="phase-content active" id="phase-1">
+                        <h3>Coral Reef Restoration</h3>
+                        <p>
+                            Leading global initiatives to restore damaged coral
+                            reef ecosystems through innovative techniques
+                            including coral farming, assisted gene flow, and
+                            microfragmentation. Our work focuses on building
+                            climate-resilient reefs that can withstand warming
+                            ocean temperatures and increasing acidification.
+                        </p>
+
+                        <div class="phase-stats">
+                            <div class="stat-item">
+                                <span class="number">15</span>
+                                <span class="label">Active Sites</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="number">89%</span>
+                                <span class="label">Success Rate</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="number">2.3M</span>
+                                <span class="label">Corals Planted</span>
+                            </div>
+                        </div>
+
+                        <div class="phase-details">
+                            <div class="detail-card">
+                                <h4>Microfragmentation</h4>
+                                <p>
+                                    Revolutionary technique that accelerates
+                                    coral growth by 25-50x through controlled
+                                    fragmentation and fusion processes.
+                                </p>
+                            </div>
+                            <div class="detail-card">
+                                <h4>Genetic Rescue</h4>
+                                <p>
+                                    Introducing heat-tolerant coral genotypes to
+                                    enhance reef resilience against rising ocean
+                                    temperatures.
+                                </p>
+                            </div>
+                            <div class="detail-card">
+                                <h4>Probiotics Treatment</h4>
+                                <p>
+                                    Developing beneficial bacterial treatments
+                                    to boost coral immune systems and resistance
+                                    to bleaching.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phase-content" id="phase-2">
+                        <h3>Deep Ocean Mapping</h3>
+                        <p>
+                            Comprehensive mapping and exploration of deep-sea
+                            environments using advanced sonar systems, ROVs, and
+                            autonomous underwater vehicles. Our research reveals
+                            previously unknown ecosystems and helps establish
+                            marine protected areas in critical deep-sea
+                            habitats.
+                        </p>
+
+                        <div class="phase-stats">
+                            <div class="stat-item">
+                                <span class="number">12,500</span>
+                                <span class="label">km² Mapped</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="number">847</span>
+                                <span class="label">Dive Hours</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="number">34</span>
+                                <span class="label">New Species</span>
+                            </div>
+                        </div>
+
+                        <div class="phase-details">
+                            <div class="detail-card">
+                                <h4>Mariana Trench</h4>
+                                <p>
+                                    Exploring the deepest parts of Earth's
+                                    oceans, documenting extremophile communities
+                                    and their unique adaptations.
+                                </p>
+                            </div>
+                            <div class="detail-card">
+                                <h4>Hydrothermal Vents</h4>
+                                <p>
+                                    Studying chemosynthetic ecosystems around
+                                    underwater volcanic vents and their role in
+                                    ocean chemistry.
+                                </p>
+                            </div>
+                            <div class="detail-card">
+                                <h4>Seamount Surveys</h4>
+                                <p>
+                                    Mapping underwater mountains and their
+                                    endemic species, crucial for deep-sea
+                                    conservation efforts.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phase-content" id="phase-3">
+                        <h3>Marine Life Conservation</h3>
+                        <p>
+                            Protecting endangered marine species through habitat
+                            restoration, breeding programs, and policy advocacy.
+                            Our work spans from microscopic plankton to large
+                            marine mammals, ensuring biodiversity preservation
+                            across all ocean levels.
+                        </p>
+
+                        <div class="phase-stats">
+                            <div class="stat-item">
+                                <span class="number">127</span>
+                                <span class="label">Species Protected</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="number">45</span>
+                                <span class="label">Breeding Programs</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="number">8</span>
+                                <span class="label">Sanctuaries Created</span>
+                            </div>
+                        </div>
+
+                        <div class="phase-details">
+                            <div class="detail-card">
+                                <h4>Sea Turtle Recovery</h4>
+                                <p>
+                                    Comprehensive protection programs for
+                                    endangered sea turtle species including
+                                    nesting site protection and migration
+                                    tracking.
+                                </p>
+                            </div>
+                            <div class="detail-card">
+                                <h4>Whale Migration</h4>
+                                <p>
+                                    Studying and protecting critical migration
+                                    corridors for humpback, blue, and gray
+                                    whales across ocean basins.
+                                </p>
+                            </div>
+                            <div class="detail-card">
+                                <h4>Shark Conservation</h4>
+                                <p>
+                                    Protecting apex predators through fishing
+                                    regulations, sanctuary establishment, and
+                                    public education campaigns.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phase-content" id="phase-4">
+                        <h3>Climate Impact Research</h3>
+                        <p>
+                            Investigating how climate change affects ocean
+                            ecosystems, from acidification and warming to sea
+                            level rise. Our research provides critical data for
+                            climate models and informs global policy decisions
+                            on ocean conservation.
+                        </p>
+
+                        <div class="phase-stats">
+                            <div class="stat-item">
+                                <span class="number">156</span>
+                                <span class="label">Monitoring Sites</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="number">7.2°C</span>
+                                <span class="label">Max Temp Rise</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="number">-0.4</span>
+                                <span class="label">pH Change</span>
+                            </div>
+                        </div>
+
+                        <div class="phase-details">
+                            <div class="detail-card">
+                                <h4>Ocean Acidification</h4>
+                                <p>
+                                    Monitoring pH changes and their effects on
+                                    calcifying organisms like corals, mollusks,
+                                    and marine plankton.
+                                </p>
+                            </div>
+                            <div class="detail-card">
+                                <h4>Thermal Stress</h4>
+                                <p>
+                                    Studying how rising temperatures affect
+                                    marine metabolism, reproduction, and species
+                                    distribution patterns.
+                                </p>
+                            </div>
+                            <div class="detail-card">
+                                <h4>Sea Level Impact</h4>
+                                <p>
+                                    Assessing coastal ecosystem changes and
+                                    adaptation strategies for rising sea levels
+                                    and increased storm intensity.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="subteams" class="fade-in">
+            <h2 class="section-title">Subteams</h2>
+            <div class="subteam-topbar">
+                <button class="subteam-tab active" data-tab="mechanical">
+                    Mechanical
+                </button>
+                <button class="subteam-tab" data-tab="electrical">
+                    Electrical
+                </button>
+                <button class="subteam-tab" data-tab="software">
+                    Software
+                </button>
+            </div>
+            <div class="subteam-category active" id="mechanical">
+                mechanical
+            </div>
+            <div class="subteam-category" id="electrical">electrical</div>
+            <div class="subteam-category" id="software">software</div>
+            <!-- <div class="subteam-section"></div> -->
+        </section>
+
+        <section id="equipment" class="fade-in">
+            <h2 class="section-title">Research Equipment</h2>
+        </section>
+
+        <section id="contact" class="fade-in">
+            <h2 class="section-title">Dive Into Collaboration</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Research Station</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-text">
+                                <div class="contact-label">Email</div>
+                                <div class="contact-value">
+                                    dr.marina.wave@oceanresearch.org
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div class="contact-text">
+                                <div class="contact-label">Phone</div>
+                                <div class="contact-value">
+                                    +1 (555) OCEAN-42
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">🏢</div>
+                            <div class="contact-text">
+                                <div class="contact-label">Address</div>
+                                <div class="contact-value">
+                                    Pacific Marine Research Institute<br />1247
+                                    Coral Bay Drive, Monterey, CA 93940
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">⏰</div>
+                            <div class="contact-text">
+                                <div class="contact-label">Research Hours</div>
+                                <div class="contact-value">
+                                    Mon-Fri: 8:00 AM - 6:00 PM PST<br />Dive
+                                    Operations: 6:00 AM - 4:00 PM
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input
+                            type="text"
+                            placeholder="Marine Researcher Name"
+                            required
+                        />
+                    </div>
+                    <div class="form-group">
+                        <input
+                            type="email"
+                            placeholder="Research Institution Email"
+                            required
+                        />
+                    </div>
+                    <div class="form-group">
+                        <input
+                            type="text"
+                            placeholder="Institution/Organization"
+                            required
+                        />
+                    </div>
+                    <div class="form-group">
+                        <textarea
+                            rows="6"
+                            placeholder="Research Collaboration or Ocean Conservation Inquiry"
+                            required
+                        ></textarea>
+                    </div>
+                    <button type="submit" class="dive-btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="logo-footer">
+                        <svg
+                            viewBox="0 0 100 100"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                d="M10 50 Q30 30 50 50 T90 50"
+                                stroke="#06b6d4"
+                                stroke-width="3"
+                                fill="none"
+                                opacity="0.8"
+                            >
+                                <animate
+                                    attributeName="d"
+                                    dur="4s"
+                                    repeatCount="indefinite"
+                                    values="M10 50 Q30 30 50 50 T90 50;M10 50 Q30 70 50 50 T90 50;M10 50 Q30 30 50 50 T90 50"
+                                />
+                            </path>
+                            <path
+                                d="M10 60 Q30 40 50 60 T90 60"
+                                stroke="#10b981"
+                                stroke-width="2"
+                                fill="none"
+                                opacity="0.6"
+                            >
+                                <animate
+                                    attributeName="d"
+                                    dur="3s"
+                                    repeatCount="indefinite"
+                                    values="M10 60 Q30 40 50 60 T90 60;M10 60 Q30 80 50 60 T90 60;M10 60 Q30 40 50 60 T90 60"
+                                />
+                            </path>
+                            <circle
+                                cx="50"
+                                cy="20"
+                                r="8"
+                                fill="#f97316"
+                                opacity="0.8"
+                            />
+                            <circle cx="30" cy="75" r="4" fill="#06b6d4" />
+                            <circle cx="70" cy="80" r="3" fill="#10b981" />
+                        </svg>
+                        <span class="logo-text">AQUA NOVA</span>
+                    </div>
+
+                    <p class="footer-description">
+                        Dedicated to exploring and protecting our ocean's
+                        mysteries. Through cutting-edge research, conservation
+                        efforts, and global collaboration, we're working to
+                        ensure healthy marine ecosystems for future generations.
+                    </p>
+
+                    <div class="footer-stats">
+                        <div class="footer-stat">
+                            <span class="number">127</span>
+                            <span class="label">Species Discovered</span>
+                        </div>
+                        <div class="footer-stat">
+                            <span class="number">18</span>
+                            <span class="label">Years Research</span>
+                        </div>
+                        <div class="footer-stat">
+                            <span class="number">12</span>
+                            <span class="label">Ocean Expeditions</span>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" aria-label="Marine Research Network">
+                            <svg
+                                width="22"
+                                height="22"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                                />
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Ocean Conservation Foundation">
+                            <svg
+                                width="22"
+                                height="22"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                                />
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Global Marine Database">
+                            <svg
+                                width="22"
+                                height="22"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2m-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93m6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
+                                />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Research & Publications</h3>
+                    <ul>
+                        <li><a href="#">Marine Biodiversity Studies</a></li>
+                        <li><a href="#">Coral Reef Conservation</a></li>
+                        <li><a href="#">Deep Sea Exploration</a></li>
+                        <li><a href="#">Ocean Climate Research</a></li>
+                        <li><a href="#">Species Discovery Papers</a></li>
+                        <li><a href="#">Conservation Biology Journal</a></li>
+                        <li><a href="#">Marine Science Reports</a></li>
+                        <li><a href="#">Field Study Documentation</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <div class="footer-newsletter">
+                        <div class="newsletter-title">Ocean Updates</div>
+                        <p class="newsletter-text">
+                            Stay informed about our latest discoveries,
+                            conservation efforts, and marine research
+                            breakthroughs.
+                        </p>
+                        <form class="newsletter-form">
+                            <input
+                                type="email"
+                                class="newsletter-input"
+                                placeholder="Your email address"
+                                required
+                            />
+                            <button type="submit" class="newsletter-btn">
+                                Subscribe
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>
+                    🌊 &copy; 2048 Dr. Marina Wave - Marine Biology Portfolio.
+                    Protecting our oceans, one dive at a time. 🌊 Provided by
+                    <a href="https://www.tooplate.com" rel="nofollow noopener"
+                        >Tooplate</a
+                    >
+                </p>
+            </div>
+        </footer>
+
+        <script src="index.js"></script>
+    </body>
+</html>
