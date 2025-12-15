@@ -6,12 +6,13 @@
 
   <style>
     :root {
-      --gold: #c9a24d;
-      --soft-gold: #f3ead7;
-      --text: #1d1d1f;
-      --muted: #6e6e73;
-      --divider: #e6e6e6;
+      --gold-strong: #b38f4b;   /* Strong gold accent */
+      --gold-light: #f8f4ea;    /* Subtle gold background */
       --white: #ffffff;
+      --text-main: #1d1d1f;
+      --text-light: #6e6e73;
+      --divider: #e6e6e6;
+      --card-bg: #ffffff;
     }
 
     * {
@@ -20,112 +21,103 @@
 
     body {
       margin: 0;
+      padding: 0;
       font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
                    "Helvetica Neue", Helvetica, Arial, sans-serif;
-      background-color: var(--white);
-      color: var(--text);
+      background: var(--gold-light); /* global gold background */
+      color: var(--text-main);
       line-height: 1.7;
     }
 
-    /* ---------- Layout ---------- */
+    /* ---------- TOP BAR / HERO ACCENT ---------- */
+
+    .top-accent {
+      width: 100%;
+      height: 10px;
+      background: var(--gold-strong);
+    }
+
+    /* ---------- PAGE LAYOUT ---------- */
 
     .container {
-      width: 100%;
-      margin: 0;
-      padding: 0;
+      max-width: 1100px;
+      margin: auto;
+      padding: 0 24px;
     }
 
     section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 100px 24px;
-      border-bottom: 1px solid var(--divider);
+      background: var(--card-bg);
+      margin-top: 50px;
+      padding: 60px 40px;
+      border-radius: 14px;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+      border-top: 4px solid var(--gold-strong);
     }
 
-    section.narrow {
-      max-width: 900px;
+    section:first-of-type {
+      margin-top: 30px;
     }
 
-    /* ---------- Typography ---------- */
+    /* ---------- TYPOGRAPHY ---------- */
 
     h1 {
-      font-size: 4.5rem;
+      font-size: 4rem;
       font-weight: 600;
-      letter-spacing: -0.03em;
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
+      color: var(--text-main);
     }
 
     h2 {
       font-size: 2.2rem;
       font-weight: 600;
-      letter-spacing: -0.02em;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     h3 {
       font-size: 1.6rem;
       font-weight: 600;
-      margin-top: 50px;
-      margin-bottom: 16px;
+      margin-top: 42px;
+      margin-bottom: 12px;
     }
 
     h4 {
       font-size: 1.1rem;
       font-weight: 600;
-      color: var(--muted);
-      margin-top: 40px;
-      margin-bottom: 10px;
+      color: var(--text-light);
+      margin-top: 32px;
+      margin-bottom: 8px;
     }
 
     p {
       font-size: 1.05rem;
-      color: var(--text);
+      margin-bottom: 16px;
     }
 
-    /* ---------- Hero ---------- */
-
-    .hero {
-      background: linear-gradient(
-        180deg,
-        var(--soft-gold),
-        #ffffff
-      );
-      padding: 140px 24px 120px;
-      text-align: center;
-    }
-
-    .hero p {
-      font-size: 1.3rem;
-      color: var(--muted);
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    /* ---------- Placeholder & Images ---------- */
+    /* ---------- VISUAL ELEMENTS ---------- */
 
     .placeholder {
       width: 100%;
       height: 260px;
-      border: 2px dashed var(--gold);
-      border-radius: 12px;
+      border: 2px dashed var(--gold-strong);
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--muted);
+      color: var(--text-light);
       font-style: italic;
-      margin: 30px 0;
-      background-color: #fafafa;
+      margin: 20px 0;
+      background: var(--gold-light);
     }
 
     .image-container {
       width: 100%;
       height: 260px;
-      margin: 30px 0 10px;
-      border-radius: 14px;
-      border: 1px solid var(--divider);
-      background-color: #fafafa;
+      margin: 20px 0;
+      border-radius: 10px;
       overflow: hidden;
+      background: #f7f7f7;
+      border: 1px solid var(--divider);
     }
 
     .image-container img {
@@ -134,162 +126,158 @@
       object-fit: contain;
     }
 
-    /* ---------- Footer ---------- */
+    /* ---------- FOOTER ---------- */
 
     footer {
-      padding: 80px 20px;
       text-align: center;
+      color: var(--text-light);
       font-size: 0.9rem;
-      color: var(--muted);
+      margin: 80px 0 40px;
     }
   </style>
-
 </head>
 <body>
 
-<div class="container">
+  <!-- GOLD TOP ACCENT -->
+  <div class="top-accent"></div>
 
-  <!-- HERO -->
-  <div class="hero">
-    <h1>SIGMA</h1>
-    <p>
-      A modernized take on the Enigma Machine used in WWII to encrypt messages.
-    </p>
-  </div>
+  <div class="container">
 
-  <!-- VIDEO SECTION -->
-  <section class="narrow">
-    <h2>------- We will insert video and photo of how the system works here ------</h2>
-    <div class="placeholder">Insert video / demo / image here</div>
-  </section>
+    <!-- HERO -->
+    <section>
+      <h1>SIGMA</h1>
+      <p style="text-align:center; font-size:1.3rem; color:var(--text-light);">
+        A modernized take on the Enigma Machine used in WWII to encrypt messages.
+      </p>
+    </section>
 
-  <!-- PROCESS -->
-  <section>
-    <h2>The Process</h2>
-    <p>First, here's a system diagram of how the parts of the machine works and how they interact with one another.</p>
+    <!-- VIDEO SECTION -->
+    <section>
+      <h2>------- We will insert video and photo of how the system works here ------</h2>
+      <div class="placeholder">Insert video / demo / image here</div>
+    </section>
 
-    <h4>--- INSERT GIF OF WHOLE FLOW HERE ANDDDD Make a SYSTEM DIAGRAM of it to the right.</h4>
-    <div class="placeholder">Insert GIF here</div>
+    <!-- PROCESS -->
+    <section>
+      <h2>The Process</h2>
+      <p>First, here's a system diagram of how the parts of the machine works and how they interact with one another.</p>
 
-    <h3>INSERT SYSTEM DIAGRAM HERE!!!! -------------------</h3>
-    <div class="placeholder">Insert system diagram</div>
-  </section>
+      <h4>--- INSERT GIF OF WHOLE FLOW HERE ANDDDD Make a SYSTEM DIAGRAM of it to the right.</h4>
+      <div class="placeholder">Insert GIF here</div>
 
-  <!-- DESIGN IDEATION -->
-  <section>
-    <h2>Design Ideation</h2>
+      <h3>INSERT SYSTEM DIAGRAM HERE!!!! -------------------</h3>
+      <div class="placeholder">Insert system diagram</div>
+    </section>
 
-    <h3>Our approach to each part of the original</h3>
+    <!-- DESIGN IDEATION -->
+    <section>
+      <h2>Design Ideation</h2>
 
-    <h3>Plugboard and Lightbulbs</h3>
-    <p>
-      We wanted our plugbord to be an accurate representation of the real Enigma Machine but with a few modernized twists. We decided that all swapping and encryping must be done physically through hardware, while the encrypted message should be displayed on a screen. We made this decision for a few reasons:
-      <br><br>
-      1. The original Enigma Machine required two people to work the machine. 1 person to type the encrypted letters, and another person to write the encryption down as the letter swap appeared through the corresponding lightbulbs. Therefore, we decided to replace the lightbulbs with a display. Our machine modernizes this approach allowing for one-person operation.<br>
-      2. Tiny Lightbulbs for each swapped letter would require us to spend more of our budget. Additional CAD would be required to contain all these lightbulbs and we would need to focus on wiring to display the swapped letters this way.<br>
-      3. The original machine process was the following: Battery -> Keypress -> Plugboard -> Rotors -> Plugboard -> Keyswitch -> Lightbulb -> Battery. By replacing the lightbulbs with a display, we are essentially removing the complicated keyswitch step (and onwards), which simply becomes "display".
-      <br><br>
-      Some trade-offs that came with this is ideation. Since the original machine did not have an arduino and display, we needed to decide which new components to use, where the data flows, and ultimately how this would fit into the original design.
-    </p>
+      <h3>Our approach to each part of the original</h3>
 
-    <h3>Keyboard</h3>
-    <p>
-      The keyboard design borrows from the original Enigma Machine. It uses spring-loaded metal rods topped with labeled key-caps. When a letter is pressed, the key completes a circuit on the breadboard which gets sent to the arduino for processing.
-      <br><br>
-      Each key has a 3D printed tab on it. On the rod is a spring that is sandwiched between the tab and the middle plate. When the key is pressed, the spring compresses. The pin at the end of the tab comes into contact with a piece of copper wire, completing the circuit. When the key is let go, the spring decompresses and puts the key back to the original position, breaking the circuit. <br><br>
-      We chose to make the keypresses send information to the Arduino for one particular reason. When the arduino recieves a signal of the swapped letter, both the pin corresponding to the keypress, and the pin corresponding to the swapped letter will read high. By sending the keyboard press to the arduino first, it can differentiate between the two, allowing it to send the swapped letter (and not the keypress!) to the display.
-      <br><br>
-      The original idea was to use a small length of solder wick because it was conductive and flexible. However, since solder wick oxidizes so quickly, it might become unreliable, which led us to look for more reliable solutions. To make the connection, we soldered wires onto small pins we found in the Shop that fit perfectly onto the tabs. A small piece of the same copper wire we used for the rotors is glued onto a little stand and soldered to a wire that connects to the breadboard. In the resting position, the pins do not touch the copper, and when a slight bit of pressure is applied, they touch and the circuit is complete.
-      <br><br>
-      A tradeoff to making the keyboard as opposed to using a standard keyboard is time and redundancy. Since keys are made using springs and many small parts, each key is essentially a small mechanism, requiring hours of soldering. Since there are 26 letters in the alphabet, this creates long-repetitive tasks for the assembly of dozens of parts.
+      <h3>Plugboard and Lightbulbs</h3>
+      <p>
+        We wanted our plugbord to be an accurate representation of the real Enigma Machine but with a few modernized twists. We decided that all swapping and encryping must be done physically through hardware, while the encrypted message should be displayed on a screen. We made this decision for a few reasons:
+        <br><br>
+        1. The original Enigma Machine required two people to work the machine. 1 person to type the encrypted letters, and another person to write the encryption down as the letter swap appeared through the corresponding lightbulbs. Therefore, we decided to replace the lightbulbs with a display. Our machine modernizes this approach allowing for one-person operation.<br>
+        2. Tiny Lightbulbs for each swapped letter would require us to spend more of our budget. Additional CAD would be required to contain all these lightbulbs and we would need to focus on wiring to display the swapped letters this way.<br>
+        3. The original machine process was the following: Battery -> Keypress -> Plugboard -> Rotors -> Plugboard -> Keyswitch -> Lightbulb -> Battery. By replacing the lightbulbs with a display, we are essentially removing the complicated keyswitch step (and onwards), which simply becomes "display".
+        <br><br>
+        Some trade-offs that came with this is ideation. Since the original machine did not have an arduino and display, we needed to decide which new components to use, where the data flows, and ultimately how this would fit into the original design.
+      </p>
+
+      <h3>Keyboard</h3>
+      <p>
+        The keyboard design borrows from the original Enigma Machine. It uses spring-loaded metal rods topped with labeled key-caps. When a letter is pressed, the key completes a circuit on the breadboard which gets sent to the arduino for processing.
+        <br><br>
+        Each key has a 3D printed tab on it. On the rod is a spring that is sandwiched between the tab and the middle plate. When the key is pressed, the spring compresses. The pin at the end of the tab comes into contact with a piece of copper wire, completing the circuit. When the key is let go, the spring decompresses and puts the key back to the original position, breaking the circuit. <br><br>
+        We chose to make the keypresses send information to the Arduino for one particular reason. When the arduino recieves a signal of the swapped letter, both the pin corresponding to the keypress, and the pin corresponding to the swapped letter will read high. By sending the keyboard press to the arduino first, it can differentiate between the two, allowing it to send the swapped letter (and not the keypress!) to the display.
+      </p>
+
+      <!-- Images -->
       <div class="image-container">
         <img src="images/key_prototype.JPG" alt="Key prototype">
       </div>
       Figure 1. The first key prototype, with solder wick.
-      <br><br>
+
       <div class="image-container">
         <img src="images/switch_components.JPG" alt="Switch components">
       </div>
       Figure 2. All of the switch components soldered and ready for integration.
-      <br><br>
+
       <div class="image-container">
         <img src="images/keys_in.JPG" alt="Keys in">
       </div>
       Figure 3. The keys in the case!
-      <br><br>
-      However, design choice was superior due to the satisfaction achieved by replicating the original machine. We wanted our machine to be faithful to the original, with the modern updates coming from the software component.
-    </p>
 
-    <h3>Rotors</h3>
-    <p>The rotors were designed as close to the original as possible.</p>
+      <h3>Rotors</h3>
+      <p>The rotors were designed as close to the original as possible.</p>
 
-    <h4>ADD DIAGRAM OF THE ROTOR LIKE OPENED UP HERE ------------------------</h4>
-    <div class="placeholder">Insert rotor diagram</div>
+      <h4>ADD DIAGRAM OF THE ROTOR LIKE OPENED UP HERE ------------------------</h4>
+      <div class="placeholder">Insert rotor diagram</div>
 
-    <h4>THEN ASK ANNA bc idk bro ---------------------------</h4>
-  </section>
+      <h4>THEN ASK ANNA bc idk bro ---------------------------</h4>
+    </section>
 
-  <!-- DATA FLOW -->
-  <section class="narrow">
-    <h2>Data and Energy Flow</h2>
-    <p>These individual parts come together to estabish the final product in the following way:</p>
+    <!-- DATA & FLOW -->
+    <section>
+      <h2>Data and Energy Flow</h2>
+      <p>These individual parts come together to estabish the final product in the following way:</p>
 
-    <h3>PUT DATA AND ENERGY FLOW DIAGRAM HERE ---------------------------</h3>
-    <div class="placeholder">Insert flow diagram</div>
-  </section>
+      <h3>PUT DATA AND ENERGY FLOW DIAGRAM HERE ---------------------------</h3>
+      <div class="placeholder">Insert flow diagram</div>
+    </section>
 
-  <!-- CAD -->
-  <section class="narrow">
-    <h2>Mechanical Design (CAD Parts)</h2>
-    <h4>Plugboard</h4>
-    <h4>Rotors etc. etc.</h4>
-    <h4>Keyboard</h4>
-    <h4>Keys</h4>
+    <!-- CAD -->
+    <section>
+      <h2>Mechanical Design (CAD Parts)</h2>
+      <h4>Plugboard</h4>
+      <h4>Rotors etc. etc.</h4>
+      <h4>Keyboard</h4>
+      <h4>Keys</h4>
 
-    <div class="placeholder">Insert CAD images</div>
-  </section>
+      <div class="placeholder">Insert CAD images</div>
+    </section>
 
-  <!-- CIRCUIT -->
-  <section class="narrow">
-    <h2>The Circuit Schematic (and analysis)</h2>
-    <div class="placeholder">Insert schematic</div>
-  </section>
+    <!-- Circuit -->
+    <section>
+      <h2>The Circuit Schematic (and analysis)</h2>
+      <div class="placeholder">Insert schematic</div>
+    </section>
 
-  <!-- SOURCE CODE -->
-  <section class="narrow">
-    <h2>SOURCE CODE --------- LOOK AT RUBRIC. WHAT THE HELLY IS A SWITHLINK ------------</h2>
-    <p>
-      Software Used:
-      <br>* Arduino IDE - for reading the input and output letters. The code handles taking inputs from the keypress, and the final swaps from the plugboard.
-      <br>* Raspberry PI Operating System - for operating the raspberry PI. Installed using a Raspberry PI Imager.
-      <br>* 
-      <br>* Putty - A software application used for programming the raspberry pi (comes pre-installed). This was used to send the final swapped letter to the display. The code simply listens for the print messages from the Arduino.
-      <br>* Thonny - A terminal emulator. This was simply used to display the text in a visually appealing way. Thonny allows for full-screen and more customization
-      <br>* 
-    </p>
-  </section>
+    <!-- SOURCE CODE -->
+    <section>
+      <h2>SOURCE CODE --------- LOOK AT RUBRIC. WHAT THE HELLY IS A SWITHLINK ------------</h2>
+      <p>
+        Software Used:
+        <br>* Arduino IDE - for reading the input and output letters. The code handles taking inputs from the keypress, and the final swaps from the plugboard.
+        <br>* Raspberry PI Operating System - for operating the raspberry PI. Installed using a Raspberry PI Imager.
+        <br>* Putty - A software application used for programming the raspberry pi (comes pre-installed). This was used to send the final swapped letter to the display. The code simply listens for the print messages from the Arduino.
+        <br>* Thonny - A terminal emulator. This was simply used to display the text in a visually appealing way. Thonny allows for full-screen and more customization.
+      </p>
+    </section>
 
-  <!-- BOM -->
-  <section class="narrow">
-    <h2>Bill Of Materials.</h2>
-    <p>
-      Dont forget:
-      <br>1. Copper pins
-      <br>2. the conductive tubes we found
-      <br>3. arduino mega
-      <br>4. raspi
-      <br>5. conductive tape
-      <br>6. the clear lasercut material thing
-      <br>7. Display
-      <br>8. Wires and connectors used between arduino, raspi, and etc.
-    </p>
-  </section>
+    <!-- BOM -->
+    <section>
+      <h2>Bill Of Materials.</h2>
+      <p>
+        Dont forget:
+        <br>1. Copper pins
+        <br>2. the conductive tubes we found
+        <br>3. arduino mega
+        <br>4. raspi
+        <br>5. conductive tape
+        <br>6. the clear lasercut material thing
+        <br>7. Display
+        <br>8. Wires and connectors used between arduino, raspi, and etc.
+      </p>
+    </section>
 
-  <footer>
-    SIGMA Project • Olin College • 2025
-  </footer>
+    <footer>
+      SIGMA Project • Olin College • 2025
+    </footer>
 
-</div>
+  </div>
 
 </body>
 </html>
