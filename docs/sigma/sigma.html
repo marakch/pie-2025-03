@@ -5,72 +5,142 @@
   <title>SIGMA — Modernized Enigma Machine</title>
 
   <style>
+    :root {
+      --gold: #c9a24d;
+      --soft-gold: #f3ead7;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --divider: #e6e6e6;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      padding: 0;
-      font-family: "Georgia", serif;
-      background-color: #e9dfc6; /* parchment background */
-      color: #2c2c2c;
-      line-height: 1.6;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+                   "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background-color: var(--white);
+      color: var(--text);
+      line-height: 1.7;
     }
+
+    /* ---------- Layout ---------- */
 
     .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 40px 20px;
+      width: 100%;
+      margin: 0;
+      padding: 0;
     }
 
-    h1, h2, h3, h4 {
-      font-family: "Georgia", serif;
-      letter-spacing: 1px;
-      margin-top: 40px;
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 100px 24px;
+      border-bottom: 1px solid var(--divider);
     }
+
+    section.narrow {
+      max-width: 900px;
+    }
+
+    /* ---------- Typography ---------- */
 
     h1 {
-      font-size: 3rem;
+      font-size: 4.5rem;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-top: 50px;
+      margin-bottom: 16px;
+    }
+
+    h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-top: 40px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+
+    /* ---------- Hero ---------- */
+
+    .hero {
+      background: linear-gradient(
+        180deg,
+        var(--soft-gold),
+        #ffffff
+      );
+      padding: 140px 24px 120px;
       text-align: center;
     }
 
-    .card {
-      background: #f5efdf;
-      padding: 25px;
-      margin: 20px 0;
-      border-left: 6px solid #8b6e46;
-      border-radius: 6px;
-      box-shadow: 0px 4px 10px rgba(0,0,0,0.08);
+    .hero p {
+      font-size: 1.3rem;
+      color: var(--muted);
+      max-width: 700px;
+      margin: 0 auto;
     }
+
+    /* ---------- Placeholder & Images ---------- */
 
     .placeholder {
       width: 100%;
-      height: 250px;
-      background: #d1c4a8;
-      border: 2px dashed #8b6e46;
-      border-radius: 4px;
+      height: 260px;
+      border: 2px dashed var(--gold);
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
+      color: var(--muted);
       font-style: italic;
-      color: #5a4b34;
-      margin: 20px 0;
+      margin: 30px 0;
+      background-color: #fafafa;
     }
 
     .image-container {
-    width: 100%;
-    height: 250px;
-    border: 2px dashed #8b6e46;
+      width: 100%;
+      height: 260px;
+      margin: 30px 0 10px;
+      border-radius: 14px;
+      border: 1px solid var(--divider);
+      background-color: #fafafa;
+      overflow: hidden;
     }
 
-  .image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* ---------- Footer ---------- */
 
     footer {
+      padding: 80px 20px;
       text-align: center;
-      padding: 50px 0;
-      opacity: 0.7;
       font-size: 0.9rem;
+      color: var(--muted);
     }
   </style>
 
@@ -79,20 +149,22 @@
 
 <div class="container">
 
-  <h1>SIGMA</h1>
-
-  <div class="card">
+  <!-- HERO -->
+  <div class="hero">
+    <h1>SIGMA</h1>
     <p>
       A modernized take on the Enigma Machine used in WWII to encrypt messages.
     </p>
   </div>
 
-  <div class="card">
+  <!-- VIDEO SECTION -->
+  <section class="narrow">
     <h2>------- We will insert video and photo of how the system works here ------</h2>
     <div class="placeholder">Insert video / demo / image here</div>
-  </div>
+  </section>
 
-  <div class="card">
+  <!-- PROCESS -->
+  <section>
     <h2>The Process</h2>
     <p>First, here's a system diagram of how the parts of the machine works and how they interact with one another.</p>
 
@@ -101,9 +173,10 @@
 
     <h3>INSERT SYSTEM DIAGRAM HERE!!!! -------------------</h3>
     <div class="placeholder">Insert system diagram</div>
-  </div>
+  </section>
 
-  <div class="card">
+  <!-- DESIGN IDEATION -->
+  <section>
     <h2>Design Ideation</h2>
 
     <h3>Our approach to each part of the original</h3>
@@ -132,14 +205,14 @@
       <div class="image-container">
         <img src="images/key_prototype.JPG" alt="Key prototype">
       </div>
-      Figure 1. The first key prototype, with solder wick. 
+      Figure 1. The first key prototype, with solder wick.
       <br><br>
-    <div class="image-container">
+      <div class="image-container">
         <img src="images/switch_components.JPG" alt="Switch components">
       </div>
       Figure 2. All of the switch components soldered and ready for integration.
       <br><br>
-    <div class="image-container">
+      <div class="image-container">
         <img src="images/keys_in.JPG" alt="Keys in">
       </div>
       Figure 3. The keys in the case!
@@ -154,17 +227,19 @@
     <div class="placeholder">Insert rotor diagram</div>
 
     <h4>THEN ASK ANNA bc idk bro ---------------------------</h4>
-  </div>
+  </section>
 
-  <div class="card">
+  <!-- DATA FLOW -->
+  <section class="narrow">
     <h2>Data and Energy Flow</h2>
     <p>These individual parts come together to estabish the final product in the following way:</p>
 
     <h3>PUT DATA AND ENERGY FLOW DIAGRAM HERE ---------------------------</h3>
     <div class="placeholder">Insert flow diagram</div>
-  </div>
+  </section>
 
-  <div class="card">
+  <!-- CAD -->
+  <section class="narrow">
     <h2>Mechanical Design (CAD Parts)</h2>
     <h4>Plugboard</h4>
     <h4>Rotors etc. etc.</h4>
@@ -172,14 +247,16 @@
     <h4>Keys</h4>
 
     <div class="placeholder">Insert CAD images</div>
-  </div>
+  </section>
 
-  <div class="card">
+  <!-- CIRCUIT -->
+  <section class="narrow">
     <h2>The Circuit Schematic (and analysis)</h2>
     <div class="placeholder">Insert schematic</div>
-  </div>
+  </section>
 
-  <div class="card">
+  <!-- SOURCE CODE -->
+  <section class="narrow">
     <h2>SOURCE CODE --------- LOOK AT RUBRIC. WHAT THE HELLY IS A SWITHLINK ------------</h2>
     <p>
       Software Used:
@@ -190,9 +267,10 @@
       <br>* Thonny - A terminal emulator. This was simply used to display the text in a visually appealing way. Thonny allows for full-screen and more customization
       <br>* 
     </p>
-  </div>
+  </section>
 
-  <div class="card">
+  <!-- BOM -->
+  <section class="narrow">
     <h2>Bill Of Materials.</h2>
     <p>
       Dont forget:
@@ -205,7 +283,7 @@
       <br>7. Display
       <br>8. Wires and connectors used between arduino, raspi, and etc.
     </p>
-  </div>
+  </section>
 
   <footer>
     SIGMA Project • Olin College • 2025
