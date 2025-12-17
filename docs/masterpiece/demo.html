@@ -39,14 +39,39 @@
       </div>
     </section>
 
-    <!-- Demo Content -->
+
+    <style>
+  .video-grid{
+    display:grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5em;
+    margin-bottom: 2em;
+  }
+  /* makes it responsive: goes 2-wide then 1-wide on small screens */
+  @media (max-width: 980px){ .video-grid{ grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px){ .video-grid{ grid-template-columns: 1fr; } }
+
+  .video-box{
+    position:relative;
+    padding-bottom:56.25%;
+    height:0;
+    overflow:hidden;
+  }
+  .video-box video{
+    position:absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+  }
+</style>
+
+
     <section class="main style1 special">
       <div class="container">
         <header class="major">
           <h2>Video Demos</h2>
         </header>
 
-        <p>Full Computer vs Computer Game</p>
+        <h3>Full Computer vs Computer Game</h3>
         <div class="video-wrapper" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin-bottom:2em;">
           <iframe
             src="https://www.youtube.com/embed/MKas49xw8bE"
@@ -57,24 +82,212 @@
           </iframe>
         </div>
 
-        <p>High-Quality Demo (Google Drive)</p>
-        <div class="video-wrapper" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
-          <!-- Replace YOUR_FILE_ID_HERE with your actual Google Drive file ID -->
-          <iframe
-            src="https://drive.google.com/drive/folders/14jPHC6eYezr4mHdUqErnPcv2CuPruqoF?usp=sharing"
-            title="Masterpiece Demo – Google Drive"
-            style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
-            allow="autoplay">
-          </iframe>
-        </div>
+        <h3>Good Full Game</h3>
+<div class="video-wrapper" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin-bottom:2em;">
+  <video controls muted playsinline preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+    <source src="videos/good_full_game.mp4" type="video/mp4" />
+  </video>
+</div>
+
+<h3>Boring Full Game</h3>
+<div class="video-wrapper" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin-bottom:2em;">
+  <video controls muted playsinline preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+    <source src="videos/boring_full_game.mp4" type="video/mp4" />
+  </video>
+</div>
+
+
+<h3>Rook Captures</h3>
+<div class="video-wrapper" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin-bottom:2em;">
+  <video controls muted playsinline preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+    <source src="videos/rook_captures.mp4" type="video/mp4" />
+  </video>
+</div>
+
+<h3>Smooth Knight</h3>
+<div class="video-grid">
+  <div class="video-box">
+    <video controls muted playsinline preload="metadata">
+      <source src="videos/smooth_knight_4.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <div class="video-box">
+    <video controls muted playsinline preload="metadata">
+      <source src="videos/smooth_knight_3.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <div class="video-box">
+    <video controls muted playsinline preload="metadata">
+      <source src="videos/smooth_knight.mp4" type="video/mp4" />
+    </video>
+  </div>
+</div>
+
+
+<h3>Bishop Realistic  </h3>
+<div class="video-wrapper" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin-bottom:2em;">
+  <video controls muted playsinline preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+    <source src="videos/bishop_realistic_3.mp4" type="video/mp4" />
+  </video>
+</div>
+<div class="video-wrapper" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin-bottom:2em;">
+  <video controls muted playsinline preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+    <source src="videos/bishop_realistic_2.mp4" type="video/mp4" />
+  </video>
+</div>
+<div class="video-wrapper" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin-bottom:2em;">
+  <video controls muted playsinline preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+    <source src="videos/bishop_realistic_mp4ement.mp4" type="video/mp4" />
+  </video>
+</div>
+
+<h3>Smooth Capture</h3>
+<div class="video-wrapper" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin-bottom:2em;">
+  <video controls muted playsinline preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+    <source src="videos/smooth_capture_2.mp4" type="video/mp4" />
+  </video>
+</div>
+<div class="video-wrapper" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin-bottom:2em;">
+  <video controls muted playsinline preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+    <source src="videos/more_smooth_capture.mp4" type="video/mp4" />
+  </video>
+</div>
+
+<h3>Smooth Diagonals</h3>
+<div class="video-wrapper" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin-bottom:2em;">
+  <video controls muted playsinline preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+    <source src="videos/smooth_diagonals.mp4" type="video/mp4" />
+  </video>
+</div>
+
+
+<h3>No Interference Capture</h3>
+<div class="video-wrapper" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin-bottom:2em;">
+  <video controls muted playsinline preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+    <source src="videos/no_interference_capture.mp4" type="video/mp4" />
+  </video>
+</div>
+
+<h3>Good Castling</h3>
+<div class="video-wrapper" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin-bottom:2em;">
+  <video controls muted playsinline preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+    <source src="videos/good_castling.mp4" type="video/mp4" />
+  </video>
+</div>
+
+<h3>Knight Interference</h3>
+<div class="video-wrapper" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin-bottom:2em;">
+  <video controls muted playsinline preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+    <source src="videos/knight_interference(1).mp4" type="video/mp4" />
+  </video>
+</div>
+<div class="video-wrapper" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin-bottom:2em;">
+  <video controls muted playsinline preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+    <source src="videos/knight_interference.mp4" type="video/mp4" />
+  </video>
+</div>
+
+<h3>Castling Interference</h3>
+<div class="video-wrapper" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin-bottom:2em;">
+  <video controls muted playsinline preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+    <source src="videos/castling interference.mp4" type="video/mp4" />
+  </video>
+</div>
+
+<h3>Corner Cutting</h3>
+<div class="video-wrapper" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin-bottom:2em;">
+  <video controls muted playsinline preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+    <source src="videos/corner_cutting.mp4" type="video/mp4" />
+  </video>
+</div>
+
+
+<h3>Scuffed Promotion</h3>
+<div class="video-wrapper" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin-bottom:2em;">
+  <video controls muted playsinline preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+    <source src="videos/scuffed_promotion.mp4" type="video/mp4" />
+  </video>
+</div>
+
+<h3>High Interference Captures</h3>
+<div class="video-wrapper" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin-bottom:2em;">
+  <video controls muted playsinline preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+    <source src="videos/high_interference_captures.mp4" type="video/mp4" />
+  </video>
+</div>
+
+<h3>Pawn Captured Interference</h3>
+<div class="video-wrapper" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin-bottom:2em;">
+  <video controls muted playsinline preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+    <source src="videos/pawn_captured_interference.mp4" type="video/mp4" />
+  </video>
+</div>
+
+<h3>Knight Captured Interference</h3>
+<div class="video-wrapper" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin-bottom:2em;">
+  <video controls muted playsinline preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+    <source src="videos/knight_captured_interference.mp4" type="video/mp4" />
+  </video>
+</div>
+
+
+
+<h3>Building Gantry</h3>
+<div class="video-wrapper" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin-bottom:2em;">
+  <video controls muted playsinline preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+    <source src="videos/Building_Gantry.mp4" type="video/mp4" />
+  </video>
+</div>
+
+<h3>Gantry Test</h3>
+<div class="video-wrapper" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin-bottom:2em;">
+  <video controls muted playsinline preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+    <source src="videos/Gantry_Test.mp4" type="video/mp4" />
+  </video>
+</div>
+
+<h3>Limit Switch Test</h3>
+<div class="video-wrapper" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin-bottom:2em;">
+  <video controls muted playsinline preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+    <source src="videos/Limit_Switch_Test.mp4" type="video/mp4" />
+  </video>
+</div>
+
 
       </div>
     </section>
 
+    		<!-- Gallery -->
+		<section id="gallery" class="main style1 special">
+			<div class="container">
+				<header class="major">
+					<h2>Build Photo Gallery</h2>
+					<p>
+						We documented Knightmare throughout the semester, from early prototypes and wiring
+						to integrated motion tests. You can view the full photo gallery at the link below.
+					</p>
+				</header>
+
+				<ul class="actions special">
+					<li>
+						<a href="https://photos.app.goo.gl/b3NMnPXeSb1Tjgq39"
+						   class="button primary"
+						   target="_blank" rel="noopener">
+							Open Google Photos Gallery
+						</a>
+					</li>
+				</ul>
+			</div>
+		</section>
+
     <!-- Footer -->
     <section id="footer">
+
       <ul class="copyright">
-        <li>&copy; Masterpiece</li><li>Demo</li>
+        <li>&copy; Masterpiece Chessboard</li>
+        <li>Template: <a href="https://html5up.net">HTML5 UP – Photon</a></li>
       </ul>
     </section>
 

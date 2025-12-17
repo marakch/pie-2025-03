@@ -43,23 +43,85 @@
     <section class="main style2">
       <div class="container">
         <div class="row gtr-150">
-          <div class="col-6 col-12-medium">
-            <header class="major">
-              <h2>Motor Control</h2>
+          <div class="col-12">
+            <header class="major" style="text-align:center;">
+              <h2>Gantry Control</h2>
+            </header>
+
+            <p>
+              We utilize 2 microcontrollers in this project, A Raspberry Pi for computationally-heavy tasks and an Arduino Uno R3 for GRBL G-code execution. The microcontrollers are connected with a USB-A to USB-B serial cable for communication. The Raspberry Pi has a dedicated 5V 3A power supply, and the Arduino has a dedicated 9V 1A power supply to avoid brownouts. The Pi’s GPIO pins are used for servo control, while all of the Arduino pins are dedicated to various GRBL inputs.
+            </p>
+              <span class="image fit">
+                <img
+                  src="images/electrical1.jpg"
+                  alt="End effector and magnet carriage"
+                  style="width:50% !important; height:auto; display:block; margin:0 auto;"
+                />
+              </span>
+            <p>
+              On the Pi, we utilize 3 pins, a 5V supply, GND, and GPIO 17 to give the servo power, ground, and PWM signal.
+            </p>
+              <span class="image fit">
+                <img
+                  src="images/electrical2.jpg"
+                  alt="End effector and magnet carriage"
+                  style="width:40% !important; height:auto; display:block; margin:0 auto;"
+                />
+              </span>
+              <p>
+                On the Arduino, we utilize digital pins 2, 3, 5, and 6 for our motor control. Our Core-XY gantry doesn’t have a Z-axis, so none of those pins are needed for our implementation. To ensure our gantry stays within its operational limits, we have 4 limit switches, 1 on each end of both axes. The limit switch circuits plug into digital pins 9 and 10 alongside a ground pin. The switches are wired in series to simplify the configuration as much as possible. A 10 μF capacitor is also added to absorb voltage spikes and prevent false triggers.
+              </p>
+            
+            <span class="image fit">
+                <img
+                  src="images/electrical3.jpg"
+                  alt="End effector and magnet carriage"
+                  style="width:60% !important; height:auto; display:block; margin:0 auto;"
+                />
+                </span>
+              <p>
+                The GRBL step pins (2 and 3) and direction pins (5 and 6) connect to the step and direction inputs on the 2 TB6600 motor controllers. Each motor controller is wired to a NEMA-17 stepper motor. The motor controllers receive power from a 12V 2A power supply, which is fed to the motors to cause movement.
+              </p>
+          </div>
+        </div>
+
+              <hr class="major" />
+
+        <div class="row gtr-150">
+          <div class="col-12">
+            <header class="major" style="text-align:center;">
+              <h2>Gantry Control Circuit</h2>
+            </header>
+            <span class="image fit">
+                <img
+                  src="images/electrical4.jpg"
+                  alt="End effector and magnet carriage"
+                  style="width:70% !important; height:auto; display:block; margin:0 auto;"
+                />
+                </span>
+          </div>
+        </div>
+
+                <hr class="major" />
+
+        <div class="row gtr-150">
+          <div class="col-12">
+            <header class="major" style="text-align:center;">
+              <h2>Major Challenge</h2>
             </header>
             <p>
-
+              Early in this project, we were considering the use of an electromagnet to control piece movement. This was abandoned early in favor of a servo rack and pinion system. We moved away from the electromagnet for 2 reasons:
             </p>
-          </div>
-          <div class="col-6 col-12-medium">
-            <span class="image fit">
-              <img src="images/electronics.jpg" alt="Masterpiece electronics and wiring" />
-            </span>
+            <p>
+              <ol>
+              <li>Additional Control Components - Electromagnets are on when they receive power and off when no power is flowing. This means that controlling an electromagnet on a microcontroller requires a MOSFET and a flyback diode in addition to the electromagnet itself. This added additional costs and components to consider. Instead, a servo can be controlled as a standalone component, simplifying the circuit.</li>
+              <li>Hall Effect Interference - Electromagnets have residual fields for a short time after losing power. If we took Hall-effect readings too quickly after shutting off the electromagnet, we may have still tripped a sensor to report a piece when there was none</li>
+            </ol>
+            </p>
           </div>
         </div>
 
         <hr class="major" />
-
 
       <div class="container">
         <div class="row gtr-150">
@@ -81,8 +143,10 @@
 
     <!-- Footer -->
     <section id="footer">
+
       <ul class="copyright">
-        <li>&copy; Masterpiece</li><li>Electrical</li>
+        <li>&copy; Masterpiece Chessboard</li>
+        <li>Template: <a href="https://html5up.net">HTML5 UP – Photon</a></li>
       </ul>
     </section>
 

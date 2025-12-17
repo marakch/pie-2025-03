@@ -3884,3 +3884,10 @@ body {
   text-transform: none;
   letter-spacing: 0.06em;
 }
+
+.img-small img{
+  width: 20%;
+  height: auto;
+  display: block;
+  margin: 0 auto; 
+}
