@@ -28,7 +28,7 @@
 				<!-- Nav -->
 					<nav id="nav">
 						<ul>
-							<li><a href="#intro" class="active">Enigma Machine</a></li>
+							<li><a href="#intro" class="active">Enigma M3</a></li>
 							<li><a href="#first">Process</a></li>
 							<li><a href="#second">Design Overview</a></li>
 							<li><a href="#third">Mechanical</a></li>
@@ -43,20 +43,29 @@
 					<div id="main">
 
 						<!-- Introduction -->
-						<section id="your-section" class="main">
-						    <header class="major">
-						        <h2>Enigma Machine</h2>
-						        <p>An electro-mechanical project developed by a team of five Olin College students for Principles of Integrated Engineering (PIE) - Fall 2025.</p>
-						    </header>
-						    
-						    <div class="spotlight equal">
-						        <div class="content">
-						        </div>
-						        <span class="image">
-						            <img src="images/enigma.png" alt="" />
-						        </span>
-						    </div>
-						</section>
+							<section id="your-section" class="main">
+							    <header class="major">
+							        <h2>Enigma M3</h2>
+							    </header>
+							    
+							    <div class="spotlight equal">
+							        <div class="content">
+							            <p>An electro-mechanical project developed by a team of five Olin College students for Principles of Integrated Engineering (PIE) - Fall 2025.</p>
+							        </div>
+							        <span class="image">
+							            <img src="images/enigma.png" alt="" />
+							        </span>
+							    </div>
+							    
+							    <!-- Demo Video -->
+							    <div style="margin-top: 3em; text-align: center;">
+							        <h3>Demo Video</h3>
+							        <video controls style="width: 100%; max-width: 800px; border-radius: 8px;">
+							            <source src="images/demo.mp4" type="video/mp4">
+							          
+							        </video>
+							    </div>
+							</section>
 						
 							<section id="first" class="main special">
 							    <header class="major">
@@ -89,23 +98,106 @@
 										<figcaption>The keys in the case!</figcaption>
 								    </span>
 								</div>
+								<!-- Rotors -->
 							    <div class="spotlight">
-							        <span class="image"><img src="images/step2.jpg" alt="" /></span>
 							        <div class="content">
-							            <h3>Step 2 Title</h3>
-							            <p>Your text content goes here. Describe the second step of your process.</p>
+							            <h3><strong>Rotors</strong></h3>
+							             <p>The rotor assembly is the main electromechanical subsystem that carries out the encryption logic of the Enigma Machine, changing the letter 6 times as the signal passes through the combination of the 3 rotors.</p>
+        
+								        <p>The rotors receive the information sent by the plugboard through recipient pins, then the letter received passes through the internal wires that connect to the spring pin in a different axial position than the recipient pin. This spring pin sends the information to the next rotors and eventually the information gets to the reflector where the signal is sent back to the rotors and is swapped again.</p>
+								        
+								        <p>The design is based on the Enigma rotor original architecture, however, it was modified in the early design process to match our fabrication methods, electrical wiring capabilities and mechanical constraints.</p>
+								        
+								        <p>One of the main changes made was to scale the rotors larger, since in one of our first prototypes the wiring space was limited to 4mm, we decided to change it to 2 cm. This allowed sufficient space for internal wiring and soldering operations, gave more leeway to align the rotors, and enabled stable integration of spring-pin contacts within our capabilities.</p>
+								        
+								        <p>The original idea was to use aluminum pins to be the recipient side of the rotors. However, because aluminum instantly creates an oxide layer that resists solder, a specialized flux with fluorine would be needed. For this reason, we decided to use 8 AWG copper wire to create recipient pins. The manufacturing of these pins was done by cutting the wire to the approximate desired length and then flattening the ends with a belt sander to make the surface smooth.</p>
+								    </div>
+							        <span class="image">
+							            <figure>
+							                <img src="images/rotor1.jpg" alt="Rotor 1" />
+							                <figcaption>Caption for rotor image 1</figcaption>
+							            </figure>
+							            <figure style="margin-top: 1em;">
+							                <img src="images/rotor2.jpg" alt="Rotor 2" />
+							                <figcaption>Caption for rotor image 2</figcaption>
+							            </figure>
+							            <figure style="margin-top: 1em;">
+							                <img src="images/rotor3.jpg" alt="Rotor 3" />
+							                <figcaption>Caption for rotor image 3</figcaption>
+							            </figure>
+							        </span>
+							    </div>
+							    
+							    <!-- Reflector -->
+							    <div class="spotlight">
+							        <span class="image">
+							            <figure>
+							                <img src="images/ReflectorIterations.png" alt="Reflector 1" />
+							                <figcaption>Reflector iterations.</figcaption>
+							            </figure>
+							            <figure style="margin-top: 1em;">
+							                <img src="images/reflector2.jpg" alt="Reflector 2" />
+							                <figcaption>Caption for reflector image 2</figcaption>
+							            </figure>
+							            <figure style="margin-top: 1em;">
+							                <img src="images/reflector3.jpg" alt="Reflector 3" />
+							                <figcaption>Caption for reflector image 3</figcaption>
+							            </figure>
+							        </span>
+							        <div class="content">
+							            <h3><strong>Reflector</strong></h3>
+							            <p>The reflector receives the signal from the rotors and sends it back through a different rotor pin. To design the reflector, we went through an iteration to align the spacing of the reflector pins with the rotor pins and ensure a press-fit that was strong enough that the pins would not slide back when compressed, but were still able to be inserted. One change we made to the wiring was shortening the wires for a cleaner look and lower risk of them getting caught/snagged. The solder connections between pins occasionally broke. From this, we learned to solder the pins so that the solder did not interfere with the press-fit while keeping a strong connection, and added shrink-wrap to prevent shorting. 
+</p>
 							        </div>
 							    </div>
 							    
+							    <!-- Compressor -->
 							    <div class="spotlight">
 							        <div class="content">
-							            <h3>Step 3 Title</h3>
-							            <p>Your text content goes here. Describe the third step of your process.</p>
+							            <h3><strong>Compressor</strong></h3>
+							            <p>The compressor is composed of three parts: The 3d printed housing, an aluminum nut, the threaded end of our axle, and an acrylic rectangle. The housing slides into the reflector, applying force on it and the rotors. The housing has a hole that was made to fit the nut inside. The nut was made from a ~1in block of aluminum from a free scrap bin. We decided to make the nut because m7 threaded nuts were not available in the shop and we wanted to practice machining. We cut off a ¼ inch thick rectangle with a bandsaw. The hole in the center was made with a drill-press, then threaded with an m7 tap to match the 7mm shaft. Instead of cutting it down to be hexagonal, we made a cavity in the 3d printed insert that matched the shape of the piece of aluminum we found. The end of the device’s main shaft was threaded with an m7 die. About an inch and a half of the shaft was threaded so that when the nut is on the shaft, enough shaft sticks out to go through the hole in the casing that holds up and aligns the shaft. 
+</p>
 							        </div>
-							        <span class="image"><img src="images/step3.jpg" alt="" /></span>
+							        <span class="image">
+							            <figure>
+							                <img src="images/plugboard1.jpg" alt="Plugboard 1" />
+							                <figcaption>Caption for plugboard image 1</figcaption>
+							            </figure>
+							            <figure style="margin-top: 1em;">
+							                <img src="images/plugboard2.jpg" alt="Plugboard 2" />
+							                <figcaption>Caption for plugboard image 2</figcaption>
+							            </figure>
+							            <figure style="margin-top: 1em;">
+							                <img src="images/plugboard3.jpg" alt="Plugboard 3" />
+							                <figcaption>Caption for plugboard image 3</figcaption>
+							            </figure>
+							        </span>
 							    </div>
 							    
-							</section>
+							</section>	
+						
+						<!-- Plugboard -->
+							    <div class="spotlight">
+							        <span class="image">
+							            <figure>
+							                <img src="images/img.png" alt="Reflector 1" />
+							                <figcaption>Reflector iterations.</figcaption>
+							            </figure>
+							            <figure style="margin-top: 1em;">
+							                <img src="images/reflector2.jpg" alt="Reflector 2" />
+							                <figcaption>Caption for reflector image 2</figcaption>
+							            </figure>
+							            <figure style="margin-top: 1em;">
+							                <img src="images/reflector3.jpg" alt="Reflector 3" />
+							                <figcaption>Caption for reflector image 3</figcaption>
+							            </figure>
+							        </span>
+							        <div class="content">
+							            <h3><strong>Reflector</strong></h3>
+										<p> words</p>
+
+
+								
 
 							<section id="second" class="main special">
 							    <header class="major">
@@ -273,6 +365,7 @@
 	</body>
 
 </html>
+
 
 
 
