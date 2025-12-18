@@ -1,6 +1,5 @@
 @import url(fontawesome-all.min.css);
 @import 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400';
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
 
 /*
 	Stellar by HTML5 UP
@@ -101,11 +100,7 @@ input, select, textarea {
 	}
 
 	body {
-		background-color: #BE9934;
-		background-image: url("images/overlay.png"), -moz-linear-gradient(90deg, #000000 15%, #000000 85%);
-		background-image: url("images/overlay.png"), -webkit-linear-gradient(45deg, #564418 15%, #BE9934 85%);
-		background-image: url("images/overlay.png"), -ms-linear-gradient(45deg, ##765D21 15%, #957627 85%);
-		background-image: url("images/overlay.png"), linear-gradient(45deg, #433212 15%, #020202 85%);
+    background-color: #000000;
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -124,13 +119,13 @@ input, select, textarea {
 	/* Type */
 
 	body {
-	    background-color: #020202;
-	    color: rgba(0, 0, 0, 1);
+	    background-color: #000000;
+	    color: rgba(255, 255, 255, 0.65);
 	}
 
 	body, input, select, textarea {
-		font-family: 'Montserrat', sans-serif;
-		font-size: 14pt;
+		font-family: "Source Sans Pro", Helvetica, sans-serif;
+		font-size: 17pt;
 		font-weight: 300;
 		line-height: 1.65;
 	}
@@ -2987,10 +2982,10 @@ input, select, textarea {
 	}
 
 		.spotlight .content {
-			-moz-flex: 2;
-			-webkit-flex: 2;
-			-ms-flex: 2;
-			flex: 2;
+			-moz-flex: 1;
+			-webkit-flex: 1;
+			-ms-flex: 1;
+			flex: 1;
 		}
 
 			.spotlight .content > :last-child {
@@ -3003,18 +2998,17 @@ input, select, textarea {
 
 		.spotlight .image {
 			display: inline-block;
-		    margin-left: 4em;
-		    -moz-flex: 1;
-		    -webkit-flex: 1;
-		    -ms-flex: 1;
-		    flex: 1;
+			margin-left: 4em;
+			padding: 0.5em;
+			border-radius: 0;
+			border: solid 0.5px;
 		}
 
 			.spotlight .image img {
 				display: block;
-		        border-radius: 8px;
-		        width: 100%;
-		        max-width: 400px;
+				border-radius: 0;
+				width: auto;
+				max-width: 100%;
 			}
 
 		@media screen and (max-width: 980px) {
@@ -3340,7 +3334,7 @@ input, select, textarea {
 /* Main */
 
 	#main {
-		background-color: rgba(255, 255, 255, 0.75);
+		background-color: #ffffff;
 		color: #636363;
 		border-radius: 0.25em;
 	}
@@ -3789,22 +3783,6 @@ input, select, textarea {
 			}
 
 		}
-
-		figcaption {
-	    text-align: center;
-	    font-size: 0.85em;
-	    color: #636363;
-	    font-style: italic;
-	    margin-top: 0.5em;
-	    padding: 0 0.5em;
-	}
-
-
-
-
-
-
-
 
 
 
