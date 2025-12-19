@@ -8,14 +8,14 @@ p {
 }
 
 a {
-  color: #796bf9;
+  color: #fc953a;
 }
 a:hover {
-  color: rgb(76.6233766234, 57.987012987, 247.012987013);
+  color: rgb(251.235, 121.97, 7.765);
 }
 
 .text-primary {
-  color: #796bf9 !important;
+  color: #fc953a !important;
 }
 
 h1,
@@ -51,12 +51,12 @@ h6 {
   }
 }
 ::-moz-selection {
-  background: #796bf9;
+  background: #fc953a;
   text-shadow: none;
 }
 
 ::selection {
-  background: #796bf9;
+  background: #fc953a;
   text-shadow: none;
 }
 
@@ -79,12 +79,12 @@ img::-moz-selection {
 }
 
 .btn-primary {
-  background-color: #796bf9;
-  border-color: #796bf9;
+  background-color: #fc953a;
+  border-color: #fc953a;
 }
 .btn-primary:active, .btn-primary:focus, .btn-primary:hover {
-  background-color: rgb(87.7175324675, 70.2402597403, 247.5097402597) !important;
-  border-color: rgb(87.7175324675, 70.2402597403, 247.5097402597) !important;
+  background-color: rgb(251.42625, 128.7275, 20.32375) !important;
+  border-color: rgb(251.42625, 128.7275, 20.32375) !important;
   color: white;
 }
 .btn-primary:active, .btn-primary:focus {
@@ -101,15 +101,15 @@ img::-moz-selection {
   text-transform: uppercase;
   color: white;
   border: 0;
-  background-color: #796bf9;
+  background-color: #fc953a;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 #mainNav .navbar-brand {
-  color: #796bf9;
+  color: #fc953a;
   font-family: "Kaushan Script", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 #mainNav .navbar-brand.active, #mainNav .navbar-brand:active, #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
-  color: rgb(76.6233766234, 57.987012987, 247.012987013);
+  color: rgb(251.235, 121.97, 7.765);
 }
 #mainNav .navbar-nav .nav-item .nav-link {
   font-size: 90%;
@@ -120,7 +120,7 @@ img::-moz-selection {
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 #mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover {
-  color: #796bf9;
+  color: #fc953a;
 }
 
 @media (min-width: 992px) {
@@ -166,7 +166,7 @@ img::-moz-selection {
 header.masthead {
   text-align: center;
   color: white;
-  background-image: url("../img/header.png");
+  background-image: url("../img/Tamas_header.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -235,7 +235,7 @@ header.masthead .intro-text .intro-heading {
   -moz-transition: all ease 0.5s;
   transition: all ease 0.5s;
   opacity: 0;
-  background: rgba(121, 107, 249, 0.9);
+  background: rgba(252, 149, 58, 0.9);
 }
 #portfolio .portfolio-item .portfolio-link .portfolio-hover:hover {
   opacity: 1;
@@ -369,7 +369,7 @@ header.masthead .intro-text .intro-heading {
   -moz-transition: all ease 0.5s;
   transition: all ease 0.5s;
   opacity: 0;
-  background: rgba(121, 107, 249, 0.9);
+  background: rgba(252, 149, 58, 0.9);
 }
 #portfolio2 .portfolio2-item .portfolio2-link .portfolio2-hover:hover {
   opacity: 1;
@@ -628,7 +628,7 @@ header.masthead .intro-text .intro-heading {
   color: #fff;
   border: 7px solid #e9ecef;
   border-radius: 100%;
-  background-color: #796bf9;
+  background-color: #fc953a;
 }
 .timeline > li .timeline-image h4 {
   font-size: 10px;
@@ -779,7 +779,7 @@ section#contact .form-group textarea.form-control {
   height: 248px;
 }
 section#contact .form-control:focus {
-  border-color: #796bf9;
+  border-color: #fc953a;
   box-shadow: none;
 }
 section#contact ::-webkit-input-placeholder {
@@ -839,7 +839,7 @@ ul.social-buttons li a {
   background-color: #212529;
 }
 ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons li a:hover {
-  background-color: #796bf9;
+  background-color: #fc953a;
 }
 
 /*# sourceMappingURL=agency.css.map */
