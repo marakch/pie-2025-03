@@ -381,7 +381,7 @@ function SystemDesign() {
               </p>
             </div>
             <div className="bg-stone-50 rounded-lg p-5 border-l-4 border-nobel-gold mb-4">
-              <h4 className="font-semibold text-stone-900 mb-2">Inner Enclosure: 16 Gauge Mild Steel Sheet Metal</h4>
+              <h4 className="font-semibold text-stone-900 mb-2">Inner Enclosure: 22 Gauge Mild Steel Sheet Metal</h4>
               <p className="text-stone-700 text-sm leading-relaxed">
                 Selected for its ease of cleaning and structural strength. The metal surface resists dirt adhesion better than alternatives like acrylic. Sheet metal tools were accessible outside normal shop hours, enabling faster iteration. However, we later discovered electrical conductivity issues that required insulating tape, highlighting the importance of considering all material properties, not just mechanical ones.
               </p>

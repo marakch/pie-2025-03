@@ -124,9 +124,9 @@ function Learnings() {
               </div>
 
               <div className="bg-stone-50 rounded-lg p-4 border-l-4 border-stone-400">
-                <h4 className="font-semibold text-stone-800 mb-2">Inner Enclosure: 16 Gauge Mild Steel Sheet Metal</h4>
+                <h4 className="font-semibold text-stone-800 mb-2">Inner Enclosure: 22 Gauge Mild Steel Sheet Metal</h4>
                 <p className="text-stone-600 text-sm leading-relaxed">
-                  The inner enclosure was chosen to be made out of 16 gauge mild-steel sheet metal due to the consideration of facility in cleaning the inner enclosure from all the dirt and grime flapped off of the intaken disk. Additionally a consideration was made with the top panel of the enclosure bending due to the weight load from the electronics. Additionally, sheet metal tools were easy to access out of normal shop hours, and plasma cut manufacturing, while not extremely precise due to the nature of its kerf, aided in reading areas impossible with the sheet metal tools shear force nature.
+                  The inner enclosure was chosen to be made out of 22 gauge mild-steel sheet metal due to the consideration of facility in cleaning the inner enclosure from all the dirt and grime flapped off of the intaken disk. Additionally a consideration was made with the top panel of the enclosure bending due to the weight load from the electronics. Additionally, sheet metal tools were easy to access out of normal shop hours, and plasma cut manufacturing, while not extremely precise due to the nature of its kerf, aided in reading areas impossible with the sheet metal tools shear force nature.
                 </p>
                 <p className="text-stone-600 text-sm leading-relaxed mt-2">
                   The long blade was not the most accurate tool, and the more precise angle cutter was not designed to cut stock the size which was necessary for the enclosure panels. Future considerations might lean towards plasma cutting for large cuts and then sheet metal tools for precise clean-up.
@@ -136,7 +136,7 @@ function Learnings() {
               <div className="bg-stone-50 rounded-lg p-4 border-l-4 border-stone-400">
                 <h4 className="font-semibold text-stone-800 mb-2">Brackets: 22 Gauge Mild Steel</h4>
                 <p className="text-stone-600 text-sm leading-relaxed">
-                  In terms of all the brackets, which connected everything to the base and allowed for the enclosures to maintain shape and structure, the same mild steel was utilized, yet 22 gauge. The brackets did not require a certain thickness and are designed to hold a certain redundancy. In this vein, the same consideration of 16 gauge thickness was not needed due to the strength of the design. Fabrication was relatively simple with sheet metal tools being more maneuverable with smaller sheet metal pieces.
+                  In terms of all the brackets, which connected everything to the base and allowed for the enclosures to maintain shape and structure, the same mild steel was utilized, yet 22 gauge. The brackets did not require a certain thickness and are designed to hold a certain redundancy. In this vein, the same consideration of 22 gauge thickness was not needed due to the strength of the design. Fabrication was relatively simple with sheet metal tools being more maneuverable with smaller sheet metal pieces.
                 </p>
               </div>
 
