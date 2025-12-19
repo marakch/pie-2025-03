@@ -59,37 +59,52 @@
         computational bridge between the physical sensing hardware and higher-level control or
         interaction logic.
       </p>
+      <a href="https://github.com/olincollege/myo-amp/tree/main/ml" class="components">ML Code</a>
+    </section>
+
+    <section class="model-grid">
+      <section class="overview model-card">
+        <h3>TDNN</h3>
+        <p>
+          Time-delay neural networks are feedforward models that incorporate temporal context by
+          concatenating time-shifted inputs, rather than explicitly modeling state over time. While
+          computationally simple, this approach is generally less robust for complex temporal
+          patterns and less flexible than more modern sequence models.
+        </p>
+      </section>
+
+      <section class="overview model-card">
+        <h3>LSTM</h3>
+        <p>
+          LSTMs, a widely used form of recurrent neural network, were considered due to their strong
+          ability to capture temporal dependencies and their extensive support in machine-learning
+          frameworks such as PyTorch and TensorFlow. However, LSTMs rely on sequential processing,
+          which makes them comparatively slower and less efficient on resource-constrained hardware.
+          Although LSTMs are particularly well suited for forecasting tasks, the EMG signals in this
+          project are relatively consistent over short time windows, reducing the need for long-term
+          temporal memory.
+        </p>
+      </section>
+
+      <section class="overview model-card">
+        <h3>TCN</h3>
+        <p>
+          Temporal Convolutional Networks combine the strengths of convolutional models with
+          effective temporal modeling. TCNs use causal, dilated convolutions to capture temporal
+          dependencies while allowing for parallel computation, making them significantly faster
+          and more efficient than recurrent models.
+        </p>
+      </section>
     </section>
 
     <section class="overview">
-      <h3>Why TCN?</h3>
+      <h3>Final Choice</h3>
       <p>
-        Several sequence-modeling approaches were considered for classifying EMG time-series data,
-        including time-delay neural networks (TDNNs), recurrent neural networks such as LSTMs, and
-        convolutional architectures. TDNNs are feedforward models that incorporate temporal
-        context by concatenating time-shifted inputs, rather than explicitly modeling state over
-        time. While computationally simple, this approach is generally less robust for complex
-        temporal patterns and less flexible than more modern sequence models.
-      </p>
-      <p>
-        LSTMs, a widely used form of recurrent neural network, were also considered due to their
-        strong ability to capture temporal dependencies and their extensive support in
-        machine-learning frameworks such as PyTorch and TensorFlow. However, LSTMs rely on
-        sequential processing, which makes them comparatively slower and less efficient on
-        resource-constrained hardware. Although LSTMs are particularly well suited for forecasting
-        tasks, the EMG signals in this project are relatively consistent over short time windows,
-        reducing the need for long-term temporal memory.
-      </p>
-      <p>
-        Temporal Convolutional Networks were ultimately selected because they combine the
-        strengths of convolutional models with effective temporal modeling. TCNs use causal,
-        dilated convolutions to capture temporal dependencies while allowing for parallel
-        computation, making them significantly faster and more efficient than recurrent models.
-        Prior work has shown that TCNs often match or slightly outperform LSTMs on
-        sequence-classification tasks, including physiological signal analysis, while maintaining
-        lower inference latency. Although the performance gains over LSTMs are sometimes marginal,
-        the improved computational efficiency and suitability for embedded deployment make TCNs a
-        strong fit for this project.
+        We selected a TCN because prior work shows they often match or slightly outperform LSTMs on
+        sequence-classification tasks such as physiological signal analysis while maintaining
+        lower inference latency. Even when performance gains are marginal, the improved
+        computational efficiency and suitability for embedded deployment make TCNs the best fit
+        for this project.
       </p>
     </section>
 

@@ -152,6 +152,41 @@ li {
   padding: 0;
 }
 
+.outcome-box {
+  width: min(900px, 90%);
+  margin: 60px auto 40px auto;
+  background-color: #f4e8e2;
+  padding: 20px;
+  border: 5px solid black;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.model-grid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: stretch;
+  margin: 60px auto 40px auto;
+  width: min(1200px, 95%);
+}
+
+.overview.model-card {
+  margin: 0;
+  flex: 1 1 0;
+}
+
+@media (max-width: 900px) {
+  .model-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .overview.model-card {
+    width: min(900px, 90%);
+  }
+}
+
 .tcn-panel {
   width: 100%;
   background-color: #f4e8e2;
@@ -906,6 +941,10 @@ video {
   text-align: right;
   margin-left: 600px;
   margin-top: 0px;
+}
+.firm-code{
+  text-align: right;
+  margin: 20px 0 40px 0;
 }
 .firm-overview{
   margin: 0px 0px 0px -700px;
