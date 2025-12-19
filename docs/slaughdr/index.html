@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to SLAUGHDR</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Grotesk:wght@300;400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="slaughdr-main.css" rel="stylesheet">
+<!--
+
+Tooplate 2144 Parallax Depth
+
+https://www.tooplate.com/view/2144-parallax-depth
+
+Free HTML CSS Template
+
+-->
+</head>
+<body>
+    <!-- Mouse Follower -->
+    <div class="mouse-follower" id="mouseFollower"></div>
+
+    <!-- Stars Background -->
+    <div class="stars" id="stars"></div>
+
+    <!-- Hero Section with Parallax Layers -->
+    <div class="hero-container" id="hero">
+        <!-- Grid Overlay -->
+        <div class="grid-overlay">
+            <div class="grid-diagonal-1"></div>
+            <div class="grid-diagonal-2"></div>
+        </div>
+
+        <!-- Background Layer -->
+        <div class="parallax-layer layer-bg"></div>
+        
+        
+        <!-- Foreground Layer -->
+        <div class="parallax-layer layer-fg">
+            <div class="glowing-orb orb-1"></div>
+            <div class="glowing-orb orb-2"></div>
+        </div>
+        
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <h1 class="hero-title">SLAUGHDR</h1>
+            <p class="hero-subtitle">The Ultimate Vlogging Drone</p>
+            <a href="#about" class="cta-button">Our Process</a>
+            <!-- <a href="test-model.html" class="cta-button">Animation</a> -->
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="content-section section-gradient" id="about">
+        <div class="container">
+            <h2 class="section-title">About Our Project</h2>
+                <div class="about-text">
+                    <h3>Vlog Anywhere</h3>
+                    <p>A Serialized, Lightweight, Arial Unit Generating High Definition Recording, our vlogging drone is designed to be hands off and easy to use. Powered by a 22.2V battery and controlled by a Nvidia Jetson, you can use this drone to record in a variety of enviornments. Try it today.</p>
+                </div>
+
+        <div class="container">
+                <div class="about-text">
+                    <h3>Drone in Action</h3>
+                </div>
+        
+                <div class="video-gallery">
+
+        <div class="cell">
+            <video src="assets/drone_falls.mov" autoplay loop muted playsinline disablePictureInPicture></video>
+            <div class="overlay">Second motor test. The motors were spinning at inconsistent power. This was a reoccuring problem.</div>
+        </div>
+
+        <div class="cell">
+            <video src="assets/motors_spin.MOV" autoplay loop muted playsinline disablePictureInPicture></video>
+            <div class="overlay">First motor spinning test.</div>
+        </div>
+
+        <div class="cell">
+            <video src="assets/first_all_motor_test.mov" autoplay loop muted playsinline disablePictureInPicture></video>
+            <div class="overlay">Testing all four motors with propellors for the first time.</div>
+        </div>
+
+        <div class="cell">
+            <video src="assets/facial_detecting_test.MOV" autoplay loop muted playsinline disablePictureInPicture></video>
+            <div class="overlay">Computer vision limit testing.</div>
+        </div>
+        
+        <div class="cell">
+            <video src="assets/drone_flying_1.mp4" autoplay loop muted playsinline disablePictureInPicture></video>
+            <div class="overlay">The drone being controlled by the flight controller only.</div>
+        </div>
+
+        <div class="cell vertical">
+            <video src="assets/logan_drone_catch.mp4" autoplay loop muted playsinline disablePictureInPicture></video>
+            <div class="overlay">Logan Teeple, our #1 savior.</div>
+        </div>
+
+        <div class="cell">
+            <video src="assets/jonathan_full_working_drone_pov_3.mp4" autoplay loop muted playsinline disablePictureInPicture></video>
+            <div class="overlay">Hosted on our web server, we can have live feed to see the drone's POV.</div>
+        </div>
+
+        <div class="cell">
+            <video src="assets/jonathan_full_working_drone_pov1.mp4" autoplay loop muted playsinline disablePictureInPicture></video>
+            <div class="overlay">Drone will spin (yaw) to keep user in frame.</div>
+        </div>
+
+        <div class="cell vertical">
+            <video src="assets/jonathan_full_working_drone_pov2.MOV" autoplay loop muted playsinline disablePictureInPicture></video>
+            <div class="overlay">Jonathan's POV of the drone yawing (turning to face him).</div>
+        </div>
+
+    </div>
+
+    <script>
+        const cells = document.querySelectorAll('.cell');
+        cells.forEach(cell => {
+            cell.addEventListener('click', () => {
+                cell.classList.toggle('expanded');
+                // Optional: close others when one opens
+                cells.forEach(c => { if(c !== cell) c.classList.remove('expanded'); });
+            });
+        });
+    </script>
+        </div>
+    </section>
+
+    <!-- Features Section with 3D Carousel -->
+    <section class="content-section features-section-bg" id="features">
+        <!-- Grid Overlay -->
+        <div class="features-grid-overlay">
+            <div class="features-grid"></div>
+            <div class="features-grid-large"></div>
+        </div>
+        
+        <div class="container">
+            <h2 class="section-title">Explore</h2>
+            <div class="features-container">
+                <div class="carousel-3d" id="carousel">
+                    <div class="feature-card-3d" data-index="0">
+                        <a href="model.html" class="feature-link">
+                        <span class="feature-number">00</span>
+                        <div class="feature-icon-3d">👀</div>
+                        <h3 class="feature-title-3d">Close Up</h3>
+                        <p class="feature-description-3d">Explore our drone's features in detail with an interactive CAD.</p>
+                        <div class="center">
+                        </a>
+                        </div>
+                    </div>
+                     <div class="feature-card-3d" data-index="1">
+                        <a href="system.html" class="feature-link">
+                        <span class="feature-number">01</span>
+                        <div class="feature-icon-3d">⚙️</div>
+                        <h3 class="feature-title-3d">System Overview</h3>
+                        <p class="feature-description-3d">Read more about our project process</p>
+                        <div class="center">
+                        </a>
+                        </div>
+                    </div>
+                    <div class="feature-card-3d" data-index="2">
+                        <a href="mechanical.html" class="feature-link">
+                        <span class="feature-number">02</span>
+                        <div class="feature-icon-3d">🔧</div>
+                        <h3 class="feature-title-3d">Mechanical</h3>
+                        <p class="feature-description-3d">Read more about the design and assembly process</p>
+                        <div class="center">
+                        </a>
+                        </div>
+                    </div>
+                
+                    <div class="feature-card-3d" data-index="3">
+                        <a href="electrical.html" class="feature-link">
+                        <span class="feature-number">03</span>
+                        <div class="feature-icon-3d">🔋</div>
+                        <h3 class="feature-title-3d">Electrical</h3>
+                        <p class="feature-description-3d">Read more about the electrical system and power supply</p>
+                    </a>
+                    </div>
+                    <div class="feature-card-3d" data-index="4">
+                        <a href="software.html" class="feature-link">
+                        <span class="feature-number">04</span>
+                        <div class="feature-icon-3d">💻</div>
+                        <h3 class="feature-title-3d">Software</h3>
+                        <p class="feature-description-3d">Read more about the coding process behind person detection and tracking</p>
+                    </a>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <div class="carousel-btn" id="prevBtn">◀</div>
+                    <div class="carousel-btn" id="nextBtn">▶</div>
+                </div>
+                <div class="carousel-indicators" id="indicators"></div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <section class="content-section section-gradient" id="about">
+        <div class="container">
+            <h2 class="section-title">Meet the Team</h2>
+                <div class="about-content">
+                <div class="about-side">
+                    <a href="team.html" class="feature-link">
+                        <div class="info-box">
+                            <div class="box-icon">
+                                🤝             
+                            </div>
+                            <p class="box-description">Learn about the people behind the SLAUGHDR.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    </section>
+
+    <!-- Gallery Section
+    <section class="gallery-section section-gradient" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Dynamic Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=600&h=300&fit=crop" alt="Deep Space" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Deep Space</h3>
+                        <p class="gallery-subtitle">Infinite parallax layers</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=300&fit=crop" alt="Ocean Depths" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Ocean Depths</h3>
+                        <p class="gallery-subtitle">Underwater perspectives</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=300&fit=crop" alt="Mountain Peaks" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Mountain Peaks</h3>
+                        <p class="gallery-subtitle">Elevation changes</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1514565131-fce0801e5785?w=600&h=300&fit=crop" alt="City Lights" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">City Lights</h3>
+                        <p class="gallery-subtitle">Urban depth fields</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=600&h=300&fit=crop" alt="Abstract Realm" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Abstract Realm</h3>
+                        <p class="gallery-subtitle">Geometric dimensions</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1604076913837-52ab5629fba9?w=600&h=300&fit=crop" alt="Time Warp" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Time Warp</h3>
+                        <p class="gallery-subtitle">Temporal layers</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1534996858221-380b92700493?w=600&h=300&fit=crop" alt="Northern Lights" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Aurora Borealis</h3>
+                        <p class="gallery-subtitle">Natural light phenomena</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=600&h=300&fit=crop" alt="Digital Matrix" class="gallery-image">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">Digital Matrix</h3>
+                        <p class="gallery-subtitle">Cyber dimensions</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+<script src="test.js"></script>
+<script src="tooplate-2144-parallax-scripts.js"></script>
+</body>
+</html>
