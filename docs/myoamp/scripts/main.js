@@ -68,15 +68,15 @@ window.addEventListener('load', () => {
   const eceSlides = [
   {
     img: "Images/powerman.png",
-    text: "The source of MyoAmp’s electrical power comes from a single 5600 mAH 12 Volt rechargeable lithium ion battery. The 12 volt source is split into 3 different voltage lines by buck converters to accommodate for different component requirements..."
+    text: "The source of MyoAmp’s electrical power comes from a single 5600 mAH 12 Volt rechargeable lithium ion battery. The 12 volt source is split into 3 different voltage lines by buck converters to accommodate for different component requirements."
   },
   {
     img: "Images/actuator.png",
-    text: "In order to sense muscle contractions we used MyoWare’s V1 Surface ElectroMyography sensors. They work by taking electrical signals from muscles that are generated when the muscles contract..."
+    text: "In order to sense muscle contractions we used MyoWare’s V1 Surface ElectroMyography sensors. They work by taking electrical signals from muscles that are generated when the muscles contract."
   },
   {
     img: "Images/sensor.png",
-    text: "Final slide description here."
+    text: "Used MyoWare Surface Electromyography sensors to detect muscle contractions."
   }
 ];
 
