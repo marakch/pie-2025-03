@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Principles of Integrated Engineering (PIE) Example Project Page</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .subsection { break-inside: avoid; page-break-inside: avoid; break-inside: avoid-column; }
+    h4 { break-after: avoid; page-break-after: avoid; }
+  </style>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+
+<header>
+  <h1>PIErography</h1>
+  <nav>
+    <ul>
+      <li><a href="#homepage">Homepage</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#data-energy-flow">Data and Energy Flow</a></li>
+      <li><a href="#software">Software</a></li>
+      <li><a href="#electrical">Electrical</a></li>
+      <li><a href="#mechanical">Mechanical</a></li>
+      <li><a href="#prototype">Prototype</a></li>
+      <li><a href="#budget-breakdown">Budget Breakdown</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section id="homepage">
+  <h2>Homepage</h2>
+  <h3>PIErography</h3>
+  <blockquote>PIErography is a 3-axis GRBL-controlled CNC pyrography machine that burns vector designs into wood using a heated tip</blockquote>
+
+  <h3>Project Summary</h3>
+  <p>
+    In two months our goal was to design and build a CNC wood burning machine
+    that can accurately burn custom designs onto wood surfaces. The system will use Grbl firmware
+    to control X, Y, and Z-axes via stepper motors.
+  </p>
+
+  <h3>CAD of Project</h3>
+  <div class="image-container">
+    <img src="media/full_assembly_clamps.png" alt="Final CAD Image">
+  </div>
+
+  <h3>Final Product Image</h3>
+  <div class="image-container">
+    <img src="media/real_final.png" alt="Final Product Image">
+  </div>
+
+  <h3>Machine in Action</h3>
+  <div class="mech-video video-with-label">
+    <video autoplay muted loop playsinline controls>
+      <source src="media/videos/final_vid.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <h3>What It Does</h3>
+  <ul>
+    <li>Burns custom designs onto wood surfaces.</li>
+    <li>Runs on GRBL g-code to control X, Y, and Z motion.</li>
+    <li>Enables repeatable alignment using a fixed work surface.</li>
+    <li>Adjustable burn depth via Z control and temperature/speed tuning.</li>
+  </ul>
+
+  <h3>Specs at a Glance</h3>
+  <ul>
+    <li><strong>Working area (x,y,z):</strong> 250mm x 270mm x 73.5mm </li>
+    <li><strong>Controller:</strong> Arduino + GRBL</li>
+    <li><strong>Motion:</strong> Belt drive (X/Y), lead screw (Z)</li>
+    <li><strong>Tool:</strong> Pyrography pen</li>
+    <li><strong>Materials:</strong> Plywood / MDF / Wood</li>
+  </ul>
+
+  <h3>How It Works</h3>
+  <ol>
+    <li>Design is imported (SVG / DXF).</li>
+    <li>CAM generates g-code (Fusion / Inkscape / other).</li>
+    <li>GRBL executes motion while the heated tip burns the path.</li>
+  </ol>
+</section>
+
+<hr>
+
+<section id="team">
+  <h2>Team</h2>
+
+  <div class="team-photo">
+    <img src="media/team_image.png" alt="PIErography team with CNC wood burning machine">
+  </div>
+
+  <h3>Team Members</h3>
+  <div class="team-grid">
+    <div class="team-card">
+      <img src="media/alana.png" alt="Alana Palmer">
+      <h4>Alana Palmer</h4>
+      <p>Mechanical Design</p>
+    </div>
+
+    <div class="team-card">
+      <img src="media/annika.png" alt="Annika Baldwin">
+      <h4>Annika Baldwin</h4>
+      <p>Mechanical Design</p>
+    </div>
+
+    <div class="team-card">
+      <img src="media/lea.jpg" alt="Lea Voytovych">
+      <h4>Lea Voytovych</h4>
+      <p>Electrical &amp; Software</p>
+    </div>
+
+    <div class="team-card">
+      <img src="media/zarin.jpg" alt="Zarin Sikder">
+      <h4>Zarin Sikder</h4>
+      <p>Mechanical Design &amp; Project Website</p>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<section id="data-energy-flow">
+  <h2>Data and Energy Flow</h2>
+
+  <h3>Data and Energy Flow Diagram</h3>
+  <img src="media/power_flow.png" alt="Data and Energy Flow Diagram">
+
+  <h3>Power Distribution</h3>
+  <p>
+    Most of the power in the system is distributed through the proto board. The power supply provides
+    <strong>24 V</strong>, and the <strong>3 motor drivers</strong> connect to it via the proto board. During use, we usually
+    saw around <strong>0.54 A</strong> being drawn, giving us around <strong>13 W</strong> total supplied from the power source to
+    the stepper motor drivers.
+  </p>
+
+  <p>
+    The drivers then regulate up to around <strong>2 A per motor phase</strong> with that higher supply, resulting in a
+    lower effective coil voltage (around <strong>3 to 5 V</strong>) and an average power draw of around
+    <strong>4–10 W per motor</strong>, depending on load and motion. <strong>10 W</strong> is more of an upper limit; during typical
+    use, it is closer to <strong>4–5 W each</strong>.
+  </p>
+
+  <p>
+    The computer powers the Arduino separately via USB connection, sending roughly <strong>1–2 W</strong>
+    (<strong>5 V</strong> × <strong>0.1–0.25 A</strong>). The wood-burning tool also has its own supply, providing
+    <strong>27 W</strong> of power.
+  </p>
+
+  <h3>Control and Data Flow</h3>
+  <p>
+    The computer also sends and receives commands and data to/from the Arduino through the same USB cable.
+    The Arduino then connects to most other components, since it is the controller of the system. It sends
+    commands to all <strong>3 stepper motor drivers</strong>, telling them which direction to move, how quickly, and how
+    far. The drivers convert those commands into regulated coil currents and send them to the stepper motors.
+  </p>
+
+  <p>
+    The <strong>3 limit switches</strong> send data back to the Arduino; when a switch is triggered, it trips an alarm in
+    the code.
+  </p>
+</section>
+
+<hr>
+
+<section id="software">
+  <h2>Software</h2>
+
+  <h3>GRBL and UGS Control</h3>
+  <p>
+    Our system runs on GRBL, controlled by UGS. The first thing we had to do was download GRBL’s open-source git repository, and flash it onto an Arduino Uno. We learned that it was designed for more basic models, like the Uno, after originally trying to use an R4 and proving unsuccessful.
+  </p>
+
+  <p>
+    For our interface, we used Universal G-code Sender, another free open-source software. UGS allowed us to send commands to the Arduino to do a few different things. We could write G-code to control the motor movements, or send commands to check and edit certain settings.
+  </p>
+
+  <p>
+    UGS also has some other quality-of-life features, such as a simple ‘jogging’ control that allows for easy, controlled movements in one direction at a time, which was great for testing, debugging, and calibration.
+  </p>
+
+  <h3>Motor Calibration and Tuning</h3>
+  <p>
+    To calibrate our motors to our program, we moved the motors a certain distance, then measured the physical distance travelled. We compared how far it had actually moved to how far it believed it had moved (the number shown on-screen).
+  </p>
+
+  <p>
+    We then divided that actual by the expected and multiplied it by the previous setting for ‘steps per mm’. We sent a command reassigning that value, and tested again to make sure it was calibrated well.
+  </p>
+
+  <p>
+    We also tried setting various speeds and accelerations, to see what would be efficient without compromising functionality and accuracy. These were all set through UGS’s command terminal, with fairly simple commands like <code>$100=79.8</code> (setting the steps per mm of the x-axis motor to 79.8).
+  </p>
+
+  <h3>Generating G-code from Images</h3>
+  <p>
+    There are a few different ways to generate g-code from images. The way we first tried wasn’t very efficient and a bit difficult to use. First, we’d vectorize an image in a program like Adobe Illustrator, tweaking settings to try and get the cleanest, most accurate lineart we could.
+  </p>
+
+  <p>
+    Then, we’d save that .svg file and open it in another program that could convert vectors to g-code, such as Inkscape (I do not recommend using Inkscape, it was difficult and frustrating). We’d change some settings, such as “tool shape” and “penetration depth”, as if it were a mill. Then, we could create our g-code, save it, and open it in UGS. We then pivoted to using Fusion. In Fusion, the image can be imported directly and used to generate an engraver toolpath within the manufacturing workspace, eliminating the need for an external vector to g-code software. By selecting an engraving operation and defining parameters such as tool geometry, cutting depth, and feed rate, Fusion automatically generates a clean, efficient toolpath. The resulting g-code can then be exported and opened directly in UGS.
+  </p>
+
+  <h3>Software Tests</h3>
+  <ul>
+    <li><strong>Connection &amp; streaming:</strong> Verified reliable USB connection and stable G-code streaming in UGS without dropped commands.</li>
+    <li><strong>Jog consistency:</strong> Repeated jog moves to confirm direction correctness and repeatability on each axis.</li>
+    <li><strong>Axis scaling:</strong> Commanded known moves and measured travel; tuned <code>$100</code>, <code>$101</code>, and <code>$102</code> until scaling was accurate.</li>
+    <li><strong>Speed/acceleration sweep:</strong> Increased feed and acceleration settings until missed steps or quality loss occurred, then backed off to a stable operating point.</li>
+    <li><strong>End-to-end test burn:</strong> Generated an engraving toolpath in Fusion, exported G-code, and executed in UGS to confirm the full pipeline.</li>
+  </ul>
+
+  <h3>Final Code Design Elements</h3>
+  <br>
+  <p><strong>Project Repository:</strong> <a href="https://github.com/zafools/cnc-woodburner">GitHub Link</a></p>
+  <br>
+
+  <div class="software-gallery">
+    <figure>
+      <img src="media/Fusion.png" alt="Fusion 360 engraving toolpath used to generate G-code">
+      <figcaption>Fusion 360 engraving toolpath used to generate G-code</figcaption>
+    </figure>
+
+    <figure>
+      <img src="media/USG.png" alt="Universal G-code Sender visualization and command terminal">
+      <figcaption>Universal G-code Sender visualization and command terminal</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="electrical">
+  <h2>Circuit Design</h2>
+  <p>
+    The power supply’s positive and negative terminals connect to the proto board, in order to power the TB6600 stepper motor drivers. Wires run from the GND terminal of each of the motors to connect to the power supply negative. For the positive, they connect to VCC. Then, the stepper motors each connect to their respective drivers with the A+, A-, B+, and B- terminals, passing along commands via regulated coil currents.
+  </p>
+
+  <p>
+    The ‘Signal’ group of terminals on the motor driver is where connections to the Arduino are made. There is a positive and a negative PUL terminal, the positive connecting to the ‘step pulse’ pins on the Arduino (2-4, defined in GRBL) and the negative to the Arduino ground. There is also a positive and negative DIR terminal, the positive connecting to the ‘direction’ pins on the Arduino (5-7, also from GRBL), and the negative going to the Arduino ground as well. Because all the things that connect to the Arduino also need to connect to the Arduino ground, it is connected to a row on the proto board that many things can fit onto. All of these connections allow the motors to be controlled by the computer software / user, using G-code in UGS.
+  </p>
+
+  <p>
+    The micro switches are also connected to both Arduino pins and ground. They’re wired as NC for safety and to reduce risk of electrical interference or other errors. The COM terminals connect to the Arduino ground row, and the NC terminals connect to the ‘limit switch’ pins on the Arduino (9, 10, and 12, also from GRBL).
+  </p>
+
+  <img src="media/circuit_image.png" alt="Circuit Diagram">
+</section>
+
+<hr>
+
+<section id="mechanical">
+  <h2>Mechanical Aspects</h2>
+  <div class="image-container">
+  <img src="media/mechanical_exploded.png" alt="Exploded view of mechanical assembly">
+  </div>
+  <p class="mechanical-intro">
+    The mechanical design prioritizes rigidity, repeatability, and ease of assembly. All CAD was developed in Onshape, which allowed the team to iterate quickly. The frame provides a stable reference plane for consistent burns, while belt-driven X and Y axes enable fast planar motion. A lead-screw Z axis was used to control burn depth and maintain consistent tool contact with the workpiece. Components were intentionally designed to be modular to support iteration, including swapping motors, re-tensioning belts, and adjusting the tool mount. Parts were fabricated using a combination of 3D printing and laser cutting, with structural elements cut using band saws and horizontal band saws to achieve accurate lengths and clean edges.
+  </p>
+
+  <div class="mech-block" id="mech-frame">
+    <h3>Frame</h3>
+    <div class="mech-main">
+      <div class="mech-text">
+        <p><strong>Design Concepts:</strong></p>
+        <p>
+        We built the frame out of 80/20 aluminum extrusion because it was lightweight, strong enough for what we needed, and honestly because we already had a lot of it available as scrap in the Olin shop. Using extrusion also made the build way more modular, since you can slide T-nuts around and reposition parts without having to remake everything. It also helped a lot with iteration because whenever something didn’t line up, we could loosen a few brackets and adjust instead of starting over.
+      </p>
+      <p>
+        Another big reason we liked the extrusion is that it’s super easy to cut to length on the band saw, so resizing the frame or replacing a piece didn’t feel like a huge commitment. For assembly, we mostly used corner brackets and T-nuts to connect the extrusion pieces. At first, we thought the bracketed joints would be rigid enough, but once the machine started moving (especially faster moves), we realized the structure still had some wobble/racking that was hurting repeatability. To fix that, we laser cut extra corner gussets/brackets and added them at key joints to triangulate the frame and add stiffness. That made a noticeable difference in how “solid” the machine felt.
+      </p>
+      <p>
+        Extrusion also helped a lot with wire management. Since it has built-in channels, we could route wires through the slots instead of having them dangling everywhere, which made things cleaner and also reduced the chance of wires snagging while the gantry was moving. We also used T-nuts to mount the linear rail directly onto the extrusion, which made mounting really flexible and helped us get alignment without drilling a bunch of holes. For the X-axis idler pulley mount, we were able to integrate an aluminum extrusion rail into the design, which gave us a stronger mounting reference and helped keep that end from bending.
+      </p>
+      <p>
+        Finally, we tapped the bottom of the extrusion so we could screw in rubber feet. That helped with leveling, reduced vibration, and made the machine sit more securely on the table.
+      </p>
+      </div>
+
+      <div class="mech-image-stack">
+        <img src="media/frame_cad.png" alt="CAD of Frame">
+         <img src="media/cutting.jpg" alt="Frame photo 2">
+        <img src="media/milling.png" alt="Frame photo 1">
+    
+      </div>
+    </div>
+
+  <div class="mech-block" id="mech-board">
+    <h3>Base Board</h3>
+
+    <div class="mech-main">
+      <div class="mech-text">
+        <p><strong>Design Concepts:</strong></p>
+        <p>
+        For the base of the machine, we laser cut a pegboard sheet to act as the work surface. We chose pegboard because it already has a consistent hole pattern, which makes it easy to mount accessories and gives a built-in grid for clamping anywhere on the board. To make the board actually usable for fastening, we installed wood T-nuts on the underside. That gave us strong threaded mounting points without needing to access the bottom during every setup.
+      </p>
+
+      <p>
+        To hold down workpieces, we laser cut clamping bars that span across the T-nut locations. Each bar extends just onto the top face of the wood, so it presses down near the edge of the part instead of covering the design area. We added long slots in the bars rather than fixed holes, which made the clamp positions adjustable. That way we could rotate the bars, slide them closer or farther from the workpiece, and clamp in different orientations depending on the part geometry.
+      </p>
+
+      <p>
+        A big design goal was keeping the clamping system low-profile. Since our tool moves close to the surface, tall clamps would risk collisions or reduce the usable area. By using thin laser-cut bars and keeping the hardware compact, we reduced the chance of the Z-axis or pen mount hitting the clamps during a burn. This also made it easier to burn pieces that were close to the edges of the board.
+      </p>
+
+      <p>
+        Another benefit of this setup was flexibility for weird shapes. Flat rectangles are easy to clamp, but irregular pieces can shift or vibrate during long burns if they’re only held in one spot. With the pegboard + T-nut grid, we could add multiple clamps at once and place them wherever we needed, which helped prevent rotation, sliding, or lifting. If a workpiece had a slight warp, we could clamp at multiple corners to force it flat against the board, which improved consistency in burn depth.
+      </p>
+
+      <p>
+        In practice, this was one of the parts that made the machine feel “usable” instead of just “functional.” It made setup faster, it let us swap parts without redoing the entire layout, and it gave repeatable positioning because we could reference the hole grid each time. If we had more time, we would likely add reference features (like a printed/etched coordinate system or a physical fence) so that aligning a piece to a known origin was even quicker and more repeatable.
+      </p>
+      </div>
+
+      <div class="mech-image-stack">
+        <img src="media/base.png" alt="CAD of Base Board">
+        <img src="media/board_cut.png" alt="Base board photo 1">
+        <img src="media/alana_board.png" alt="Base board photo 2">
+        <img src="media/clamped.JPG"  alt="Base board photo 3">
+      </div>
+    </div>
+
+  </div>
+
+  <div class="mech-block" id="mech-x">
+    <h3>X-Axis</h3>
+        <div class="mech-video">
+      <video autoplay muted loop playsinline>
+        <source src="media/videos/X_axis_movement.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    
+    <div class="mech-main">
+      <div class="mech-text">
+        <p><strong>Design Concepts:</strong></p>
+
+        <p>
+          For our x-axis, we started out with the basic idea of having an idler pulley on one side and a stepper motor driving the pulley on the other side. We wanted to attach the pen holder to the belt so that it would move along the x-axis as the motor moved the belt. To make sure that it would be secure, we added the mounts for the rail.
+        </p>
+
+        <p>
+          We were originally planning on having each side supported by the same linear slide, but we found that each rail introduced a lot of friction into our y-axis movements, so we changed to a slider that mounted onto the extrusion. This made it so that we had to change the base of the mount so that it would be able to fit on the new slider.
+        </p>
+
+        <p>
+          We extended the slots for the motor to allow it to slide back and forth. This would allow us to tension the belt. We also added a wall on the side with a screw hole in it which would allow space for a press plate that could be screwed in or loosened to apply more or less pressure to the side of the motor, for tensioning.
+        </p>
+
+        <p>
+          When we tested the early versions of the x-axis, we had the motor and the idler pulley much lower down and they were at the edge of the mount. To make the spacing work better with the z-axis, we had to move the pulleys higher and further in. As a result, we found that we needed much more support in a lot of key areas when testing our design.
+        </p>
+
+        <p>
+          The tension from the belt was causing the idler pulley support to bend inwards and we were worried that the axle it was on would snap. We also noticed that when we would push on one side, the other side would lag behind slightly, resulting in a noticeable gap when the side we were pushing on would reach the end of the y-axis.
+        </p>
+
+        <p>
+          We figured that this was a result of the shallow supports for the rail as well as the pliability of the 3D prints. We also noticed that moving the motor in made supporting the face it was mounted to much more difficult since there was a screw hole right next to the motor’s side. Since the other side of the motor hung out over the edge of our machine, the best side to support the face on to prevent bending was the one that was over the screw hole.
+        </p>
+
+        <p>
+          After our initial testing, we made a bunch of adjustments to improve the stability. First, we changed the depth of the rail supports from 5 mm to 10 mm and added support holes that we would be able to run a metal axle through to provide more stiffness without losing more workspace to the rail being pushed further into the mounts.
+        </p>
+
+        <p>
+          We also added a second side for the idler pulley mount and changed it so that the axle would no longer be 3D printed and would instead be a metal axle that we would put in after the print. Lastly, we added an I-beam under the motor so that it would no longer be hanging off the back of the mount, and we added a roof to the motor mount which would connect it to a wall that was perpendicular to the mount, allowing for better support.
+        </p>
+
+        <p>
+          As a part of some final adjustments after more testing, we added a slot on top of the rail mount for the limit switch to go in and a slot on the side of the mount to allow for wire management. We also added holes into the top of the motor mounts so that we would be able to see if the rails were fully pressed into the mounts.
+        </p>
+
+        <p>
+          Finally, we extended the rail mount holder further back. After the initial testing, we also added the belt mount on the side of the motor mount, which would allow it to be mounted to the y-axis belt so that it could be moved back and forth.
+        </p>
+
+        <p>
+          After doing more testing, we found that the 3D print tolerancing was causing issues where the distance between the two sides of the mount was slightly less than that of the rail length, so the rail would be pushing the two sides apart, causing issues with movement and leveling. We also extended the back part of the rail mount holders back to allow for better support for the rail holder. This also allowed us to support the pulley walls on the idler pulley side, so they would be less likely to bend.
+        </p>
+      </div>
+
+      <div class="mech-image-stack">
+        <img src="media/x_axis.png" alt="X-Axis CAD">
+        <img src="media/x_axis_side.png" alt="X-axis photo 1">
+        <img src="media/X-Axis_Idler_Pulley_Mount_v1.png" alt="X-axis photo 2">
+        <img src="media/X-Axis_Idler_Pulley_Mount_v2.png" alt="X-axis photo 3">
+        <img src="media/X-Axis_Motor_Mount.png" alt="X-axis photo 4">
+      </div>
+    </div>
+
+
+  </div>
+
+  <div class="mech-block" id="mech-y">
+    <h3>Y-Axis</h3>
+        <div class="mech-video">
+      <video autoplay muted loop playsinline>
+        <source src="media/videos/Y_axis_movment.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="mech-main">
+      <div class="mech-text">
+        <p><strong>Design Concepts:</strong></p>
+        <p>
+        The Y-axis mounts were designed to clamp onto the aluminum extrusions while also allowing belt tensioning. We added slots into the design so we could adjust tension by shifting parts slightly rather than being locked into a single position. That ended up being important because belt tension made a huge difference in how smoothly the axis moved and how much backlash we got.
+      </p>
+      <p>
+        To attach the mounts to the extrusion, we added press-fit style protrusions that line up with the extrusion profile. The goal was to make it easier to assemble and keep everything square without needing a bunch of extra hardware. We also learned pretty quickly that if the Y-axis isn’t level, the whole machine feels “off” and the motion gets inconsistent, so the base of the 3D print had to be thick enough to keep the axis aligned and stiff. Since that thickness adds weight and extra 3D print time we added light-weighting cutouts to remove material where it wasn’t doing much structurally, so the part stayed strong but didn’t feel unnecessarily bulky.
+      </p>
+      <p>
+        For the limit switch placement, we mounted it on the motor side because it was closer to the motor box, which reduced wiring complexity and kept the switch wiring shorter. That also made it easier to route everything through the extrusion slots instead of running wires across open space.
+      </p>
+      <p>
+        Looking back, one improvement would be adding more fillets—especially in the direction the belt pulls. The belt applies a lot of force in a pretty specific direction, and some of our sharper corners / thin features were definitely stress concentrators. More fillets would make those areas less likely to crack or snap over time, especially since 3D printed parts are more sensitive to stress concentrations.
+      </p>
+      </div>
+
+      <div class="mech-image-stack">
+        <img src="media/y_axis.png" alt="Y-Axis CAD">
+        <img src="media/x_motor2.png" alt="Y-axis photo 2">
+        <img src="media/Y-axis pulley.png" alt="Y-axis photo 3">
+      </div>
+    </div>
+
+  </div>
+
+  <div class="mech-block" id="mech-z">
+    <h3>Z-Axis</h3>
+        <div class="mech-video">
+      <video autoplay muted loop playsinline>
+        <source src="media/videos/Z_axix_movment.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="mech-main">
+      <div class="mech-text">
+        <p><strong>Design Concepts:</strong></p>
+
+        <p>
+          The Z-axis assembly moves the wood burner up and down and is the part that is connected to and moves on the x axis.
+        </p>
+
+        <h4>Design needs</h4>
+        <p>
+          First, we determined the design needs for the Z-axis mount. It had to attach to the linear slide on the x axis, clamp the ends of the pulley, hold the wood burning pen, and be able to move the pen up and down. We wanted the Z-axis mount to be small and lightweight so the other axes had less mass to move. When testing the woodburner, we found that the depth of the wood burning tip into the wood had a large impact on the line produced. We knew we needed precise control of the pen, and it had to be sturdy and easily adjustable. We determined a lead screw would be best for this.
+        </p>
+
+        <h4>Fundamental design</h4>
+        <p>
+          The fundamental design for the Z-axis mount is a woodburning pen clamped into a slider that rides on support rails and is moved by a lead screw. A motor is attached to the lead screw with a coupler. A mounting piece holds the rails and the motor in place. The back of the mount has holes to attach to the X-axis linear slide and a clamp for the belt.
+        </p>
+
+        <h4>Manufacturing</h4>
+        <p>
+          We considered using a mill to make the mount and slider so that the holes could be precisely positioned, reducing friction and instability. This would have been very time consuming and difficult to iterate on, so we looked at 3D printing instead. The rods and 3D prints would have some give to them and we designed the slide to be tall enough to not be able to rotate and jam on the rods, so it is not crucial to have exact precision. We decided to go with 3D printing the mount and slide.
+        </p>
+
+        <h4>Sizing</h4>
+        <p>
+          We debated a lot about the travel length of the Z-axis. We wanted a enough movement to allow for different thicknesses of wood to be used in the machine, but not make the assembly too tall and unstable. The shortest lead screw available was 100mm, which was close to the length of the axis we wanted, so we designed the mount around it.
+        </p>
+
+        <h4>Rod mounts</h4>
+        <p>
+          We were able to get free metal rods that were about 95mm and thought it would be easy to use them. The first problem we ran into was the coupler and motor shaft adding length at the top of the lead screw such that our rods couldn’t span the whole distance. Our first design had a large block that offset the motor and shaft collar to counter this.
+        </p>
+
+        <p>
+          We were not able to find bolts that exactly matched this size so we couldn’t attach the motor. It also would have been very difficult to get the bolts in with this configuration. We tried another design where the motor mount was thinner and there were parts extending out for the rods.
+        </p>
+
+        <p>
+          Ultimately, we decided this was not necessary and got longer rods that we could cut to length to match the motor mount.
+        </p>
+
+        <h4>Hole tolerancing</h4>
+        <p>
+          Another problem we ran into was tolerancing the holes for the rails. The mount needed to have a tight press fit to keep the rod in place and the slider needed to be just loose enough to slide easily without wobbling. We tried printing the pieces then drilling out the holes to exact size, but this melted them and made the holes worse. We printed a test piece with different holes to see which would be the best fit for each.
+        </p>
+
+        <p>
+          We somehow read test piece upside and backwards, and made the holes way too big on the next print. With a little more brainpower, we got a perfect fit.
+        </p>
+
+        <p>
+          If we had more time we would add something to secure the rods in place other than a press fit. The press fit was good at first, but wore out over time, allowing the slide to move the rod and fall out of place.
+        </p>
+
+        <h4>Slide and wood burner clamp</h4>
+        <p>
+          Our teaching team raised a concern about the tip of the wood burner getting caught when it hit different grains in the wood and recommended adding some compliance to it. We thought about using springs or elastics, but figured it would be difficult to make it stable enough. We decided to mount the pen in a sponge. Unfortunately, the two sponges we tried shrunk and hardened when they were dry. The sponge had to be clamped extra tightly, but it still came loose over time. If we had more time we would have tried different kinds of foam. The sponge also may not have been needed at all, because there was enough play in the rest of the machine.
+        </p>
+
+        <h4>3D printing</h4>
+        <p>
+          When designing the parts, we kept in mind how they would be 3D printed. We decided to print the mount on its side so the filament layers were strongest across the height of the piece and supported the top and bottom. We printed the slide flat so that the holes were as smooth and consistent as possible. The areas that needed precision could not be printed with supports.
+        </p>
+
+        <h4>Belt clamp</h4>
+        <p>
+          On the back of the Z-axis mount there is a small channel that the two ends of the belt rest in. Two other pieces have grooves in them that match the teeth of the belt. They are bolted to the mount, clamping the belt in place.
+        </p>
+
+        <h4>Limit Switch</h4>
+        <p>
+          We added a limit switch at the bottom of the axis to make zeroing to the lowest point easier and stop the tip of the wood burning pen from hitting something and breaking. At the end of the project, we learned that it would have been better to mount it to the top since the pen should not have to go all the way down to zero. While testing, there were a few times where the slide was raised too high and hit shaft coupler, binding it and getting stuck. We had to use pliers to get it loose. A limit switch on the top would help prevent this. Ironically, a previous design with the rod standoffs would have had a better hard stop that also prevented binding.
+        </p>
+      </div>
+
+      <div class="mech-image-stack">
+        <img src="media/z_axis.png" alt="Z-Axis CAD">
+        <img src="media/Z_axis_back.png" alt="Z-axis photo 1">
+        <img src="media/Z_axis_exploded.png" alt="Z-axis photo 2">
+        <img src="media/3D_print.png" alt="Z-axis photo 3">
+        <img src="media/Z_axix_clamp.png" alt="Z-axis photo 3">
+      
+      </div>
+    </div>
+
+  </div>
+
+  <div class="mech-block" id="mech-motor-house">
+    <h3> Electronics House </h3>
+
+    <div class="mech-main">
+      <div class="mech-text">
+        <p><strong>Design Concepts:</strong></p>
+        <p>
+        We made the electronics house to keep all of the electronics in one organized place: the TB6600 drivers, the proto board, and the Arduino. Early on, our wiring was kind of chaotic, and troubleshooting was taking forever because we couldn’t easily track what was connected where. Having a dedicated enclosure made it way easier to wire everything cleanly, label things, and quickly access components when something wasn’t working.
+      </p>
+      <p>
+        Inside, we laid it out so the motor drivers each have their own “shelf” row, because each driver needed similar wiring and it helped us keep the wiring grouped by axis. Then we mounted the Arduino and proto board up top like a service section, since those were the things we were constantly touching while debugging GRBL, changing pin connections, or checking ground routing.
+      </p>
+      <p>
+        We laser cut the motor house out of MDF because it was fast, easy to iterate, and stiff enough for an enclosure. MDF also worked well because we could cut precise slots/holes for wires and mounting points without needing complicated manufacturing.
+      </p>
+      <p>
+        Looking back, even though having exposed wires was nice for troubleshooting, the final design would be better if the box was bigger and more enclosed. A door or cover would make the machine look way cleaner and also protect the wiring from getting snagged or bumped. Ideally it would still be easy to open when we need to debug, but closed during actual operation so everything is protected and hidden.
+      </p>
+      </div>
+
+      <div class="mech-image-stack">
+        <img src="media/motor_house.png" alt="Motor House CAD">
+        <img src="media/motor_wiring.png" alt="Motor house photo 2">
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<section id="prototype">
+  <h2>Prototype</h2>
+
+  <p>It all eventually came together! </p>
+
+  <h3>Prototype Gallery</h3>
+
+  <div class="prototype-gallery">
+    <img src="media/start.jpg" alt="Prototype photo 1">
+    <img src="media/old_prints.jpg" alt="Prototype photo 2">
+    <img src="media/sanding.png" alt="Prototype photo 4">
+    <img src="media/built.jpg" alt="Prototype photo 3">
+    <img src="media/sponge.jpg" alt="Prototype photo 5">
+    <img src="media/messy.png" alt="Prototype photo 6">
+    <img src="media/3D_prints.jpg" alt="Prototype photo 7">
+    <img src="media/laser.jpg"alt="Prototype photo 8">
+    <img src="media/new_wire.jpg" alt="Prototype photo 9">
+    <img src="media/corner.jpg" alt="Prototype photo 10">
+    <img src="media/yellow.jpg"  alt="Prototype photo 10">
+    <img src="media/grind.jpg"  alt="Prototype photo 10">
+  </div>
+</section>
+
+<hr>
+
+<section id="budget-breakdown">
+  <h2>Budget Breakdown</h2>
+
+  <h3>Overview</h3>
+  <p>
+    Estimated spending is what we would have spent if we purchased every item (including items that were found/borrowed).
+    Total spending is what we actually paid out-of-pocket.
+  </p>
+
+  <h3>Budget Summary</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Budget Item</th>
+        <th>Amount ($)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Project Budget</strong></td>
+        <td><strong>$250.00</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Estimated Spending (if purchased all parts)</strong></td>
+        <td><strong>$598.83</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Total Spending (actual)</strong></td>
+        <td><strong>$225.78</strong></td>
+      </tr>
+      <tr>
+        <td><strong>Amount Left</strong></td>
+        <td><strong>$24.22</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Bill of Materials (BOM)</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Part Name</th>
+        <th>Qty</th>
+        <th>Unit Cost ($)</th>
+        <th>Total Cost ($)</th>
+        <th>Estimated Cost If Purchased ($)</th>
+        <th>Vendor/Source</th>
+        <th>Link</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>80/20 Aluminum Extrusion</td>
+        <td>1</td>
+        <td>$47.35</td>
+        <td>$0.00</td>
+        <td>$47.35</td>
+        <td>Shop</td>
+        <td><a href="https://www.mcmaster.com/47065T101/" target="_blank" rel="noopener noreferrer">Link</a></td>
+        <td>found</td>
+      </tr>
+
+      <tr>
+        <td>Limit Switches</td>
+        <td>3</td>
+        <td>$2.99</td>
+        <td>$0.00</td>
+        <td>$8.97</td>
+        <td>PIE Bins</td>
+        <td><a href="https://www.gobilda.com/micro-limit-switch-roller-lever-2-pack/?setCurrencyId=1&sku=3103-0001-0001&srsltid=AfmBOorGQJpQ5NiX-PnrOGTcluW431hNdzg3Mj_hRMCGaePOG6OT9N5Xr-Y" target="_blank" rel="noopener noreferrer">Link</a></td>
+        <td>found</td>
+      </tr>
+
+      <tr>
+        <td>GT2 idler pulley</td>
+        <td>2</td>
+        <td>$8.99</td>
+        <td>$0.00</td>
+        <td>$17.98</td>
+        <td>Mech Proto</td>
+        <td><a href="https://www.amazon.com/WINSINN-Aluminum-Timing-Pulley-Printer/dp/B07BPGYX3G/ref=sr_1_3?dib=eyJ2IjoiMSJ9.E0CUe94c7G6RnNxkI1F_amWzLyY4eViOUyd9XEzqS_0HCdZlnnKs60SacjLF7NSzb6dvD0Fot5AcIeYaxOJknmQd_KUkYhMdfbsMFnw_LzIk0sZ0ZA9p6G1_Fu8xS0zWryGgOczk9wlLhvZZeJwHwf4JHxHK9WnCLqrPTRtmNAkDgwZ7x4dGZV_9kwPZYbvEuHcurnhDg7TYqbjG_qfC4dSR5T6PC0FXONir86WyNug.ul7eWoYJ9vNxY1oCk6uKSGuGIl6jATI3Y8XzqsDeIto&dib_tag=se&keywords=GT2%2BIdler%2BPulley&qid=1765285511&sr=8-3&th=1" target="_blank" rel="noopener noreferrer">Link</a></td>
+        <td>found</td>
+      </tr>
+
+      <tr>
+        <td>GT2 pulley with set screws</td>
+        <td>2</td>
+        <td>$3.75</td>
+        <td>$0.00</td>
+        <td>$7.50</td>
+        <td>Mech Proto</td>
+        <td><a href="https://makerstore.cc/product/belt-gt2-6w-5-tp16/?srsltid=AfmBOopF9WGPlqPzKi5lXww8pWWPM7TC33FGAfAWG-nU-jPCHxKFsb-o" target="_blank" rel="noopener noreferrer">Link</a></td>
+        <td>found</td>
+      </tr>
+
+      <tr>
+        <td>1/4&quot; Peg Board</td>
+        <td>1</td>
+        <td>$25.88</td>
+        <td>$0.00</td>
+        <td>$25.88</td>
+        <td>Shop</td>
+        <td><a href="https://www.amazon.com/Daanxw-Universal-Pegboard-Accessories-Organization/dp/B0DXK4ZGPB/ref=sr_1_3?dib=eyJ2IjoiMSJ9.3QWffsR3zlX9Ka3Vwly6_sPLiiBHg8Dx82sKGUFvYpiiq95WpwiKI0zFnmlDuC4QZkFJhrQIrKNyW5pKGsSaomPG_L0fzva3qoOYelPRcdi4RourirH8P5Fy4bYXfr7oMsy1w96gFrB85ld79L2gWrYTsV-mrJCx65bMrU2kn9OIhNi8EVE_USlG7rEGTlEUN0vdcG8fWmjCwOyGmU4mdg-nxwkJJADodo8qTVMXaZY.rNTPdACOFb3B_Ro7P4Xcf_ZXdaNMMH0asuVfkw3oC4w&dib_tag=se&hvadid=174244685955&hvdev=c&hvexpln=0&hvlocphy=9002079&hvnetw=g&hvocijid=3145182808449686486--&hvqmt=e&hvrand=3145182808449686486&hvtargid=kwd-375653844426&hydadcr=948_9642199&keywords=1%2F4%2Bpegboard&mcid=c37d64c570603234a61bd52f58af1c0d&qid=1765288616&sr=8-3&th=1" target="_blank" rel="noopener noreferrer">Link</a></td>
+        <td>found (8&quot; x 12&quot;)</td>
+      </tr>
+
+      <tr>
+        <td>1/8&quot; MDF</td>
+        <td>1</td>
+        <td>$1.25</td>
+        <td>$0.00</td>
+        <td>$1.25</td>
+        <td>Foundry</td>
+        <td><a href="https://makerstock.com/products/mdf" target="_blank" rel="noopener noreferrer">Link</a></td>
+        <td>found (8&quot; x 12&quot;)</td>
+      </tr>
+
+      <tr>
+        <td>Heat Set Inserts</td>
+        <td>1</td>
+        <td>$18.63</td>
+        <td>$0.00</td>
+        <td>$18.63</td>
+        <td>Mech Proto</td>
+        <td><a href="https://www.mcmaster.com/93365A102/" target="_blank" rel="noopener noreferrer">Link</a></td>
+        <td>found</td>
+      </tr>
+
+      <tr>
+        <td>M4 Nut</td>
+        <td>1</td>
+        <td>$13.24</td>
+        <td>$0.00</td>
+        <td>$13.24</td>
+        <td>Shop</td>
+        <td><a href="https://www.mcmaster.com/91290A140/" target="_blank" rel="noopener noreferrer">Link</a></td>
+        <td>found</td>
+      </tr>
+
+      <tr>
+        <td>M3 Nuts</td>
+        <td>1</td>
+        <td>$11.58</td>
+        <td>$0.00</td>
+        <td>$11.58</td>
+        <td>Shop</td>
+        <td><a href="https://www.mcmaster.com/91290A111/" target="_blank" rel="noopener noreferrer">Link</a></td>
+        <td>found</td>
+      </tr>
+
+      <tr>
+        <td>Wood T Nuts</td>
+        <td>1</td>
+        <td>$11.59</td>
+        <td>$0.00</td>
+        <td>$11.59</td>
+        <td>Mech Proto</td>
+        <td><a href="https://www.insertsdirect.com/product/t-nut-steel-m3-x-5mm-23" target="_blank" rel="noopener noreferrer">Link</a></td>
+        <td>found</td>
+      </tr>
+
+      <tr>
+        <td>HGW15CC linear slider with 350 mm rail</td>
+        <td>1</td>
+        <td>$8.87</td>
+        <td>$0.00</td>
+        <td>$8.87</td>
+        <td>Prof Jesse</td>
+        <td><a href="https://limobearing.com/hg15-20-25-linear-guide?srsltid=AfmBOopmvGV2JfsaR-6nTsPi40HdPjbzB54rGkimeJfZ_YmrQRP3H-616Fw" target="_blank" rel="noopener noreferrer">Link</a></td>
+        <td>found</td>
+      </tr>
+
+      <tr>
+        <td>HGW20CCZAC linear slide with 340 mm rail</td>
+        <td>1</td>
+        <td>$91.75</td>
+        <td>$0.00</td>
+        <td>$91.75</td>
+        <td>Jesse</td>
+        <td><a href="https://motionconstrained.com/store/hiwin-linear-guides/hiwin-hg-series-linear-guides/hg-linear-guide-sets/hiwin-hgw20cczac-flange-block-linear-guides/?srsltid=AfmBOooKd7zz5SS48CDXbjKnOqjNrqqi-Ur-FfuEpvZihXlVxXP0mgOv" target="_blank" rel="noopener noreferrer">Link</a></td>
+        <td>found</td>
+      </tr>
+
+      <tr>
+        <td>10 Series 3 Slot Mount - Double Flange Short Standard Linear Bearing with Brake Holes</td>
+        <td>1</td>
+        <td>$64.10</td>
+        <td>$0.00</td>
+        <td>$64.10</td>
+        <td>Shop</td>
+        <td><a href="https://8020.net/6425.html" target="_blank" rel="noopener noreferrer">Link</a></td>
+        <td>found</td>
+      </tr>
+
+      <tr>
+        <td>1/4&quot; steel rod</td>
+        <td>1</td>
+        <td>$5.42</td>
+        <td>$0.00</td>
+        <td>$5.42</td>
+        <td>Shop</td>
+        <td><a href="https://www.homedepot.com/p/Everbilt-1-4-in-x-3-ft-Plain-Steel-Solid-Round-Rod-0001/332734314" target="_blank" rel="noopener noreferrer">Link</a></td>
+        <td>found</td>
+      </tr>
+
+      <tr>
+        <td>Screw-in rubber feet</td>
+        <td>1</td>
+        <td>$7.08</td>
+        <td>$0.00</td>
+        <td>$7.08</td>
+        <td>Shop</td>
+        <td><a href="https://www.walmart.com/ip/Zehuanyu-4pcs-Furniture-Leveling-Rubber-Feet-With-Screws-Threaded-Furniture-Levelers-Adjustable-Feet-Leveling-Foot-Pads-Adjustable-Furniture-Legs/15348852762?wmlspartner=wlpa&selectedSellerId=101681645&selectedOfferId=CE2BC44161C632A39193F87A9B628939&conditionGroupCode=1" target="_blank" rel="noopener noreferrer">Link</a></td>
+        <td>found</td>
+      </tr>
+
+      <tr>
+        <td>Black PLA</td>
+        <td>1</td>
+        <td>$22.99</td>
+        <td>$0.00</td>
+        <td>$22.99</td>
+        <td>Foundry</td>
+        <td><a href="https://www.bestbuy.com/product/bambu-lab-1-75mm-pla-basic-filament-black/CZTZV9Z73L/sku/6609453?utm_source=feed&extStoreId=436" target="_blank" rel="noopener noreferrer">Link</a></td>
+        <td>found</td>
+      </tr>
+
+      <tr>
+        <td>Tight-tolerance aluminum rod</td>
+        <td>1</td>
+        <td>$8.87</td>
+        <td>$0.00</td>
+        <td>$8.87</td>
+        <td>Mech Proto</td>
+        <td><a href="https://www.mcmaster.com/9062K26-9062K352/" target="_blank" rel="noopener noreferrer">Link</a></td>
+        <td>found</td>
+      </tr>
+
+      <tr>
+        <td>Nema 17 Stepper Motor 2 Phase 1.8° 0.6Nm</td>
+        <td>3</td>
+        <td>$17.09</td>
+        <td>$51.27</td>
+        <td>$0.00</td>
+        <td>Amazon</td>
+        <td><a href="https://www.amazon.com/YEJMKJ-Stepper-84-97oz%C2%B7-Bipolar-Printer/dp/B0FHHYDRMT/ref=sr_1_3?crid=30MVFK0Y7L4WQ&dib=eyJ2IjoiMSJ9.4zT9TEEYAgem-FwCmPswM4teNSFEGFPZ1xUL3rWBVfXKvM6Ec9Og1Afc-9MzLZX3JIbnwu2_GgXwOqUg_VKMPsN41XP6vAVKbiTgx0iWQtmYd8C4QvqW8v3rF9aWIZf6-5hIqvzKJ9HkFoAS9Bj-wpuv0KWJ3qqcS9nVTqB9Z70GemD3gNyssgC3842Chqt3ANtLwFF0_mFg0MxUlziulO_4EyBtTlXZw8u3DZl6kiM.VIILIdl0C24sA1r34GU4nsI6IA007a8FVRiZzBN8cDs&dib_tag=se&keywords=nema+17+motors+0.6Nm&qid=1761853529&sprefix=nema+17+motors+0.6nm+%2Caps%2C110&sr=8-3" target="_blank" rel="noopener noreferrer">Link</a></td>
+        <td>ordered</td>
+      </tr>
+
+      <tr>
+        <td>3 PCS of TB6600 Stepper Motor Driver</td>
+        <td>1</td>
+        <td>$24.99</td>
+        <td>$24.99</td>
+        <td>$0.00</td>
+        <td>Amazon</td>
+        <td><a href="https://www.amazon.com/TB6600-Stepper-Driver-Controller-Controls/dp/B07GVFTHPT/ref=sr_1_5_sspa?dib=eyJ2IjoiMSJ9.DV2d9vwZ0sXoq5XN-GLoL2t7FNZplLIuFuSYkx03mo4MwZ2YLsWKDMaFpPA9Wis_pxJKPpu5u2Fo4v-FysP0B5elZRmqck8ce0P1g1dOggnPtsrUcEv11duQk-fmYqOAnM1X3wTYEEsMma_OaGd_dOCw0tcUDhpAexXor0BlJeWkfm5oZHBAReiNqOeTy8JsA3IWZkJNBnHlV0BUV_oq6A1ROegbT_JRLw7mWhq6XtFEmWDmWT2-LBL1Qh4omW04YoA05RMc0cGzrO8SKsJOitxoi53kEjMhFnzei37tvzU.zyXQvr12KFvLVAblYuV2CP4GbH1UGf8rd5lS5It1ddM&dib_tag=se&keywords=tb6600&qid=1761861608&sr=8-5-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1" target="_blank" rel="noopener noreferrer">Link</a></td>
+        <td>ordered</td>
+      </tr>
+
+      <tr>
+        <td>Arduino UNO R4 WiFi</td>
+        <td>1</td>
+        <td>$27.50</td>
+        <td>$27.50</td>
+        <td>$0.00</td>
+        <td>Amazon</td>
+        <td><a href="https://www.amazon.com/Arduino-UNO-WiFi-ABX00087-Bluetooth/dp/B0C8V88Z9D/ref=sr_1_2?crid=29HAHNXUYVU8O&dib=eyJ2IjoiMSJ9.Z0pqYhv8ZS5vMrYnsMRm1R0xbsZht3LjB4IQscLlumxhnZG5eudwvsegtvpf1bp4QwxbCZv-TLdgGt2qSCbABbnrejSpWolCG6z0rKzZUeP9UD0F-qW6GMs1RXM-ay-NsJEEv_tiEutQQV4LNFfr060wFvKMIAyPwRTZtpEKpwSSay7sTqyvYTQhp8J8c7a8JzO06VZcu9bUyJ7-8atk7yfYmYCXtJb3in2pa30PLgU.xLq4Jd5ddHem-kBK5tOhbiVuAls1H-Xw2A23HuAwjt4&dib_tag=se&keywords=arduino&qid=1762209839&sprefix=arduino+%2Caps%2C131&sr=8-2" target="_blank" rel="noopener noreferrer">Link</a></td>
+        <td>ordered</td>
+      </tr>
+
+      <tr>
+        <td>GT2 Timing Belt Pulley 20 Teeth, 5mm Bore, for 6mm Width Belt</td>
+        <td>1</td>
+        <td>$6.99</td>
+        <td>$6.99</td>
+        <td>$0.00</td>
+        <td>Amazon</td>
+        <td><a href="https://www.amazon.com/WINSINN-Aluminum-Synchronous-Timing-Printer/dp/B077GNZK3J/ref=sr_1_3?dib=eyJ2IjoiMSJ9.FBvR3J52Y6g3359BrrjkdX-J7orNsrpB9HhHGEC3T1Ez-OAXkv3cjyN3zsRr5nKtzKgITU9ws97BcT93sC65UqnkWPjsQtK1zHnm6PbmNpV9YjEg9igxWG_4V7GO8Wn2D8XAayiCHprfLCWZ3K3jK7wATdF-DLKNiJjVOx6CWUW8Y6OE8lWDLbSMuzlw-PxkbnC8WoCOfMhkkBt5QZLTmP5S8ijHw-7ZOxX5QEXRFdc.YqpkBzkgzBo7ztcex2_AYGlQ0fgx6TsMRFq04IM3--U&dib_tag=se&keywords=gt2%2Bpulley&qid=1761855164&sr=8-3&th=1" target="_blank" rel="noopener noreferrer">Link</a></td>
+        <td>ordered</td>
+      </tr>
+
+      <tr>
+        <td>Wood Burning Tool</td>
+        <td>1</td>
+        <td>$39.99</td>
+        <td>$39.99</td>
+        <td>$0.00</td>
+        <td>Amazon</td>
+        <td><a href="https://www.amazon.com/FIRElood-Pyrography-Burning-Upgraded-Adjustable/dp/B09N78455D/ref=sr_1_6?crid=14XCJLNJSYELA&dib=eyJ2IjoiMSJ9.OSr12Bm3zqXkk5zyMigYeJcUdX3P6vhkvoOyzW0UGmhtohgiL26gKoTaeswb-7UN2LbQyoBTtiMY6ZzwA0pkcs6Cmek10IdEhigUAnCNdG1BFNsF7NLJBzCuEwG8Ip7u5tDQL4sXxEkEDO-kotw4pWCP8MrF7ZWSRsRdBUBaOb-j04ox3wUuPQFnmNX5z8qG6htm0HlBVsisfV4OpcZdoEhrS_AmFaQgM9lVv25NRCdReLQeSiCC7232jxosvMRHN1d10XjW0ps1PKsd9fQ-yVPfGKmm_MPfyjK72yBQFDg.5U2cd2WwO-8MIb1Sj-dqddgGgenjADDp5zerpwb_eV4&dib_tag=se&keywords=wire%2Bnib%2Bwood%2Bburning%2Bkit&qid=1761664495&sprefix=wire%2Bnib%2Bwoo%2Caps%2C108&sr=8-6&th=1" target="_blank" rel="noopener noreferrer">Link</a></td>
+        <td>ordered</td>
+      </tr>
+
+      <tr>
+        <td>20 Sets Silver 2020 Corner Bracket Kit</td>
+        <td>1</td>
+        <td>$14.64</td>
+        <td>$14.64</td>
+        <td>$0.00</td>
+        <td>Amazon</td>
+        <td><a href="https://www.amazon.com/dp/B0F1B1N5N1/ref=sspa_dk_detail_2?pd_rd_i=B0F1B1N5N1&pd_rd_w=MeK8G&content-id=amzn1.sym.f2f1cf8f-cab4-44dc-82ba-0ca811fb90cc&pf_rd_p=f2f1cf8f-cab4-44dc-82ba-0ca811fb90cc&pf_rd_r=2V1348DBYHHJZTTQBHBY&pd_rd_wg=E1K7p&pd_rd_r=b3bf1f20-c925-435e-89a9-834e105c5646&s=hi&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWxfdGhlbWF0aWM&th=1" target="_blank" rel="noopener noreferrer">Link</a></td>
+        <td>ordered</td>
+      </tr>
+
+      <tr>
+        <td>2PCS Shaft Coupling 5mm to 8mm Aluminum Alloy Joint</td>
+        <td>1</td>
+        <td>$8.54</td>
+        <td>$8.54</td>
+        <td>$0.00</td>
+        <td>Amazon</td>
+        <td><a href="https://www.amazon.com/gp/product/B08ZJ854Z6/ref=ewc_pr_img_1?smid=A2OAD9ZL8SZ02P&th=1" target="_blank" rel="noopener noreferrer">Link</a></td>
+        <td>ordered</td>
+      </tr>
+
+      <tr>
+        <td>100mm Length T8 8mm Dia Lead Screw Rod</td>
+        <td>1</td>
+        <td>$9.99</td>
+        <td>$9.99</td>
+        <td>$0.00</td>
+        <td>Amazon</td>
+        <td><a href="https://www.amazon.com/gp/product/B07QW5N7B2/ref=ewc_pr_img_2?smid=A1THAZDOWP300U&psc=1" target="_blank" rel="noopener noreferrer">Link</a></td>
+        <td>ordered</td>
+      </tr>
+
+      <tr>
+        <td>NICE-POWER DC Power Supply</td>
+        <td>1</td>
+        <td>$30.39</td>
+        <td>$30.39</td>
+        <td>$0.00</td>
+        <td>Amazon</td>
+        <td><a href="https://a.co/d/6oQ0Iog" target="_blank" rel="noopener noreferrer">Link</a></td>
+        <td>ordered</td>
+      </tr>
+
+      <tr>
+        <td>Cable Sleeve</td>
+        <td>1</td>
+        <td>$8.99</td>
+        <td>$8.99</td>
+        <td>$0.00</td>
+        <td>Amazon</td>
+        <td><a href="https://www.amazon.com/dp/B07FW3GTXB?smid=A2N7NRZ9X3BHHN&ref_=chk_typ_imgToDp&th=1" target="_blank" rel="noopener noreferrer">Link</a></td>
+        <td>ordered</td>
+      </tr>
+
+      <tr>
+        <td>Sponge</td>
+        <td>1</td>
+        <td>$2.49</td>
+        <td>$2.49</td>
+        <td>$0.00</td>
+        <td>Roche Bros</td>
+        <td><a href="https://onlineshopping.rochebros.com/products/simply-done-all-purpose-large-sponges/3845195" target="_blank" rel="noopener noreferrer">Link</a></td>
+        <td>ordered</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+</body>
+</html>
