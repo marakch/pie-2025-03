@@ -168,21 +168,25 @@
 						    <div class="spotlight">
 						        <div class="content">
 						            <h3><strong>Plugboard</strong></h3>
-						            <p>words</p>
+						            <p>We wanted our plugboard to be an accurate representation of the real Enigma Machine, but with a few modernized twists. We decided that all swapping and encryption must be done physically through hardware, while the encrypted message would be displayed on a screen. We made this decision for a few reasons:</p>
+										
+										<ol>
+										  <li>The original Enigma Machine required two people to operate the machine: one person to type the encrypted letters and another to write the output down as the corresponding lightbulbs illuminated. We decided to replace the lightbulbs with a display, modernizing the machine and enabling one-person operation.</li>
+										
+										  <li>Using tiny lightbulbs for each swapped letter would have required a larger portion of our budget. Additional CAD would have been necessary to house the lightbulbs, and we would have needed to focus more heavily on wiring to display the swapped letters in this way.</li>
+										
+										  <li>The original machine process was: Battery → Keypress → Plugboard → Rotors → Plugboard → Keyswitch → Lightbulb → Battery. By replacing the lightbulbs with a display, we removed the complicated keyswitch stage (and everything after it), simplifying the system to end at “display.”</li>
+										</ol>
+										
+										<p>One trade-off that came with this decision was a delay due to ideation. Since the original machine did not include an Arduino, Raspberry Pi, or display, we needed to determine which new components to use, how data would flow between them, and how the modern additions would integrate with the original design.</p>
+
 						        </div>
 						        <span class="image">
 						            <figure>
-						                <img src="images/img.png" alt="Plugboard 1" />
-						                <figcaption>Plugboard caption 1</figcaption>
+						                <img src="images/plug.jpeg" alt="Plugboard 1" />
+						                <figcaption>Plugboard connections for each letter. </figcaption>
 						            </figure>
-						            <figure style="margin-top: 1em;">
-						                <img src="images/reflector2.jpg" alt="Plugboard 2" />
-						                <figcaption>Caption for plugboard image 2</figcaption>
-						            </figure>
-						            <figure style="margin-top: 1em;">
-						                <img src="images/reflector3.jpg" alt="Plugboard 3" />
-						                <figcaption>Caption for plugboard image 3</figcaption>
-						            </figure>
+	
 						        </span>
 						    </div>
 						    
@@ -354,3 +358,4 @@
 
 	</body>
 </html>
+
