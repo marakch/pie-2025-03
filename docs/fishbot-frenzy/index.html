@@ -182,17 +182,142 @@
 
                 <div class="phase-content-area">
                     <div class="phase-content active" id="phase-1">
-                        <h3>Coral Reef Restoration</h3>
+                        <h3><b>A Minimum Viable Product, but Integrated</b></h3>
+                        <img src="media/img/phase1/phase1_sketch.jpg" />
                         <p>
-                            Leading global initiatives to restore damaged coral
-                            reef ecosystems through innovative techniques
-                            including coral farming, assisted gene flow, and
-                            microfragmentation. Our work focuses on building
-                            climate-resilient reefs that can withstand warming
-                            ocean temperatures and increasing acidification.
+                            For the first phase of our project, we wanted to see
+                            if we could make a simple prototype of the tank, a
+                            fishing rod, a functioning bristlebot with an off
+                            switch, and a working score box that could detect
+                            the presence of a fishbot. Our goal was a basic but
+                            integrated system.
+                        </p>
+                        <br />
+
+                        <h4>Mechanical</h4>
+
+                        <p>The mechanical subteam's goal was to prototype:</p>
+                        <ol>
+                            <li>
+                                Tank: An open-air, tabletop container made such
+                                that a bristlebot/hexbug cannot escape.
+                            </li>
+                            <li>
+                                Scorebox: A rectangular box designed to hold a
+                                fishbot before it returns to the tank.
+                            </li>
+                            <li>
+                                Fishbots: Custom bristlebots constructed from
+                                toothbrush heads equipped with a small motor and
+                                battery.
+                            </li>
+                        </ol>
+                        <br />
+                        <p>
+                            Almost all of these goals were met successfully!
+                            Tank and scorebox prototypes were designed in
+                            Onshape and then laser cut from eucaboard. The
+                            fishbots were unable to leave the scorebox, but all
+                            other goals were achieved. Beyond those goals, an
+                            initial prototype of a custom fishbot 3D print was
+                            created as well.
                         </p>
 
-                        <div class="phase-stats">
+                        <br />
+
+                        <div class="display">
+                            <div class="horizontal-display">
+                                <img
+                                    src="/media/img/phase1/phase1_tank_cad.png"
+                                />
+                                <img
+                                    src="/media/img/phase1/phase1_tank_prototype.jpg"
+                                />
+                            </div>
+                            <p>Tank CAD and physical prototype</p>
+                        </div>
+
+                        <div class="display">
+                            <div class="horizontal-display">
+                                <img
+                                    src="/media/img/phase1/phase1_scorebox_cad.png"
+                                />
+                                <img
+                                    src="/media/img/phase1/phase1_scorebox_prototype.jpg"
+                                />
+                            </div>
+                            <p>Scorebox CAD and physical prototype</p>
+                        </div>
+
+                        <div class="display">
+                            <div class="horizontal-display">
+                                <img
+                                    src="/media/img/phase1/phase1_bristlebot.jpg"
+                                />
+                                <img
+                                    src="/media/img/phase1/phase1_fishbot.png"
+                                />
+                            </div>
+                            <p>
+                                Bristlebot physical prototype and CAD of fishbot
+                                shell #1
+                            </p>
+                        </div>
+
+                        <h4>Electrical</h4>
+
+                        <p>The electrical subteam's goal was to:</p>
+                        <ol>
+                            <li>
+                                Increment a score based on the presence of a
+                                fishbot using an object detection system
+                            </li>
+                            <li>Wire the fishbot to make it move</li>
+                        </ol>
+                        <br />
+                        <p>
+                            All of these goals were met! The object detection
+                            system was based on an ultrasonic sensor and created
+                            using an LED and Arduino R3 Uno.
+                        </p>
+                        <br />
+                        <div class="display">
+                            <img
+                                src="/media/img/phase1/phase1_scoring_circuit_diagram.png"
+                            />
+                            <p>Scoring sensor circuit diagram</p>
+                        </div>
+                        <p>
+                            The bristlebot was equipped with a battery, motor,
+                            and switch.
+                        </p>
+                        <video controls style="height: 500px">
+                            <source
+                                src="/media/video/phase1/Fishbot.mp4"
+                                type="video/mp4"
+                            />
+                        </video>
+
+                        <h4>Software</h4>
+                        <p>
+                            The software goal for this phase was to develop
+                            scoring logic from the object detection system, and
+                            this was successfully met. Using Arduino IDE to set
+                            a distance threshold, the program would trigger the
+                            LED based on fishbot detection, increment a score in
+                            the serial monitor, and enforce a delay to prevent
+                            repeat scoring.
+                        </p>
+
+                        <div class="display">
+                            <video controls style="height: 500px">
+                                <source
+                                    src="/media/video/phase1/pointscoring.mp4"
+                                />
+                            </video>
+                        </div>
+
+                        <!-- <div class="phase-stats">
                             <div class="stat-item">
                                 <span class="number">15</span>
                                 <span class="label">Active Sites</span>
@@ -205,9 +330,9 @@
                                 <span class="number">2.3M</span>
                                 <span class="label">Corals Planted</span>
                             </div>
-                        </div>
+                        </div> -->
 
-                        <div class="phase-details">
+                        <!-- <div class="phase-details">
                             <div class="detail-card">
                                 <h4>Microfragmentation</h4>
                                 <p>
@@ -232,7 +357,7 @@
                                     to bleaching.
                                 </p>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
 
                     <div class="phase-content" id="phase-2">

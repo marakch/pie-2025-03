@@ -777,7 +777,11 @@ section {
     font-size: 1.1rem;
     line-height: 1.8;
     color: rgba(248, 250, 252, 0.9);
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
+}
+
+.phase-content ol {
+    margin-left: 1.5em;
 }
 
 .subteam-category p {
@@ -1532,6 +1536,21 @@ footer::before {
 
 .footer-bottom a {
     color: white;
+}
+
+.display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.horizontal-display {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 250px;
+    gap: 1em;
 }
 
 /* Animations */
