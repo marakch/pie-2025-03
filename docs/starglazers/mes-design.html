@@ -1,0 +1,463 @@
+<!DOCTYPE HTML>
+<!--
+	Helios by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>Mechanical, Electrical, & Software Design</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+</head>
+
+<body class="no-sidebar is-preload">
+	<div id="page-wrapper">
+
+		<!-- Header -->
+		<div id="header">
+
+			<!-- Inner -->
+			<div class="inner">
+				<header>
+					<h1><a href="index.html" id="logo">Starglazers</a></h1>
+				</header>
+			</div>
+
+			<!-- Nav -->
+			<nav id="nav">
+				<ul>
+					<li><a href="index.html">Overview</a></li>
+					<li><a href="phase-progression.html">Phase Progression</a></li>
+					<li><a href="mes-design.html">Mechanical, Electrical, Software Design</a></li>
+					<li><a href="reflection.html">Reflection</a></li>
+				</ul>
+			</nav>
+
+		</div>
+
+		<!-- Main 1 -->
+		<div class="wrapper style1">
+
+			<div class="container">
+				<article id="main" class="special">
+					<header>
+						<h2>Mechanical, Electrical, and Software Design</h2>
+						<p>
+							The build behind the beauty.
+						</p>
+					</header>
+					<div class="image featured"><img src="images/Integrated System.JPG" alt="" /></a>
+
+					<header>
+						<h2>High-Level Design & Tradeoffs</h2>
+					</header>
+
+					<h3>Project Scale</h3>
+					<p>
+						Our initial goal was to design a portable star tracker that could be transported and deployed by
+						a single person in areas with little to no light pollution. We intentionally avoided a large,
+						stationary system that would need to remain in one location or require multiple people to move.
+						A smaller footprint also reduced manufacturing risk, which was important since this was the
+						first machining experience for some members of the team.
+					</p>
+
+					<h3>Materials & Aesthetics</h3>
+					<p>
+						One of our primary goals was to produce a machined final iteration to expand our machining
+						skills and present a more professional-level final product. At the same time, our design allows
+						for a completely 3D-printed build, which we tested extensively during earlier iterations. This
+						choice makes the system more accessible, as amateur astronomers can print the parts themselves
+						and assemble their own version. For the machined version, we chose 6061 aluminum because it is
+						easy to source, forgiving to machine, and stiff enough to prevent flex in the camera arm and
+						drive housing, which improves long-exposure image stability.
+					</p>
+
+					<h3>Design Tradeoffs</h3>
+					<ul>
+						<li>Printed vs. Machined Components: We kept the geometry printable during early development so
+							new astronomers could replicate the system without tooling. The final version used machined
+							6061 aluminum where rigidity directly improves consistency and thus image quality.</li>
+						<li>Equatorial vs. Alt-Az Alignment: An equatorial mount lets us track on a single axis once
+							aligned to Earth’s pole. This reduced the control problem and eliminated constant two-axis
+							motion. </li>
+						<li>Cycloidal Reduction vs. Planetary or Worm Gears: Cycloidal drives produce high ratios with
+							smooth motion and tolerate printed tolerances. A worm gear would stall smaller steppers and
+							microstepping would be too jittery.</li>
+						<li>NEMA-23 Steppers Instead of Smaller Motors: Smaller motors stalled during slow micro
+							stepping. NEMA-23s provided enough torque margin to avoid missed steps at 0.025deg/min
+							additionally their size and density made them integrate well into the final design as
+							structural components. </li>
+						<li>Software Timing vs. Hardware Timing: The original GPIO control suffered from Linux jitter.
+							Switching to pigpio and daemon-driven pulses fixed the timing problem and prevented step
+							loss.
+						</li>
+						<li>Standalone Camera Control vs. Manual Shooting: Automating capture through gphoto2 reduced
+							user error and allowed raw astrophotography presets instead of adjusting exposure by hand.
+						</li>
+						<li>One-Axis Tracking vs. Two-Axis Control: By aligning the RA axis mechanically, we avoided
+							writing a continuous two-axis correction loop. That made tracking simpler and more reliable.
+						</li>
+						<li>Portability vs. Size/Stiffness: A small system is easier to backpack into dark fields but
+							offers less mechanical rigidity. We accepted that trade-off and reinforced the final metal
+							version where needed.
+						</li>
+						<li>Low-Cost Replication vs. Maximum Rigidity: The BOM keeps a fully printed option viable for
+							under $250 while still supporting a higher-rigidity aluminum build for users with access to
+							a mill.
+						</li>
+					</ul>
+
+					<header>
+						<h3>Initial Design Organization</h3>
+					</header>
+					<div class="image featured"><img src="images/System Diagram.jpg" alt="" /></div>
+					<div class="image featured"><img src="images/energy flow diagram.jpg" alt="" /></div>
+					<header>
+						<h2>Mechanical Design</h2>
+						<h3><a href="https://cad.onshape.com/documents/1dc74919336345efa679b761/w/e7025ee0b5929379ea4f6567/e/13c98ee1d27b7e76d596dcc4?renderMode=0&uiState=6944e30e42b799ae9c88bd93">A link to the Starglazers OnShape can be found here.</a></h3>
+					</header>
+					<section>
+						<header>
+							<h3>Cycloidal Drive</h3>
+						</header>
+						<div class="image featured"><img src="images/Exploded View.png" alt="" /></div>
+						<p>
+							In order to smoothly track the stars, it’s crucial to be able to make miniscule movements at an extremely slow rate. The way we chose to accomplish this is through the use of a Cycloidal Drive: An unconventional type of ‘gearbox’ that can provide gear reductions inline with a shaft, at extremely high precision and with very small amounts of backlash if designed properly. The drive works by turning a flower-shaped ‘gear’ eccentrically, causing it to walk around, meshing with an outer circle of pins, and turning an internal ring of pins. There is conventionally one more pin than there are lobes, which creates a gear ratio of 1:# lobes.
+						</p>
+						<p>
+							For our purposes, we took into account a number of factors. First, the earth rotates at a rate of 0.025 degrees per minute. Secondly, our stepper motors operate at a rate of 200 steps/revolution, and we want to utilize full steps rather than micro-stepping for full accuracy. Finally, we need to follow the rotation of the earth very closely, to ensure that the star we’re interested in stays perfectly centered for long exposure photography. These factors ultimately led us to choose a 180:1 gear reduction, which gives us a rotation rate of 0.01 degrees per step on the stepper motor. This resolution ultimately provided us excellent results.
+						</p>
+						<p>
+							We chose to accomplish this ratio through a two-stage reduction. By using a 10:1 drive, inline with an 18:1, we could achieve extremely accurate results without too much additional mechanical complexity.
+						</p>
+						<p>
+							The entire assembly is made from stacked 1/4inch plates, sandwiching the cycloids in between, using press-fit pins as fasteners. While this ultimately wasn’t the best choice in terms of ease of assembly with the tools we have available, it was relatively straightforward and created a beautiful finished product. Instead of bearings, due to the compact nature of the assembly, we were forced to use low-friction bushings that combine thrust and radial support. Due to the low speeds/wear this assembly undergoes, this proved to be a perfectly reasonable choice.
+						</p>
+						<p>
+							For machining, we chose to design the entire structure to be manufactured out 1/4inch 6061 plate aluminum. We were able to source this easily, and it allowed us to be flexible in our machining strategy. While we initially intended to waterjet these parts and post-process them afterwards, we milled the major components on a fixture plate for simplicity and accuracy.
+						</p>
+					</section>
+					<section>
+						<header>
+							<h3>Camera Arm & Mount</h3>
+						</header>
+						<div class="image featured"><img src="images/DFM Arm Assembly.png" alt="" /></div>
+						<p>
+							The arm and camera mount are made up of several main components. The base plate attaches
+							directly to the cycloidal drive and includes a slot for the vertical arm. This vertical arm
+							houses the motor as well as the gear reduction, and it supports a steel pin and bearing that
+							connect to the camera mount.
+
+							The choice to use a steel shaft was important. In early iterations, we tested a 3D-printed
+							shaft, but it experienced noticeable torsional deformation due to the combined torque from
+							the camera weight and the gear reduction. Switching to steel significantly improved
+							stiffness and reduced twisting under load.
+
+						</p>
+						<p>
+							A standard off-the-shelf bearing was added to reduce friction between the pin and the arm,
+							allowing smoother rotation and reducing wear on the components. The arm plate and camera
+							mount plate were made from 3/8 inch 6061 aluminum, which provided more strength than
+							strictly necessary but helped ensure rigidity. This thickness was also practical because the
+							material was available as leftover scrap stock, allowing us to avoid purchasing additional
+							material.
+
+							The base plate for the arm was made from 1/4 inch 6061 aluminum, which matched other
+							structural components in the system and was also readily available as extra stock. Using
+							materials we already had on hand helped reduce cost while keeping the overall structure
+							stiff and reliable.
+						</p>
+					</section>
+					<section>
+						<header>
+							<h3>Polar Alignment System</h3>
+						</header>
+						<div class="image featured"><img src="images/Full Assembly.png" alt="" /></div>
+						<p>
+							Early in the design process, we chose to pursue an equatorial mount rather than an
+							alt-azimuth mount in order to achieve smoother tracking and better image quality. In an
+							equatorial system, once the right ascension axis is aligned with Earth’s rotation, the
+							system only needs to rotate about a single axis to track a star. This simplifies control
+							compared to an alt-azimuth mount, where both motors must move continuously to follow the
+							same object.
+						</p>
+						<p>
+							The Polar Alignment System allows ATLAS to be converted into an equatorial style telescope.
+							In order to achieve an equatorial mount system that could support the weight of the
+							cycloidal drive and mount without interfering with the mechanisms, we decided to use a three
+							leg system. Using MATLAB, calculations were performed to find the optimal attachment
+							locations to support the weight of the mount and to find optimal leg lengths provided stock
+							limitations and allow for inclination adjustability.
+						</p>
+						<p>
+							In order to increase functionality and adaptability, the front leg features an adjustable
+							element that allows the angle of inclination to range from 30-45 degrees. This works through
+							a hollow shaft that another shaft fits into. The inner-shaft can be adjusted to change the
+							front leg length and locked into place using a shaft collar. The adjustable leg is attached
+							to the bottom of the cycloidal drive motor using a custom attachment part. The two back legs
+							are secured through attachment blocks that are secured to the top plate of the cycloidal
+							drive housing. Additionally, all legs are able to be removed by simply unscrewing the legs
+							from the attachment mounts to convert the telescope to an altazimuth.
+						</p>
+					</section>
+				</article>
+			</div>
+		</div>
+
+		<!-- Carousel -->
+		<section class="carousel">
+			<div class="reel">
+
+				<article>
+					<div class="image featured"><img src="images/Prototype1.JPG" alt="" /></div>`
+					<header>
+						<h3>Our First 2-Axis Prototype</h3>
+					</header>
+					<p>Designed in Sprint 1, this hand-cranked"Lego Duplo" version gave us a high-level understanding of the crazy project we took on.</p>
+				</article>
+
+				<article>
+					<div class="image featured"><img src="images/ProtoCycloid.JPG" alt="" /></div>
+					<header>
+						<h3>The Second-Gen Cycloid Drive</h3>
+					</header>
+					<p>Already nearing final form, but with a lot more testing and bug fixes to go.</p>
+				</article>
+
+				<article>
+					<div class="image featured"><img src="images/3dPrintedArmV2.jpeg" alt="" /></div>
+					<header>
+						<h3>V2 Camera Arm</h3>
+					</header>
+					<p>Taking first steps towards total integration, a sleek prototype but awfully flimsy.</p>
+				</article>
+
+				<article>
+					<div class="image featured"><img src="images/3dPrintedArmV1.jpeg" alt="" /></div>
+					<header>
+						<h3>The Third-Gen Camera Arm</h3>
+					</header>
+					<p>Still with a lot of meat on those bones, this prototype was overbuilt and happy about it. (find the hidden smile :)</p>
+				</article>
+
+				<article>
+					<div class="image featured"><img src="images/3dPrintedRev1.jpeg" alt="" /></div>
+					<header>
+						<h3>The First Fully Integrated Prototype</h3>
+					</header>
+					<p>Mostly 3D printed, but sturdy and effective. Finally seeing the plan come together.</p>
+				</article>
+
+				<article>
+					<div class="image featured"><img src="images/MachiningKnolled.JPEG" alt="" /></div>
+					<header>
+						<h3>Baby's First Machined Parts</h3>
+					</header>
+					<p>Our first day out machining as a team. We cranked out most of the cycloidal drive and a piece of the arm.</p>
+				</article>
+
+				<article>
+					<div class="image featured"><img src="images/MixedMaterialArm.jpeg" alt="" /></div>
+					<header>
+						<h3>Test-Fitting The Metal Arm</h3>
+					</header>
+					<p>A little of the old with a little of the new, even with a bearing already pressed in.</p>
+				</article>
+
+				<article>
+					<div class="image featured"><img src="images/Final Cycloid.jpg" alt="" /></div>
+					<header>
+						<h3>Metal Cycloidal Drive Assembly V1</h3>
+					</header>
+					<p>Metal just makes things look sleeker, you know? Our first look at what it really meant to have a 'finished product'.</p>
+				</article>
+
+				<article>
+					<div class="image featured"><img src="images/FirstAssembly.JPEG" alt="" /></div>
+					<header>
+						<h3>First All-Metal Assembly</h3>
+					</header>
+					<p>The night everything came together. The hard work finally felt worth it.</p>
+				</article>
+
+				<article>
+					<div class="image featured"><img src="images/FinalProduct1.JPG" alt="" /></div>
+					<header>
+						<h3>The Final Product</h3>
+					</header>
+					<p>Everything looks better integrated. Once upon a time, this was just an idea. Now it's something we can be proud of.</p>
+				</article>
+
+			</div>
+		</section>
+
+		<div class="wrapper style1">
+
+			<div class="container">
+				<article id="main" class="special">
+					<div class="image featured"><img src="images/Circuit Diagram.JPEG" alt="" /></div>
+					<header>
+						<h2>Electrical & Software Design</h2>
+					</header>
+					<section>
+						<div class="row" style="justify-content: center;">
+							<article class="col-6 col-12-mobile special">
+								<div class="image featured"><img src="images/Sirius PS.png" alt="" /></div>
+								<header>
+									<h3>Plate-Solved Sirus</h3>
+								</header>
+								<p>
+									A plate-solved version of our raw Sirius image (see the front page), showing the constellations in the region.
+								</p>
+							</article>
+							<article class="col-6 col-12-mobile special">
+								<div class="image featured"><img src="images/Jupiter PS.png" alt="" /></div>
+								<header>
+									<h3>Plate-Solved Jupiter</h3>
+								</header>
+								<p>
+									A plate-solved version of our raw Jupiter image (see the front page), showing the nearby constellations and stellar objects.
+								</p>
+							</article>
+						</div>
+						<header>
+							<h3>Stellar Localization System & Programmatic Camera Control</h3>
+						</header>
+						<p>
+							The heart of ATLAS’s star tracking capabilities reside in its ability to autonomously
+							capture photos for both calibration and observations. This is done thanks to the gphoto2
+							library, which we chose over other solutions like digiCamControl and CHDK due to its
+							modularity and (relatively) detailed documentation. Through the library, we were able to
+							fully automate the photo-taking process. We also created a variety of “modes”, or specific
+							configurations of the camera’s settings built to optimize the photography of specific
+							astronomical objects.
+							Initial calibration is handled by a series of methods we’ve called set_capture_mode,
+							take_photo, plate_solver, and reset().
+						</p>
+						<p>
+							First, we use the gphoto2 library to connect to our ATLAS’s camera, changing its settings to
+							a specific mode via the set_capture_mode function. Once the connection has been established
+							and the settings are to our liking, we command the camera to take a ten-second exposure
+							photo via gphoto2. This photo is used for calibration, so it is imperative that during this
+							time, ATLAS is aimed at a portion of the night sky with a good number of visible stars. The
+							actual calibration is handled by our Plate-Solving algorithm, which works by pulling the
+							.RAW calibration image off of the Camera’s SD card, converting it into a FITS file and
+							comparing its metadata (camera settings, time taken, coordinates, etc) to that of various
+							other images taken from seven distinct astronomical databases. Once a sufficient number of
+							images similar to the calibration image have been indexed, the Plate-Solver then uses their
+							asterisms to predict what objects are in them, as well as the coordinates, in Right
+							Ascension and Declination, that the original image was taken at.
+						</p>
+						<p>
+							Due to our initial plate-solving algorithm being extremely poorly optimized thanks to the many
+							requests we had to send back and forth, we decided to take advantage of the Astrometry
+							database’s resources to consolidate our algorithm. As a result, we merely need to provide an
+							appropriate image and query for the returned coordinates—the asterism cross-referencing is
+							done autonomously.
+						</p>
+						<p>
+							Once ATLAS’ coordinates have been determined, the user can request to track any of the twenty
+							million astronomical objects within the SIMBAD database, at which point the ATLAS Telescope
+							will move to the specified location. Upon reaching a predetermined distance in arcminutes
+							from the target, ATLAS will continually move at a speed of 0.25 degrees/minute to keep in
+							alignment with Earth’s sidereal time.
+						</p>
+						<a href="https://github.com/systamii/Smart-Dualscope">Starglazers GitHub Repo</a>
+						<p>A link to the entire ATLAS codebase can be found here. The following packages and libraries
+							are required in order to run the startracker code:
+						</p>
+						<ul>
+							<li>AstroPy</li>
+							<li>Requests</li>
+							<li>Gphoto2</li>
+							<li>Pathlib</li>
+							<li>Os Module</li>
+							<li>Raw2Fits</li>
+							<li>Json</li>
+							<li>Env</li>
+							<li>Time</li>
+							<li>Raspberry Pi</li>
+						</ul>
+					</section>
+					<section>
+						<header>
+							<h3>Axial Motor Control</h3>
+						</header>
+						<p>
+							Precise control, accurate timing, and support for large loads were our main priorities for
+							our integrated tracking system. Hence, we selected Nema 23s, which are bipolar stepper
+							motors that offer higher torque, power efficiency, and smoother stepping compared to
+							unipolar motors. The pulse and directional terminals of the DM542 Driver are wired to the
+							3.3V logic GPIO pins of the raspberry pi. With the pigpio library leveraging the pi’s
+							hardware timing to generate and send PWM signals to the motors, we were able to circumvent
+							timing jitters and excessive CPU load. Limit switches mounted on either side of the
+							declination motor also prevent collision with the camera lens.
+						</p>
+						<p>
+							A major issue we realized after testing our integrated system was that the motors did not
+							have encoders, so we could never derive the system’s previous or current position. This
+							required us to manually track steps, which obviously proved to be inconvenient and
+							inefficient.
+						</p>
+						<p>
+							The DM542 drivers also require a minimum 5V input for its pulse and direction terminals.
+							Since the GPIO pins of the pi only supply 3.3V, there was not enough of a voltage difference
+							between the highs and lows sent to move the motors both clockwise and counterclockwise. This
+							causes tangling of our wires since the right ascension motor must completely loop around
+							itself to reset to its original position. With more time, we would add another circuit that
+							provides adequate power to these terminals in the motor driver while connecting its logic
+							back to the GPIO pins.
+						</p>
+						<p>
+							Lastly, AC power adapters are used to power the motors since it was the most accessible
+							option for rapid prototyping. If we had a greater budget, we would buy lithium batteries to
+							ensure our system can also be used in remote areas, which are more desirable to avoid light
+							pollution.
+
+							In the future, to make our telescope truly user-friendly, we would implement a wireless
+							bluetooth connection to the raspberry pi that allows users to input the stars they want to
+							track and take pictures remotely from their personal device.
+						</p>
+					</section>
+				</article>
+				<hr />
+			</div>
+
+		</div>
+
+		<!-- Footer -->
+		<div id="footer">
+			<div class="row">
+				<div class="col-12">
+					<!-- Copyright -->
+					<div class="copyright">
+						<ul class="menu">
+							<li>&copy; Starglazers. All rights reserved.</li>
+							<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.dropotron.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
