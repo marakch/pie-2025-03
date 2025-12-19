@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Optical Communications — Project Showcase</title>
+  <meta name="description" content="Optical communications project — mechanical, electrical, and software overview, demo and bill of materials." />
+  
+  <!-- Link external CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Ensure smooth scroll behavior in case style.css does not include it -->
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+
+<script>
+  const navLinks = document.querySelectorAll('.navlinks a');
+  const currentPage = window.location.pathname.split("/").pop(); // e.g., 'main.html'
+
+  navLinks.forEach(link => {
+    // Get the href file part (ignore anchors like #bom)
+    const linkPage = link.getAttribute('href').split("/").pop().split("#")[0];
+    if(linkPage === currentPage || (linkPage === '' && currentPage === '')) {
+      link.classList.add('active');  // <-- this applies your CSS .active
+    }
+  });
+</script>
+
+
+<body>
+  <!-- Subtle grid and noise background -->
+  <div class="page-bg" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+
+  <!-- Navbar -->
+  <nav id="topnav">
+    <div class="navbar">
+      <div class="brand">
+        <div class="logo">LE</div>
+        <div style="font-size:13px;color:var(--text)">Lazy Engineers: Optical Communications</div>
+      </div>
+
+      <div class="navlinks" role="navigation" aria-label="Main navigation">
+        <a href="#hero">Home</a>
+        <a href="diagrams.html">Diagrams</a>
+        <a href="mechanical.html">Mechanical</a>
+        <a href="electrical.html">Electrical</a>
+        <a href="software.html">Software</a>
+        <a href="#bom" class="cta-btn">BOM</a>
+      </div>
+    </div>
+    <div class="navbar-divider"></div>
+  </nav>
+
+  <main class="wrap">
+
+    <!-- Gradient Group 1: Hero + Overview -->
+    <div class="grad g1">
+      <!-- Hero Section -->
+      <header id="hero" class="hero">
+        <div class="hero-media">
+          <div class="video-frame">
+          <video
+            controls
+            preload="metadata"
+            poster="assets/sw-demo-poster.jpg"
+          >
+            <source src="assets/full_demo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+          <div class="hero-caption">Demo: The final implementation of our project. The laser is tracking the receiver and able to pulse. The tracking speed is intentionally slowed for demo.</div>
+        </div>
+      </header>
+
+      <!-- Overview Section -->
+      <section id="overview">
+        <div class="section-title"><h2>Project Overview</h2></div>
+        <div class="panel placeholder">Our initial goal was to develop a system that could track a moving receiver and send data to it via a laser to give flight instruction updates to a drone. We quickly realised that sending flight data to a drone would be infeasible because we wouldn't have a good way to know if we were on target or just missing the receiver. As a result we ended up pivoting to sending audio data to a speaker, which has many of the same principals but the quality of the audio (relatively speaking) is a good way to know if the laser is accurately hitting the target. We are also able to eliminate the extra complexities of drone movement by simply moving it by hand and listening for audio. <br> <br> There were many revisions made along the development process from increasing the effective laser sensing area in the receiver to adjusting the wiring of the transmitter gimbal. They are outlined in greater detail in their respective subsections. <br> <br> In the end we were able to track the receiver and play a tone whenever the laser was on the receiver. We found the greatest challenge and hindrance to progress to be the difficulties involved in designing a data communication protocol and debugging it. This website documents our process, choices, and progress.</div>
+      </section>
+    </div>
+
+    <!-- Gradient Group 2: Demo + Design Choices -->
+    <div class="grad g2">
+      <!-- Demo Section -->
+      <section id="demo">
+        <div class="section-title"><h2>Demo Shots</h2></div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+          <div style="max-width:560px">
+            <img
+              src="assets/demo1.jpg"
+              alt="Demo 1"
+              style="width:100%;height:320px;object-fit:cover;border-radius:12px;border:1px solid rgba(255,255,255,0.04)"
+            >
+            <div style="margin-top:12px" class="panel">
+              Receiver perspective of transmission with laser centered.
+            </div>
+          </div>
+
+          <div style="max-width:560px">
+            <img
+              src="assets/demo2.jpg"
+              alt="Demo 2"
+              style="width:100%;height:320px;object-fit:cover;border-radius:12px;border:1px solid rgba(255,255,255,0.04)"
+            >
+            <div style="margin-top:12px" class="panel">
+              Transmitter gimbal tracking and shining laser at receiver.
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Design Areas Section -->
+      <section>
+        <div class="section-title"><h2>Design Areas</h2></div>
+        <div class="cards design-grid">
+          <a href="mechanical.html" class="design-card">
+            <img src="assets/ground_station_assem.png" alt="Mechanical system">
+            <div class="design-text">Mechanical — Deep dive of mechanical aspects.</div>
+          </a>
+          <a href="electrical.html" class="design-card">
+            <img src="assets/elec7.jpg" alt="Electrical system">
+            <div class="design-text">Electrical — Hardware electrical components.</div>
+          </a>
+          <a href="software.html" class="design-card">
+            <img src="assets/soft.jpg" alt="Software system">
+            <div class="design-text">Software — Software structure and explanation.</div>
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <!-- Gradient Group 3: BOM + Footer -->
+    <div class="grad g3">
+      <!-- BOM Section (added id so #bom works) -->
+      <section id="bom" class="spacer-vertical" style="scroll-margin-top:120px;">
+        <div class="section-title"><h2>BOM:</h2></div>
+
+        <div style="margin-top:12px" class="panel">Bill of Materials for all project components.</div>
+
+        <div style="display:flex;justify-content:center;">
+          <img src="assets/bom.png" alt="Bill of Materials" class="large-media" style="border-radius:12px; overflow:hidden; border:1px solid rgba(255,255,255,0.04)">
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer aria-label="Footer">
+        <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:flex-start">
+          <div>
+            <div style="font-weight:600;color:var(--text)">Lazy Engineers: Optical Communications</div>
+            <div style="margin-top:6px">Team: Bradford Cooper, Troy Anderson, Suraj Reddy, Sreesanth Adelli</div>
+            <div style="margin-top:6px">Course: Principals of Integrated Engineering</div>
+          </div>
+          <div style="text-align:right">
+            <div>Completed: Dec 2025</div>
+            <div style="margin-top:6px;font-size:13px">Olin College of Engineering</div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+  </main>
+
+  <!-- Scroll highlight for nav links -->
+  <script>
+    const links = Array.from(document.querySelectorAll('.navlinks a'));
+    const sections = links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    function updateActive(){
+      let active = sections[0];
+      for(const s of sections){
+        const r = s.getBoundingClientRect();
+        if(r.top <= 120) active = s;
+      }
+      links.forEach(a=>a.classList.toggle('active', document.querySelector(a.getAttribute('href')) === active));
+    }
+    window.addEventListener('scroll', updateActive, {passive:true});
+    updateActive();
+  </script>
+
+</body>
+</html>

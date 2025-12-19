@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Electrical — Lazy Engineers: Optical Communications</title>
+  <meta name="description" content="Electrical design and schematics for the project." />
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* Page-specific sizing & alternating row layout */
+    .section-title h2 { font-size:1.5em; }
+
+    .paired-row { display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:center; margin-bottom:28px; }
+    .paired-row.reverse { grid-auto-flow: dense; direction: rtl; } /* easier flip for markup */
+    .paired-row.reverse > * { direction: ltr; } /* keep content direction normal */
+
+    .image-slot { width:100%; max-width:560px; height:320px; object-fit:cover; border-radius:10px; overflow:hidden; border:1px solid rgba(255,255,255,0.04); display:block; transition:transform .22s ease, box-shadow .22s ease; }
+    .image-wrap { display:block; overflow:hidden; border-radius:10px; }
+    .image-wrap:hover .image-slot { transform:scale(0.985); box-shadow:0 10px 30px rgba(255,43,43,0.12); }
+
+    .text-block { background:var(--panel); padding:16px; border-radius:10px; color:var(--muted); font-size:15px; border:1px solid rgba(255,255,255,0.03); }
+
+    /* ensure reverse layout stacks correctly on small screens */
+    @media (max-width:880px) {
+      .paired-row, .paired-row.reverse { grid-template-columns:1fr; direction:ltr; }
+      .image-slot { height:220px; }
+    }
+
+    /* small visual separators (aligned dividers will be added via .wrap blocks) */
+    .section-divider { height:3px; background: linear-gradient(90deg, transparent, var(--accent), transparent); box-shadow:0 0 14px rgba(255,43,43,0.28); width:100%; margin:16px 0; }
+  </style>
+</head>
+<body>
+  <div class="page-bg" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+
+  <!-- Navbar (same style, electrical active) -->
+  <nav id="topnav">
+    <div class="navbar">
+      <div class="brand">
+        <div class="logo">LE</div>
+        <div style="font-size:13px;color:var(--text)">Lazy Engineers: Optical Communications</div>
+      </div>
+
+      <div class="navlinks" role="navigation" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="diagrams.html">Diagrams</a>
+        <a href="mechanical.html">Mechanical</a>
+        <a href="electrical.html" class="active">Electrical</a>
+        <a href="software.html">Software</a>
+        <a href="main.html#bom" class="cta-btn">BOM</a>
+      </div>
+    </div>
+    <div class="navbar-divider"></div>
+  </nav>
+
+  <main class="wrap">
+    <!-- continuous gradient container -->
+    <div class="grad g1">
+
+      <!-- Page title / intro -->
+      <section>
+        <div class="section-title"><h2>Electrical: Key Systems & Schematics</h2></div>
+        <div class="panel placeholder">An overview of the development cycle and design choices behind the transmiter and receiver circuit.</div>
+      </section>
+
+        <div class="section-title"><h2>Transmitter</h2></div>
+
+      <!-- Alternating rows: 6 points -->
+      <!-- 1: image left, text right -->
+      <section class="paired-row">
+        <div class="image-wrap">
+          <img src="assets/elec1.jpg" alt="Power regulation and distribution" class="image-slot contain">
+        </div>
+        <div class="text-block">
+          <h3 style="margin:0;color:var(--text)">Transmiter Schematic</h3>
+          <p class="placeholder" style="margin-top:8px">This was the first circuit we put together. We're using a MOSFET to pulse the laser acording to an output from the STM32. Also visible is the connection through the RasberyPi, which acts as a central hub for our entire transmiter. All of the other transmitter components are invovled in tracking, the camera passing photo data and the motors creating a pan-tilt gimbal. This circuit worked the first time we tested it and was not updated since.</p>
+        </div>
+      </section>
+
+      <!-- 2: image right, text left (reverse) -->
+      <section class="paired-row reverse">
+        <div class="image-wrap">
+          <img src="assets/elec2.jpg" alt="Laser driver and modulation" class="image-slot contain">
+        </div>
+        <div class="text-block">
+          <h3 style="margin:0;color:var(--text)">Implemented Transmiter</h3>
+          <p class="placeholder" style="margin-top:8px">The laser pulse circuit is relativly straight forward. There were no major design choices other than the use of a MOSFET as a switch, which was arbitrary and worked in testing. The specific laser that we used was chosen for it's low power, meaning it wouldn't be difficult to power from the RasberyPi, and there are fewer saftey concerns.</p>
+        </div>
+      </section>
+
+      <!-- single aligned divider above footer (keeps gradient continuous) -->
+      <div style="height:24px"></div>
+      <div class="wrap" aria-hidden="true" style="padding:0;">
+        <div class="section-divider" aria-hidden="true"></div>
+      </div>
+      <div style="height:24px"></div>
+
+        <div class="section-title"><h2>Receiver</h2></div>
+
+      <!-- 3: image left -->
+      <section class="paired-row">
+        <div class="image-wrap">
+          <img src="assets/elec3.jpg" alt="Receiver front-end" class="image-slot contain">
+        </div>
+        <div class="text-block">
+          <h3 style="margin:0;color:var(--text)">Receiver Schematic:</h3>
+          <p class="placeholder" style="margin-top:8px">This was our initial receiver design, we use a photodiode to act as a current source whenever the laser hits it, which runs current through a resistor to ground, and the voltage across the resistor is read by the ADC of our STM32.</p>
+        </div>
+      </section>
+
+      <!-- 4: image right -->
+      <section class="paired-row reverse">
+        <div class="image-wrap">
+          <img src="assets/elec4.jpg" alt="Photodiode array schematic" class="image-slot contain">
+        </div>
+        <div class="text-block">
+          <h3 style="margin:0;color:var(--text)">First Implemented Prototype:</h3>
+          <p class="placeholder" style="margin-top:8px">Here’s our implementation on a perf board. This was used for preliminary testing of the pulse reading. Even though there's no protections to counteract the CR filter created by the photodiode capacitance and the sensing resistor, the output waveforms were clear and the voltages were sufficiently different to be easily read. When testing movment of the laser, we found that the voltage output became unreliable, so we choise to use a focusing lens infront of the photodiode to try and keep the beam centered.</p>
+        </div>
+      </section
+
+      <!-- 5: image left -->
+      <section class="paired-row">
+        <div class="image-wrap">
+          <img src="assets/elec5.jpg" alt="Board-level layout & connectors" class="image-slot contain">
+        </div>
+        <div class="text-block">
+          <h3 style="margin:0;color:var(--text)">Photodiode Array Schematic:</h3>
+          <p class="placeholder" style="margin-top:8px">We found that, when the laser was on the edge of the lens, it could only partially hit the single photodiode. The small size of the photodiode could lead the beam only hitting part of it, and thus we would read voltage somewhere between our data high and data low values. To avoid this, we chose to set up a photodiode array as seen in the schematic. This increases the effective capacitance, but we still found it to be negligible.</p>
+        </div>
+      </section>
+
+      <!-- 6: image right -->
+      <section class="paired-row reverse">
+        <div class="image-wrap">
+          <img src="assets/elec6.jpg" alt="Power sequencing and protections" class="image-slot contain">
+        </div>
+        <div class="text-block">
+          <h3 style="margin:0;color:var(--text)">Implemented Phodiode Array:</h3>
+          <p class="placeholder" style="margin-top:8px">Here’s the photodiode array assembled on a protoboard. The physical construction of the array was slightly challenging as we needed all of the photodiodes to be close enough that they would effectively act as one larger photodiode, but they each needed to have separate connections to a shared ground. Aside from the soldering trouble, this circuit worked quite well and we were able to get very distinct high vs low voltage readings, even when the laser was off to the side of the receiver lens.
+</p>
+        </div>
+      </section>
+
+<!-- 7: image left -->
+      <section class="paired-row">
+        <div class="image-wrap">
+          <img src="assets/elec7.jpg" alt="Board-level layout & connectors" class="image-slot contain">
+        </div>
+        <div class="text-block">
+          <h3 style="margin:0;color:var(--text)">Photodiode Array Waveform:</h3>
+          <p class="placeholder" style="margin-top:8px">We tested the photodiode array output waveform on a scope and saw that the output was, while a bit noisy, still had easily distinguishable high and low values. That lead us to stick with this design for the final receiver circuit.</p>
+        </div>
+      </section>
+
+      <section class="paired-row reverse">
+        <div class="image-wrap">
+          <img src="assets/elec8.jpg" alt="Laser driver and modulation" class="image-slot contain">
+        </div>
+        <div class="text-block">
+          <h3 style="margin:0;color:var(--text)">Focusing Lens</h3>
+          <p class="placeholder" style="margin-top:8px">This is the first design that implemented the focusing lense. We opted to use a Fresnel lens as it was easy to get and did a good job of focusing the beam.</p>
+        </div>
+      </section>
+
+      
+
+      <!-- Footer (inside same gradient, aligned with wrap) -->
+      <footer aria-label="Footer" style="padding-bottom:28px;">
+        <div class="wrap">
+          <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:flex-start">
+            <div>
+              <div style="font-weight:600;color:var(--text)">Lazy Engineers: Optical Communications</div>
+              <div style="margin-top:6px">Team: Bradford Cooper, Troy Anderson, Suraj Reddy, Sreesanth Adelli</div>
+              <div style="margin-top:6px">Course: Principals of Integrated Engineering</div>
+            </div>
+            <div style="text-align:right">
+              <div>Completed: Dec 2025</div>
+              <div style="margin-top:6px;font-size:13px">Olin College of Engineering</div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    </div> <!-- end grad g1 -->
+  </main>
+
+  <script>
+    // Highlight current nav link (works across pages)
+    (function(){
+      const navLinks = document.querySelectorAll('.navlinks a');
+      const currentPage = window.location.pathname.split('/').pop();
+      navLinks.forEach(link=>{
+        const linkPage = (link.getAttribute('href')||'').split('/').pop().split('#')[0];
+        if(linkPage === currentPage || (linkPage === '' && currentPage === '')) link.classList.add('active');
+      });
+    })();
+
+    // image hover subtle affordance (already handled by CSS but keep for older browsers)
+    document.querySelectorAll('.image-wrap').forEach(wrap=>{
+      wrap.addEventListener('mouseenter', ()=>{ const img = wrap.querySelector('img'); if(img) img.style.transform='scale(0.985)'; });
+      wrap.addEventListener('mouseleave', ()=>{ const img = wrap.querySelector('img'); if(img) img.style.transform='none'; });
+    });
+  </script>
+</body>
+</html>

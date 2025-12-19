@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Diagrams — Lazy Engineers: Optical Communications</title>
+  <meta name="description" content="Diagrams for the LaserComms project." />
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Increase the font size of the Diagrams title */
+    #diag-intro .section-title h2 { font-size: 1.5em; }
+    /* Add extra spacing between diagram sections */
+    .diagram-section { margin-bottom: 4rem; }
+  </style>
+</head>
+
+<script>
+/* Robust nav active highlighter — place this at the end of each page (before </body>) */
+(function(){
+  function normalizePageName(name){
+    name = (name||'').toLowerCase().trim();
+    // strip querystring
+    name = name.split('?')[0].split('#')[0];
+    if(name === '' || name === 'index.html') return 'main.html'; // change if your home file is different
+    return name;
+  }
+
+  function setActiveNav(){
+    const navLinks = document.querySelectorAll('.navlinks a');
+    if(!navLinks.length) return;
+    // current page file (e.g. 'main.html' or 'software.html')
+    const rawPath = window.location.pathname.split('/').pop();
+    const current = normalizePageName(rawPath);
+
+    navLinks.forEach(link=>{
+      const href = link.getAttribute('href') || '';
+      // take last path segment, ignore anchors (#bom) and querystrings
+      const linkFile = href.split('/').pop().split('#')[0].split('?')[0];
+      const target = normalizePageName(linkFile);
+      // handle links that are anchors to the current page like "#bom"
+      if(href.startsWith('#')){
+        // highlight if on the home/main page or same file with anchor
+        if(current === normalizePageName(window.location.pathname.split('/').pop())) {
+          // don't auto-activate anchor links unless desired — keep as non-active by default
+          link.classList.remove('active');
+          return;
+        }
+      }
+      if(target === current){
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', setActiveNav);
+  } else {
+    setActiveNav();
+  }
+})();
+</script>
+
+
+<body>
+  <div class="page-bg" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+
+  <!-- Navbar (same as main site) -->
+  <nav id="topnav">
+    <div class="navbar">
+      <div class="brand">
+        <div class="logo">LE</div>
+        <div style="font-size:13px;color:var(--text)">Lazy Engineers: Optical Communications</div>
+      </div>
+
+      <div class="navlinks" role="navigation" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="diagrams.html" class="active">Diagrams</a>
+        <a href="mechanical.html">Mechanical</a>
+        <a href="electrical.html">Electrical</a>
+        <a href="software.html">Software</a>
+        <a href="main.html#bom" class="cta-btn">BOM</a>
+      </div>
+    </div>
+    <div class="navbar-divider"></div>
+  </nav>
+
+  <main class="wrap">
+    <div class="grad g2">
+      <section id="diag-intro">
+        <div class="section-title"><h2>Diagrams: Here are our system and energy dataflow diagrams</h2></div>
+        <!-- <div class="panel placeholder">Here is our system and energy dataflow diagrams:</div> --> <!-- Uncomment if needed -->
+      </section>
+
+      <!-- Diagram row 1: image left, text right -->
+      <section class="diagram-section panel" aria-labelledby="diag1-heading">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;">
+          <a href="assets/diag1.png" target="_blank" style="display:block;overflow:hidden;border-radius:10px;">
+            <img src="assets/diag1.png" alt="System block diagram" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s,opacity .25s;">
+          </a>
+          <div>
+            <h3 id="diag1-heading" style="margin-top:0;color:var(--text)">Energy Flow Diagram</h3>
+            <p class="placeholder">There are two different systems with different power requirements, and as such, we have multiple different power sources. A 14.9V Lithium Ion battery that provides power to the motor drivers and the motors. The motor drivers get their control signal from the central RasPi, powered from a separate 5V Lithium Ion battery. That RasPi also provides power to the NoIR camera, which feeds IR camera data back for processing tracking information. Finally, the RasPi provides input power to an STM32, which is responsible for switching the FET controlling the laser. That subsystem is completely electrically isolated from the next. The Receiver STM32 is powered from a 9V battery and is responsible for reading the changing voltages from the photodiode sensor, processing data, and outputting PWM signal to a speaker. </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Diagram row 2: image right, text left (reverse) -->
+      <section class="diagram-section panel" aria-labelledby="diag2-heading">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;">
+          <div>
+            <h3 id="diag2-heading" style="margin-top:0;color:var(--text)">High Level System Diagram</h3>
+            <p class="placeholder">This diagram shows two of our subsystems, the camera tracking system and laser data transmission system. You 
+              can see in the diagram the camera tracking system operates by the Rasperbrry Pi taking signals from the IR LED, and using that data to 
+              figure out what data to send to the motors. The transmission system can be seen starting with the laser taking commands from
+              the STM32, that then sends its data through a lens, to a photodiode that takes the light input and sends the recieved data to the recieveing end STM32
+              that decrypts the data, and sends the gained information to a speaker. 
+            </p>
+          </div>
+
+          <a href="assets/diag2.png" target="_blank" style="display:block;overflow:hidden;border-radius:10px;justify-self:end;">
+            <img src="assets/diag2.png" alt="High Level System Diagram" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s,opacity .25s;">
+          </a>
+        </div>
+      </section>
+
+      <!-- Footer follows immediately after last diagram -->
+      <footer aria-label="Footer">
+        <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:flex-start">
+          <div>
+            <div style="font-weight:600;color:var(--text)">Lazy Engineers: Optical Communications</div>
+            <div style="margin-top:6px">Team: Bradford Cooper, Troy Anderson, Suraj Reddy, Sreesanth Adelli</div>
+            <div style="margin-top:6px">Course: Principals of Integrated Engineering</div>
+          </div>
+          <div style="text-align:right">
+            <div>Completed: Dec 2025</div>
+            <div style="margin-top:6px;font-size:13px">Olin College of Engineering</div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </main>
+
+  <script>
+    // simple hover affordance for diagram images
+    document.querySelectorAll('a[href^="assets/diag"] img').forEach(img=>{
+      img.parentElement.addEventListener('mouseenter', ()=>{ img.style.transform='scale(0.99)'; img.style.opacity='0.95'; });
+      img.parentElement.addEventListener('mouseleave', ()=>{ img.style.transform='none'; img.style.opacity='1'; });
+    });
+
+    // keep nav highlight behavior for same-page anchors
+    const links = Array.from(document.querySelectorAll('.navlinks a'));
+    const sections = links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    function updateActive(){
+      let active = sections[0];
+      for(const s of sections){
+        const r = s.getBoundingClientRect();
+        if(r.top <= 120) active = s;
+      }
+      links.forEach(a=>a.classList.toggle('active', document.querySelector(a.getAttribute('href')) === active));
+    }
+    window.addEventListener('scroll', updateActive, {passive:true});
+    updateActive();
+  </script>
+</body>
+</html>
