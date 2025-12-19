@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrical System - PC Frost</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="subpage-body" id="electrical-body">
+    <a href="main.html" class="back-button">← Back to Home</a>
+    
+    <h1>Electrical System</h1>
+    
+    <p class="subpage-description">
+        Documentation of the electrical architecture, power distribution, and control 
+        systems that drive the PC Frost.
+    </p>
+
+    <div class="subpage-content">
+        
+        <section class="content-section">
+            <h2>Components</h2>
+            <ul>
+                <li>3 Nema 17 stepper motors </li>
+                <li>1 Creality 42-34 motor</li>
+                <li>3 A4988 motor drivers</li>
+                <li>1 L298N motor driver</li>
+                <li>2 limit switches</li>
+                <li>1 Arduino UNO</li>
+                <li>12 V power source</li>
+                <li>1 E-stop</li>
+                <li>1 Bread Board</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2>How it all connects</h2>
+            <p>
+The A4988 motor drivers connect the Arduino to the Nema 17 stepper motors, and the L298N motor driver connects the Arduino to the Creailty 42-34 motor. The limit switches are positioned at the bottom of the Y-axis of movement and the inner end of the X-axis of movement, each with a pull down resistor between the connection to the Arduino as both are set to default high. The 12 volt power source is directly connected to the E-stop which is then directly connected to the bread board.             </p>
+            
+            <h3>Energy Flow Diagram</h3>
+            <img src="electrical-flow.png" alt="Electrical Flow Diagram" class="content-image">
+            <p class="image-caption">Figure 1: Electrical Energy Flow</p>
+
+            <h3>Circuit Diagram</h3>
+            <img src="circuit-diagram.svg" alt="Electrical Circuit Diagram" class="content-image">
+            <p class="image-caption">Figure 2: Circuit Diagram</p>
+        </section>
+</body>
+</html>

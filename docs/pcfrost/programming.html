@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming - PC Frost</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="subpage-body" id="programming-body">
+    <a href="main.html" class="back-button">← Back to Home</a>
+    
+    <h1>Programming</h1>
+    
+    <p class="subpage-description">
+        Software architecture, algorithms, and control logic that coordinate the 
+        mechanical and electrical systems to execute precise frosting patterns.
+    </p>
+
+    <div class="subpage-content">
+        
+        <section class="content-section">
+            <h2>Software Stack Overview</h2>
+            <p>
+                The programming system consists of three main layers: G-code generation 
+                (Python), motion control firmware (Arduino/C++), and a user interface 
+                for collecting dimension input.
+            </p>
+            <img src="software-flow.png" alt="Software architecture diagram" class="content-image">
+            <p class="image-caption">Figure 1: Software architecture</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Software Function</h2>
+            <p>
+                The CNC frosting printer is controlled through an Arduino UNO using a Python and C++ program. The purpose of the python program is displaying the GUI to receive user input on the cake dimensions. Those dimensions are then transmitted through a communication port to the C++ program so the proper extruded path can be calculated. Once the dimensions are received, the axes' limits are set first using the limit switches positioned at the bottom of the Y axis and the inner end of the X axis. After those are set, the extruder lowers to the height determined by user input and begins extruding frosting in an Archimedean spiral pattern till the set diameter input value is reached. When the pattern is complete, the frosting is back extruded for 3 seconds to minimize drip before returning to rest at the top of the Y axis. An additional Arduino program was coded to run the frosting extruder motor forward in order to fill the frosting tubing before use.
+
+            </p>
+        </section>
+
+        <section class="content-section">
+            <h2>Design Process</h2>
+
+            <p>
+            Because the peristaltic pump motor used within the budget was not strong enough for thick frosting, we thinned out the frosting to extrude properly. Though this meant the frosting did not have enough structure to form a design. So, we did not have a design-drawing function to our final project, and stuck with our MVP of frosting the top of a cake. 
+
+            </p>
+            
+            <h3>Github</h3>
+            <p>
+                To find all of the code used for this project, see here:
+                <a href = "https://github.com/traiti77/PC-Frost">https://github.com/traiti77/PC-Frost</a>
+            </p>
+            

@@ -1,0 +1,532 @@
+/* ========== GLOBAL RESETS ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ========== GLOBAL LAYOUT ========== */
+html {
+    height: 100%;
+    font-family: 'Source Sans 3', sans-serif;
+}
+
+/* ========== GLOBAL ELEMENTS ========== */
+/* Header */
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Intro paragraph */
+.intro {
+    max-width: 900px;
+    margin: 10px auto 30px auto;
+    text-align: center;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    color: #f0f8ff;
+}
+
+/* ========== MAIN PAGE ========== */
+#main-body {
+    background: linear-gradient(135deg, #7ce03a, #b65bf7);
+    color: #ffffff;
+    overflow: hidden;
+}
+
+/* Grid layout */
+#main-grid {
+    display: grid;
+    grid-template-areas: "buttons video";
+    gap: 40px;
+    align-items: start;
+    justify-content: center;
+}
+
+/* Buttons column */
+.buttons {
+    grid-area: buttons;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 220px;
+}
+
+/* Button styling */
+.buttons button {
+    padding: 12px 16px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 6px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+/* Buttons hovering */
+.buttons button:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: translateX(8px);
+}
+
+/* Button link control */
+.buttons a {
+    text-decoration: none;
+    color: inherit;
+    font: inherit;
+    display: block;
+    width: 100%;
+}
+
+/* Video */
+video {
+    grid-area: video;
+    border-radius: 10px;
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+
+/* ========== BILL OF MATERIALS PAGE ========== */
+#bom-body {
+    background: linear-gradient(90deg, #990707, #782bc1);
+    overflow: scroll;
+}
+
+/* BOM Table */
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    font-family: 'Source Sans 3', sans-serif;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+
+table th {
+    background: #3aa8e0;
+    color: rgba(11, 0, 0, 100);
+    padding: 12px;
+    text-align: left;
+    font-size: 1.1rem;
+}
+
+table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    color: #333;
+}
+
+table tr:hover {
+    background: #f2f9ff;
+}
+
+/* ========== ABOUT US PAGE ========== */
+#about-body {
+    min-height: 100vh;
+    overflow-y: auto;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    font-family: "Inter", "Segoe UI", sans-serif;
+    color: #ffffff;
+    padding: 80px 40px;
+    position: relative;
+}
+
+#about-body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+#about-body > h1 {
+    text-align: center;
+    font-size: 3.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 60px;
+    letter-spacing: -1px;
+    position: relative;
+    z-index: 1;
+    animation: fadeInDown 0.8s ease;
+}
+
+#about-us-vertical-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.person {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 50px;
+    width: 100%;
+    padding: 50px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 24px;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.8s ease backwards;
+}
+
+.person:nth-child(1) { animation-delay: 0.1s; }
+.person:nth-child(2) { animation-delay: 0.2s; }
+.person:nth-child(3) { animation-delay: 0.3s; }
+.person:nth-child(4) { animation-delay: 0.4s; }
+.person:nth-child(5) { animation-delay: 0.5s; }
+
+.person::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.person:hover::before {
+    left: 100%;
+}
+
+.person:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 
+        0 20px 48px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.about-us-photo {
+    flex-shrink: 0;
+    width: 280px;
+    height: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.about-us-photo::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1));
+    border-radius: 16px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.person:hover .about-us-photo::before {
+    opacity: 1;
+}
+
+.about-us-photo img {
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    object-fit: cover;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.person:hover .about-us-photo img {
+    transform: scale(1.05);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+.about-us-text {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+    font-size: 1.4rem;
+    line-height: 1.7;
+    opacity: 0.92;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 900px) {
+    #about-body {
+        padding: 60px 24px;
+    }
+
+    #about-body > h1 {
+        font-size: 2.5rem;
+    }
+
+    .person {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 30px;
+        gap: 30px;
+    }
+
+    .about-us-photo {
+        width: 220px;
+        height: 220px;
+    }
+}
+
+@media (max-width: 600px) {
+    #about-body > h1 {
+        font-size: 2rem;
+    }
+
+    .person {
+        padding: 32px 24px;
+    }
+
+    .about-us-photo {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+/* ========== SUBPAGE TEMPLATE STYLES ========== */
+/* (Mechanical, Electrical, Programming, Integration, Design Story) */
+
+.subpage-body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+    padding: 60px 40px;
+    font-family: 'Source Sans 3', sans-serif;
+}
+
+/* ========== UNIQUE PAGE GRADIENTS ========== */
+
+/* Mechanical Page - Industrial Blue/Steel */
+#mechanical-body {
+    background: linear-gradient(135deg, #4A90E2 0%, #2C5F8D 100%);
+}
+
+/* Electrical Page - Electric Yellow/Orange */
+#electrical-body {
+    background: linear-gradient(135deg, #F4A460 0%, #E67E22 100%);
+}
+
+/* Programming Page - Digital Green/Cyan */
+#programming-body {
+    background: linear-gradient(135deg, #1ABC9C 0%, #16A085 100%);
+}
+
+/* Integration Page - Unified Purple/Magenta */
+#integration-body {
+    background: linear-gradient(135deg, #9B59B6 0%, #8E44AD 100%);
+}
+
+/* Design Story Page - Creative Pink/Coral */
+#story-body {
+    background: linear-gradient(135deg, #FF6B9D 0%, #C06C84 100%);
+}
+
+/* Back button */
+.back-button {
+    display: inline-block;
+    margin-bottom: 30px;
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 6px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateX(-5px);
+}
+
+/* Page title */
+.subpage-body h1 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+/* Subtitle/description */
+.subpage-description {
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+    text-align: center;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #f0f8ff;
+}
+
+/* Content container */
+.subpage-content {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Section styling */
+.content-section {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 40px;
+    margin-bottom: 40px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-section:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+/* Section headers */
+.content-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 10px;
+}
+
+.content-section h3 {
+    font-size: 1.5rem;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    color: #f0f8ff;
+}
+
+/* Paragraphs */
+.content-section p {
+    font-size: 1.3rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    color: #f0f8ff;
+}
+
+/* Lists */
+.content-section ul,
+.content-section ol {
+    margin-left: 25px;
+    margin-bottom: 15px;
+}
+
+.content-section li {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 8px;
+    color: #f0f8ff;
+}
+
+/* Images */
+.content-image {
+    width: 100%;
+    max-width: 700px;
+    display: block;
+    margin: 30px auto;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Image captions */
+.image-caption {
+    text-align: center;
+    font-size: 0.95rem;
+    font-style: italic;
+    color: #e0e0e0;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/* Code blocks (if needed) */
+.code-block {
+    background: rgba(0, 0, 0, 0.3);
+    border-left: 4px solid rgba(255, 255, 255, 0.5);
+    padding: 20px;
+    border-radius: 6px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.95rem;
+    color: #e0e0e0;
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .subpage-body {
+        padding: 40px 20px;
+    }
+
+    .subpage-body h1 {
+        font-size: 2.2rem;
+    }
+
+    .content-section {
+        padding: 30px 20px;
+    }
+
+    .content-section h2 {
+        font-size: 1.6rem;
+    }
+
+    .content-section h3 {
+        font-size: 1.3rem;
+    }
+}
