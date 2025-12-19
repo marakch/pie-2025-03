@@ -49,7 +49,7 @@ if (phaseTabs.length > 0 && phaseContents.length > 0) {
             if (targetContent) {
                 targetContent.classList.add("active");
             }
-            const target = document.querySelector("#timeline");
+            const target = document.querySelector("#progress");
             if (target) {
                 target.scrollIntoView({ behavior: "smooth", block: "start" });
             }
