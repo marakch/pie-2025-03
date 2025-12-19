@@ -1,0 +1,345 @@
+<!doctype html>
+<html class="h-100" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <meta name="description" content="A growing collection of ready to use components for the CSS framework Bootstrap 5">
+
+  <title>Phase 2</title>
+
+  <link rel="stylesheet" href="css/theme.min.css">
+
+  <style>
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 300;
+      src: url('./fonts/inter-v12-latin-300.woff2') format('woff2');
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 500;
+      src: url('./fonts/inter-v12-latin-500.woff2') format('woff2');
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      src: url('./fonts/inter-v12-latin-700.woff2') format('woff2');
+    }
+  </style>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#navScroll">
+
+  <!-- NAVBAR -->
+  <nav id="navScroll" class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <a class="navbar-brand pe-4 fs-4" href="index.html">
+        <span class="fw-bolder">Less Blades, More Fun!</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Overview</a></li>
+          <li class="nav-item"><a class="nav-link" href="phase1.html">Phase 1</a></li>
+          <li class="nav-item"><a class="nav-link active" href="phase2.html">Phase 2</a></li>
+          <li class="nav-item"><a class="nav-link" href="phase3.html">Phase 3</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- INTRO -->
+    <div class="py-vh-4">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-10 text-center">
+
+            <h1 class="text-center fw-bold mb-3" data-aos="fade">Phase 2</h1>
+
+            <h3 class="text-center fw-bold mb-4" data-aos="fade"> <br><br>Phase 2 Overview & Main Goals</h3>
+
+            <p class="lead fs-5 lh-lg" data-aos="fade">
+              This phase was focused on refinement of the progress started in the previous phase.
+              Our main goals for this phase were: <br>
+              1. Refine our rotor system <br>
+              2. Add a second axis to our testing rig for pitch control<br>
+              3. Write an initial version of the controls algorithm for our rotor system <br>
+              4. Begin testing the rotor system on our rig <br>
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="bg-white py-vh-4">
+      <div class="container">
+        <div class="row justify-content-center">
+
+          <div class="col-12 col-lg-11 col-xl-10">
+
+            <h2 class="text-center fw-bold mb-5">Design and Integration Progress</h2>
+
+            <!-- Rotor System -->
+            <div class="border-top py-vh-4" data-aos="fade-up">
+              <h3 class="text-center mb-3">Mechanical - Rotor System</h3>
+              <p class="fs-5 lh-lg">
+
+In this phase, we made some improvements to our rotor system. 
+We had noticed that it was very “wiggly,” being unconstrained 
+in axes beyond our intended ones. We added additional constraint
+ by switching from a single to a double shear configuration. <br>
+
+<br>As part of this redesign, we constrained the dowel by using 
+heat-set inserts with inset screws to hold the dowels in place. 
+We also implemented a double shear as opposed to a single shear 
+for a stronger and more stable hinge. 
+Technically, this introduces more friction,
+ but this is easily overcome by slightly increasing tolerances. <br>
+
+<br>Finally, we realized that the blades had no initial pitch at
+ baseline and therefore were not generating any upward thrust.
+  We redesigned the hinge such that the blade was now held 
+  at a 7 degree angle off the horizontal when the rotor itself
+   was held straight. In the process of this change, 
+   we also moved the hinge closer to the center of rotation,
+    reducing the inertia and drag of the rotor system. <br>
+
+                <br><br>
+
+              </p>
+
+              <!-- pic8 -->
+              <div class="my-4 text-center">
+                <img src="img/initialmotorfrontview.png" style="width: 600px; height: auto; display: block; margin: 1rem auto;" alt="pic8">
+              </div>
+
+              <!-- pic9 -->
+              <div class="my-4 text-center">
+                <img src="img/newrotorheadattached.png" style="width: 600px; height: auto; display: block; margin: 1rem auto;" alt="pic9">
+              </div>
+
+            </div>
+
+            <!-- TESTING RIG -->
+            <div class="border-top py-vh-4" data-aos="fade-up">
+              <h3 class="text-center mb-3">Mechanical - Testing Rig</h3>
+
+              <p class="fs-5 lh-lg">
+<br>As we transitioned into this phase, we were given a testing cage
+ by the class teaching team (“The Thunderdome”) to run testing 
+ of our rotor system while maintaining safety.  <br>
+
+<br>The attachment point for our testing rig to the Thunderdome 
+was square aluminum tubing, not 8020. We changed our pivot mount 
+so that it would fit on this tubing. After initially attempting to
+ create a perfect pressfit, we decided to instead use screws to
+  create friction to keep the mount securely on the broader cage. <br>
+              </p>
+
+              <div class="my-4 text-center">
+                <video
+                  src="img/pic11vid%20(1).mp4"
+                  style="width: 600px; height: auto; display: block; margin: 1rem auto;"
+                  controls
+                  preload="metadata">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+
+              <p class="fs-5 lh-lg">
+<br>Once we had figured out this lower mount, we decided to continue
+improving the testing rig by adding a second axis of rotation.
+Our primary requirement for this second axis was that it could be
+easily converted into a one-axis testing system – 
+we knew we’d want to initially test with one axis, then two, 
+so an easy transition between the two would be useful. <br>
+
+<br>We made this transition simple by making it so that a pin could be
+inserted into the pivots of the first axis of rotation to hold them
+in place, making the two-axis rig into a one-axis rig. <br>
+              </p>
+            </div>
+
+            <!--MOTOR/PROPELLER/ELECTRONICS  MOUNT -->
+            <div class="border-top py-vh-4" data-aos="fade-up">
+              <h3 class="text-center mb-3">Mechanical - Motor, Propeller, and Electronics Mount</h3>
+
+              <p class="fs-5 lh-lg">
+<br>While undergoing our testing rig redesign, we also had to create 
+a means of attaching the motor and rotor system to the testing rig.
+ Initially, we had a setup in which the motor was connected to
+  sliders for the 8020 “seesaw” on our testing rig. <br>
+
+<br>At the same time, we were beginning to think about how we would
+ mount our electronics. Our flight controller, electronic speed 
+ controller (ESC), and ESP32 had all arrived, so we were doing 
+ initial brainstorming on attaching all of them to the helicopter<br>
+              </p>
+
+              <!-- pic12 -->
+              <div class="my-4 text-center">
+                <img src="img/initialassembly.png" style="width: 600px; height: auto; display: block; margin: 1rem auto;" alt="pic12">
+              </div>
+
+              <!-- pic13 -->
+              <div class="my-4 text-center">
+                <img src="img/pic13%20(1).jpeg" style="width: 600px; height: auto; display: block; margin: 1rem auto;" alt="pic13 - with esp32 mount">
+              </div>
+
+              <p class="fs-5 lh-lg">
+We found the CAD for all our electronics, decided on hole patterns,
+and printed out initial versions. After creating these initial 
+patterns, we realized that the same hole pattern could be very 
+easily used for mounting our motor on our testing rig. So we did.
+It worked perfectly. <br>
+              <!-- flowchart from sprint 2 -->
+              <div class="my-4 text-center">
+                <img src="img/electronicmounting.png" style="width: 600px; height: auto; display: block; margin: 1rem auto;" alt="flowchart from sprint 2">
+              </div>
+
+<br>We continued developing this same electronics mount for use on
+the helicopter, as a main plate where we would mount the flight
+controller, ESP32, and motor/rotor system. We went through 
+several additional iterations of this system. <br>
+              </p>
+            </div>
+
+            <!--CONTROLS ALGORITHM:-->
+            <div class="border-top py-vh-4" data-aos="fade-up">
+              <h3 class="text-center mb-3">Software - Controls Algorithm</h3>
+
+              <p class="fs-5 lh-lg">
+<br>We continued developing our firmware and communications protocols. At this stage, the swashplateless rotor system is running off
+ of serial command from the user on a computer that is physically
+  connected to the ESP32. The ESP32 is reading the encoder with 
+  I2C, calculating the output, then writing DSHOT commands to the
+   electronic speed controller (ESC). DSHOT is a racing drone
+    protocol used for its high speed communicating rate. 
+    The ESP32 is constantly running this loop and writing to the ESC
+     based on Throttle, Pitch, and Roll commands from the user.<br>
+              </p>
+
+              <div class="my-4 text-center">
+                <img src="img/Energy_signal%20flow%20diagram%20(1).png"
+                  style="width: 800px; height: auto; display: block; margin: 1rem auto;"
+                  alt="Energy_signal flow diagram (1)">
+              </div>
+
+              <div class="my-4 text-center">
+                <img src="img/Circuit%20diagram.png"
+                  style="width: 500px; height: auto; display: block; margin: 1rem auto;"
+                  alt="Circuit diagram">
+              </div>
+            </div>
+
+            <!--TESTING OUR SWASHPLATELESS SYSTEM -->
+            <div class="border-top py-vh-4" data-aos="fade-up">
+              <h3 class="text-center mb-3">Integration - Initial Testing On Our Shawshplateless System </h3>
+
+              <p class="fs-5 lh-lg">
+                
+<br>With our motor and electronics mounted onto our testing rig, 
+and the rig pinned to one-axis mode, we began testing. 
+We needed to tune the mechanical system and figure out software 
+issues. With some debugging and other troubleshooting, 
+we got it to work!<br>
+               </p>
+
+              <div class="my-4 text-center">
+                <video
+                  src="img/pic4vid%20(1).mp4"
+                  style="width: 600px; height: auto; display: block; margin: 1rem auto;"
+                  controls
+                  preload="metadata">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+
+            <!--HELICOPTER FRAME INTEGRATED DESIGN -->
+            <div class="border-top py-vh-4" data-aos="fade-up">
+              <h3 class="text-center mb-3">Mechanical - Helicopter Frame Initial Design</h3>
+              <p class="fs-5 lh-lg">
+<br>When our more mechanically-minded team members weren’t working on
+ the testing rig, rotor system, or electronics mounting, we spent
+  time developing our helicopter’s mechanical layout and parts.<br>
+
+<br>We started by brainstorming the frame. 
+We decided that we wanted a rig based around two side plates
+–one on each side. The electronics, motor, and so on would all 
+be sandwiched between these two plates, with the tail jutting out.
+ Based on this decision making, we began designing the helicopter. <br> 
+
+<br>We designed the side plates to look vaguely helicopter-ish. 
+The main plate was mounted at the top, the landing struts were
+ at the bottom, the battery was in the front to balance out weight,
+  and the tail was in the back. The design was inspired by 
+  Tom Stanton’s swashplateless helicopter. <br>
+
+<br>We planned to waterjet our side plates out of 16th inch
+ aluminum. Everything else would be 3D printed, besides possibly 
+ a standoff we’d lathe for the very front to hold the battery.<br> 
+
+<br>We planned to mount our main electronics/motor/etc plate onto
+ two crossbars at the top of the frame. Our ESC would be attached 
+ on the side of the frame, and we would use the landing struts as 
+ crossbars. <br>
+
+              </p>
+
+              <!-- pic14 -->
+              <div class="my-4 text-center">
+                <img src="img/frameidietion.png" style="width: 600px; height: auto; display: block; margin: 1rem auto;" alt="pic14">
+              </div>
+
+            </div>
+
+            <!-- RECAP -->
+            <div class="border-top py-vh-4" data-aos="fade-up">
+              <h3 class="text-center mb-3">Recap</h3>
+              <p class="fs-5 lh-lg">
+We achieved a great deal in this phase! We created a mini-timeline
+for our minimum viable product (the two-axis control of thrust 
+vector on the testing rig). We were doing well on that timeline,
+ and also making good progress on the helicopter’s mechanical 
+ design, too. Onto the next phase!<br><br>
+              </p>
+
+              <!-- pic16 -->
+              <div class="my-4 text-center">
+                <img src="img/pic_progression_v2.png" style="width: 800px; height: auto; display: block; margin: 1rem auto;" alt="pic16">
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- SCRIPTS -->
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800 });
+  </script>
+
+</body>
+</html>

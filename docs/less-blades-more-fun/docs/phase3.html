@@ -1,0 +1,357 @@
+<!doctype html>
+<html class="h-100" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <meta name="description" content="A growing collection of ready to use components for the CSS framework Bootstrap 5">
+
+  <title>Phase 3</title>
+
+  <link rel="stylesheet" href="css/theme.min.css">
+
+  <style>
+    /* inter-300 - latin */
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap;
+      src: local(''),
+        url('./fonts/inter-v12-latin-300.woff2') format('woff2'),
+        url('./fonts/inter-v12-latin-300.woff') format('woff');
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: local(''),
+        url('./fonts/inter-v12-latin-500.woff2') format('woff2'),
+        url('./fonts/inter-v12-latin-500.woff') format('woff');
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: local(''),
+        url('./fonts/inter-v12-latin-700.woff2') format('woff2'),
+        url('./fonts/inter-v12-latin-700.woff') format('woff');
+    }
+  </style>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#navScroll">
+
+  <!-- NAVBAR (matches Phase 1/2) -->
+  <nav id="navScroll" class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <a class="navbar-brand pe-4 fs-4" href="index.html">
+        <span class="fw-bolder">Less Blades, More Fun!</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Overview</a></li>
+          <li class="nav-item"><a class="nav-link" href="phase1.html">Phase 1</a></li>
+          <li class="nav-item"><a class="nav-link" href="phase2.html">Phase 2</a></li>
+          <li class="nav-item"><a class="nav-link active" href="phase3.html">Phase 3</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- INTRO (matches Phase 1/2 spacing & centering) -->
+    <div class="py-vh-4">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-10 text-center">
+            <h1 class="text-center fw-bold mb-3" data-aos="fade">Phase 3</h1>
+
+            <h3 class="text-center fw-bold mb-4" data-aos="fade"> <br><br>Final Phase Overview</h3>
+
+            <p class="lead fs-5 lh-lg" data-aos="fade">
+              In this phase, we continued developing our work and achieved both our basic goal of demonstrating two-axis control and our stretch goal of flying the helicopter! We initially ran into a major roadblock when our testing rig broke, but overcame this challenge and went on to achieve two-axis control of our rotor system's thrust vector. We then transitioned our electronics over to our helicopter, did some integration troubleshooting, and flew it.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="bg-white py-vh-4">
+      <div class="container">
+        <div class="row justify-content-center">
+
+          <div class="col-12 col-lg-11 col-xl-10">
+
+            <!-- THE EXPLOSION -->
+            <div class="border-top py-vh-4" data-aos="fade-up">
+              <h3 class="text-center mb-3">The Explosion</h3>
+
+              <p class="fs-5 lh-lg">
+                Much of our initial work during this phase was precipitated by the explosion of our test rig.
+              </p>
+
+              <div class="my-4 text-center">
+                <video class="img-fluid rounded shadow" controls preload="metadata" autoplay muted loop>
+                  <source src="img/explosion.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+
+              <p class="fs-5 lh-lg">
+                After this breakdown of our testing rig, we discussed possible reasons for the failure. Rewatching videos of the failure of the rig, we saw significant vibrations from the rotor system being transferred to the testing rig and causing significant deformation in our 3D printed attachment pieces.
+                <br><br>
+                We knew that some vibration was inherent to a swashplateless system; the acceleration and deceleration of our rotor head was what made it work, in theory. However, we seemed to be experiencing far more vibration than made sense.
+                <br><br>
+                We realized that a lot of this vibration could be attributed to our rotor system. The center of gravity of our system was off-balance from our center of rotation, causing unnecessary vibration.
+              </p>
+
+              <div class="my-4 text-center">
+                <img src="img/pic18.jpeg" class="img-fluid rounded shadow" alt="Rotor system progression">
+                <figcaption style="text-align: center; margin-top: 0.5rem;">
+                  The above image shows the progression of our rotor systems over time, with the top ones being older and the bottom being newer. The change we are talking about is from the second from bottom to the bottom ones.
+                </figcaption>
+              </div>
+
+              <p class="fs-5 lh-lg">
+                After making this realization, we redesigned the rotor system so that it was perfectly symmetrical, meaning that its center of gravity would be better aligned with the center of rotation (see the bottom rotor systems).
+                <br><br>
+                In addition, our discussion of the inherent vibrations that come as part of a swashplateless rotor system helped us realize that we needed to strengthen our testing rig motor mount. We wanted force from the rotor system to be directly transferred to the testing rig so that we could more easily visualize the effects of our testing. For all of these reasons, we cut a new version of a similar, but strengthened, piece out of quarter-inch aluminum plate.
+              </p>
+
+              <div class="my-4 text-center">
+                <img src="img/metal_electronics_mount.jpeg" class="img-fluid rounded shadow" alt="Metal electronics mount">
+              </div>
+            </div>
+
+            <!-- ACHIEVING TWO AXIS CONTROL -->
+            <div class="border-top py-vh-4" data-aos="fade-up">
+              <h3 class="text-center mb-3">Achieving Two Axis Control</h3>
+
+              <p class="fs-5 lh-lg">
+                Once we had redesigned our swashplate and strengthened our testing rig, we went back to testing. After some time tuning variables, we fully achieved two-axis control! This was our initial goal for the whole project, so it felt good to achieve.
+              </p>
+
+              <div class="my-4 text-center">
+                <video class="img-fluid rounded shadow" controls preload="metadata" autoplay muted loop>
+                  <source src="img/pic4vid%20(1).mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+
+            <!-- HELICOPTER MECHANICAL DEVELOPMENT -->
+            <div class="border-top py-vh-4" data-aos="fade-up">
+              <h3 class="text-center mb-3">Helicopter Mechanical Development</h3>
+
+              <p class="fs-5 lh-lg">
+                Once we had solved our testing rig's mechanical problems after the explosion, we began working on translating our helicopter from CAD into a real mechanical design. Our motivators in this stage were reducing part count and weight while maintaining strength.
+              </p>
+
+              <div class="my-4 text-center">
+                <img src="img/electronics mounts over time.jpeg" class="img-fluid rounded shadow" alt="Electronics mounts progression">
+                <figcaption style="text-align: center; margin-top: 0.5rem;">
+                  The above image shows the progression of our electronics mounts over time. In the far right mounts, we had transitioned to the one-piece mount, with the mount holding the motor and also serving as a structural piece. Bottom right is a failed version from a broken test.
+                </figcaption>
+              </div>
+
+              <p class="fs-5 lh-lg">
+                With this motivation, we realized that we could integrate our main motor and electronics mount with the crossbars we were using to attach it to the side frame, reducing part count and complexity of assembly.
+                <br><br>
+                At this point in the process, we also began manufacturing initial prototypes of our helicopter. We waterjetted our side frame pieces out of 16th inch aluminum plate. Initially, we intended to have significant lightweighting in our design. However, when we went to cut it, the shop staff requested that we not cut unnecessary holes, to avoid wasting grommet. For this reason, we removed all lightweighting. Even without it, the pieces still came out very light – 16th inch aluminum isn't very heavy.
+              </p>
+
+              <div class="my-4 text-center">
+                <img src="img/side plate dxf ss.png" class="img-fluid rounded shadow" alt="Side plate DXF">
+              </div>
+
+              <div class="my-4 text-center">
+                <img src="img/side mount real.jpeg" class="img-fluid rounded shadow" alt="Side plate real">
+                <figcaption style="text-align: center; margin-top: 0.5rem;">
+                  The above images show the original cutting file and then the actual cut piece after the unneeded cuts were removed to conserve grommet.
+                </figcaption>
+              </div>
+
+              <p class="fs-5 lh-lg">
+                Once we had printed our main plate and waterjetted our side plates, we began putting them together and figuring out sizing. We realized that we could reduce part count further and increase ease of assembly by using heat-set inserts rather than nuts for many connections of our main plate, so we remade the plate to accept heat-set inserts.
+              </p>
+
+              <div class="my-4 text-center">
+                <img src="img/picaa-semi-assembled%20.jpeg" class="img-fluid rounded shadow" alt="Semi-assembled helicopter">
+              </div>
+
+              <p class="fs-5 lh-lg">
+                We designed a mount for our tail tube out of 3D printed material, with the same basic considerations; we wanted it to be low-part-count, easy to assemble, and strong. We created a motor tail mount (not pictured) that was essentially a plug glued into the tail rod.
+              </p>
+            </div>
+
+            <!-- TAIL WORK -->
+            <div class="border-top py-vh-4" data-aos="fade-up">
+              <h3 class="text-center mb-3">Tail Work</h3>
+
+              <p class="fs-5 lh-lg">
+                These were our initial design constraints and considerations for our tail and complementary components:<br><br>
+                1. The tail must be long enough to offset the tail motor in the right place<br>
+                2. The tail mounting must be capable of holding the tail and its components, and it must constrain the tail in all directions<br>
+                3. The tail motor mount has to be strong enough to resist crash impacts, and it has to be able to be dismounted easily<br><br>
+
+                The tail section had 5 major components:<br><br>
+
+                <b>1. Tail shaft:</b> Our tail shaft was a 250 mm carbon fiber shaft with a ten millimeter outer diameter and an eight millimeter inner diameter. It satisfied our physical and aesthetic requirements, so it was a perfect choice.
+              </p>
+
+              <!-- Tail images: ONLY these are resized smaller -->
+              <div class="my-4 text-center">
+                <img src="img/tailshaft.png" alt="Tail shaft"
+                  style="width: 450px; height: auto; display: block; margin: 1rem auto;">
+              </div>
+
+              <p class="fs-5 lh-lg">
+                <b>2. Tail motor:</b> The motor we picked was a Diatone Mamba Toka 1505, in the 2650KV version. Our reasoning for choosing this motor can be found here:
+              </p>
+
+              <div class="my-4 text-center">
+                <img src="img/tailmotor.png" alt="Tail motor"
+                  style="width: 450px; height: auto; display: block; margin: 1rem auto;">
+              </div>
+
+              <p class="fs-5 lh-lg">
+                <b>3. Tail rotor:</b> We used a 60 mm plastic tail rotor. The blades were big enough that the tail propeller system generated enough counteracting force, and small enough that the blades didn't interfere with the main propeller blades nor hit the ground.
+              </p>
+
+              <div class="my-4 text-center">
+                <img src="img/tailrotor.png" alt="Tail rotor"
+                  style="width: 200px; height: 450px; display: block; margin: 1rem auto;">
+              </div>
+
+              <p class="fs-5 lh-lg">
+                <b>4. Tail shaft mount:</b> We used a set-screw mechanism to clamp the tail to the main body of the helicopter. This design satisfied our requirements of having a strong mounting and easy accessibility.
+              </p>
+
+              <div class="my-4 text-center">
+                <img src="img/tailmount.png" alt="Tail shaft mount"
+                  style="width: 450px; height: auto; display: block; margin: 1rem auto;">
+              </div>
+
+              <p class="fs-5 lh-lg">
+                <b>5. Tail motor mount:</b> Our initial design for the tail motor used the same set-screw mechanism as the tail shaft mount, and included supports that aligned with the landing gear for extra stability. However, we decided to pivot to a more minimalistic mount that still met our design goals to reduce the amount of weight in the rear part of the helicopter and balance the aircraft's center of gravity.
+              </p>
+
+              <!-- Old/New mount: same size + captions -->
+              <div class="row my-4">
+                <div class="col-md-6 text-center">
+                  <img src="img/oldmount.png" alt="Old tail motor mount"
+                    style="width: 420px; height: auto; display: block; margin: 1rem auto;">
+                  <figcaption style="text-align: center; margin-top: 0.5rem;">
+                    Old tail motor mount
+                  </figcaption>
+                </div>
+                <div class="col-md-6 text-center">
+                  <img src="img/newmount.png" alt="New tail motor mount"
+                    style="width: 420px; height: auto; display: block; margin: 1rem auto;">
+                  <figcaption style="text-align: center; margin-top: 0.5rem;">
+                    New tail motor mount
+                  </figcaption>
+                </div>
+              </div>
+            </div>
+
+            <!-- FINAL SPRINT TO DEMO DAY -->
+            <div class="border-top py-vh-4" data-aos="fade-up">
+              <h3 class="text-center mb-3">Final Sprint to Demo Day</h3>
+
+              <p class="fs-5 lh-lg">
+                This was the final stretch to achieving our stretch goal: fully integrating the helicopter.
+                <br><br>
+                After all of this work on the individual components, we tried putting everything on the helicopter: frame, landing struts, main motor plate, and tail mount, along with all relevant electronics. We knew we needed to do this testing to iron out any kinks we could find.
+              </p>
+
+              <div class="my-4 text-center">
+                <img src="img/pic23.jpeg" class="img-fluid rounded shadow" alt="Assembly test">
+              </div>
+
+              <p class="fs-5 lh-lg">
+                This assembly test had promising results–everything fit! We had enough space for all our electronics, while still having solid attachments for all of our frame components, but there were a few other issues that had to be dealt with.
+                <br><br>
+                Testing revealed a problem with our side plate design: we had no way to plug into and update our flight controller, which was mounted on our motor/electronics mount directly below the motor. It was blocked by the side plate.
+              </p>
+
+              <div class="my-4 text-center">
+                <img src="img/pic24.jpeg" class="img-fluid rounded shadow" alt="Blocked flight controller access">
+              </div>
+
+              <p class="fs-5 lh-lg">
+                Our initial fix for this was quick and dirty–we drilled out some holes in the side frame to allow access to the flight controller, but we designed an actual access hole when we ultimately replaced the aluminum side plates with carbon fiber to lightweight the helicopter by ~20 grams.
+                <br><br>
+                We finalized the mount design for the electronics and fabricated them using PLA and heat set inserts. We originally wanted to CNC the mount and the struts out of aluminum, but due to time constraints, we settled on sticking with easily manufacturable PLA in order to spend more time testing and tuning the helicopter.
+                <br><br>
+                We started having an issue where the rotorhead hinge began seizing up as a result of the PLA deforming when the motor was run at high speeds for too long, so we began experimenting with resin prints for theoretical higher precision, less friction, and durability.
+              </p>
+
+              <div class="my-4 text-center">
+                <img src="img/pic25.jpeg" class="img-fluid rounded shadow" alt="Resin print experiments">
+              </div>
+
+              <p class="fs-5 lh-lg">
+                However, we ultimately concluded that resin was too brittle for our uses after the rotorhead essentially exploded due to shear force twice. Furthermore, the resin prints required much more sanding down and fitting than PLA to make sure the tolerances were correct and as frictionless as possible. The benefits of moving from PLA to resin were simply insufficient to warrant longer print times. To fix the issue of the PLA seizing, we added washers inside the hinge to minimize friction between the parts that made up the hinge, which worked.
+              </p>
+            </div>
+
+            <!-- TESTING THE HELICOPTER -->
+            <div class="border-top py-vh-4" data-aos="fade-up">
+              <h3 class="text-center mb-3">Testing the Helicopter</h3>
+
+              <p class="fs-5 lh-lg">
+                We had reached the final stretch! Our helicopter was assembled and mechanically sound. In the days leading up, we had achieved flight with a semblance of control, but had a lot of trouble tuning our control loop.
+              </p>
+
+              <div class="my-4 text-center">
+                <video class="img-fluid rounded shadow" controls preload="metadata" autoplay muted loop>
+                  <source src="img/pic25vid.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+
+              <p class="fs-5 lh-lg">
+                The helicopter was consistently drifting to the right. We tried both mechanical and software fixes to this challenge–adding more mass to the left side, bumping up our PID values, etc.
+                <br><br>
+                Over the course of the night, we did extensive controls tuning–bumping up our proportional and integral constants and doubling the amplitude of the sine wave we used to control the motor. We also tuned our center of gravity, adding an extra aluminum bar in the front of our helicopter. This tuning worked – we were able to obtain <b>controlled, stable flight. We did it.</b>
+              </p>
+
+              <div class="my-4 text-center">
+                <video class="img-fluid rounded shadow" controls preload="metadata" autoplay muted loop>
+                  <source src="img/pic5vid.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- SCRIPTS -->
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800 });
+  </script>
+
+</body>
+
+</html>

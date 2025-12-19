@@ -1,0 +1,283 @@
+<!doctype html>
+<html class="h-100" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <meta name="description" content="A growing collection of ready to use components for the CSS framework Bootstrap 5">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="96x96" href=".t/img/favicon.png">
+  <meta name="author" content="Kai-Xing Yue">
+  <meta name="generator" content="Eleventy v2.0.0">
+  <meta name="HandheldFriendly" content="true">
+  <title>Less Blades, More Fun! Overview</title>
+  <link rel="stylesheet" href="css/theme.min.css">
+
+  <style>
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap;
+      src: local(''),
+        url('./fonts/inter-v12-latin-300.woff2') format('woff2'),
+        url('./fonts/inter-v12-latin-300.woff') format('woff');
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: local(''),
+        url('./fonts/inter-v12-latin-500.woff2') format('woff2'),
+        url('./fonts/inter-v12-latin-500.woff') format('woff');
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: local(''),
+        url('./fonts/inter-v12-latin-700.woff2') format('woff2'),
+        url('./fonts/inter-v12-latin-700.woff') format('woff');
+    }
+  </style>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#navScroll">
+
+  <nav id="navScroll" class="navbar navbar-expand-lg navbar-light fixed-top" tabindex="0">
+    <div class="container">
+      <a class="navbar-brand pe-4 fs-4" href="index.html">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-layers-half"
+          viewBox="0 0 16 16">
+          <path
+            d="M8.235 1.559a.5.5 0 0 0-.47 0l-7.5 4a.5.5 0 0 0 0 .882L3.188 8 .264 9.559a.5.5 0 0 0 0 .882l7.5 4a.5.5 0 0 0 .47 0l7.5-4a.5.5 0 0 0 0-.882L12.813 8l2.922-1.559a.5.5 0 0 0 0-.882l-7.5-4zM8 9.433 1.562 6 8 2.567 14.438 6 8 9.433z" />
+        </svg>
+        <span class="ms-1 fw-bolder">Less Blades, More Fun!</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html" aria-label="Brings you to the frontpage">Overview</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="phase1.html">Phase 1</a></li>
+          <li class="nav-item"><a class="nav-link" href="phase2.html">Phase 2</a></li>
+          <li class="nav-item"><a class="nav-link" href="phase3.html">Phase 3</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- HERO (keep image next to title, like before) -->
+    <div class="w-100 bg-gray-100" id="top">
+      <div class="container position-relative">
+
+        <div class="position-absolute top-0 end-0 bg-cover" style="
+            width: 60%;
+            height: 100%;
+            background-image: url('img/Final_helicopter_pic.jpeg');
+            z-index: 1;">
+        </div>
+
+        <div class="row">
+          <div class="col-lg-7 py-vh-6 position-relative" style="z-index: 2;">
+            <h1 class="display-1 fw-bold mt-5">Swashplate-less Helicopter</h1>
+            <p class="lead">Kai-Xing Y., Logan T., Sky R., Sammy S., Eliam B.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ******************** START OF TEXT ******************-->
+
+    <div class="py-vh-4 d-flex align-items-center">
+      <div class="container">
+        <div class="row d-flex justify-content-center">
+          <div class="col-10 text-center py-vh-3">
+
+            <!-- Match Phase styling: big bold title-ish sections, consistent body formatting -->
+            <h2 class="text-center fw-bold mb-4" data-aos="fade">General Project Overview</h2>
+
+            <p class="lead fs-5 lh-lg" data-aos="fade">
+              For our final Principles of Integrated Engineering class project, we built a remote-controlled helicopter that can change its pitch and roll output without the need of a swashplate.
+              <br><br>
+            </p>
+
+            <h3 class="text-center fw-bold mb-3" data-aos="fade">WHAT IS A SWASHPLATE?</h3>
+
+            <p class="lead fs-5 lh-lg" data-aos="fade">
+              To understand the “why” behind the mechanics of swashplates, we first need to understand how a helicopter uses its main rotor to fly.<br><br>
+
+              The main rotor provides the vertical thrust needed to overcome gravity. The propeller's velocity controls the helicopter's rate of ascent or descent. Adjusting the pitch of its blades with reference to a neutral axis will adjust its net thrust vector, which will move the helicopter <b>forward, backward, or sideways</b>.
+              <br><br>
+              When the thrust vector is angled forwards, the helicopter moves forwards. When it is angled back, the helicopter moves back.
+              <br><br>
+            </p>
+
+            <!-- pic1 (keep your old blended styling) -->
+            <img src="img/Pic1_cc (1).png" style="width: 600px; height: auto; display: block; margin: 1rem auto;">
+
+            <p class="lead fs-5 lh-lg" data-aos="fade">
+              Normal helicopters control the direction of their thrust vectors with a swashplate, a mechanical system to alter the pitch of the rotors through the full rotation. This system is mechanically complex and requires at least one additional actuator.
+
+              <br><br>
+
+              After seeing a Tom Stanton video in which he made a swashplateless helicopter, we were inspired to make our own.
+
+              <br><br>
+            </p>
+
+            <h3 class="text-center fw-bold mb-3" data-aos="fade">HOW A SWASHPLATE WORKS</h3>
+
+            <!-- pic2 -->
+            <img src="img/pic2v2.png" style="width: 600px; height: auto; display: block; margin: 1rem auto;">
+
+            <p class="lead fs-5 lh-lg" data-aos="fade">
+              A swashplateless system changes the direction of its thrust vector through a control system that speeds up and slows down the rotor through its rotation. The inertia of the rotor causes it to swing forward or backwards. When mounted on an angled pivot, this swing can change the pitch angle of the rotor.
+
+              <br><br>
+
+              This method reduces mechanical complexity; the complexity is transferred over to the controls for the rotor system. This reduction in complexity enables smaller helicopters, which is pretty cool to think about.
+
+              <br><br>
+            </p>
+
+            <h2 class="text-center fw-bold mb-4" data-aos="fade">PROJECT GOALS AND RESULTS</h2>
+
+            <p class="lead fs-5 lh-lg" data-aos="fade">
+              <b>MVP:</b> Build a swashplateless rotor system that can alter its thrust vector using a motor control algorithm and demonstrate 1-axis and 2-axis control in testing
+              <br>
+              <b>Stretch Goal:</b> Build and fly a helicopter with an integrated swashplateless system and tuned control software
+              <br><br>
+            </p>
+
+            <h3 class="text-center fw-bold mb-3" data-aos="fade">RESULTS</h3>
+
+            <p class="lead fs-5 lh-lg" data-aos="fade">
+              <b>Demonstration of MVP:</b> We built a swashplateless system and demonstrated 1- and 2-axis control with a testing rig.
+            </p>
+
+            <!-- MVP video -->
+            <video src="img/pic4vid (1).mp4" style="width: 600px; height: auto; display: block; margin: 1rem auto;"
+              controls autoplay muted loop>
+            </video>
+
+            <p class="lead fs-5 lh-lg" data-aos="fade">
+              <b>Demonstration of Stretch Goal:</b> We built and flew a helicopter utilizing our swashplateless system.
+            </p>
+
+            <!-- Stretch video -->
+            <video src="img/pic5vid.mp4" style="width: 400px; height: auto; display: block; margin: 1rem auto;"
+              controls autoplay muted loop>
+            </video>
+
+            <p class="lead fs-5 lh-lg" data-aos="fade">
+              <br><br>
+
+              As shown in the images and videos, we achieved all of our project goals. Our progress was marked by distinct phases, each culminating in a phase review. To see our progression from ideation to final product, review the <b> phase pages </b> in the menu.  Additional information (budget, circuit schematic, etc.) is shown in the Miscellaneous section below.
+
+              <br><br>
+            </p>
+
+            <h2 class="text-center fw-bold mb-4" data-aos="fade">MISCELLANEOUS INFORMATION</h2>
+
+            <h3 class="text-center fw-bold mb-3" data-aos="fade">General Series of Progression</h3>
+            <img src="img/Progression towards goals.png"
+              style="width: 800px; height: auto; display: block; margin: 1rem auto;">
+
+
+            <h3 class="text-center fw-bold mb-3" data-aos="fade">Energy and Signal Flow Diagram</h3>
+            <img src="img/Energy_signal flow diagram (1).png"
+              style="width: 800px; height: auto; display: block; margin: 1rem auto;">
+
+
+            <h3 class="text-center fw-bold mb-3" data-aos="fade">Software Structure Diagram</h3>
+            <img src="img/Software diagram.png"
+              style="width: 800px; height: auto; display: block; margin: 1rem auto;">
+
+            <figcaption style="text-align: center; margin-top: 0.5rem;">
+              Our firmware utilized the following libraries:
+              <br>
+              <a href=https://github.com/iNavFlight/inav target="_blank" rel="noopener noreferrer">
+                iNAV
+              </a>
+              - Configures flight controller. Converts remote controller stick movements into pitch, roll, and yaw PWM signals. Allows us to view what orientation the helicopter believes it is in compared to what it actually is. Supports stable flight.
+              <br>
+              <a href=https://github.com/RobTillaart/AS5600 target="_blank" rel="noopener noreferrer">
+                AS5600.h
+              </a>
+              - Library for configuring ESP32. Extracts angle measurement from AS5600 encoder.
+              <br>
+              <a href=https://docs.arduino.cc/libraries/ target="_blank" rel="noopener noreferrer">
+                Arduino.h
+              </a>
+              - Library for configuring ESP32. Standard Arduino library needed to run code.
+              <br>
+              <a href=https://github.com/derdoktor667/DShotRMT target="_blank" rel="noopener noreferrer">
+                DShotRMT.h
+              </a>
+              - Configures ESP32. Allows for generation of DShot signals on ESP32 microcontrollers for motor control and sending throttle values
+              <br>
+              <a href=https://github.com/Fantasticalkiwi/Swashplateless-helicopter target="_blank" rel="noopener noreferrer">
+                GitHub repository link to the final firmware uploaded to ESP32 and supplementary firmware used for testing.
+                <br><br>
+              </a>
+            </figcaption>
+
+            <h3 class="text-center fw-bold mb-3" data-aos="fade">Circuit Schematic</h3>
+            <img src="img/Circuit diagram.png"
+              style="width: 500px; height: auto; display: block; margin: 1rem auto;">
+
+            <figcaption style="text-align: center; margin-top: 0.5rem;">
+              The circuit diagram follows the general order of data flow through the system.
+              <br><br>
+              The receiver is a small board responsible for communicating between the radio controller and the aircraft. It communicates with the radio bidirectionally at 900 MHz over a protocol called Crossfire. It has 4 connections to the flight controller that power it and enable connection over UART.
+              <br><br>
+              The flight controller is powered at 16.8V by the ground and VCC pin on the ESC. The board also shares common ground with the ESP32 in order to enable the sending of 340 Hz PWM control commands. The receiver is wired to the RX and TX pins, and the built-in BEC steps down the VCC voltage to 5V in order to power the receiver. Finally, the S1-S4 pins output the pitch, roll, and yaw commands as servo signals (1000 us-2000 us).
+              <br><br>
+              The ESP32 shares bidirectional power with the flight controller (the 5V pads on both boards support both input and output). During ESP32 configuration the flight controller is powered by the ESP32, and the inverse is true when operating off of battery power. The board's GPIO pins are used for reading servo and I2C data from the flight controller and outputting Dshot commands to the electronic speed controller.
+              <br><br><br>
+            </figcaption>
+
+            <h3 class="text-center fw-bold mb-3" data-aos="fade">Final Helicopter CAD Exploded View</h3>
+            <img src="img/System Diagram.png"
+              style="width: 800px; height: auto; display: block; margin: 1rem auto;">
+
+            <h3 class="text-center fw-bold mb-3" data-aos="fade">Budget Spreadsheet</h3>
+            <img src="img/Budget finalized.png"
+              style="width: 800px; height: auto; display: block; margin: 1rem auto;">
+
+            <figcaption style="text-align: center; margin-top: 0.5rem;">
+              Please note that "unit cost" means total cost of the item (including shipping) if we had purchased it. Total cost is the actual amount each item cost us (many items were already available).
+            </figcaption>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800 });
+  </script>
+
+</body>
+
+</html>
