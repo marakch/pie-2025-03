@@ -44,13 +44,14 @@ li {
 
 .intro h2{
   text-align: right;
+  margin: 0 0 30px 0;
 }
 
 .intro p{
   color: rgb(0, 0, 0);
   width: auto;
   max-width: 650px;
-  margin: -375px 0 0 800px;
+  margin: 20px 0 0 800px;
   font-size: 25px;
 }
 
@@ -1073,5 +1074,4 @@ transform: translateY(-700px);
   position: relative;
   z-index: -1;
 }
-
 
