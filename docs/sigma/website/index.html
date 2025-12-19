@@ -208,28 +208,15 @@
 						        </figure>
 						    </div>
 						    
-						    <div class="spotlight">
-						        <div class="content">
-						            <h3>Sprint 1</h3>
-						            <p>Initial research, concept development, and basic prototyping of key components (keyboard switches and rotor scaling).</p>
-						        </div>
-						        <span class="image"><img src="images/step1.jpg" alt="Sprint 1" /></span>
-						    </div>
-						    
-						    <div class="spotlight">
-						        <span class="image"><img src="images/step2.jpg" alt="Sprint 2" /></span>
-						        <div class="content">
-						            <h3>Sprint 2</h3>
-						            <p>Refinement of rotor design, initial wiring tests, and keyboard mechanism iterations.</p>
-						        </div>
-						    </div>
-						    
-						    <div class="spotlight">
-						        <div class="content">
-						            <h3>Sprint 3</h3>
-						            <p>Final assembly, integration of subsystems, electrical testing, and debugging.</p>
-						        </div>
-						        <span class="image"><img src="images/step3.jpg" alt="Sprint 3" /></span>
+						    <div class="content">
+						        <h3>Sprint 1</h3>
+						        <p>For the first sprint, we got all of the CAD done. We also were able to produce a prototype of one rotor, as well as purchasing materials and getting started on the keys.</p>
+						        
+						        <h3>Sprint 2</h3>
+						        <p>By the end of the second sprint, we had a prototype keyboard, a plan for the plugboard, modified parts for the rotors, and had created one finalized rotor. We also were halfway done with the reflector.</p>
+						        
+						        <h3>Sprint 3</h3>
+						        <p>For the third sprint review, we had completed the individual keyboard parts, laser-cut the case, CADed the plugboard, and finished all the rotors. We also designed the ratchet system.</p>
 						    </div>
 						    
 						</section>
@@ -240,8 +227,24 @@
 						        <h2>Mechanical</h2>
 						    </header>
 						    
-						    <!-- Rotors -->
+						    <!-- Rotors (text left, images right) -->
 						    <div class="spotlight">
+						        <div class="content">
+						            <h3>Rotors</h3>
+						            <p>Each rotor is a nine-part mechanical assembly that rotates as a single unit to maintain precise alignment of the electrical contact pins. The rotor body acts as the main structural element, concentrically locating all components along the axis. A toleranced bushing between the shaft and rotor body reduces friction while ensuring accurate alignment during rotation.</p>
+
+									<p>All parts were dimensioned and toleranced for FDM Stratasys printing to ensure consistent fits across assemblies. Press fits are used where alignment is critical, while threaded fasteners allow disassembly and adjustment where needed.</p>
+									
+									<p>Indexed rotation is achieved through a ratchet wheel mounted at one end of the rotor body. The ratchet defines the angular step size and interfaces with the stepping mechanism. Together with the locking plate, it also radially and axially constrains the spring pins, keeping them aligned during rotation.</p>
+									
+									<p>Rotor stepping follows Enigma logic: the first rotor advances every key press, the second once every 26 rotations of the first, and the third once every 26 rotations of the second. This behavior is enforced by a notched plate fixed to each rotor with M2 screws, physically preventing downstream rotors from rotating until an upstream rotor completes a full cycle.</p>
+									
+									<p>The number wheel displays the current rotor position and uses friction fits with a small locking feature to prevent accidental movement. The thumb wheel allows manual adjustment and is mechanically linked to the ratchet wheel using friction and wood screws to guarantee alignment.</p>
+									
+									<p>Internally, a routing piece connects to the ratchet wheel and preserves approximately 2 cm of space for wire scrambling. The copper pin housing supports the fixed copper pins and encloses the wiring, fastening to the routing piece with M4 screws to form a rigid structure.</p>
+									
+									<p>Future iterations will focus on improving stepping consistency and electrical contact reliability, including lower-force spring pins and servo-driven rotor control, while preserving the original encryption behavior.</p>
+						        </div>
 						        <span class="image">
 						            <figure>
 						                <img src="images/allparts.jpeg" alt="All rotor parts" />
@@ -260,25 +263,9 @@
 						                <figcaption>Rotors wired up with the initial contact piece and reflector in the machine.</figcaption>
 						            </figure>
 						        </span>
-						        <div class="content">
-						            <h3>Rotors</h3>
-						            <p>Each rotor is a nine-part mechanical assembly that rotates as a single unit to maintain precise alignment of the electrical contact pins. The rotor body acts as the main structural element, concentrically locating all components along the axis. A toleranced bushing between the shaft and rotor body reduces friction while ensuring accurate alignment during rotation.</p>
-
-									<p>All parts were dimensioned and toleranced for FDM Stratasys printing to ensure consistent fits across assemblies. Press fits are used where alignment is critical, while threaded fasteners allow disassembly and adjustment where needed.</p>
-									
-									<p>Indexed rotation is achieved through a ratchet wheel mounted at one end of the rotor body. The ratchet defines the angular step size and interfaces with the stepping mechanism. Together with the locking plate, it also radially and axially constrains the spring pins, keeping them aligned during rotation.</p>
-									
-									<p>Rotor stepping follows Enigma logic: the first rotor advances every key press, the second once every 26 rotations of the first, and the third once every 26 rotations of the second. This behavior is enforced by a notched plate fixed to each rotor with M2 screws, physically preventing downstream rotors from rotating until an upstream rotor completes a full cycle.</p>
-									
-									<p>The number wheel displays the current rotor position and uses friction fits with a small locking feature to prevent accidental movement. The thumb wheel allows manual adjustment and is mechanically linked to the ratchet wheel using friction and wood screws to guarantee alignment.</p>
-									
-									<p>Internally, a routing piece connects to the ratchet wheel and preserves approximately 2 cm of space for wire scrambling. The copper pin housing supports the fixed copper pins and encloses the wiring, fastening to the routing piece with M4 screws to form a rigid structure.</p>
-									
-									<p>Future iterations will focus on improving stepping consistency and electrical contact reliability, including lower-force spring pins and servo-driven rotor control, while preserving the original encryption behavior.</p>
-						        </div>
 						    </div>
 						    
-						    <!-- Keyboard -->
+						    <!-- Keyboard (images left, text right) -->
 						    <div class="spotlight">
 						        <span class="image">
 						            <figure>
@@ -304,50 +291,76 @@
 								</div>
 						    </div>
 
-						    <!-- Case -->
+						    <!-- Case (text left, images right) -->
 						    <div class="spotlight">
+						        <div class="content">
+						            <h3>Case</h3>
+						            <p>The case was designed early on in the process. This allowed it to evolve as we designed the internal components. We used parametric CAD in Onshape with variables for length, width, height, and wall thickness to facilitate iterations. Additional features like slots for keyboard integration and the ratchet system were added as needed. Once the design was nearly final, tolerances for laser cutter kerf were applied, and the acrylic pieces were assembled using solvent welding.</p>
+						            <p>In the final build, one wall had minor fit issues due to a slightly misaligned reflector plate. We chose not to disassemble and fix it at that stage since the system was functional. Future iterations would address this, as well as tightening the shaft hole tolerance to account for threading reducing the shaft diameter.</p>
+						        </div>
 						        <span class="image">
 						            <figure>
 						                <img src="images/casecad.png" alt="Case CAD" />
 						                <figcaption>CAD of the casing for the rotors, reflector, and initial contact wheel.</figcaption>
 						            </figure>
 						        </span>
-						        <div class="content">
-						            <h3>Case</h3>
-						            <p>The case was designed early on in the process. This allowed it to evolve as we designed the internal components. We used parametric CAD in Onshape with variables for length, width, height, and wall thickness to facilitate iterations. Additional features like slots for keyboard integration and the ratchet system were added as needed. Once the design was nearly final, tolerances for laser cutter kerf were applied, and the acrylic pieces were assembled using solvent welding.</p>
-						            <p>In the final build, one wall had minor fit issues due to a slightly misaligned reflector plate. We chose not to disassemble and fix it at that stage since the system was functional. Future iterations would address this, as well as tightening the shaft hole tolerance to account for threading reducing the shaft diameter.</p>
-						        </div>
 						    </div>
 						</section>
-		    
+
 						<!-- Electrical -->
 						<section id="fourth" class="main special">
 						    <header class="major">
 						        <h2>Electrical</h2>
 						    </header>
 						    
+						    <!-- Keyboard -->
 						    <div class="spotlight">
 						        <div class="content">
-						            <h3>Wiring Architecture</h3>
-						            <p>Description of the overall electrical flow, plugboard implementation, rotor contacts, reflector pairing, and integration with Arduino for input detection and display output.</p>
+						            <h3><strong>Keyboard</strong></h3>
+						            <p>The electrical components of the keyboard essentially make a button. There is a copper wire on a bracket, which in its resting position does not touch a split bushing on the actual key. When the two come in contact, they complete a circuit, and a signal is sent to the Arduino.</p>
 						        </div>
-						        <span class="image"><img src="images/electrical1.jpg" alt="Electrical wiring diagram or photo" /></span>
+						        <span class="image">
+						            <figure>
+						                <img src="images/keyboard_electrical1.jpg" alt="Keyboard electrical close-up" />
+						                <figcaption>Keyboard switch mechanism (placeholder).</figcaption>
+						            </figure>
+						            <figure style="margin-top: 1em;">
+						                <img src="images/keyboard_electrical2.jpg" alt="Keyboard wiring" />
+						                <figcaption>Keyboard wiring to breadboard (placeholder).</figcaption>
+						            </figure>
+						        </span>
 						    </div>
 						    
+						    <!-- Rotors and Reflector -->
 						    <div class="spotlight">
-						        <span class="image"><img src="images/electrical2.jpg" alt="Breadboard or Arduino connections" /></span>
+						        <span class="image">
+						            <figure>
+						                <img src="images/rotors_electrical1.jpg" alt="Rotor contacts" />
+						                <figcaption>Rotor spring-pin contacts (placeholder).</figcaption>
+						            </figure>
+						            <figure style="margin-top: 1em;">
+						                <img src="images/reflector_electrical.jpg" alt="Reflector wiring" />
+						                <figcaption>Reflector pairing (placeholder).</figcaption>
+						            </figure>
+						        </span>
 						        <div class="content">
-						            <h3>Arduino Integration</h3>
-						            <p>Details on how the Arduino Mega handles keypress detection, debouncing, and distinguishing between pressed and illuminated letters.</p>
+						            <h3><strong>Rotors and Reflector</strong></h3>
+						            <p>The electrical operation of the rotor system begins when a key is pressed, at which point the input signal is either swapped with another letter or left unchanged by the plugboard. The signal then travels sequentially through the three rotors, where each rotor applies a substitution based on its internal wiring and current position. After passing through the third rotor, the signal reaches the reflector, which redirects it back through the same three rotors in the reverse direction, causing the signal to be transformed again. In total, the signal is altered seven times: once at the plugboard, three times through the forward rotor path, once at the reflector, and three times through the reverse rotor path. Finally, the signal returns to the plugboard, where it is either left unchanged or swapped one last time before producing the output letter.</p>
 						        </div>
 						    </div>
 						    
+						    <!-- Plugboard -->
 						    <div class="spotlight">
 						        <div class="content">
-						            <h3>Power & Signal Reliability</h3>
-						            <p>Challenges with contact resistance, soldering techniques for reliable connections, and any shielding or grounding considerations.</p>
+						            <h3><strong>Plugboard</strong></h3>
+						            <p>Without any plugs, the plugboard initially connects each letter's input to the output (ex. If the plugboard receives an input ‘A’, the plugboard outputs ‘A' to the rotors. By adding a plug and swapping two letters, one letter’s input becomes another letter's output. This changes the circuit. That letter will always come out as the swapped letter unless the plug is removed.)</p>
 						        </div>
-						        <span class="image"><img src="images/electrical3.jpg" alt="Close-up of contacts or testing" /></span>
+						        <span class="image">
+						            <figure>
+						                <img src="images/plugboard_electrical.jpg" alt="Plugboard swaps" />
+						                <figcaption>Plugboard with example swaps (placeholder).</figcaption>
+						            </figure>
+						        </span>
 						    </div>
 						    
 						</section>
@@ -358,28 +371,27 @@
 						        <h2>Software</h2>
 						    </header>
 						    
-						    <div class="spotlight">
-						        <div class="content">
-						            <h3>Arduino Firmware</h3>
-						            <p>Overview of the Arduino sketch: reading keyboard inputs, detecting plugboard swaps, driving the display, and handling rotor position (manual in this version).</p>
-						        </div>
-						        <span class="image"><img src="images/code1.jpg" alt="Code snippet or Arduino setup" /></span>
+						    <div class="content">
+						        <p>The following software includes 3 parts. The code for the Arduino which takes in a letter and outputs the corresponding pin (as demonstrated in the system diagram). The Raspi code uses a simple setup that listens for the output from the Arduino through its serial port and outputs it to the Thonny terminal. For a more aesthetic display, we installed Putty, a common terminal emulator for the Raspberry Pi. The code can be read below for more information.</p>
+						        
+						        <h3>Github Source Code:</h3>
+						        <ul>
+						            <li>ReadMe: <a href="https://github.com/Tchenzie/pie-2025-03/blob/main/docs/sigma/pie_final_code/enigma_code_README.md">enigma_code_README.md</a></li>
+						            <li>Arduino MEGA Code: <a href="https://github.com/Tchenzie/pie-2025-03/blob/main/docs/sigma/pie_final_code/pie_final_current.ino">pie_final_current.ino</a></li>
+						            <li>Raspi Code: <a href="https://github.com/Tchenzie/pie-2025-03/blob/main/docs/sigma/pie_final_code/enigma_machine_display.py">enigma_machine_display.py</a></li>
+						        </ul>
 						    </div>
 						    
 						    <div class="spotlight">
-						        <span class="image"><img src="images/code2.jpg" alt="Display output example" /></span>
+						        <span class="image">
+						            <figure>
+						                <img src="images/software1.jpg" alt="Arduino code screenshot" />
+						                <figcaption>Arduino code snippet (placeholder).</figcaption>
+						            </figure>
+						        </span>
 						        <div class="content">
-						            <h3>Display Management</h3>
-						            <p>How the LCD or screen is updated with encrypted/decrypted letters, including any buffering or message history features.</p>
+						            <p>Additional screenshots or code highlights can be added here.</p>
 						        </div>
-						    </div>
-						    
-						    <div class="spotlight">
-						        <div class="content">
-						            <h3>Future Software Enhancements</h3>
-						            <p>Potential additions like automatic rotor stepping via encoders or servos, configuration menus, or full software emulation mode.</p>
-						        </div>
-						        <span class="image"><img src="images/code3.jpg" alt="Future feature mockup" /></span>
 						    </div>
 						    
 						</section>
@@ -470,13 +482,15 @@
 						            </tbody>
 						            <tfoot>
 						                <tr>
-						                    <td><strong>Total</strong></td>
+						                    <td><strong>Total listed cost</strong></td>
 						                    <td><strong>290</strong></td>
 						                </tr>
 						            </tfoot>
 						        </table>
 						    </div>
-						    
+						    <div class="content" style="margin-top: 2em;">
+						        <p>The total listed cost of the machine is approximately $290. However, many items (such as aluminum scrap, some wiring, and tools) were found in the shop, already owned, or sourced from scrap bins, bringing our actual out-of-pocket cost closer to $235—well within our $250 budget.</p>
+						    </div>
 						</section>
 
 						<!-- About Us -->
@@ -485,18 +499,46 @@
 						        <h2>About Us</h2>
 						    </header>
 
-						    <div class="spotlight">
-						        <span class="image"><img src="images/team.jpg" alt="Team photo" /></span>
-						        <div class="content">
-						            <p>We are a team of five Olin College of Engineering students who built the Sigma Machine as part of the Fall 2025 Principles of Integrated Engineering (PIE) course. This project combined mechanical design, electrical systems, and software to recreate a functional modernized Enigma M3.</p>
-						            <ul>
-						                <li><strong>Anna Braun</strong> – [Role/Contribution]</li>
-						                <li><strong>Jo Walkup</strong> – [Role/Contribution]</li>
-						                <li><strong>Kuhu Jayaswal</strong> – [Role/Contribution]</li>
-						                <li><strong>Leo Trepte</strong> – [Role/Contribution]</li>
-						                <li><strong>Tchenzie Guichette</strong> – [Role/Contribution]</li>
-						            </ul>
-						        </div>
+						    <div class="content">
+						        <p>We are a team of five Olin College of Engineering students who built the Sigma Machine for the Fall 2025 Principles of Integrated Engineering (PIE) course.</p>
+						    </div>
+						    
+						    <div class="features">
+						        <article>
+						            <a href="https://www.linkedin.com/in/anna-luiza-reis-braun-3aa9a9334/" class="image"><img src="images/anna_headshot.jpg" alt="Anna Braun" /></a>
+						            <div class="content">
+						                <h3>Anna Braun</h3>
+						                <p>Mechanical Engineering</p>
+						            </div>
+						        </article>
+						        <article>
+						            <a href="https://www.linkedin.com/in/jowita-walkup/" class="image"><img src="images/jo_headshot.jpg" alt="Jo Walkup" /></a>
+						            <div class="content">
+						                <h3>Jo Walkup</h3>
+						                <p>Engineering: Computing</p>
+						            </div>
+						        </article>
+						        <article>
+						            <a href="https://www.linkedin.com/in/kuhu-jayaswal/" class="image"><img src="images/kuhu_headshot.jpg" alt="Kuhu Jayaswal" /></a>
+						            <div class="content">
+						                <h3>Kuhu Jayaswal</h3>
+						                <p>Electrical & Computer Engineering</p>
+						            </div>
+						        </article>
+						        <article>
+						            <a href="https://www.linkedin.com/in/leo-trepte-08b380357/" class="image"><img src="images/leo_headshot.jpg" alt="Leo Trepte" /></a>
+						            <div class="content">
+						                <h3>Leo Trepte</h3>
+						                <p>Mechanical Engineering</p>
+						            </div>
+						        </article>
+						        <article>
+						            <a href="https://www.linkedin.com/in/tchenzie-guichette-976319394/" class="image"><img src="images/tchenzie_headshot.jpg" alt="Tchenzie Guichette" /></a>
+						            <div class="content">
+						                <h3>Tchenzie Guichette</h3>
+						                <p>Engineering: Robotics</p>
+						            </div>
+						        </article>
 						    </div>
 						    
 						</section>
