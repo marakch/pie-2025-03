@@ -31,15 +31,15 @@ h1 {
     color: #f0f8ff;
 }
 
-/* ========== MAIN PAGE ========== */
-#main-body {
+/* ========== index PAGE ========== */
+#index-body {
     background: linear-gradient(135deg, #7ce03a, #b65bf7);
     color: #ffffff;
     overflow: hidden;
 }
 
 /* Grid layout */
-#main-grid {
+#index-grid {
     display: grid;
     grid-template-areas: "buttons video";
     gap: 40px;
