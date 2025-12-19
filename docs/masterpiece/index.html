@@ -25,6 +25,7 @@
         <li><a href="mechanical.html"  class="button small">Mechanical</a></li>
         <li><a href="electrical.html"  class="button small">Electrical</a></li>
         <li><a href="software.html"    class="button small">Software &amp; Logic</a></li>
+        <li><a href="timeline.html"    class="button small">Timeline</a></li>
         <li><a href="budget.html"      class="button small">Budget</a></li>
         <li><a href="gallery.html"        class="button small">Gallery</a></li>
         <li><a href="team.html"        class="button small">Team</a></li>
@@ -54,10 +55,15 @@
           <h2>Project Summary</h2>
         </header>
         <p>
-          This project was inspired by the feeling of playing chess on a real board, but without needing a second person.
-          Our automated chessboard combines mechanical motion, electronics, and software to physically move chess pieces
-          for you while you play against an AI. We focused on reliable piece motion, clean hardware integration,
-          and a board experience that still feels real and high quality.
+          Through this project, we aimed to build an automated chessboard using a gantry system to move chess pieces using magnets embedded in each piece. For our MVP, we focused on designing and fabricating our gantry system and board to show a computer versus computer game for our final demo. For our stretch goal, we aimed to integrate a Hall Effect array under the playing surface to detect physical human moves and play against them, but due to integration challenges, we weren’t able to detect pieces consistently for our demo.
+        </p>
+
+        <p>
+          MVP: Simulate a full computer versus computer chess game
+        </p>
+
+        <p>
+          Stretch goal: Integrate a Hall Effect array PCB underneath the chessboard to identify human moves and play a true Human versus Computer game.
         </p>
       </div>
     </section>
@@ -71,9 +77,7 @@
               <h2>Mechanical</h2>
             </header>
             <p>
-              Under the board, an XY gantry moves an end effector with a magnet so it can reach every square.
-              The frame, rails, and belt system are designed to keep motion smooth, accurate, and repeatable
-              while staying compact under the chessboard.
+              Design and fabricate a CoreXY gantry system that moves chess pieces to any square on our board and plays an entire game of chess. Keep all components of the board contained within the board volume, and conceal all internal components with side panels to preserve the magic!
             </p>
             <ul class="actions">
               <li><a href="mechanical.html" class="button">View Mechanical Details</a></li>

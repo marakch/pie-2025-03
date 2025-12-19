@@ -23,6 +23,7 @@
         <li><a href="mechanical.html"  class="button small">Mechanical</a></li>
         <li><a href="electrical.html"  class="button small">Electrical</a></li>
         <li><a href="software.html"    class="button small">Software &amp; Logic</a></li>
+        <li><a href="timeline.html"    class="button small">Timeline</a></li>
         <li><a href="budget.html"      class="button small">Budget</a></li>
         <li><a href="gallery.html"        class="button small">Gallery</a></li>
         <li><a href="team.html"        class="button small">Team</a></li>
@@ -40,127 +41,369 @@
       </div>
     </section>
 
-    <!-- Mechanical Content -->
+     <!-- Mechanical Content -->
     <section class="main style1">
       <div class="container">
 
-        <!-- Gantry & Motion System -->
-        <div class="row gtr-150">
+        <!-- Overview -->
           <div class="col-6 col-12-medium">
-            <header class="major">
-              <h2>Gantry &amp; Motion System</h2>
+            <header class="major" style="text-align:center;">
+              <h2>Overview</h2>
             </header>
             <p>
-              The core of Masterpiece’s motion system is a belt-driven XY gantry mounted beneath the chessboard.
-              Using linear rails, idlers, and belt tensioners, the gantry can position an end effector under any
-              square with repeatable accuracy while avoiding racking or binding. Hard end stops and homing
-              routines prevent over-travel and give us a consistent reference for all motion.
+              The heart of the mechanical system is a CoreXY gantry, scaled up from the typical size of a standard 3D printer so its end effector can reach the center of every square on the board, including capture and promotion squares. Mounted on the end effector of the gantry is a “third axis” servo with a rack and pinion to translate a magnet up and down, depending on whether the gantry is moving a piece. The gantry chassis is fully constructed using 1-inch aluminum extrusions and held together with 3D-printed brackets.
             </p>
+
             <p>
-              The rails span slightly beyond the 8×8 playing area so the carriage can reach capture zones
-              off to the side of the board. This lets us slide captured pieces completely off the main grid and
-              keeps the motion path clean and collision-free.
+              Mounted on top of the gantry is the chessboard itself, made from a ⅛ inch thick sheet of plywood. The board is laser-cut to distinguish each of the 120 squares as well as the white and black squares. We added a black and white border around the entire playing field to visually separate the board from the squares. This piece also served as a reinforcement for the board, keeping it from bowing under the weight of the PCBs, and concealing all the mounting screws.
             </p>
           </div>
-          <div class="col-6 col-12-medium imp-medium">
-            <span class="image fit" style="width:60%; margin:0 auto; display:block;">
-            <video controls muted autoplay loop playsinline style="width:100%; height:auto; display:block;">
-              <source src="videos/mechanical1.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </span>
 
+        <hr class="major" />
+
+        <!-- Design Process -->
+          <div class="col-6 col-12-medium">
+            <header class="major" style="text-align:center;">
+              <h2>Design Process</h2>
+            </header>
+              <ul>
+                <li>Gantry System over a Robot Arm Pick and Place System and Computer Vision or Two-Degree-of-Freedom Linkage System</li>
+                    <ul style="list-style-type:square;">
+                      <li>One of our goals was to keep the entire assembly contained with no visible moving components, emphasizing the “magic” of the automated movement.</li>
+                      <li>A robot arm and camera would ruin the seamless aesthetic and “all-in-one” nature we were aiming for!</li>
+                      <li>A linkage system would allow for a more compact design, but it would be an unnecessarily overcomplicated approach for a small team in a tight timeframe, and it may not be very robust.</li>
+                    </ul>
+                <li>CoreXY Gantry over a traditional Cartesian system</li>
+                    <ul style="list-style-type:square;">
+                      <li>One of our learning goals was to implement CoreXY motion system and learn more about the different methods of gantry movement in general.</li>
+                      <li>CoreXY allowed us to control the movement of both the X and Y axes with the same two motors, simplifying the overall package.</li>
+                      <li>This movement system allowed us to mount both motors on the same extrusion, removing the need to mount a motor on top of the X-axis, thereby reducing the overall height of the assembly.</li>
+                      <li>Due to the length of our X-axis and its tendency to bind up when it isn’t perfectly perpendicular to the Y-axis guide rails, we would have needed 2 stepper motors to translate the X-axis extrusion across the Y rail, with another motor to translate the end effector across the X rail.</li>
+                      <li>CoreXY is a robust system rigid system used to produce quick, very repeatable movements like in a 3D printer.</li>
+                    </ul>
+                <li>Permanent Magnet End Effector over an Electromagnet</li>
+                    <ul style="list-style-type:square;">
+                      <li>Through testing, we found that an electromagnet, even unpowered, would still be attracted to the pieces at all times, as it was made out of stainless steel, and our pieces had embedded magnets. Our pieces had to have embedded magnets so that they could be detectable with our hall effect sensors.</li>
+                      <li> We found that adjusting the distance between a permanent magnet and the pieces was a better option, as the end effector could slide upward, attract, and move the pieces while being able to lower the magnet and make rapid movements.</li>
+                    </ul>
+              </ul>
+
+          </div>
+
+                <hr class="major" />
+
+        <!-- Gantry -->
+          <div class="col-6 col-12-medium">
+            <header class="major" style="text-align:center;">
+              <h2>Gantry</h2>
+            </header>
+            <p>
+              We designed a CoreXY gantry based on a modified version of the Prusa Core One.
+            </p>
+            <div class="col-6 col-12-medium imp-medium">
+            <span class="image fit">
+                <img
+                  src="images/mechanical1.jpg"
+                  alt="End effector and magnet carriage"
+                  style="width:30% !important; height:auto; display:block; margin:0 auto;"
+                />
+              </span>
+          </div>
+          <p class="source" style="text-align:center;">
+            <a href="https://3dprinting.stackexchange.com/questions/11240/corexy-carriage-moves-on-the-y-when-moving-the-x"
+              target="_blank" rel="noopener noreferrer"
+              style="color: #5b75ca;">
+              Source: 3D Printing Stack Exchange
+            </a>
+          </p>
+          <header  style="text-align:center;">
+            <h5>Technical Details</h5>
+          </header>
+          
+          <p>
+            Type:
+          </p>
+          <ul style="list-style: none;">
+            <li>
+              Core-XY
+            </li>
+          </ul>
+
+          <p>
+            Working Range:
+          </p>
+          <ul style="list-style: none;">
+            <li>
+              X: 18 inches
+            </li>
+            <li>
+              Y: 22 inches
+            </li>
+          </ul>
+
+          <p>
+            Motors Used:
+          </p>
+          <ul style="list-style: none;">
+            <li>
+              Nema 17
+            </li>
+          </ul>
+
+          <p>
+            Overall Dimensions:
+          </p>
+          <ul style="list-style: none;">
+            <li>
+              35 by 28 inches with Side Panels
+            </li>
+            <li>
+              34 by 25 inches without Side Panels
+            </li>
+          </ul>
+
+          <p>The core of Masterpiece’s motion system is a belt-driven XY gantry mounted beneath the chessboard. Using linear rails, idlers, and belt tensioners, the gantry can position an end effector under any square with repeatable accuracy while avoiding racking or binding. Hard end stops and homing routines prevent over-travel and give us a consistent reference for all motion.</p>
+
+          <p>We added our tensioners opposite the motors and stacked our two belt paths to keep the assembly compact. In addition, we attached the Y-axis linear rails to the underside of the Y-axis extrusions, reducing the area between the board and gantry. We chose this configuration rather than attaching the linear rails to the inside face of the extrusions.</p>
+
+          <p>The rails span beyond the 8×8 playing area, so the carriage can reach capture zones off to the side of the board. This lets us slide captured pieces completely off the main grid and keeps the motion path clean and collision-free.</p>
+          
+          <header style="text-align:center;">
+            <h5>Design and Fabrication Process</h5>
+          </header>
+            <p>
+              Starting with a drawing of a standard chessboard, we planned out the overall size of the playing field, taking into account the need for capture spaces and promotion squares. This extra constraint increased the size of our board from our standard 8 x 8 to a 12 x 10 board. Using a reference gantry assembly we found online, we roughly estimated how large the gantry should be, setting the square lengths to 2 inches.
+            </p>
+
+            <div class="col-6 col-12-medium imp-medium">
+            <span class="image fit">
+                <img
+                  src="images/mechanical2.jpg"
+                  alt="End effector and magnet carriage"
+                  style="width:40% !important; height:auto; display:block; margin:0 auto;"
+                />
+              </span>
+          </div>
+
+          <p>We created this master dimension sketch as the first step to reference when building our 3D CAD model. The middle 8 x 8 board is wrapped in capture spaces with the first and last columns reserved for promotions, as symbolized by the P.</p>
+
+          <p>From here, we visualized what the gantry would look like in 3D, creating this sketch (below) to understand how the belts would be routed and where each of the mechanical components would be located (motors, belts, belt tensioners, end effector, pulley blocks). We planned the overall gantry architecture very early in the design process, allowing us to start and iterate on our prototypes of 3D printed brackets. One main design constraint was that the belts running along the Y-axis needed to be perfectly parallel to one another.</p>
+
+          <div class="col-6 col-12-medium imp-medium">
+            <span class="image fit">
+                <img
+                  src="images/mechanical3.jpg"
+                  alt="End effector and magnet carriage"
+                  style="width:50% !important; height:auto; display:block; margin:0 auto;"
+                />
+              </span>
+          </div>
+
+          <p>We then started a CAD assembly of the gantry to fully visualize and plan out our belt paths and locations, adding in the lengths of extrusions, connector brackets, motor mounts, and linear rails. The length and width of the gantry system were not set in stone at this point, as we hadn’t created prototypes of our end effector and pulley blocks to visualize the gantry’s max travel in X and Y.</p>
+
+          
+          <div class="video-wrapper" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin-bottom:2em;">
+            <video controls muted playsinline preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+              <source src="videos/mechanical1.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <header style="text-align:center;">
+            <h5>Initial Gantry</h5>
+          </header>
+          
+          <div class="col-6 col-12-medium imp-medium">
+            <span class="image fit">
+                <img
+                  src="images/mechanical4.jpg"
+                  alt="End effector and magnet carriage"
+                  style="width:50% !important; height:auto; display:block; margin:0 auto;"
+                />
+              </span>
+          </div>
+          <p>
+                Our initial gantry idea consisted mostly of found parts around campus, such as the cylindrical linear rails, but we decided to buy a thinner and lighter linear rail since the cylindrical linear rails weighed a lot, and having two would cause us to have a heavy chessboard. Furthermore, these linear rails did not come with linear bearings, which were also very large. Because of this, we bought two 600mm MGN12H linear rails for our Y-axis and one 500mm MGN12H linear rail for our X-axis. Another change we made is that we moved our X-axis linear rails to be on the side of the aluminum extrusion rather than the top, as this would allow us to clamp the belts to the linear rail carriage, and hence restrain it easily. Also, the magnet system would be easier to implement if we did not have to worry about the board height; furthermore, we could easily extend the gantry range by simply adding a spacer block, which we had to do to maintain the needed range.
+          </p>
+          </div>
+
+        <hr class="major" />
+
+        
+
+        <!-- Magnet Carriage -->
+        <div class="row gtr-150">
+          <div class="col-12">
+            <header class="major" style="text-align:center;">
+              <h2>Magnet Carriage</h2>
+            </header>
+
+            <p>
+              When designing the magnet carriage, some constraints that we had came up with consisted of the following:
+            </p>
+
+
+            <ul>
+              <li>The Carriage had to not reduce the x-axis travel, or reduce the x-axis travel very minimally, to still reach all the target squares.</li>
+              <li>The magnet had to be positioned in the center of the carriage to ensure that the final board was centered.</li>
+              <li>CThe magnet had to have a predictable and repeatable movement path.</li>
+            </ul>
+
+            <p>
+              We decided that a rack and pinion system would be best, as it would be space-efficient, and its motion would be easily repeatable. We designed the servo horn to be easily press-fit into the pinion and held tightly in place by the servo screw. The rack design had to have a curve to it to ensure that the magnet remained centered on the carriage. The servo assembly would be bolted to the belt retaining system
+            </p>
+
+
+            <span class="image fit">
+                <img
+                  src="images/mechanical5.jpg"
+                  alt="End effector and magnet carriage"
+                  style="width:50% !important; height:auto; display:block; margin:0 auto;"
+                />
+              </span>
+          </div>
+        </div>
+
+        <hr class="major" />
+
+        <!-- 6 -->
+        <div class="row gtr-150">
+          <div class="col-12">
+            <header class="major" style="text-align:center;">
+              <h2>Tensioner</h2>
+            </header>
+
+            <p>
+              When designing a belt system, the most important component is the tensioner, which is because it is very difficult to predict the exact length of the stretched belt, and also belts stretch over time. Having a loose belt causes inaccuracies in the final movement end effector and slippage on the drive pulley. Our initial belt-tensioning system consisted of adjustable motor mounts (shown below on the left) and a small tensioner to fine-tune the tensioning (shown below on the right). 	 
+            </p>
+
+            <div style="display:flex; gap:16px; justify-content:center; align-items:flex-start;">
+              <span class="image fit" style="flex:1; margin:0;">
+                <img
+                  src="images/mechanical6.jpg"
+                  alt="End effector and magnet carriage"
+                  style="width:100%; height:auto; display:block;"
+                />
+              </span>
+
+              <span class="image fit" style="flex:1; margin:0;">
+                <img
+                  src="images/mechanical7.jpg"
+                  alt="End effector and magnet carriage"
+                  style="width:100%; height:auto; display:block;"
+                />
+              </span>
+            </div>
+            <p>
+              The issue was that we could not tighten the belts properly; even when we tightened the belts as much as we could using the motor tensioner, and barely slipped the belt back on the pulley, the small tensioner was still not enough to properly tension the belts. This caused us to create three tensioners for the belt, two on the corners opposite the motors and the same one in the middle.
+            </p>
+            <p>
+              Having a tensioner governed by a screw and a nut was far more ideal, as it would allow for easier tensioning since it could be easily adjusted, and the high mechanical advantage offered by the screw and the nut allowed us more control over the belt tensioning. Our tensioner design can be seen below, where the belt is not yet tensioned.
+            </p>
+
+            <span class="image fit">
+                <img
+                  src="images/mechanical8.jpg"
+                  alt="End effector and magnet carriage"
+                  style="width:50% !important; height:auto; display:block; margin:0 auto;"
+                />
+              </span>
+
+              <p>
+                The design consisted of the pulleys being pulled inward by the tension of the belts, and the nut and bolt restraining them and dictating the belt tension. The dovetail rails restrain the tensioner laterally, preventing the bolt from widening its mounting hole or bending. For our tensioning needs, this was adequate, but the small PLA bolt segment connecting the bolt to the corner was starting to bend and deform, and the blue tensioner segment was also starting to rotate, since the tolerances were very loose. If we had more time, we would redesign those segments to be more robust. 
+              </p>
+
+          </div>
+        </div>
+
+        <hr class="major" />
+
+        <!-- Board -->
+        <div class="row gtr-150">
+          <div class="col-12">
+            <header class="major" style="text-align:center;">
+              <h2>Board</h2>
+            </header>
+
+            <p>
+              When designing the board, we had to ensure that it could be easily readable at a glance and it could be easily readable to a new player. Some considerations that went into my design include:
+            </p>
+
+            <ul>
+              <li>The player must identify squares and easily distinguish black and white squares</li>
+              <li>The player must understand where the captures go and in what order to place them.</li>
+              <li>The player must understand what promotions have taken place and available promotions.</li>
+              <li>It had to look visually appealing</li>
+            </ul>
+            <p>
+We decided to use appropriately colored numbered squares to distinguish captured pieces and the order in which captured pieces go in. For promotions, we used colored squares with piece icons for each available promotion piece. From the icon, a player can tell what promotions have been performed and available promotions to be performed. From online data, we concluded that 97-99% of promotions are queens. In the top-ranked games, promotions only occur in 1.5-5% of games, so using that data, we decided to have 4 queen promotions and 2 of every other promotion, to cover all edge cases and unexpected moves. To make the board visually appealing, we decided to raster a piece of clean birch wood with our design. Our design could not be very deeply engraved, so to give the appearance of a more deeply engraved design, we decided to add some depth visually. This was done by creating a CAD model of a chessboard, with elevated squares, and then taking a screenshot to use as our board design. We then imported all the icon images and numbered each square in Google Slides, and exported it as an SVG, which can be seen below. 
+            </p>
+
+            <span class="image fit">
+                <img
+                  src="images/mechanical9.jpg"
+                  alt="End effector and magnet carriage"
+                  style="width:50% !important; height:auto; display:block; margin:0 auto;"
+                />
+              </span>
+
+              <p>
+                To cut our big chessboard, we had to use a big laser-cutter. When performing test-cuts, we realized that only the big laser cutter did not properly process our file and rastered everything evenly, and all the numbers and icons were not visible. This caused us to have to split our file into two passes, which increased our raster time from an hour to over two hours. The result at the end was absolutely stunning, and can be seen below.
+              </p>
+
+              <span class="image fit">
+                <img
+                  src="images/mechanical10.jpg"
+                  alt="End effector and magnet carriage"
+                  style="width:50% !important; height:auto; display:block; margin:0 auto;"
+                />
+              </span>
             
           </div>
         </div>
 
         <hr class="major" />
 
-        <!-- End Effector -->
+        <!-- Pieces -->
         <div class="row gtr-150">
-          <div class="col-6 col-12-medium">
-            <header class="major">
-              <h2>Magnet Carriage</h2>
+          <div class="col-12">
+            <header class="major" style="text-align:center;">
+              <h2>Pieces</h2>
             </header>
-            <p>
-              
-            </p>
-            <p>
-              
-            </p>
-          </div>
-          <div class="col-6 col-12-medium imp-medium">
-            <span class="image fit">
-              <img src="images/magnet.jpg" alt="End effector and magnet carriage" />
-            </span>
-          </div>
-        </div>
 
-                <hr class="major" />
-
-        <!-- Tensioner -->
-        <div class="row gtr-150">
-          <div class="col-6 col-12-medium">
-            <header class="major">
-              <h2>Tensioner</h2>
-            </header>
             <p>
-              
+              The chess pieces were obtained from a source online, which optimized the chess pieces to be 3D printed, while not severely altering their appearance from the default. We altered these downloaded pieces by adding press-fit magnet holes and scaling the pieces to fit our needs. We then 3D printed these pieces using a 3D printer with black and white filament. 
             </p>
-            <p>
-              
-            </p>
-          </div>
-          <div class="col-6 col-12-medium imp-medium">
             <span class="image fit">
-              <img src="images/tensioner.jpg" alt="Board cross-section showing mechanical layers" />
-            </span>
+                <img
+                  src="images/mechanical11.jpg"
+                  alt="End effector and magnet carriage"
+                  style="width:30% !important; height:auto; display:block; margin:0 auto;"
+                />
+              </span>
           </div>
         </div>
 
         <hr class="major" />
 
-        <!-- Board Stackup -->
+        <!-- Side Panels -->
         <div class="row gtr-150">
-          <div class="col-6 col-12-medium">
-            <header class="major">
-              <h2>Board</h2>
+          <div class="col-12">
+            <header class="major" style="text-align:center;">
+              <h2>Side Panels</h2>
             </header>
+
             <p>
-              
+              To hit our goal of having a magical chessboard, we had to have side panels to conceal all the magic. Since we attached the board by hand, this caused us to have a slight rotation in the board. Also, we did not cut the board to be fully square, and the chessboard was not fully centered on the board. If we were to do this again, we would make sure to cut the board perfectly and to create jigs to mount the board perfectly, but because of our oversight, we had to create some unnecessarily complex side panels. To create our side panels, the only identical pieces were the side panels on the left and right, and every other piece had to be unique, due to our oversight. To create our flush side panels, we created a CAD assembly with mounting brackets. We then 3D printed all the brackets and laser-cut 1/8th inch black chipboard for our side panels. After doing so, we realized that we failed to account for the kerf of the laser cutter, and a small gap in the laser print sections revealed our bright pink 3D prints, ruining the magic. Our stretch goal of adding sensing to the board so we could detect true human movement would have required a lot more wiring than anticipated, so segments of the cover had to be redesigned and recut to account for this oversight. The CAD of the redesigned pieces can be seen below, along with a basic version of our gantry system:
             </p>
-            <p>
-              
-            </p>
-          </div>
-          <div class="col-6 col-12-medium imp-medium">
             <span class="image fit">
-              <img src="images/board.jpg" alt="Board cross-section showing mechanical layers" />
-            </span>
+                <img
+                  src="images/mechanical12.jpg"
+                  alt="End effector and magnet carriage"
+                  style="width:50% !important; height:auto; display:block; margin:0 auto;"
+                />
+              </span>
           </div>
         </div>
 
-                <hr class="major" />
-
-        <!-- Pieces -->
-        <div class="row gtr-150">
-          <div class="col-6 col-12-medium">
-            <header class="major">
-              <h2>Pieces</h2>
-            </header>
-            <p>
-              
-            </p>
-            <p>
-              
-            </p>
-          </div>
-          <div class="col-6 col-12-medium imp-medium">
-            <span class="image fit">
-              <img src="images/Pieces.jpg" alt="Board cross-section showing mechanical layers" />
-            </span>
-          </div>
-        </div>
 
       </div>
     </section>
