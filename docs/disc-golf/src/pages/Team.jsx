@@ -73,7 +73,7 @@ function Team() {
                     alt={member.name}
                     className="w-full h-full object-cover object-center"
                     style={member.name === "Hong Zhang" 
-                      ? { objectPosition: '50% 20%', transform: 'scale(2.06) translateX(-15%)' }
+                      ? { objectPosition: '50% 15%', transform: 'scale(3) translateX(-22%)' }
                       : member.name === "Henry Tejada Deras"
                       ? { objectPosition: '30% -10%', transform: 'scale(1.3) translateX(0%) translateY(0%)' }
                       : member.name === "Connor Hoang"
@@ -137,7 +137,7 @@ function Team() {
                     alt={member.name}
                     className="w-full h-full object-cover object-center"
                     style={member.name === "Hong Zhang" 
-                      ? { objectPosition: '50% 20%', transform: 'scale(1.85) translateX(-15%)' }
+                      ? { objectPosition: '50% 20%', transform: 'scale(3) translateX(-22%)' }
                       : member.name === "Henry Tejada Deras"
                       ? { objectPosition: '30% 30%', transform: 'scale(1.1) translateX(-50%) translateY(-40%)' }
                       : {}

@@ -107,6 +107,17 @@ function SystemDesign() {
             Data & Energy Flow
           </a>
           <a 
+            href="#design-process" 
+            onClick={(e) => {
+              e.preventDefault()
+              document.getElementById('design-process')?.scrollIntoView({ behavior: 'auto', block: 'start' })
+            }}
+            className="text-stone-600 hover:text-nobel-gold transition-colors text-sm flex items-center cursor-pointer"
+          >
+            <span className="mr-2">→</span>
+            Design Process & Trade-offs
+          </a>
+          <a 
             href="#enclosure-design" 
             onClick={(e) => {
               e.preventDefault()
@@ -345,6 +356,131 @@ function SystemDesign() {
           </div>
         </div>
       )}
+
+      {/* Design Process & Trade-offs Section */}
+      <div id="design-process" className="mb-16 pb-8 border-b border-stone-200 animate-fade-in-up scroll-mt-24" style={{ animationDelay: '0.25s' }}>
+        <h2 className="font-serif text-2xl font-bold text-stone-900 mb-4">
+          Design Process & Trade-offs
+        </h2>
+        
+        <p className="text-stone-600 mb-6 leading-relaxed">
+          After fairly quickly settling on the idea of cleaning disc golf discs, our design process started with a group brainstorming session ideating the various mechanisms we could implement to complete our self-assigned task. Upon settling on the general design, we assigned out sub assemblies of the larger mechanism to various teammates in an effort to promote ownership and got to work on sprint 1, agreeing to an ad hoc style of team management.
+        </p>
+
+        <div className="space-y-8">
+          {/* Material Selection Trade-offs */}
+          <div>
+            <h3 className="text-xl font-semibold text-stone-800 mb-4">Material Selection</h3>
+            <p className="text-stone-600 leading-relaxed mb-4">
+              Material choices were driven by a combination of budget constraints, fabrication learning goals, and functional requirements. We prioritized materials that were cost-effective, easy to modify, and suitable for our mechanical needs.
+            </p>
+            <div className="bg-stone-50 rounded-lg p-5 border-l-4 border-nobel-gold mb-4">
+              <h4 className="font-semibold text-stone-900 mb-2">Outer Enclosure: Eucalyptus Hardboard</h4>
+              <p className="text-stone-700 text-sm leading-relaxed">
+                Chosen for its ease of fabrication with laser cutting, allowing for rapid iteration and modifications. The 2D panel-based design made it simple to recut panels for new mounting holes or entry points. This material choice balanced aesthetics with manufacturability and cost.
+              </p>
+            </div>
+            <div className="bg-stone-50 rounded-lg p-5 border-l-4 border-nobel-gold mb-4">
+              <h4 className="font-semibold text-stone-900 mb-2">Inner Enclosure: 16 Gauge Mild Steel Sheet Metal</h4>
+              <p className="text-stone-700 text-sm leading-relaxed">
+                Selected for its ease of cleaning and structural strength. The metal surface resists dirt adhesion better than alternatives like acrylic. Sheet metal tools were accessible outside normal shop hours, enabling faster iteration. However, we later discovered electrical conductivity issues that required insulating tape, highlighting the importance of considering all material properties, not just mechanical ones.
+              </p>
+            </div>
+            <div className="bg-stone-50 rounded-lg p-5 border-l-4 border-nobel-gold mb-4">
+              <h4 className="font-semibold text-stone-900 mb-2">Grate: Plywood</h4>
+              <p className="text-stone-700 text-sm leading-relaxed">
+                Chosen over traditional wood for its multi-axial load-bearing capabilities. Finite element analysis showed plywood provided adequate safety factors while traditional wood would be at the limit. The multi-directional grain structure compensates for directional weaknesses, making it ideal for supporting the disc during cleaning.
+              </p>
+            </div>
+            <div className="bg-stone-50 rounded-lg p-5 border-l-4 border-nobel-gold">
+              <h4 className="font-semibold text-stone-900 mb-2">3D Printed Components: PLA Plastic</h4>
+              <p className="text-stone-700 text-sm leading-relaxed">
+                Used for non-load-bearing components with standard 15% infill. For structural components like brush assembly brackets and motor mounts, we increased to 5-8 level perimeters to ensure strength while minimizing print time and material waste. The Prusa printers offered proximity and availability, while Bamboo carbon printers provided greater accuracy for critical components.
+              </p>
+            </div>
+          </div>
+
+          {/* CAD System Trade-off */}
+          <div>
+            <h3 className="text-xl font-semibold text-stone-800 mb-4">CAD System Split</h3>
+            <p className="text-stone-600 leading-relaxed mb-4">
+              One significant trade-off we made was splitting our CAD work between two systems: PTC Onshape and Autodesk Fusion 360. While this allowed team members to work in their preferred environments, it created integration challenges that required a team member to act as a "middleman" between systems. This inefficiency became apparent during final integration, teaching us the importance of unified design workflows for team cohesion.
+            </p>
+            <p className="text-stone-600 leading-relaxed">
+              <strong>Trade-off:</strong> Individual comfort and productivity vs. team efficiency and integration ease. In future projects, we would prioritize team cohesion over personal preference.
+            </p>
+          </div>
+
+          {/* Component Selection Trade-offs */}
+          <div>
+            <h3 className="text-xl font-semibold text-stone-800 mb-4">Component Selection & Pivots</h3>
+            <div className="space-y-4">
+              <div className="bg-blue-50 rounded-lg p-5 border-l-4 border-blue-500">
+                <h4 className="font-semibold text-blue-900 mb-2">Raspberry Pi 5 → Pi 4</h4>
+                <p className="text-blue-800 text-sm leading-relaxed">
+                  When our Raspberry Pi 5 failed unexpectedly, we pivoted to a Pi 4. Rather than running AI inference locally (which could oversaturate the Pi 4's CPU), we chose Roboflow's cloud-based inference API. This trade-off of cloud dependency for performance allowed us to maintain functionality while working within hardware constraints.
+                </p>
+              </div>
+              <div className="bg-amber-50 rounded-lg p-5 border-l-4 border-amber-500">
+                <h4 className="font-semibold text-amber-900 mb-2">Central Motor Replacement</h4>
+                <p className="text-amber-800 text-sm leading-relaxed">
+                  After our original motor broke during testing, we replaced it with a 12V/18V 200W DC Planet Gear Motor. This pivot was driven by availability and compatibility with our existing motor mount. The replacement motor provided adequate torque while fitting within our budget and timeline constraints.
+                </p>
+              </div>
+              <div className="bg-purple-50 rounded-lg p-5 border-l-4 border-purple-500">
+                <h4 className="font-semibold text-purple-900 mb-2">Chuck Motor with Slip Ring</h4>
+                <p className="text-purple-800 text-sm leading-relaxed">
+                  We chose a small motor with an inbuilt encoder for the chuck mechanism to minimize load on the central motor. Since the chuck motor rotates with the chuck assembly, we integrated a slip ring ($68.57) to allow stationary power transmission. This was more expensive than alternatives but necessary for the self-tightening functionality we prioritized.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Design Philosophy Trade-offs */}
+          <div>
+            <h3 className="text-xl font-semibold text-stone-800 mb-4">Design Philosophy Decisions</h3>
+            <div className="space-y-4">
+              <div className="bg-green-50 rounded-lg p-5 border-l-4 border-green-500">
+                <h4 className="font-semibold text-green-900 mb-2">No Adhesives Policy</h4>
+                <p className="text-green-800 text-sm leading-relaxed">
+                  We avoided adhesives entirely, opting for mechanical brackets instead. While glue might have been faster, brackets provide more reliable load-bearing connections and allow for easier disassembly and repairs. This decision prioritized long-term reliability and maintainability over initial assembly speed.
+                </p>
+              </div>
+              <div className="bg-red-50 rounded-lg p-5 border-l-4 border-red-500">
+                <h4 className="font-semibold text-red-900 mb-2">Pneumatics as Stretch Goal</h4>
+                <p className="text-red-800 text-sm leading-relaxed">
+                  Pneumatics was designated as a stretch goal from the beginning, recognizing that our $250 budget and timeline constraints might not allow full implementation. We prioritized core functionality (detection, clamping, brushing, AI vision) over the enhanced cleaning capability that pneumatics would provide. This trade-off allowed us to deliver a functional MVP while leaving room for future enhancement.
+                </p>
+              </div>
+              <div className="bg-indigo-50 rounded-lg p-5 border-l-4 border-indigo-500">
+                <h4 className="font-semibold text-indigo-900 mb-2">Brush Assembly Constraints</h4>
+                <p className="text-indigo-800 text-sm leading-relaxed">
+                  The brush assembly was constrained to a 128×100×180mm box to optimize positioning relative to disc height. Weight was also a critical constraint since the system mounts on the back wall. We chose bevel gears to translate z-axis servo rotation into x-axis brush motion, accepting the complexity of a gear train in exchange for precise control and space efficiency.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Budget-Driven Decisions */}
+          <div>
+            <h3 className="text-xl font-semibold text-stone-800 mb-4">Budget Considerations</h3>
+            <p className="text-stone-600 leading-relaxed mb-4">
+              With a $250 budget, we made several cost-conscious decisions:
+            </p>
+            <ul className="list-disc list-inside text-stone-600 space-y-2 ml-2">
+              <li><strong>Scavenged Components:</strong> We repurposed switches, buttons, and other components from previous projects, significantly reducing costs but requiring careful evaluation of component condition and compatibility.</li>
+              <li><strong>Material Optimization:</strong> We chose materials that balanced cost with functionality: eucalyptus hardboard over more expensive wood, sheet metal over acrylic, and PLA for 3D printing.</li>
+              <li><strong>Component Prioritization:</strong> Higher-cost items like the slip ring ($68.57) were justified for core functionality, while pneumatics components were purchased but not fully integrated due to time constraints.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-8 bg-[#F5F4F0] rounded-lg p-6 border-l-4 border-nobel-gold">
+          <p className="text-stone-700 leading-relaxed">
+            Keep reading for more information on each subsystem's detailed design rationale.
+          </p>
+        </div>
+      </div>
 
       {/* Enclosure Design Section */}
       <div id="enclosure-design" className="mb-16 pb-8 border-b border-stone-200 animate-fade-in-up scroll-mt-24" style={{ animationDelay: '0.3s' }}>
