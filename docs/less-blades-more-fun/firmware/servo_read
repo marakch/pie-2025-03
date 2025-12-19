@@ -1,0 +1,34 @@
+// SIMPLE PWM READER FOR ESP32
+// Reads servo/RC signal pulse width in microseconds
+
+const int pwmPin = 25;   // <-- change to 33, 25, or 26 if you want
+
+volatile uint32_t riseTime = 0;
+volatile uint32_t pulseWidth = 0;
+
+void IRAM_ATTR handlePWM() {
+  if (digitalRead(pwmPin)) {
+    // Rising edge
+    riseTime = micros();
+  } else {
+    // Falling edge
+    pulseWidth = micros() - riseTime;
+  }
+}
+
+void setup() {
+  Serial.begin(115200);
+  pinMode(pwmPin, INPUT);
+
+  attachInterrupt(digitalPinToInterrupt(pwmPin), handlePWM, CHANGE);
+
+  Serial.println("Reading PWM on pin 32...");
+}
+
+void loop() {
+  // Read the most recent pulse width
+  uint32_t pw = pulseWidth;
+
+  Serial.println(pw);  // should show ~1000–2000 µs for servo/RC
+  delay(50);
+}
