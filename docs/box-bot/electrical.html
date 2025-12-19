@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BoxBot - Electrical System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="electrical.html">Electrical</a>
+        <a href="mechanical.html">Mechanical</a>
+        <a href="software.html">Software/Firmware</a>
+        <a href="budget.html">Budget (BOM)</a>
+        <a href="journey.html">Journey & Design Process</a>
+    </nav>
+
+    <div class="main-content">
+        <section class="section">
+            <h2>Electrical System Architecture</h2>
+            <p class="summary-text">The Box Bot electrical system is designed to maximize safety, modularity, and iteration speed.</p>
+            
+            <div class="centered-image-container">
+                <img src="media/box_bot_wiring_diagram_v2.png" alt="Full Electrical Schematic" class="journey-main-img">
+                <p class="img-caption">Figure 1: High-level System Wiring Diagram.</p>
+            </div>
+
+            <div class="phase-content">
+                
+                <div class="discipline-box elec">
+                    <div class="box-header">
+                        <h4>Power Management</h4>
+                    </div>
+                    <p class="box-preview">Power delivery and management.</p>
+                    <ul class="elec-list">
+                        <li><strong>Battery:</strong> 24V 4Ah Lithium Ion Battery with integrated battery management system.</li>
+                        <li><strong>Protection:</strong> Automotive power distribution block with fuse protection.</li>
+                        <li><strong>Conversion:</strong> LM2596 buck converters to step down 24V source to 12V and 5V.</li>
+                    </ul>
+                </div>
+
+                <div class="discipline-box soft">
+                    <div class="box-header">
+                        <h4>Logic & Control</h4>
+                    </div>
+                    <p class="box-preview">Onboard compute and motor drivers.</p>
+                    <ul class="elec-list">
+                        <li><strong>Primary Computer:</strong> Raspberry Pi 4b for control logic, vision processing, and WiFi connection.</li>
+                        <li><strong>DC Motor Driver:</strong> Sabertooth 2x12 dual motor driver controlled via serial connection to Raspberry Pi.</li>
+                        <li><strong>Stepper Motor Driver:</strong> L298N Dual H-Bridge connected to Raspberry Pi GPIO.</li>
+                    </ul>
+                </div>
+
+                <div class="discipline-box mech">
+                    <div class="box-header">
+                        <h4>Sensors & Actuators</h4>
+                    </div>
+                    <p class="box-preview">Sensing suite and motors.</p>
+                    <ul class="elec-list">
+                        <li><strong>Sensing:</strong> Intel RealSense D455 Depth Camera and dual limit switches.</li>
+                        <li><strong>Drive Motors:</strong> IG32P 24V 265 RPM gear motors.</li>
+                        <li><strong>Squeeze Motor:</strong> NEMA 17 12V stepper motor.</li>
+                        <li><strong>Lift Motors:</strong> 25kg continuous rotation 5V servo motors.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="section">
+            <h3>Major Design Decisions</h3>
+            <div class="full-width-details open">
+                <div class="initial-content-wrapper">
+                    <div class="initial-sub">
+                        <h5>Safety Components</h5>
+                        <p>Every aspect of our electrical system was designed with safety as the highest priority. Our robot contains an easily accessible emergency stop button that immediately cuts all battery power. When sourcing a battery, we selected an option with integrated BMS to eliminate over/under voltage risk. Additionally, our battery voltage is split among three separate sub-circuits (5V, 12V, and 24V), each protected by a fuse to provide over-current protection.</p>
+                        <div class="centered-image-container">
+                            <img src="media/elec_estop1.jpeg" alt="emergency stop button" class="journey-main-img"style="width: 400px; height: auto;">
+                            <p class="img-caption">Emergency stop button mounted in an accessible location</p>
+                        </div>
+                    </div>
+                    <div class="initial-sub">
+                        <h5>Wire Harnessing</h5>
+                        <p>The core of our wire harness is a soldered breadboard, which provides an electrically and mechanically reliable way to permanently connect components. From this breadboard we designed our wire harness with DuPont-style quick-disconnect connectors. This modularity improved the speed that we could test and assemble our electrical system. Since our robot changes size during operation, harnessing presented a unique challenge. We addressed this by using wire loom and heat-shrink tubing, allowing the wire to expand and compress in a predictable manner.</p>
+                        <div class="centered-image-container">
+                            <img src="media/elec_antenna1.jpeg" alt="Wire harness" class="journey-main-img"style="width: 400px; height: auto;">
+                            <p class="img-caption">We used wire loom and heatshrink to form a protective and flexible harness on moving components.</p>
+                        </div>
+                    </div>
+                    <div class="initial-sub">
+                        <h5>Standardization vs. Customization</h5>
+                        <p>Across our electrical system, we opted to use standard, off-the-shelf components wherever possible. While a custom PCB could have made our electrical system more space and power efficient, we decided that the additional integration time was not justified. This allowed our team to iterate and improve our electrical system faster.</p>
+                        <div class="centered-image-container">
+                            <img src="media/elec_stepper1.jpeg" alt="L298N motor driver" class="journey-main-img"style="width: 400px; height: auto;">
+                            <p class="img-caption">L298N motor driver, a common part, was used to control our stepper motor.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

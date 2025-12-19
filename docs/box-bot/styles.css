@@ -1,0 +1,1188 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', serif;
+    line-height: 1.6;
+    color: #e2e8f0;
+    background: #2d3748;
+}
+/* ------------------- HERO CONTAINER ------------------- */
+.hero {
+    background: #000; /* Fallback */
+    height: 100vh; /* Exactly the height of your screen */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically centers the logo and button */
+    align-items: center;     /* Horizontally centers the logo and button */
+    position: relative; 
+    overflow: hidden;
+}
+
+/* 1. THE VIDEO (The Bottom Layer) */
+#hero-bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures video fills screen without stretching */
+    z-index: 1;
+    transition: opacity 1.5s ease;
+}
+
+/* 2. THE GRID OVERLAY (The Middle Layer) */
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(210, 105, 30, 0.05) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(210, 105, 30, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.6; 
+    z-index: 2; /* Sits on top of video, below text */
+    pointer-events: none;
+    animation: scanline 20s linear infinite;
+}
+
+/* ------------------- HERO CONTENT (THE LOGO) ------------------- */
+.hero-content-wrapper {
+    position: relative;
+    z-index: 3;
+    width: 100%; /* Spans full width to allow internal alignment */
+    display: flex;
+    justify-content: flex-end; /* Pushes the logo to the right side */
+    padding-right: 50%;         /* Adjust this to move it more or less to the right */
+    
+    /* This ensures it stays centered vertically while aligned right */
+    position: absolute;
+    top: 70%;
+    transform: translateY(-100%); /* Moves it up slightly to make room for video/button */
+}
+
+.hero h1 {
+    font-size: 10rem;
+    font-weight: 700;
+    text-shadow: 0 0 25px rgba(210, 105, 30, 0.9);
+    color: white;
+    letter-spacing: 12px;
+}
+
+/* ------------------- THE BUTTON (LOWERED) ------------------- */
+.learn-more-btn {
+    /* Keep your existing colors and borders */
+    background: #8b4513;
+    color: white;
+    border: 2px solid #d2691e;
+    padding: 1.2rem 3.5rem;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    cursor: pointer;
+    
+    /* CHANGE THIS: Position absolute to put it at the very bottom */
+    position: absolute;
+    bottom: 15%; /* Sets it 10% from the bottom of the screen */
+    left: 50%;
+    transform: translateX(-50%) translateY(20px); /* Centers it horizontally */
+    
+    z-index: 3;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 1s ease-out;
+}
+
+/* Adjust the reveal animation for the new positioning */
+.learn-more-btn.fade-in {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0); /* Maintains horizontal center */
+}
+
+/* ------------------- REST OF YOUR CONTENT ------------------- */
+.section {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    background: #1a202c;
+    border-radius: 8px;
+    position: relative;
+    z-index: 10; /* Ensures content scrolls OVER the video intro */
+}
+
+/* ------------------- NAVIGATION ------------------- */
+.nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #8b4513;
+    font-weight: 600;
+    transition: color 0.3s;
+    font-size: 1.05rem;
+}
+
+.nav a:hover {
+    color: #d2691e;
+}
+
+/* ------------------- GENERAL SECTIONS ------------------- */
+.section {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    background: #1a202c;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #d2691e;
+    border-bottom: 3px solid #d2691e;
+    padding-bottom: 0.5rem;
+}
+
+.summary-text {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: #cbd5e0;
+    margin-bottom: 2rem;
+}
+
+.video-container {
+    margin: 2rem 0;
+    background: #f5f5f5;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.video-placeholder {
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-style: italic;
+    font-size: 1.2rem;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+}
+
+/* Update the diagram container to stack items vertically */
+.diagram-container {
+    display: flex;
+    flex-direction: column; /* This stacks them on top of each other */
+    gap: 2rem;             /* Adds a clean gap between the two diagrams */
+    width: 100%;           /* Ensures they take up the full narrow width */
+}
+
+/* Ensure individual boxes take up the full width of the container */
+.diagram-box {
+    width: 100%;
+    max-width: 100%;
+}
+
+.diagram-box h3 {
+    color: #8b4513;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+/* Force images to scale down to fit their containers */
+.diagram-placeholder img {
+    width: 100%;       /* Fills the container width */
+    max-width: 100%;   /* Never exceeds the container width */
+    height: auto;      /* Maintains proper aspect ratio */
+    display: block;    /* Removes extra whitespace at the bottom */
+}
+
+/* Force ALL project images to respect their container width */
+.hero-image img, 
+.diagram-placeholder img,
+.journey-main-img {
+    max-width: 100%;   /* Never allow image to be wider than the blue/white box */
+    height: auto;      /* Prevents stretching or squishing */
+    display: block;    /* Removes the small gap at the bottom of images */
+    margin: 0 auto;    /* Centers the image if it's smaller than the box */
+}
+
+/* Ensure the white diagram boxes clip overflow */
+.diagram-placeholder {
+    width: 100%;
+    overflow: hidden; 
+    display: flex;
+    justify-content: center;
+    background-color: #f5f5f5; /* Maintain clean contrast */
+    padding: 10px;
+    box-sizing: border-box; /* Includes padding in width calculation */
+}
+/* ------------------- SECTION LINKS CARDS ------------------- */
+.section-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+    align-items: stretch;
+}
+
+.section-card {
+    background: linear-gradient(rgba(139, 69, 19, 0.9), rgba(205, 133, 63, 0.9)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect fill="%23333" width="400" height="300"/></svg>');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+    position: relative;
+    min-height: 200px;
+}
+
+.section-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+.section-card#budget-card::before {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect fill="%23228B22" width="400" height="300"/><circle cx="200" cy="150" r="80" fill="%23FFD700" opacity="0.3"/><text x="200" y="170" font-size="60" text-anchor="middle" fill="%23FFD700">💰</text></svg>');
+}
+
+.section-card#electrical-card::before {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect fill="%23191970" width="400" height="300"/><path d="M100 50 L150 150 L120 150 L170 250 L140 150 L180 150 Z" fill="%23FFD700" opacity="0.4"/><circle cx="250" cy="100" r="30" fill="none" stroke="%23FFD700" stroke-width="3" opacity="0.4"/><circle cx="300" cy="200" r="25" fill="none" stroke="%23FFD700" stroke-width="3" opacity="0.4"/></svg>');
+}
+
+.section-card#mechanical-card::before {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect fill="%23696969" width="400" height="300"/><circle cx="150" cy="150" r="60" fill="none" stroke="%23C0C0C0" stroke-width="4" opacity="0.4"/><circle cx="150" cy="150" r="40" fill="none" stroke="%23C0C0C0" stroke-width="3" opacity="0.4"/><circle cx="250" cy="150" r="60" fill="none" stroke="%23C0C0C0" stroke-width="4" opacity="0.4"/><circle cx="250" cy="150" r="40" fill="none" stroke="%23C0C0C0" stroke-width="3" opacity="0.4"/><line x1="150" y1="90" x2="150" y2="210" stroke="%23C0C0C0" stroke-width="3" opacity="0.4"/><line x1="250" y1="90" x2="250" y2="210" stroke="%23C0C0C0" stroke-width="3" opacity="0.4"/></svg>');
+}
+
+.section-card#software-card::before {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect fill="%23000080" width="400" height="300"/><rect x="50" y="50" width="300" height="200" fill="%23001020" opacity="0.6"/><text x="70" y="90" font-family="monospace" font-size="16" fill="%2300FF00" opacity="0.5">&lt;code&gt;</text><text x="70" y="120" font-family="monospace" font-size="16" fill="%2300FF00" opacity="0.5">function run()</text><text x="70" y="150" font-family="monospace" font-size="16" fill="%2300FF00" opacity="0.5">while(true)</text><text x="70" y="180" font-family="monospace" font-size="16" fill="%2300FF00" opacity="0.5">&lt;/code&gt;</text></svg>');
+}
+
+.section-card#journey-card::before {
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect fill="%23483D8B" width="400" height="300"/><path d="M50 150 Q125 100 200 150 T350 150" fill="none" stroke="%23FFD700" stroke-width="4" opacity="0.4"/><circle cx="50" cy="150" r="8" fill="%23FFD700" opacity="0.5"/><circle cx="150" cy="125" r="8" fill="%23FFD700" opacity="0.5"/><circle cx="250" cy="175" r="8" fill="%23FFD700" opacity="0.5"/><circle cx="350" cy="150" r="8" fill="%23FFD700" opacity="0.5"/></svg>');
+}
+
+
+.section-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+.section-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.section-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* ------------------- TEAM SECTION ------------------- */
+.team-section {
+    background: #1a202c;
+    padding: 4rem 2rem;
+    margin: 2rem auto;
+    max-width: 1200px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.team-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.team-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #d2691e;
+    text-align: center;
+    border-bottom: 3px solid #d2691e;
+    padding-bottom: 0.5rem;
+    display: inline-block;
+    width: 100%;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.team-member {
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.team-member:hover {
+    transform: scale(1.05);
+}
+
+.team-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: #e0e0e0;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-style: italic;
+    border: 4px solid #d2691e;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.team-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.team-member h4 {
+    color: #e2e8f0;
+    font-size: 1.2rem;
+}
+
+/* ------------------- KEYFRAMES (Animations) ------------------- */
+@keyframes scanline {
+    from { background-position: 0 0; }
+    to { background-position: 50px 50px; }
+}
+
+/* ------------------- BUDGET TABLE STYLING ------------------- */
+.table-container {
+    overflow-x: auto; /* Makes table scrollable on small phones */
+    margin-top: 2rem;
+}
+
+.budget-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #2d3748;
+    color: #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.budget-table thead {
+    background: #d2691e; /* Theme orange */
+    color: white;
+}
+
+.budget-table th, .budget-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #4a5568;
+}
+
+.budget-table tbody tr:hover {
+    background: #3e4b5f; /* Subtle highlight on hover */
+}
+
+.total-row {
+    font-weight: bold;
+    font-size: 1.2rem;
+    background: #1a202c;
+    color: #d2691e;
+}
+
+.total-row td:last-child {
+    border-top: 2px solid #d2691e;
+}
+/* Color distinction for the Found Items table header */
+.found-table thead {
+    background: #4a5568; /* A neutral gray to indicate "leveraged" rather than "spent" */
+}
+
+/* Optional: Add a highlight to the "Total Money Estimated" row */
+.total-row {
+    border-top: 2px solid #d2691e;
+    color: #ffd700; /* Gold for the grand total */
+    background-color: rgba(26, 32, 44, 0.8);
+}
+
+
+/* ------------------- MECHANICAL PAGE STYLING ------------------- */
+.mech-subsystem {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 4px solid #d2691e;
+    border-radius: 0 8px 8px 0;
+}
+
+.mech-subsystem h3 {
+    color: #d2691e;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.mech-subsystem p {
+    color: #cbd5e0;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.video-container img {
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    border: 1px solid #4a5568;
+}
+
+
+/* ------------------- MECHANICAL STYLING ------------------- */
+
+.transparent-cad-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+    /* This ensures the transparent background of your PNG is visible */
+    background: transparent; 
+}
+
+.transparent-cad-container img {
+    max-width: 100%;
+    height: auto;
+    /* Optional: adds a subtle glow behind your transparent CAD */
+    filter: drop-shadow(0 0 15px rgba(210, 105, 30, 0.2)); 
+}
+
+.caption {
+    text-align: center;
+    font-style: italic;
+    margin-top: 15px;
+    color: #a0aec0;
+}
+
+.mech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.mech-subsystem {
+    background: rgba(45, 55, 72, 0.5);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-top: 3px solid #d2691e;
+    transition: transform 0.3s ease;
+}
+
+.mech-subsystem:hover {
+    transform: translateY(-5px);
+    background: rgba(45, 55, 72, 0.8);
+}
+
+.mech-subsystem h3 {
+    color: #d2691e;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.mech-subsystem p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #cbd5e0;
+}
+
+.interactive-cad-container {
+    position: relative;
+    width: 100%;
+    background: transparent;
+    padding: 0;
+    /* Use a negative margin to shift the entire block UP */
+    margin-top: -50px; 
+    line-height: 0;
+    display: block;
+}
+
+.base-cad {
+    width: 100%;
+    display: block;
+    height: auto;
+    /* Keeps the glow effect on the transparent edges */
+    filter: drop-shadow(0 0 15px rgba(210, 105, 30, 0.4));
+}
+
+.cad-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: visible;
+}
+
+.cad-overlay a {
+    pointer-events: all;
+}
+
+/* This pushes the text descriptions below the image back down slightly if they get too close */
+.mech-grid {
+    margin-top: 2rem;
+    position: relative;
+    z-index: 5;
+}
+
+.pointer-line {
+    stroke: #d2691e;
+    stroke-width: 3;
+    stroke-dasharray: 6; /* Dash effect for technical feel */
+}
+
+.hotspot-text {
+    fill: #ffffff;
+    font-family: 'Courier New', monospace;
+    font-size: 22px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.hotspot-text:hover {
+    fill: #d2691e;
+    filter: drop-shadow(0 0 5px #d2691e);
+}
+
+
+/* ------------------- VERTICAL MECHANICAL ROWS ------------------- */
+
+.mech-vertical-stack {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem; /* Large gap between subsystems */
+}
+
+.mech-row {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding: 2rem;
+    background: rgba(45, 55, 72, 0.3);
+    border-radius: 12px;
+    border-left: 5px solid #d2691e;
+}
+
+/* Flip the middle section so image is on the left */
+.mech-row.reverse {
+    flex-direction: row-reverse;
+    border-left: none;
+    border-right: 5px solid #d2691e;
+}
+
+.mech-info {
+    flex: 1;
+}
+
+.mech-info h3 {
+    font-size: 2rem;
+    color: #d2691e;
+    margin-bottom: 1rem;
+}
+
+.mech-info p {
+    font-size: 1.1rem;
+    color: #e2e8f0;
+    margin-bottom: 1.5rem;
+}
+
+.mech-info ul {
+    list-style: none; /* We will add custom bullets */
+}
+
+.mech-info li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: #cbd5e0;
+    line-height: 1.5;
+}
+
+/* Custom technical bullet point */
+.mech-info li::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    color: #d2691e;
+    font-size: 0.8rem;
+    top: 5px;
+}
+
+.mech-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.mech-image img {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 1px solid #4a5568;
+    transition: transform 0.3s ease;
+}
+
+.mech-image img:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive adjustment for mobile */
+@media (max-width: 900px) {
+    .mech-row, .mech-row.reverse {
+        flex-direction: column;
+        text-align: center;
+    }
+    .mech-info li {
+        text-align: left;
+    }
+}
+
+/* 1. Global Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 2. Offset for Fixed Navigation */
+/* Adjust the 100px value based on the actual height of your nav bar */
+.mech-row {
+    scroll-margin-top: 100px; 
+}
+
+/* Optional: If you find it still feels too fast, 
+   some browsers allow you to define the scroll duration 
+   via JavaScript, but CSS is the cleanest starting point. */
+
+   .mech-gallery {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.slider-container {
+    width: 100%;
+    height: 300px; /* Adjust height as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.slider-container img {
+    display: none; /* Hide all images by default */
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 5px;
+}
+
+.slider-container img.active {
+    display: block; /* Only show the active one */
+}
+
+.prev, .next {
+    background: rgba(210, 105, 30, 0.7);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    transition: background 0.3s;
+    z-index: 10;
+}
+
+.prev:hover, .next:hover {
+    background: rgba(210, 105, 30, 1);
+}
+
+.prev { position: absolute; left: 10px; }
+.next { position: absolute; right: 10px; }
+
+
+/* ------------------- GALLERY HOVER EFFECTS ------------------- */
+
+.mech-gallery {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.slider-container img {
+    display: none;
+    max-width: 100%;
+    max-height: 350px;
+    border-radius: 8px;
+    /* 1. Start Dim (lowered brightness and grayscale) */
+    filter: brightness(0.5) grayscale(0.3);
+    transition: all 0.4s ease;
+}
+
+.slider-container img.active {
+    display: block;
+}
+
+/* 2. Brighten on Hover */
+.mech-gallery:hover .slider-container img {
+    filter: brightness(1.1) grayscale(0);
+}
+
+/* 3. Hide Arrows by Default */
+.prev, .next {
+    position: absolute;
+    background: rgba(210, 105, 30, 0.9);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    z-index: 10;
+    opacity: 0; /* Hidden */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* 4. Show Arrows on Hover */
+.mech-gallery:hover .prev, 
+.mech-gallery:hover .next {
+    opacity: 1;
+}
+
+.prev { left: 15px; transform: translateX(-10px); }
+.next { right: 15px; transform: translateX(10px); }
+
+/* Small slide-in animation for arrows */
+.mech-gallery:hover .prev { transform: translateX(0); }
+.mech-gallery:hover .next { transform: translateX(0); }
+/* ------------------- JOURNEY TIMELINE ------------------- */
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding-left: 20px;
+}
+
+.journey-phase {
+    margin-bottom: 4rem;
+    border-left: 2px solid #d2691e;
+    padding-left: 30px;
+}
+
+.phase-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Headers in 3 columns */
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.discipline-box {
+    background: rgba(45, 55, 72, 0.4);
+    padding: 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    border-top: 4px solid transparent;
+    transition: background 0.3s;
+    height: fit-content;
+}
+
+/* Colors */
+.mech { border-top-color: #f6ad55; }
+.elec { border-top-color: #63b3ed; }
+.soft { border-top-color: #68d391; }
+
+.discipline-box.active-btn {
+    background: rgba(45, 55, 72, 0.8);
+    border-top-width: 6px;
+}
+
+.box-preview {
+    font-size: 1rem;
+    color: #cbd5e0;
+    margin-top: 0.8rem;
+    line-height: 1.4;
+}
+
+/* ------------------- EXPANSION FIX ------------------- */
+
+.full-width-details {
+    grid-column: 1 / -1;
+    /* Start at 0 for the animation */
+    max-height: 0; 
+    opacity: 0;
+    overflow: hidden; /* This is what cuts off your content */
+    transition: max-height 0.8s ease-in-out, opacity 0.5s ease;
+    background: rgba(45, 55, 72, 0.6);
+    border-radius: 8px;
+}
+
+.full-width-details.open {
+    /* FIX: Increase this to a very large number (e.g., 2000px or 3000px) 
+       to ensure it fits the text and images */
+    max-height: 3000px; 
+    opacity: 1;
+    padding: 2.5rem;
+    margin-top: 1.5rem;
+    border-bottom: 3px solid #d2691e;
+    
+    /* Optional: If the content is still massive, this allows scrolling 
+       inside the box instead of cutting off */
+    overflow-y: visible; 
+}
+
+/* Ensure the wrapper doesn't restrict height */
+.initial-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    height: auto; 
+
+}
+
+.full-width-details ul {
+    list-style-type: disc;
+    margin-left: 25px;
+}
+
+.full-width-details li {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    color: #ffffff;
+}
+
+.expand-icon {
+    float: right;
+    color: #d2691e;
+    font-weight: bold;
+}
+
+/* ------------------- INITIAL STAGE SPECIFIC ------------------- */
+.initial-stage {
+    grid-column: 1 / -1; /* Always spans the full width */
+    border-top-color: #a0aec0; /* Neutral grey color for the start */
+    margin-bottom: 0.5rem;
+}
+
+.initial-stage.active-btn {
+    border-top-color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Ensure the grid stays aligned with the new element */
+.phase-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+}
+
+/* Rest of your discipline-box and full-width-details code stays the same */
+
+
+/* Container for the rich content inside the expansion */
+.initial-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.initial-sub h5 {
+    color: #d2691e;
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Flex layout for text next to an image */
+.initial-sub-flex {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.sub-text { flex: 2; }
+.sub-image { flex: 1; }
+
+.journey-inline-img {
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.img-caption {
+    font-size: 0.8rem;
+    color: #a0aec0;
+    text-align: center;
+    margin-top: 5px;
+}
+
+/* Ideation Gallery Styling */
+.ideation-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.gallery-item img {
+    width: 100%;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.02);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 800px) {
+    .initial-sub-flex {
+        flex-direction: column;
+    }
+    .ideation-gallery {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ------------------- INITIAL STAGES RICH TEXT ------------------- */
+
+.initial-sub p {
+    font-size: 1.1rem; /* Standard readable size */
+    line-height: 1.6;
+    color: #cbd5e0;
+    margin-bottom: 1rem;
+}
+
+.initial-sub ul {
+    margin-left: 20px;
+    margin-bottom: 1.5rem;
+}
+
+/* FIX: Ensure list items match paragraph text size exactly */
+.initial-sub ul li {
+    font-size: 1.05rem; /* Slightly smaller than p to account for bullet visual weight */
+    line-height: 1.5;
+    color: #ffffff;
+    margin-bottom: 0.8rem;
+    list-style-type: disc;
+}
+
+/* Bold headers inside bullets should not be overly large */
+.initial-sub ul li strong {
+    color: #d2691e;
+    font-weight: 700;
+}
+
+/* Sub-headings for clarity */
+.initial-sub h5 {
+    color: #d2691e;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Centers the image and caption */
+.centered-image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 2rem 0;
+}
+
+.journey-main-img {
+    max-width: 100%; 
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.img-caption {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #a0aec0;
+    text-align: center;
+}
+
+/* ------------------- BOTTOM COLLAPSE TRIGGER ------------------- */
+.collapse-trigger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 2rem;
+    padding: 1rem;
+    cursor: pointer;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #a0aec0;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.collapse-trigger:hover {
+    color: #d2691e;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.collapse-trigger .expand-icon {
+    font-size: 1.5rem;
+    line-height: 0;
+}
+
+
+.elec-list {
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    font-size: 0.9rem;
+    color: #a0aec0;
+}
+
+.elec-list li {
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.elec-list li strong {
+    color: #e2e8f0;
+}
+
+
+.github-btn {
+    display: inline-block;
+    background: #d2691e;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background 0.3s ease;
+}
+
+.github-btn:hover {
+    background: #a0522d;
+}
+
+/* Ensure software lists match the electrical list styling */
+.elec-list {
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+}
+
+
+/* Container for the 50/50 split */
+.hero-section {
+    display: flex;
+    align-items: flex-start; /* Aligns content to the top */
+    justify-content: center;
+    gap: 40px; /* Provides breathing room between columns */
+    padding: 2rem 0;
+}
+
+/* Force both sides to exactly 50% width */
+.hero-text, .hero-image {
+    flex: 1; /* Sets equal flex-grow and basis for a true half-half split */
+    width: 50%;
+}
+
+.hero-image {
+    text-align: center;
+}
+
+/* Maintain image scaling so it doesn't bleed off screen */
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 2px solid #d2691e;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Mobile responsive: Stack them vertically on smaller screens */
+@media (max-width: 900px) {
+    .hero-section {
+        flex-direction: column;
+    }
+    .hero-text, .hero-image {
+        width: 100%;
+    }
+}
+/* Tighten the gap between the summary content and the next header */
+.hero-section {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 1.5rem; /* Reduced from default to close the gap */
+}
+
+/* Ensure the Demonstration header doesn't have massive top padding */
+#summary h3 {
+    margin-top: 1rem !important; /* Forces the header closer to the content above */
+    padding-top: 0;
+}
+
+/* Ensure the summary container itself doesn't have extra bottom padding */
+.summary-text {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}

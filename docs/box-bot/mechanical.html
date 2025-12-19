@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BoxBot - Mechanical Design</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="electrical.html">Electrical</a>
+        <a href="mechanical.html">Mechanical</a>
+        <a href="software.html">Software/Firmware</a>
+        <a href="budget.html">Budget (BOM)</a>
+        <a href="journey.html">Journey & Design Process</a>
+    </nav>
+
+    <div class="main-content">
+        <section class="section">
+            <h2>Mechanical Design</h2>
+            <p class="summary-text">
+                This is the CAD of BoxBot. We decided that we wanted the drivebase to be as low to the 
+                ground as possible, squeeze the box with with a rack and pinion system, and lift up the box 
+                with a scissor lift mechanism. This mechanical system can lift the box 6 inches above ground and is able to carry at least 20 pounds. 
+            </p>
+
+<div class="interactive-cad-container">
+    <img src="media/colorfulcadupdated.png" alt="BoxBot CAD Model" class="base-cad">
+
+    <svg class="cad-overlay" viewBox="0 0 1000 800">
+        
+        <line x1="220" y1="420" x2="80" y2="350" class="pointer-line" />
+        <a href="#drive-base">
+            <text x="10" y="340" class="hotspot-text">DRIVE BASE</text>
+        </a>
+
+        <line x1="720" y1="750" x2="780" y2="780" class="pointer-line" />
+        <a href="#scissor-lift">
+            <text x="750" y="795" class="hotspot-text">SCISSOR LIFT</text>
+        </a>
+
+        <line x1="575" y1="480" x2="500" y2="575" class="pointer-line" />
+        <a href="#center-plate">
+            <text x="400" y="600" class="hotspot-text">CENTER PLATE</text>
+        </a>
+        
+
+    </svg>
+</div>
+ <div class="mech-vertical-stack">
+    <div class="mech-row" id="drive-base">
+        <div class="mech-info">
+            <h3>Drive Base</h3>
+            <p>The drivebase carries the scissor lift, motors, and linear rails.</p>
+            <ul>
+                <li><strong>Omni-Directional Movement</strong>: Uses four Omni Wheels for linear movement, as well as easy horizontal alignment.</li>
+                <li><strong>Stability</strong>: Features two Roller Ball Transfer Bearings per drive base in both the front and the back. This helps for load support and stability.</li>
+                <li><strong>Material</strong>: Built from 1/4" thick 6061 aluminum for more stability and less prone to bending.</li>
+                <li><strong>Linear Rails/Rack Supports</strong>: Supporting the left drive base and aligning it with the right drive base.  </li>
+
+            </ul>
+        </div>
+        <div class="mech-gallery">
+            <button class="prev" onclick="changeImage('drive-slider', -1)">&#10094;</button>
+            <div class="slider-container" id="drive-slider">
+                <img src="media/drivebasemech-Picsart-BackgroundRemover.png" class="active">
+                <img src="media/notremovedholygoat-Picsart-BackgroundRemover.png">
+                <img src="media/flatpieceofthingyLOL-Picsart-BackgroundRemover.png">
+                                <img src="media/linearrailsnsuch-Picsart-BackgroundRemover.png">
+
+            </div>
+            <button class="next" onclick="changeImage('drive-slider', 1)">&#10095;</button>
+        </div>
+    </div>
+
+    <div class="mech-row reverse" id="center-plate">
+        <div class="mech-info">
+            <h3>Center Plate</h3>
+            <p>The bridge for structural integrity and electronics.</p>
+            <ul>
+                <li><strong>Weight Distribution</strong>: Centrally mounts all of the electronics, especially the 24V 4Ah battery, for a balanced center of gravity.</li>
+                <li><strong>Electronics Protection</strong>: Enclosed Casing that hides the electrical system, such as the Rasberry Pi and the E-Stop.</li>
+                <li><strong>Pinion Holder</strong>: Features a pinion holder that is attached to the stepper motor.</li>
+                 <li><strong>Camera Mount</strong>: A centralized camera mount that is low to the ground for vision.</li>
+                <li><strong>Stability</strong>: 3 different caster wheels to support the weight of the electronic components, as well as linear rails sandwiching the pinion holder to increase the stability of the left and right drivebases.</li>
+
+
+            </ul>
+        </div>
+        <div class="mech-gallery">
+            <button class="prev" onclick="changeImage('center-slider', -1)">&#10094;</button>
+            <div class="slider-container" id="center-slider">
+                <img src="media/highecwenterplate-Picsart-BackgroundRemover.png" class="active">
+                <img src="media/nakedhighcetnerplate-Picsart-BackgroundRemover.png">
+                <img src="media/evenmorenakedcenterplate-Picsart-BackgroundRemover.png">
+                <img src="media/sideahview-Picsart-BackgroundRemover.png">
+
+            </div>
+            <button class="next" onclick="changeImage('center-slider', 1)">&#10095;</button>
+        </div>
+    </div>
+
+    <div class="mech-row" id="scissor-lift">
+        <div class="mech-info">
+            <h3>Scissor Lift</h3>
+            <p>Scissor lift mechanism that lifts the Box above the camera.</p>
+            <ul>
+                <li><strong>Servo Driven</strong>: Driven by 25kg high-torque digital continuous servos.</li>
+                <li><strong>Precision Travel</strong>: Lead Screws and a driven lead nut that moves the scissor arm up. </li>
+                <li><strong>Lift Plate</strong>: Attached lift plate to get under the cardboard box and have the power of the servo lift the box, not the squeeze motor.</li>
+                <li><strong>Travel height</strong>: Maximum height travel of 6 inches.</li>
+                <li><strong>Weight Restrictions</strong>: Can lift a minimum of 20 pounds.</li>
+
+            </ul>
+        </div>
+        <div class="mech-gallery">
+            <button class="prev" onclick="changeImage('scissor-slider', -1)">&#10094;</button>
+            <div class="slider-container" id="scissor-slider">
+                <img src="media/sissorliftLOL-Picsart-BackgroundRemover.png" class="active">
+                <img src="media/othaside-Picsart-BackgroundRemover.png">
+                <img src="media/meetmeeatthemiddle-Picsart-BackgroundRemover.png">
+
+            </div>
+            <button class="next" onclick="changeImage('scissor-slider', 1)">&#10095;</button>
+        </div>
+    </div>
+</div>
+        </section>
+    </div>
+    <script>
+function changeImage(sliderId, step) {
+    const container = document.getElementById(sliderId);
+    const images = container.getElementsByTagName('img');
+    let currentIndex = 0;
+
+    // Find current active index
+    for (let i = 0; i < images.length; i++) {
+        if (images[i].classList.contains('active')) {
+            currentIndex = i;
+            images[i].classList.remove('active');
+            break;
+        }
+    }
+
+    // Calculate next index
+    let nextIndex = currentIndex + step;
+    if (nextIndex >= images.length) nextIndex = 0;
+    if (nextIndex < 0) nextIndex = images.length - 1;
+
+    // Set new active image
+    images[nextIndex].classList.add('active');
+}
+</script>
+</body>
+</html>

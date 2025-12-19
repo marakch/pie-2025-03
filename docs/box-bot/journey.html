@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BoxBot - Development Journey</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="electrical.html">Electrical</a>
+        <a href="mechanical.html">Mechanical</a>
+        <a href="software.html">Software/Firmware</a>
+        <a href="budget.html">Budget (BOM)</a>
+        <a href="journey.html">Journey & Design Process</a>
+    </nav>
+
+    <div class="main-content">
+        <section class="section">
+            <h2>Journey & design process</h2>
+            <p class="summary-text">This is the documentation of how Box Bot evolved over time, from a concept to a fully autonomous box moving system.  </p>
+
+            <div class="timeline">
+                
+                <div class="journey-phase" id="phase-2">
+                    <div class="phase-header">
+                        <span class="phase-number">02</span>
+                        <h3>Sprint 1/Phase 2: Ideation and Prototyping</h3>
+                    </div>
+                    
+                    <div class="phase-content">
+    <div class="discipline-box initial-stage" onclick="togglePhaseContent('p2-initial', this)">
+        <div class="box-header">
+            <h4>INITIAL STAGES & DESIGN PROCESS</h4>
+            <span class="expand-icon">+</span>
+        </div>
+        <p class="box-preview">Group formation, timeline managements, and design process.</p>
+    </div>
+
+    <div id="p2-initial" class="full-width-details">
+    <div class="initial-content-wrapper">
+        
+        <div class="initial-sub">
+            <h5>Group Formation & Roles</h5>
+            <p>Our team came together because of our interest in creating a strong project to put on our personal portfolio. When discussing project teaming and agreement, we came up with these following rules:    </p>
+            <ul>
+                <li><strong>Commitment</strong>: Spend 5-7 hours outside of class on a typical week, 30-40 hours in the last week.</li>
+                <li><strong>Expectations</strong>: Call people out if someone is slacking off, and if it gets worse, involve the teaching team.</li>
+                <li><strong>Project Manager</strong>: We decided a Project manager system, where Heesung will manage timelines and making sure work gets done.</li>
+            </ul>
+        </div>
+
+        <div class="initial-sub">
+            <div class="sub-text">
+                <h5>Timeline Management</h5>
+                <p>To ensure that we stayed on track, we used a Gantt chart to visualize the project timeline and assign clear, descriptive tasks to each team member. This improved accountability and helped us better understand how limited our time was for completing the project. </p>
+            </div>
+            <div class="sub-image">
+                <img src="media/ganntchartstuff.png" alt="Project Gantt Chart" class="journey-inline-img">
+                <p class="img-caption">Figure 1: Sprint 1 Schedule- Gantt Chart</p>
+            </div>
+        </div>
+                <div class="initial-sub">
+            <div class="sub-text">
+                <h5>Honing a Singular Idea</h5>
+            <p>We had many ideas, such as a Red Light Green Light Robot, CNC Tube Notcher, wall climbing robot, and more. Using a Pugh Matrix, we ended up with <strong>BoxBot</strong> because it was something that everyone was committed to do, it was complex, and it was scalable to be more difficult/easier. At this current stage, we didn't know exactly how we wanted to manipulate the box. </p>
+            </div>
+            <div class="sub-image">
+                <img src="media/newpughmatrix.png" alt="Project Pugh Matrix Chart" class="journey-inline-img">
+                <p class="img-caption">Figure 2: Pugh Matrix Chart</p>
+            </div>
+        </div>
+                <div class="initial-sub">
+            <div class="sub-text">
+                <h5>Figuring out the weeds</h5>
+<p>After settling on what we wanted the project to do, we spent several days figuring out what mechanism we wanted on the BoxBot. After several hours, we ended up with a U shaped robot, where the sides will be moved by a <strong>rack and pinion system</strong> while the box will be lifted up through a <strong></strong> mechanism. </p>            </div>
+                <div class="sub-image">
+                <img src="media/uglyahideationboard.png" alt="Project Pugh Matrix Chart" class="journey-inline-img">
+                <p class="img-caption">Figure 3: Ideation board</p>
+                </div>
+            </div>
+
+                <div class="initial-sub">
+            <div class="sub-text">
+                <h5>Design Process</h5>
+                <p>Although we will dive deeper into the design in itself throughout this website, there were several design
+                    decisions we had to come up with. 
+                    <ul>
+                        <li><strong>Chassis Geometry:</strong> Originally, we wanted to lift the box in front of the robot.
+                        However, we came to the conclusion that it was too similar to a forklift. Because this was something 
+                        that we didn't want to do, and that we wanted to make something more unique, we decided to lift the box 
+                        by sandwiching it. This made the design decision as a <strong>U-shaped Chassis.</strong>
+
+                        
+                        </li>
+                        <li><strong>Box manipulation: </strong> Since we figured out we wanted a U-shaped Chassis, we then had to 
+                        figure out how exactly we wanted the robot to be in contact with it. We knew that the 2 sides of the chassis 
+                        had to squeeze, but we were deciding between a scissor lift that open and closes left, a rack and pinion system, 
+                        and a belt system. We decided to go with a <strong>rack and pinion system</strong> because this was something 
+                        we could rapidly test and 3D print. We had to wait for the belt system, so we came to the conclusion that rapid 
+                        iteration will be more worthwhile.
+                        </li>
+                        </li>
+                        <li><strong>Box Lifting: </strong> We had to figure out how we wanted to lift a box. We ended up with a <strong>scissor lift mechanism </strong>
+                        on both sides. Since we had supports of both sides, we figured we can have a lift plate that gets under the cardboard box.
+                        </li>
+                    </ul>
+
+
+                </p>    
+                        
+            </div>
+
+            </div>
+
+            <div class="collapse-trigger" onclick="closeAllInPhase(this)">
+                <span>Show Less</span>
+                <span class="expand-icon">−</span>
+            </div>
+</div>
+</div>
+
+
+    <div class="discipline-box mech" onclick="togglePhaseContent('p2-mech', this)">
+        <div class="box-header">
+            <h4>MECHANICAL</h4>
+            <span class="expand-icon">+</span>
+        </div>
+        <p class="box-preview">Designing the U-shaped chassis with 3D prints </p>
+            
+    </div>
+
+    <div class="discipline-box elec" onclick="togglePhaseContent('p2-elec', this)">
+        <div class="box-header">
+            <h4>ELECTRICAL</h4>
+            <span class="expand-icon">+</span>
+        </div>
+        <p class="box-preview">Wiring and getting the robot to drive</p>
+    </div>  
+
+    <div class="discipline-box soft" onclick="togglePhaseContent('p2-soft', this)">
+        <div class="box-header">
+            <h4>SOFTWARE</h4>
+            <span class="expand-icon">+</span>
+        </div>
+        <p class="box-preview">Getting basic functionality down</p>
+    </div>
+
+<div id="p2-mech" class="full-width-details">
+    <div class="initial-content-wrapper">
+        <div class="initial-sub">
+            <h5>Chassis Design with Rack and Pinion</h5>
+            <p>
+                Our goal was to validate the U-shaped drivetrain. Having designed based on the mini-project 3, 
+                we separated the two sections and added a rack and pinion on the other side. This rapid prototyping 
+                was able to help us test the squeeze functionality with the rack and pinion. The learnings that the 
+                mechanical team had was to switch to Omni Wheel, and have a middle section to keep the electrical in place.
+            
+            </p>
+        </div>
+            <div class="centered-image-container">
+                <img src="mmedia/ilovelife.png" alt="Mechanical Prototype" class="journey-main-img">
+                <p class="img-caption">Initial U-shaped chassis CAD with 3D printed components</p>
+            </div>
+        <div class="collapse-trigger" onclick="closeAllInPhase(this)">
+            <span>Show Less</span>
+            <span class="expand-icon">−</span>
+        </div>
+    </div>
+</div>
+
+<div id="p2-elec" class="full-width-details">
+    <div class="initial-content-wrapper">
+        <div class="initial-sub">
+            <h5>Driving the prototype</h5>
+            <p>
+                Our initial electrical system was an evolution of MP3. Our goal was to re-use as many components as possible that we already were familiar with and that we had easy access to. We used an Arduino for logic and a motor shield for motor control.We supply the power to the motor via a wall outlet, making this prototype tethered. One takeaway from this prototype was the challenge of wire management on a robot that changes size, a challenge that we experienced throughout the design process.
+            </p>
+        </div>
+         <div class="centered-image-container">
+            <img src="media/elecsprint1.png" alt="Electrical Prototype" class="journey-main-img">
+            <p class="img-caption">Electrical Diagram of the prototype robot</p>
+        </div>
+        <div class="centered-image-container">
+            <img src="media/elec_sp1.png" alt="First prototype" class="journey-main-img"style="width: 400px; height: auto;">
+            <p class="img-caption">First prototype electrical system</p>
+        </div>
+        <div class="collapse-trigger" onclick="closeAllInPhase(this)">
+            <span>Show Less</span>
+            <span class="expand-icon">−</span>
+        </div>
+    </div>
+</div>
+
+<div id="p2-soft" class="full-width-details">
+    <div class="initial-content-wrapper">
+        <div class="initial-sub">
+            <h5>Drive functionality </h5>
+            <p>
+                We focused on building basic driving functionality code. We got forward, reverse, close, and release to all work. This was all controlled through serial connection to a laptop. Testing with a wired USB cable for serial connection proved cumbersome, prompting us to move to an alternative onboard microcontroller/computer for the next phase.
+            </p>
+        </div>
+        <div class="centered-image-container">
+            <video class="journey-main-img" controls muted loop>
+                <source src="media/jacksonsprint1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p class="img-caption">Video of our Sprint 1 Product driving</p>
+        </div>
+        <div class="centered-image-container">
+            <img src="media/soft_ide.webp" alt="Arduino IDE" class="journey-main-img"style="width: 400px; height: auto;">
+            <p class="img-caption">Programmed with Arduino IDE</p>
+        </div>
+        <div class="collapse-trigger" onclick="closeAllInPhase(this)">
+            <span>Show Less</span>
+            <span class="expand-icon">−</span>
+        </div>
+    </div>
+</div>
+</div>
+                </div>
+
+<div class="journey-phase" id="phase-3">
+    <div class="phase-header">
+        <span class="phase-number">03</span>
+        <h3>Phase 3: Update on Integrating, Reflecting, and Iterating</h3>
+    </div>
+
+    <div class="phase-content">
+        <div class="discipline-box mech" onclick="togglePhaseContent('p3-mech', this)">
+            <div class="box-header">
+                <h4>MECHANICAL</h4>
+                <span class="expand-icon">+</span>
+            </div>
+            <p class="box-preview">Drivebase and scissor lift updates</p>
+        </div>
+
+        <div class="discipline-box elec" onclick="togglePhaseContent('p3-elec', this)">
+            <div class="box-header">
+                <h4>ELECTRICAL</h4>
+                <span class="expand-icon">+</span>
+            </div>
+            <p class="box-preview">Battery and Raspberry Pi integration</p>
+        </div>
+
+        <div class="discipline-box soft" onclick="togglePhaseContent('p3-soft', this)">
+            <div class="box-header">
+                <h4>SOFTWARE</h4>
+                <span class="expand-icon">+</span>
+            </div>
+            <p class="box-preview">Defining software architecture</p>
+        </div>
+
+        <div id="p3-mech" class="full-width-details">
+            <div class="initial-content-wrapper">
+                <div class="initial-sub">
+                    <h5>V1 Drivebase updates</h5>
+                    <p>Throughout phase 3, we went through 2 different iterations of the design. <strong>Version 1</strong> had a rack and pinion system driven by a stepper motor, where we left room for electrical in the back. We also added omni wheels for easier side to side movement with multi-directional caster wheels to support the weight of the robot and the box.</p>
+                    <p>Some of the changes we needed to make was that the caster wheel was misaligned with the omni wheels, the necessity of linear rails for stability and precision, Camera Mounts for Vision, and a better support system for the rack so it doesn't wobble.</p>
+                </div>
+                <div class="centered-image-container">
+                    <img src="media/drivebase1stufflol.png" alt="Mechanical Prototype" class="journey-main-img">
+                    <p class="img-caption">V1 of the Drive Base made of laser cut and 3D printed parts</p>
+                </div>
+                <div class="initial-sub">
+                    <h5>V2 Drivebase updates</h5>
+                    <p>For <strong>version 2</strong>, we added linear rails for stability, and made sure that the omni wheels and the caster wheels were designed to keep the robot parallel and as low to the ground as possible. We also added the 3 caster wheels on the center plate for more support. Something that we also worked on was keeping the rack stable, so we created rack guides that helped stabilize the drive base. The camera mount was designed as well.</p>
+                    <p>Some of the changes we need to make was a adjustable camera mount, have extra caster wheels on the drivebases, and make space for electrical mounting. We also needed longer linear rails, and have the linear rails sandwich the rack and pinion system.</p>
+                </div>
+                <div class="centered-image-container">
+                    <img src="media/manthissuckssosad.png" alt="Mechanical Prototype" class="journey-main-img">
+                    <p class="img-caption">V2 of the Drive Base made of laser cut and 3D printed parts</p>
+                </div>
+                <div class="initial-sub">
+                    <h5>Scissor lift updates</h5>
+                    <p>For the <strong>scissor lift design</strong>, we used a lead screw, where we were projected 1 inch of lift. We used 3D prints and wooden prototypes to create this.</p>
+                    <p>Some of the changes that we needed to do was optimize the brackets, and we had to design for a full lead screw instead of a bolts.</p>
+                </div>
+                <div class="centered-image-container">
+                    <img src="media/scissorliftfirstcadlol.png" alt="Mechanical Prototype" class="journey-main-img">
+                    <p class="img-caption">Scissor lift CAD</p>
+                </div>
+                <div class="collapse-trigger" onclick="closeAllInPhase(this)">
+                    <span>Show Less</span>
+                    <span class="expand-icon">−</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="p3-elec" class="full-width-details">
+            <div class="initial-content-wrapper">
+                <div class="initial-sub">
+                    <h5>High-Power Integration & Safety</h5>
+                    <p>In Phase 3, we switched to a battery powered system. We finalized the power distribution with our 24V battery and tested motor controllers for drive and squeeze motors. To ensure system longevity and safety, we integrated a 6-circuit LED blade fuse block, protecting individual subsystems from overcurrent. We also switched to our final compute platform: the Raspberry Pi 4b.</p>
+                    <ul>
+                        <li><strong>Fuse Block:</strong> Safety protection for the Raspberry Pi 4b and sensors.</li>
+                        <li><strong>Sabertooth 2x12:</strong> Dual channel DC motor control.</li>
+                        <li><strong>L298N Dual H-Bridge:</strong> Stepper motor control.</li>
+                        <li><strong>Raspberry 4b:</strong> WiFi-enabled single board computer</li>
+                    </ul>
+                </div>
+                <div class="centered-image-container">
+                    <img src="media/elec_motor_test.png" alt="motor test" class="journey-main-img"style="width: 400px; height: auto;">
+                    <p class="img-caption">Testing DC motors</p>
+                </div>
+                <div class="collapse-trigger" onclick="closeAllInPhase(this)">
+                    <span>Show Less</span>
+                    <span class="expand-icon">−</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="p3-soft" class="full-width-details">
+            <div class="initial-content-wrapper">
+                <div class="initial-sub">
+                    <h5>Software Architecture</h5>
+                    <p>Our software underwent a complete overhaul for this phase, evolving from basic serial control to a robust ROS2 Python software stack onboard the Raspberry Pi. Within the ROS2 ecosystem, we defined scaffolding for all software we would need to create. We created Nodes for teleoperation control, autonomous control, and drive logic. In this phase we successfully tested the teleoperation and drive control nodes, and laid the groundwork for future work with computer vision for autonomous driving. By the end of this sprint, we were able to wirelessly drive the robot and squeeze objects.</p>
+                    <ul>
+                        <li><strong>Teleoperation Node:</strong> Accepts keyboard input to drive robot and squeeze/open rack and pinion system</li>
+                        <li><strong>Drive Node:</strong> Listens for commands from either teleoperation or autonomous Nodes. Sends necessary GPIO signals to drive and squeeze motor controllers.</li>
+                        <li><strong>Autonomous Node:</strong> Created basic setup to communicate with RealSense camera.</li>
+                    </ul>
+                    <div class="centered-image-container">
+                        <img src="media/soft_old_ros.jpg" alt="Old ROS Architecture" class="journey-main-img"style="width: 400px; height: auto;">
+                        <p class="img-caption">Old ROS architecture, later simplified</p>
+                    </div>
+                </div>
+                <div class="collapse-trigger" onclick="closeAllInPhase(this)">
+                    <span>Show Less</span>
+                    <span class="expand-icon">−</span>
+                </div>
+            </div>
+        </div>
+    </div> </div> 
+    <div class="journey-phase" id="phase-4">
+    <div class="phase-header">
+        <span class="phase-number">04</span>
+        <h3>Phase 4: Update on Refining Resourcefully</h3>
+    </div>
+
+    <div class="phase-content">
+        <div class="discipline-box mech" onclick="togglePhaseContent('p4-mech', this)">
+            <div class="box-header">
+                <h4>MECHANICAL</h4>
+                <span class="expand-icon">+</span>
+            </div>
+            <p class="box-preview">Final drivebase assembly and scissor lift progress</p>
+        </div>
+
+        <div class="discipline-box elec" onclick="togglePhaseContent('p4-elec', this)">
+            <div class="box-header">
+                <h4>ELECTRICAL</h4>
+                <span class="expand-icon">+</span>
+            </div>
+            <p class="box-preview">Finalized wire harness</p>
+        </div>
+
+        <div class="discipline-box soft" onclick="togglePhaseContent('p4-soft', this)">
+            <div class="box-header">
+                <h4>SOFTWARE</h4>
+                <span class="expand-icon">+</span>
+            </div>
+            <p class="box-preview">Drive control de-bugging and autonomous progress</p>
+        </div>
+
+        <div id="p4-mech" class="full-width-details">
+            <div class="initial-content-wrapper">
+                <div class="initial-sub">
+                    <h5>Final Drivebase CAD</h5>
+                    <p>To start this phase, we updated the drivebase CAD where the linear rails sandwiched the rack and pinion system, the back caster wheels were attached, and the center plate became 5 inches longer.  </p>
+                    <p>Some of the changes we needed were the electrical covering as well as the electrical mounting plates. </p>
+
+                </div>
+                <div class="centered-image-container">
+                    <img src="media/boxbotphasequarto.png" alt="Final Mechanical Assembly" class="journey-main-img">
+                    <p class="img-caption">CAD of the final Box Bot Drivebase</p>
+                </div>
+                <div class="initial-sub">
+                    <h5>Drivebase fabrication</h5>
+                    <p>Using 1/4" Aluminum 6061, we water jetted the drive-base plates, as well as the scissor lift arms. </p>
+                </div>
+                <div class="centered-image-container">
+                    <img src="media/boxbotcoverphotofornow.png" alt="Final Mechanical Assembly" class="journey-main-img">
+                    <p class="img-caption">CAD of the final Box Bot Drivebase</p>
+                </div>
+                <div class="initial-sub">
+                    <h5>Scissor Lift Progress</h5>
+                    <p>The Scissor Lift has got some updates. They include the design adapting for the final lead screw and around space constraints, designing around the lead nuts, and the the 3D printed mounts.   </p>
+                    <p>Some things that are still in progress is the full assembly as well as we have to print the scoops. </p>
+
+                </div>
+                <div class="centered-image-container">
+                    <img src="media/ihatewebsitedesign.png" alt="Final Mechanical Assembly" class="journey-main-img">
+                    <p class="img-caption">CAD of the updated Scissor Lift</p>
+                </div>
+
+                <div class="collapse-trigger" onclick="closeAllInPhase(this)">
+                    <span>Show Less</span>
+                    <span class="expand-icon">−</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="p4-elec" class="full-width-details">
+            <div class="initial-content-wrapper">
+                <div class="initial-sub">
+                    <h5>Wiring Finalization & Protection</h5>
+                    <p>We spent a significant amount of time creating a finalized cable routing solution to prevent interference with the moving rack and pinion. We made custom length wire harnesses with quick-disconnect DuPont-style connectors for all components. We also used a solderable breadboard to create a permanent junction box for all components. All logic level connections followed standardized wire color rules. We also ensured our digital wiring diagram aligned with the physical system exactly. At this point, we also properly implemented our emergency stop button and fuse block. These measures protect the user from an out of control robot and the components from over-current.</p>
+                </div>
+                <div class="centered-image-container">
+                    <img src="media/elec_fuse1.jpeg" alt="Fuse block" class="journey-main-img"style="width: 400px; height: auto;">
+                    <p class="img-caption">Fuse block fitted with current-limiting fuses</p>
+                </div>
+                <div class="collapse-trigger" onclick="closeAllInPhase(this)">
+                    <span>Show Less</span>
+                    <span class="expand-icon">−</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="p4-soft" class="full-width-details">
+            <div class="initial-content-wrapper">
+                <div class="initial-sub">
+                    <h5>System Tuning & Autonomous Groundwork</h5>
+                    <p>We moved into the refinement stage for our drive software, ironing out bugs with drive code, getting to the stage where our robot reliably operated under teleoperation mode. With this accomplished, we were able to turn our attention to autonomous, which we worked on in parallel with the drive code updates outside of the ROS environment. We were able to detect April Tags with the camera, and generate simple drive commands to follow the tags. Unfortunately, we encountered a major roadblock when attempting to integrate this code into our ROS environment, and lost significant amount of time to resolving dependency issues with the RealSense Python library. As a result, we were unable to test autonomous before the end of the sprint, as originally planned.</p>
+                </div>
+                <div class="centered-image-container">
+                    <img src="media/soft_cam.jpg" alt="Camera" class="journey-main-img"style="width: 400px; height: auto;">
+                    <p class="img-caption">RealSense D455 depth camera</p>
+                </div>
+                <div class="collapse-trigger" onclick="closeAllInPhase(this)">
+                    <span>Show Less</span>
+                    <span class="expand-icon">−</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="journey-phase" id="phase-5">
+    <div class="phase-header">
+        <span class="phase-number">05</span>
+        <h3>Pre-Demo Day: Further Refinement</h3>
+    </div>
+
+    <div class="phase-content">
+        <div class="discipline-box mech" onclick="togglePhaseContent('p5-mech', this)">
+            <div class="box-header">
+                <h4>MECHANICAL</h4>
+                <span class="expand-icon">+</span>
+            </div>
+            <p class="box-preview">Final touches on drivebase and scissor lift</p>
+        </div>
+
+        <div class="discipline-box elec" onclick="togglePhaseContent('p5-elec', this)">
+            <div class="box-header">
+                <h4>ELECTRICAL</h4>
+                <span class="expand-icon">+</span>
+            </div>
+            <p class="box-preview">Refinement and mechanical integration</p>
+        </div>
+
+        <div class="discipline-box soft" onclick="togglePhaseContent('p5-soft', this)">
+            <div class="box-header">
+                <h4>SOFTWARE</h4>
+                <span class="expand-icon">+</span>
+            </div>
+            <p class="box-preview">Autonomous development</p>
+        </div>
+
+
+        <div id="p5-mech" class="full-width-details">
+            <div class="initial-content-wrapper">
+                <div class="initial-sub">
+                    <h5>Electrical Covering For the Center Plate</h5>
+                    <p>In order to protect and make our final product clean, we decided to make electrical covering and mounts for the plate. Starting with the electrical mounts, we measured all of the different electrical components to press fit into the 3D print. We also created electrical covers that had holes opening for only the E-Stop. </p>
+                </div>
+                <div class="centered-image-container">
+                    <img src="media/holycovering.png" alt="Final Mechanical Assembly" class="journey-main-img">
+                    <p class="img-caption">CAD the electrical covering</p>
+                </div>
+
+                <div class="initial-sub">
+                    <h5>Scissor Lift Design and Assembly</h5>
+                    <p>We fully implemented our final scissor lift design and solved several issues that arose during integration. Mainly, we had to figure out spacing issues to fit the servo motors with the DC motors. We went through several iterations of mounts before arriving at a design that would comply with the DC motors without sacrificing over all lift height. One we had everything packaged properly, we worked to improve the overall stability of the scissor lift. The final piece of implementation was fixing the lift plate to the lift arms. </p>
+                </div>
+                <div class="centered-image-container">
+                    <img src="media/scissorliftfinalizedlollll.jpg" alt="Final Mechanical Assembly" class="journey-main-img">
+                    <p class="img-caption">Assembly of the Scissor lift</p>
+                </div>
+
+                <div class="collapse-trigger" onclick="closeAllInPhase(this)">
+                    <span>Show Less</span>
+                    <span class="expand-icon">−</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="p5-elec" class="full-width-details">
+            <div class="initial-content-wrapper">
+                <div class="initial-sub">
+                    <h5>Final Component Integration</h5>
+                    <p>In the last sprint, we had finalized our core wiring harness, allowing us to move into a refinement stage. We completed the final connections to the servo motors and limit switches, which had just been mounted in their final locations. We incorporated wire loom and heatshrink between the arms and core of the robot, providing the right balance of flexibility and protection for the connections that change length. Finally, we worked with the mechanical team to modify the electronics enclosure for necessary cable inputs and outputs.</p>
+                </div>
+                <div class="centered-image-container">
+                    <img src="media/elec_wide2.jpeg" alt="Refined electrical system" class="journey-main-img"style="width: 400px; height: auto;">
+                    <p class="img-caption">Refined electrical system</p>
+                </div>
+                <div class="collapse-trigger" onclick="closeAllInPhase(this)">
+                    <span>Show Less</span>
+                    <span class="expand-icon">−</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="p5-soft" class="full-width-details">
+            <div class="initial-content-wrapper">
+                <div class="initial-sub">
+                    <h5>Servo Integration and State Machine</h5>
+                    <p>We implemented the Servo control code for the scissor lift, officially enabling Box Bot to complete the full sequence of its designed operation. Another focus for this sprint was developing and implementing a complete autonomous system. We developed a complete stat machine, guiding the robot from boot up to drop off. Each stage of this process required extensive testing, and in the end, we were unable to complete an end-to-end autonomous sequence. However, we did demonstrate functional tracking of April tags, allowing Box Bot to detect and squeeze a target box completely autonomously.</p>
+                </div>
+                <div class="centered-image-container">
+                    <img src="media/state_machine.jpg" alt="State Machine" class="journey-main-img"style="width: 600px; height: auto;">
+                    <p class="img-caption">Autonomous state machine</p>
+                </div>
+                <div class="collapse-trigger" onclick="closeAllInPhase(this)">
+                    <span>Show Less</span>
+                    <span class="expand-icon">−</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="p5-summary" class="full-width-details">
+            <div class="initial-content-wrapper">
+                <div class="initial-sub">
+                    <h5>Transitioning to the Cloud</h5>
+                    <p>Phase 5 focuses on moving the local Raspberry Pi logic to a centralized server, allowing a fleet of BoxBots to share depth-map data for optimized warehouse navigation.</p>
+                </div>
+                <div class="centered-image-container">
+                    <img src="media/scaling-concept.png" alt="Fleet Scaling Concept" class="journey-main-img">
+                    <p class="img-caption">Figure 9: Proposed fleet management architecture.</p>
+                </div>
+                <div class="collapse-trigger" onclick="closeAllInPhase(this)">
+                    <span>Show Less</span>
+                    <span class="expand-icon">−</span>
+                </div>
+            </div>
+        </div>
+
+    </div> </div> 
+<div class="journey-phase" id="phase-final">
+    <div class="phase-header">
+        <span class="phase-number">★</span>
+        <h3>Post-Demo Day: Final Showcase & Reflection</h3>
+    </div>
+
+    <div class="phase-content">
+        <div class="discipline-box initial-stage" onclick="togglePhaseContent('final-wrapup', this)">
+            <div class="box-header">
+                <h4>PROJECT COMPLETION</h4>
+                <span class="expand-icon">+</span>
+            </div>
+            <p class="box-preview">Final competition performance, key takeaways, and future improvements.</p>
+        </div>
+
+        <div id="final-wrapup" class="full-width-details">
+            <div class="initial-content-wrapper">
+                <div class="initial-sub">
+                    <h5>The Final Showcase</h5>
+                    <p>After four sprints of iteration, countless hours of effort, we were able to see our hard work drive on the demo day. During demo day, we showcased teleop driving, lifting, squeezing, and dropping. During the demo-day, we also figured out that we could stack boxes on top of eachother. We also figured out we can lift boxes of 10 pounds of 20 inches and more.</p>
+                </div>
+
+                <div class="centered-image-container">
+                    <img src="media/mainphototrying.png" alt="Final BoxBot Hero Shot" class="journey-main-img">
+                    <p class="img-caption">The final fully-assembled BoxBot ready for operation.</p>
+                </div>
+
+                <div class="initial-sub">
+                    <h5>Key Learnings & Future Iterations</h5>
+                    <ul>
+                        <li><strong>Scissor Lift Upgrades:</strong> The idea of the scissor lift was great, but we didn't think through the slippage issue from the lead screw from the servo motors. This made it difficult to see what our max lift was, because the failure point was on the adapter, not the motor. However, we were able to showcase being able to lift up 10 pounds of weight. Next time, we wil make sure that will be a sturdier part. </li>
+                        <li><strong>Autonomous: </strong> We unfortunately did not get the autonomous working. If we had more time, we will work on that, where it can detect the april tag and move to that location.</li>
+                        <li><strong>Mechanism Speed:</strong> The servo motor was fairly slow. Next time, we will look into what might be a better application for that.</li>
+                        <li><strong>Wiring Issues:</strong> We had trouble with the wiring, as it got often unplugged during critical testing periods. We need to come up with ways to do wiring quicker and be more consistent on it.</li>
+                        <p>Throughout this project, we learned so much. We learned how to prototype, ideate, and come up with a solution for a problem that was very open ended. Although we didn't achieve the autonomous function that we wanted from the start, we were very happy with the progress that we made and how clean the design turned out to be. </p>
+                    </ul>
+                </div>
+
+                <div class="collapse-trigger" onclick="closeAllInPhase(this)">
+                    <span>Show Less</span>
+                    <span class="expand-icon">−</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <script>
+    function togglePhaseContent(contentId, btn) {
+        const parent = btn.parentElement;
+        const allContent = parent.querySelectorAll('.full-width-details');
+        const allButtons = parent.querySelectorAll('.discipline-box');
+        const targetContent = document.getElementById(contentId);
+        const isOpening = !targetContent.classList.contains('open');
+
+        // Close all sections in this phase
+        allContent.forEach(c => c.classList.remove('open'));
+        allButtons.forEach(b => b.classList.remove('active-btn'));
+
+        // Open specific section
+        if (isOpening) {
+            targetContent.classList.add('open');
+            btn.classList.add('active-btn');
+        }
+    }
+    function closeAllInPhase(element) {
+    // 1. Find the phase-content container this button belongs to
+    const phaseContent = element.closest('.phase-content');
+    
+    // 2. Find all details and buttons in this phase
+    const allContent = phaseContent.querySelectorAll('.full-width-details');
+    const allButtons = phaseContent.querySelectorAll('.discipline-box');
+
+    // 3. Remove the 'open' and 'active-btn' classes
+    allContent.forEach(c => c.classList.remove('open'));
+    allButtons.forEach(b => b.classList.remove('active-btn'));
+    
+    // 4. Smooth scroll back up to the top of the phase (optional but helpful)
+    phaseContent.closest('.journey-phase').scrollIntoView({ behavior: 'smooth' });
+}
+    </script>
+</body>
+</html>
