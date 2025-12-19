@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project 0L-1N | Software</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Main</a>
+        <a href="mechanical.html">Mechanical</a>
+        <a href="electrical.html">Electrical</a>
+        <a href="software.html" class="active">Software</a>
+        <a href="integration.html">Integration</a>
+        <a href="reflection.html">Process & Budget</a>
+    </nav>
+
+    <div class="container">
+        <h1>Software & Firmware Setup (Dependencies and Libraries)</h1>
+        
+        <div style="text-align:center; margin-bottom: 30px;">
+            <a href="https://github.com/Angad-C/PIE-Final-Project-Code/tree/main" class="btn">View Full Repository on GitHub</a>
+        </div>
+
+        <section>
+            <h2>For the Body Raspberry Pi</h2>
+            <p>The setup process begins by flashing a 32GB microSD card with Raspberry Pi OS (Linux) using the Raspberry Pi Imager. While the Imager offers options to pre-configure SSH and Wi-Fi, I found that the automatic network connection failed during the initial boot. Consequently, I completed the setup manually by inserting the SD card into the Pi and connecting a monitor, USB mouse, and keyboard. Once the desktop GUI loaded, I manually connected the Pi to the same Wi-Fi network as my computer to enable remote programming via SSH. I also recommend pairing the Bluetooth controller via the computer Bluetooth menu at this stage, as it is often faster than using the command line later.</p>
+            <p>After the OS was configured, I established a virtual environment (venv) to isolate the project dependencies. For motor control, I selected the pigpio library over the standard RPi.GPIO library, as the latter failed to generate the necessary waveforms on the Raspberry Pi.</p>
+            <p>This can be done with the following commands:</p>
+            <pre>
+Create the virtual environment to hold your project libraries: python3 -m venv myenv
+Activate the environment (you must do this every time you open a new terminal): source myenv/bin/activate
+            </pre>
+            <p>The pigpio library requires a system-level daemon to access the hardware pins. Return to the home directory and install it via apt:</p>
+            <pre>cd ~ sudo apt update sudo apt install pigpio</pre>
+            <p>You must run the daemon before your Python script can control the motors:</p>
+            <pre>sudo pigpiod (Note: If the command above does not work, try: sudo systemctl start pigpiod)</pre>
+            <p>With the virtual environment active, install the evdev library for handling Bluetooth controller inputs:</p>
+            <pre>pip install evdev</pre>
+            <p>If you did not pair the controller via the GUI, use the bluetoothctl tool:</p>
+            <pre>bluetoothctl</pre>
+            <p>Inside the bluetooth interface, run: scan on (Wait until your controller appears in the list, then copy its MAC address/Serial Number) scan off</p>
+            <p>Run the connection commands using your specific Serial Number: pair &lt;serial number&gt; connect &lt;serial number&gt; trust &lt;serial number&gt; (The 'trust' command ensures it reconnects automatically in the future)</p>
+            <p>Now you can run raspi_body.py on the body Raspberry Pi.</p>
+        </section>
+
+        <section>
+            <h2>For the Head Raspberry Pi</h2>
+            <p>Similar to the Body Raspberry Pi, the Head Raspberry Pi requires a fresh OS installation and a dedicated Python virtual environment to manage the complex computer vision libraries. Follow the same steps outlined above to flash the OS, configure Wi-Fi/SSH, and create your virtual environment (venv).</p>
+            
+            <h3>Camera Module</h3>
+            <p>Before the software can access the video feed, the camera hardware interface must be enabled at the kernel level.</p>
+            <pre>
+Open the system configuration tool: sudo raspi-config
+Navigate to Interface Options → Legacy Camera.
+Select Enable and exit the tool.
+Reboot the Raspberry Pi for these changes to take effect.
+            </pre>
+            <p>Dependency Installation This can be done with the following commands:</p>
+            <p>OpenCV is a heavy library that requires several compiled dependencies for image processing and GUI support. Update your package manager and install the build tools:</p>
+            <pre>sudo apt update sudo apt upgrade sudo apt install build-essential cmake git libgtk-3-dev libavcodec-dev libavformat-dev libswscale-dev</pre>
+            <p>With your virtual environment active (source myenv/bin/activate), install the libraries required to interface with the camera hardware. We use picamera with the array submodule to capture raw data frames:</p>
+            <pre>pip install "picamera[array]"</pre>
+            <p>Next, install the core computer vision processing libraries. We utilize opencv-python for image manipulation and ultralytics to implement YOLO (You Only Look Once) object detection models:</p>
+            <pre>pip install opencv-python pip install ultralytics</pre>
+            <p>For the robot's audio output, install pygame, which handles MP3 playback:</p>
+            <pre>pip install pygame</pre>
+            <p>Finally, download or record an MP3 file and save it in the same folder as the code to serve as the robot's interaction sound. Now you can run raspi_head.py on the head Raspberry Pi.</p>
+        </section>
+
+        <section>
+            <h2>For the Adafruit Feather nRF52840 Express (Remote Controller)</h2>
+            <p>The firmware for the remote controller converts an Adafruit Feather nRF52840 Express into a Bluetooth-based controller. It reads analog signals from two joysticks, each of which control one of the motors (tank-drive control) and digital signals from a rotary encoder (robot head control), processes them, and transmits them via bluetooth to the Raspberry Pi (which is connected to the robot) inside the robot, enabling the user to wirelessly control the motors.</p>
+            <p>We programmed the controller in C++ using the Arduino IDE. The specific Board Support Packages for the nRF52840 must be installed manually, since they are not included in the default Arduino installation. Here is how we set the editor up:</p>
+            <ul>
+                <li>Install the latest version of the Arduino IDE</li>
+                <li>Install Adafruit nRF52 Board Support Package:</li>
+                <li>Open Arduino IDE and go to File > Preferences (macOS: Arduino IDE > Settings).</li>
+                <li>Locate the "Additional Boards Manager URLs" field.</li>
+                <li>Paste the following URL into the box (comma-separated if others exist): https://adafruit.github.io/arduino-board-index/package_adafruit_index.json Click OK.</li>
+                <li>Go to Tools > Board > Boards Manager</li>
+                <li>Search for "Adafruit nRF52".</li>
+                <li>Click Install on the package named "Adafruit nRF52 by Adafruit".</li>
+                <li>Install Required Libraries:</li>
+                <li>Go to Sketch > Include Library > Manage Libraries...</li>
+                <li>Search for "Adafruit Bluefruit nRF52".</li>
+                <li>Install the library named "Adafruit Bluefruit nRF52 Libraries" (ensure that it is by Adafruit).</li>
+            </ul>
+            <p>Now that our editor was set up, we could run our code to interpret the signals from the joysticks and the rotary encoder and transmit them over bluetooth. After writing our code, we ran it by:</p>
+            <p>Connect the nRF52840 to the PC via USB. In Arduino IDE, select Tools > Board > Adafruit Feather nRF52840 Express. Click Upload (Arrow Icon). Once uploaded, open the Bluetooth settings on the target device (e.g., Raspberry Pi) and scan. Pair with "My Robot Controller". The device will now be recognized as a standard Gamepad and the Raspberry Pi should be able to receive data over bluetooth from the controller.</p>
+            <p>Note that the final 3 steps are to be completed only when the Raspberry Pi setup above is complete. The Raspberry Pi code must be running for it to detect the controller. Now you can run Controller_Code.ino on the Adafruit Feather. Note that you will probably be asked to make a folder for the code file to be in before it runs, this is normal and is just how .ino files work; make the folder and run the code.</p>
+        </section>
+
+        <section>
+            <h2>Description of the code logic. How does it interpret sensor data? How does the controller work?</h2>
+            
+            <h3>For the Head Raspberry Pi</h3>
+            <p>First it initializes the camera and the pygame audio player. It then imports or downloads the YOLO v8 model weights used to run an inference model. Inside the code there is a function called playaudio which is responsible for playing a sound. Here only one specific sound is used which is the r2d2 beep sound. There is also a while loop that takes a photo with the camera and runs a YOLO inference on it. The YOLO algorithm detects objects in the picture, like a person, cat, dog, etc. The algorithm checks if the algorithm detects a person and if it does it calls the playaudio function which plays the sound. The loop repeats every 2s because the YOLO inference takes 2s to run on the raspberry pi.
+            </p>
+
+            <h3>For the Body Raspberry Pi</h3>
+            <p>First it imports dependencies for bluetooth communication (evdev), motor control (pigpio) and delays (time) first it checks if pigpio is active as pigpio must be turned on via the command sudo pigpio before running the program.
+            </p>
+            <p>After this it defines and initializes the pins on the raspberry pi that control the 3 motors 22, 23 and 24. After this it sets up the waveform to transmit through the 3 pins. We are using the sabertooth motor controller which requires a very specific waveform which is 50Hz and contains high pulses that are 1 - 2 ms long. The waveform should look like: 20ms low followed by 1-2ms high and that repeats. The speed of the motor is encoded in the length of the high pulses. If the pulse is 1ms long it is full speed reverse. If it is 2ms long it is full speed forward. If it is 1.5 ms long it will be still. The motors are commanded to be still on startup and the frequency of the waveform is set as 50Hz initially and not changed in the rest of the code. THe stepper motor increments ⅛ of a step when a short pulse is given and this is done by the raspberry pi. The direction of the motor is also controlled by the raspberry pi. The Enable pin is tied to ground so it will always be enabled.
+            </p>
+            <p>After this, the program checks if connection to the bluetooth controller has been established. If it is able to find that the bluetooth controller in the list of devices paired with the raspberry pi it sets it as the device to query. If not it throws an error and stops the program.
+            </p>
+            <p>Then there is a loop where the raspberry pi reads all input sent from the adafruit feather and sets updates variables containing the rotary encoder values, joystick input, or button presses. There is also a variable called commanding which is set to false in the beginning of the loop and updated to true if any new input is received from the controller. If commanding is false, the motors are commanded to stop since the user is not commanding the robot through the remote. 
+            </p>
+            <p>If there is input from joysticks the program calculates the waveform to send to the sabertooth motor controller by taking the value from the joysticks that is between -69 and -127 and translating it to a value between 1ms and 2ms to send to the motor controller. However to limit the power of the motors the values are between 1.7ms and 1.3ms.
+            </p>
+            <p>When the rotary motor controller is updated the program checks if it is more or less than the previous value. If it is more it commands the motor controller to run the head motor at a slow speed for 0.1 seconds before setting it back to stop. If the user keeps turning the rotary encoder the head will keep spinning. It runs 400 microsteps with a 0.0005 delay.
+            </p>
+            <p>For safety if the bluetooth disconnects or if the user cancels, all motors are stopped and pigpio is closed. There is a delay of 0.1 between getting input from the controller that is mostly there for safety.
+            </p>
+
+            <h3>For the Adafruit Feather nRF52840 Express (Remote Controller)</h3>
+            <p>The core challenge for this controller's software is multitasking: it must simultaneously read the analog joysticks for the wheels, track the digital rotation of the knob for the robot head, and transmit all this data wirelessly over Bluetooth. To achieve this without input delay, the code uses two distinct listening strategies: Polling and Interrupts.
+            </p>
+            <p>For the joysticks, the system uses a method called Polling: since the physical movement of a joystick is relatively slow compared to the speed of the processor, the code only checks their status occasionally (once every loop). However, the rotary encoder requires a much faster response. Because the encoder generates rapid digital pulses that can be easily missed if the processor is busy, the code uses Interrupts: whenever the knob is turned, it forces the processor to pause its current task immediately, record the "click" and direction, and then instantly resume its work. This ensures the robot head moves smoothly without missing a click.
+            </p>
+            <p>Once the signals are captured, the software must translate them into signals the motos on the robot can interpret. The joysticks provide an analog voltage which the microcontroller reads as a number between 0 and 4095. Since standard video game controllers use a different scale, the code uses a mapping function to mathematically shrink this large number down to a standard range of -127 to +127, where 0 represents the center.
+            <p>The rotary encoder functions differently, using internal switches that click on and off in a specific pattern to indicate direction. The software's logic analyzes which of the two internal pins (CLK or DT) activates first. If the code detects that the CLK pin goes low before the DT pin (clockwise) it increments the head position variable by one; if the code detects that The CLK pin goes LOW after the DT pin (counter clockwise) it decrements it. This allows a simple spinning knob to provide precise rotational control of the head.
+            </p>
+            <p>Before the data leaves the controller, it must be organized so the receiver (in this case, the Raspberry Pi) knows which number controls which motor. The software bundles the data into a standard structure known as an HID Report — a standard digital communication protocol (used in digital input devices such as mice and keyboards) with pre-labeled slots for what signal does what. The Right Joystick value is placed in the "X" slot, the Left Joystick value goes into the "Y" slot, and the Rotary Encoder value is packed into the "Rx" (Rotation X) slot.
+            </p>
+            <p>Once the HID Report is created, the nRF52840 sends the Bluetooth signal. When powered on, the controller advertises itself as a standard Bluetooth input device. Once connected to the Raspberry Pi, it transmits this report packet roughly 50 times per second. Because the software uses the universal HID standard, the Raspberry Pi does not need custom drivers to interpret the data; it simply opens the packet and instantly recognizes what all of the values mean/what they control; like for example, that a value in the "X" slot means it needs to drive the right wheel at a certain speed.
+            </p>
+
+            <footer>Project Report | 0L-1N</footer>

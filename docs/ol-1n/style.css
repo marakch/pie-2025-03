@@ -1,0 +1,228 @@
+/* STAR WARS THEME */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
+
+:root {
+    --space-black: #050505;
+    --star-wars-yellow: #FFE81F;
+    --r2-blue: #005288;
+    --r2-white: #e3e3e3;
+    --text-grey: #cccccc;
+}
+
+body {
+    background-color: var(--space-black);
+    color: var(--text-grey);
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    line-height: 1.6;
+    background-image: radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px),
+                      radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px),
+                      radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 3px);
+    background-size: 550px 550px, 350px 350px, 250px 250px;
+    background-position: 0 0, 40px 60px, 130px 270px;
+}
+
+h1, h2, h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--star-wars-yellow);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+h2 {
+    border-bottom: 2px solid var(--r2-blue);
+    padding-bottom: 10px;
+    margin-top: 40px;
+}
+
+nav {
+    background: rgba(0, 0, 0, 0.95);
+    border-bottom: 3px solid var(--r2-blue);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+nav a {
+    color: var(--r2-white);
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    padding: 5px 10px;
+    border: 1px solid transparent;
+    transition: all 0.3s;
+}
+
+nav a:hover, nav a.active {
+    color: var(--star-wars-yellow);
+    border-color: var(--r2-blue);
+    box-shadow: 0 0 10px var(--r2-blue);
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px;
+    background: rgba(10, 10, 10, 0.9);
+    border-left: 1px solid var(--r2-blue);
+    border-right: 1px solid var(--r2-blue);
+    min-height: 100vh;
+}
+
+.placeholder-box {
+    border: 2px dashed var(--r2-blue);
+    background: rgba(0, 82, 136, 0.1);
+    padding: 20px;
+    margin: 20px 0;
+    text-align: center;
+    color: var(--r2-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid var(--r2-blue);
+}
+
+.btn {
+    display: inline-block;
+    background: var(--r2-blue);
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-family: 'Orbitron', sans-serif;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: var(--star-wars-yellow);
+    color: black;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+th, td {
+    border: 1px solid #333;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: var(--r2-blue);
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+pre {
+    background: #111;
+    border-left: 3px solid var(--star-wars-yellow);
+    padding: 15px;
+    overflow-x: auto;
+    color: #0f0;
+}
+
+footer {
+    text-align: center;
+    padding: 40px;
+    font-size: 0.8rem;
+    color: #666;
+    border-top: 1px solid #333;
+    margin-top: 50px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates 3 equal columns */
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.gallery-item {
+    border: 2px solid var(--r2-blue);
+    position: relative;
+    overflow: hidden; /* Keeps image inside border on zoom */
+    background: #000;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image fills box without stretching */
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+/* The "Hero" (Big) Image */
+.gallery-item.hero {
+    grid-column: span 3; /* Spans all 3 columns */
+    height: 500px;        /* Tall, impressive height */
+    border-color: var(--star-wars-yellow); /* Yellow border for the main shot */
+}
+
+/* The Smaller Images */
+.gallery-item.small {
+    height: 250px;
+}
+
+/* Hover Effect */
+.gallery-item:hover img {
+    transform: scale(1.05); /* Slight zoom on hover */
+    opacity: 0.9;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: 1fr; /* Stack everything on phones */
+    }
+    .gallery-item.hero {
+        grid-column: span 1;
+        height: 300px;
+    }
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+    border: 2px solid var(--r2-blue);
+    margin-bottom: 20px;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.gallery-item.hero img {
+    object-fit: contain; /* This forces the whole image to show without cropping */
+    background-color: #000; /* Keeps the background black for a cinematic look */
+}

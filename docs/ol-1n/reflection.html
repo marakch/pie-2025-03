@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project 0L-1N | Reflection</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Main</a>
+        <a href="mechanical.html">Mechanical</a>
+        <a href="electrical.html">Electrical</a>
+        <a href="software.html">Software</a>
+        <a href="integration.html">Integration</a>
+        <a href="reflection.html" class="active">Process & Budget</a>
+    </nav>
+
+    <div class="container">
+        <h1>Process & Reflection</h1>
+
+        <section>
+            <h2>Design Decisions</h2>
+            <p>Our team began the design process with a shared interest in Science Fiction robotics. We narrowed our initial concepts down to two options: a transforming Optimus Prime from Transformers or an astromech droid from Star Wars. To make a final decision, we conducted a feasibility analysis comparing the two. We determined that building a functional Optimus Prime was outside the scope of our timeline and budget; a robot capable of physical transformation requires complex mechanical linkages and a high number of actuators, which introduces significant failure points.</p>
+            <p>An R2-D2 (one of the most well known Star Wars droids), However, inspired droid presented a more achievable engineering challenge. R2-D2 and also utilizes a differential drive system (wheels), which is mechanically simpler and more reliable than a walking or transforming mechanism. R2-D2's body is also well-suited for standard manufacturing techniques like 3D printing and laser cutting. We ultimately selected the R2-D2 design because it was better scoped for the project and allowed us to focus on polishing the software and integration rather than struggling with experimental mechanical problems.</p>
+        </section>
+
+        <section>
+            <h2>MVP Assessment & Challenges</h2>
+            <p>Our MVP at the beginning of the project: For our final project, we plan to make a fully functional full-scale R2D2 Astromech. Our minimum viable project will be our robot without the details, which can drive forward with a controller, have its head rotate with the triggers of the controller, and make sounds when a button is pressed. The controller is going to be connected with Bluetooth.</p>
+            <p>Overall, we are very content with the results of this project. We successfully built a life-sized, mobile robot that met nearly all of our Minimum Viable Product (MVP) requirements. The final system is fully assembled, capable of driving on its wheels, and features a rotating dome, all controlled via our custom-built remote.</p>
+            <p>The only MVP feature missing from the final demonstration was the audio output. During development, we pivoted from simple remote controlled audio to a more advanced computer vision system. The goal was for the robot to recognize faces using a Raspberry Pi camera and trigger R2-D2 "beeps" automatically. While this code worked perfectly in isolation, the camera hardware failed during the final integration phase. Because of this hardware failure-and a lack of time to source a replacement-the robot could not "see" to trigger the sounds, even though the speakers, necessary electronics, and code were fully installed.</p>
+            <p>Our biggest challenge was time management. We underestimated how long integration tasks would take, which led to a "time crunch" at the end of the semester. Because we had to prioritize functionality (movement and control) over aesthetics, we made the difficult decision to cut the cosmetic features. This is why the robot lacks the planned fabric jacket and remains unpainted (showing the mix of grey and white 3D printed parts rather than desired uniform grey).</p>
+        </section>
+
+        <section>
+            <h2>Future Work</h2>
+            <p>If we were given more time to continue working on this specific robot, we would focus on three tasks: replace the broken Raspberry Pi camera to restore the computer vision and audio capabilities, sand and paint the body to achieve a uniform and clean appearance, Fabricate and attach the fabric jacket to cover the internal gaps as originally designed.</p>
+            <p>However, if we were to start the project over from scratch, we would make fundamental changes to our design philosophy to improve efficiency: We would build a 1:2 scale (tabletop) version rather than a 1:1 life-sized unit. A smaller robot would drastically reduce the print time, material costs, and mechanical stress on the motors, allowing us to iterate faster. We would move away from exclusively using 3D printing. For large, smooth components like the dome and body panels, we would use vacuum forming or composite molding. 3D printing the large dome took days of print time and used a massive amount of PLA filament; vacuum forming a plastic sheet over a mold would have taken minutes, resulted in a lighter part, and provided a much smoother surface finish without sanding.</p>
+        </section>
+
+        <section>
+            <h2>Bill of Materials (Budget)</h2>
+            <p>Below is a detailed accounting of the components used.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th>Source</th>
+                        <th>Unit Cost</th>
+                        <th>Qty</th>
+                        <th>Total Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1/4 inch plywood for frame</td>
+                        <td>gotten from Olin Laser Shop (with Christian's permission)</td>
+                        <td>$43.69</td>
+                        <td>3 (packs of 2)</td>
+                        <td>$131.07</td>
+                    </tr>
+                    <tr>
+                        <td>mix of 1/8 inch plywood for frame</td>
+                        <td>gotten from Olin Laser Shop (with Christian's permission)</td>
+                        <td>$24.99</td>
+                        <td>1 (pack of 2)</td>
+                        <td>$24.99</td>
+                    </tr>
+                    <tr>
+                        <td>sheet for outside</td>
+                        <td>bought at home depot</td>
+                        <td>$25.98</td>
+                        <td>1</td>
+                        <td>$25.98</td>
+                    </tr>
+                    <tr>
+                        <td>variety of nuts and bolts</td>
+                        <td>gotten from Shop carts</td>
+                        <td>$7.99</td>
+                        <td>Estimated 14</td>
+                        <td>$7.99</td>
+                    </tr>
+                    <tr>
+                        <td>chain</td>
+                        <td>scrapped from mech proto projects</td>
+                        <td>$7.99/5 ft</td>
+                        <td>2</td>
+                        <td>$15.98</td>
+                    </tr>
+                    <tr>
+                        <td>sprockets</td>
+                        <td>scrapped from mech proto projects</td>
+                        <td>$2.49</td>
+                        <td>12</td>
+                        <td>$29.88</td>
+                    </tr>
+                    <tr>
+                        <td>sprocket hubs with set screws</td>
+                        <td>scrapped from mech proto projects</td>
+                        <td>$7.99</td>
+                        <td>6</td>
+                        <td>$47.94</td>
+                    </tr>
+                    <tr>
+                        <td>12V battery</td>
+                        <td>Bought off amazon</td>
+                        <td>$35.99</td>
+                        <td>2</td>
+                        <td>$71.98</td>
+                    </tr>
+                    <tr>
+                        <td>motors for wheels</td>
+                        <td>1 gotten from electronic scrap, 1 bought</td>
+                        <td>$51.50</td>
+                        <td>2</td>
+                        <td>$103.00</td>
+                    </tr>
+                    <tr>
+                        <td>Stepper Motor</td>
+                        <td>gotten from robolab</td>
+                        <td>$14.99</td>
+                        <td>1</td>
+                        <td>$14.99</td>
+                    </tr>
+                    <tr>
+                        <td>TB6600 driver</td>
+                        <td>gotten from robolab</td>
+                        <td>$79.99</td>
+                        <td>1</td>
+                        <td>$79.99</td>
+                    </tr>
+                    <tr>
+                        <td>Sabertooth 2x25 Motor Controller</td>
+                        <td>Lent to us by Victoria Preston</td>
+                        <td>$124.99</td>
+                        <td>1</td>
+                        <td>$124.99</td>
+                    </tr>
+                    <tr>
+                        <td>wheels</td>
+                        <td>Bought off amazon</td>
+                        <td>$1.50</td>
+                        <td>8</td>
+                        <td>$12.00</td>
+                    </tr>
+                    <tr>
+                        <td>Motor Sprocket Mounting Hub</td>
+                        <td>Bought off amazon</td>
+                        <td>$9.99</td>
+                        <td>1</td>
+                        <td>$9.99</td>
+                    </tr>
+                    <tr>
+                        <td>PLA filament</td>
+                        <td>Bought off amazon and babson foundry</td>
+                        <td>$39.98</td>
+                        <td>1</td>
+                        <td>$39.98</td>
+                    </tr>
+                    <tr>
+                        <td>Adafruit Feather nRF52840 Express</td>
+                        <td>gotten from PIE stock racks</td>
+                        <td>$24.95</td>
+                        <td>1</td>
+                        <td>$24.95</td>
+                    </tr>
+                    <tr>
+                        <td>Power Switch</td>
+                        <td>Gotten from PIE stock racks</td>
+                        <td>$8.99</td>
+                        <td>1</td>
+                        <td>$8.99</td>
+                    </tr>
+                    <tr>
+                        <td>5V LIPO battery</td>
+                        <td>Electrical Stock Room</td>
+                        <td>$15.99</td>
+                        <td>1</td>
+                        <td>$15.99</td>
+                    </tr>
+                    <tr>
+                        <td>Raspberry Pi</td>
+                        <td>gotten from PIE stock racks</td>
+                        <td>$69.95</td>
+                        <td>2</td>
+                        <td>$139.90</td>
+                    </tr>
+                    <tr>
+                        <td>Joystick</td>
+                        <td>gotten from PIE stock racks</td>
+                        <td>$6.29</td>
+                        <td>2</td>
+                        <td>$12.58</td>
+                    </tr>
+                    <tr>
+                        <td>Rotary Encoder Module</td>
+                        <td>Pie stock racks</td>
+                        <td>$3.50</td>
+                        <td>1</td>
+                        <td>$3.50</td>
+                    </tr>
+                    <tr>
+                        <td>30A Fuse</td>
+                        <td>gotten from Robolab</td>
+                        <td>$0.25</td>
+                        <td>1</td>
+                        <td>$0.25</td>
+                    </tr>
+                    <tr>
+                        <td>20A Fuse</td>
+                        <td>Gotten from robolab</td>
+                        <td>$0.25</td>
+                        <td>1</td>
+                        <td>$0.25</td>
+                    </tr>
+                    <tr>
+                        <td>E-Stop</td>
+                        <td>gotten from PIE stock racks</td>
+                        <td>$15.88</td>
+                        <td>1</td>
+                        <td>$15.88</td>
+                    </tr>
+                    <tr>
+                        <td>Raspberry Pi Camera: Arducam</td>
+                        <td>gotten from PIE stock racks</td>
+                        <td>$6.99</td>
+                        <td>1</td>
+                        <td>$6.99</td>
+                    </tr>
+                    <tr>
+                        <td>speaker</td>
+                        <td>Bought off amazon</td>
+                        <td>$9.99</td>
+                        <td>1</td>
+                        <td>$9.99</td>
+                    </tr>
+                    <tr>
+                        <td>Slip Ring</td>
+                        <td>Bought off amazon</td>
+                        <td>$9.99</td>
+                        <td>1</td>
+                        <td>$9.99</td>
+                    </tr>
+                    <tr>
+                        <td>Battery Pack</td>
+                        <td>Bought 1 found 1</td>
+                        <td>$10.99</td>
+                        <td>2</td>
+                        <td>$21.98</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4" style="text-align: right; font-weight: bold;">GRAND TOTAL (Est. Value):</td>
+                        <td style="font-weight: bold; color: var(--star-wars-yellow);">$991.03</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+
+    </div>
+    <footer>Project Report | 0L-1N</footer>
+</body>
+</html>
