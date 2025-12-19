@@ -49,144 +49,125 @@
     </section>
 
     <!-- ================= OVERVIEW ================= -->
-    <section class="mech-overview" id="mechanical">
+    <section class="firm-overview">
       <h3>Microcontroller</h3>
       <p>
         The Raspberry Pi Pico is the heart of our system. This very small 21x51mm form factor RP2040 had barely enough power to handle our 
-        entire system. The RP2040 has a dual-core design, which we take advantage of to *read sensor data*(link to firmware-electrical) and 
-        *drive linear actuators*(link to firmware-mechanical) at the same time. This dual-core design is also taken advantage of to run 
-        *TensorFlow Lite for Microcontrollers on the Pico, so it just barely has enough computational power to also run our TCN*(link to 
-        firmware-software).
+        entire system. The RP2040 has a dual-core design, which we take advantage of to read sensor data and drive linear actuators at the
+        same time. This dual-core design is also taken advantage of to run TensorFlow Lite for Microcontrollers on the Pico,
+        so it just barely has enough computational power to also run our TCN.
       </p>
-      <div class = "member pointfive">
-        <img class = "pointfive" src="Images/pointfive.png" alt="pointfive" />
-        <p>Preparing for demo</p>
-      </div>
     </section>
+
+    <section class="pico">
+      <h3>Why the Pico?</h3>
+      <p>
+        The default choice in this class is to use an Arduino, but the Arduino would not have had enough computational power and speed to run 
+        our checkpoint live (16MHz on an Arduino vs 133MHz + dual-core on an RP2040), and that the Arduino would've been way too bulky for our 
+        design. We need our system to be mountable on someone's arm, so something with male header pins would've been required for this project.
+      </p>
+    </section>
+
+    <div class = "picoimage">
+        <img class = "picoimage" src="Images/picoimage.png" alt="picoimage" />
+    </div>
+
+    <div class = "fits">
+      <h3>For this project, the firmware was the integration. The firmware took every part of the entire system and was the final building 
+        block to have them work with each other.</h3>
+    </div>
+
 
     <!-- ================= SUBSYSTEMS ================= -->
+    <div class = "connection-title">
+      <h3>How Firmware Connects with Software</h3>
+    </div>
     
-    <div class = "research1">
+    <div class = "connection">
     <section class="system-diagrams">
-      <h3>Research</h3>
-      <p> We began the mechanical process by researching what current technologies exist to do what we are trying to do. 
-        After speaking to some companies working in this sector, we came to a few conclusions about what would make a good product:</p>
-    </section>
-    </div>
+      <p>
+      The code for the Pico was written entirely in C++, allowing us to use Tensorflow Lite for Microcontrollers (tflmicro). Tensorflow Lite is 
+      a project specifically designed to run machine learning models on low-powered hardware, and tflmicro is an extension of that to run machine 
+      learning models specifically on microcontrollers. The tflmicro library was designed for a specific set of microcontrollers to start with, 
+      but open source developers have designed pico-tflmicro, which takes advantage of both cores to run machine learning models on the Pico.
+     </p>
+     </section>
+     </div>
 
-    <div class="research-list">
+     <div class = "connection2">
     <section class="system-diagrams">
-      <ul>
-        <li> Users prefer lightweight and easy to operate over almost every other quality, making something extremely technically advanced suboptimal. </li>
-        <li> Since this is meant to be a transitional system to be used while people are recovering, long term reliability is only important if 
-        multiple users plan to use it.</li>
-        <li>Instead of trying to cover every grip, it is much more effective to have a few key grips that are able to perform a majority of daily tasks. </li>
-      </ul>
-    </section>
-    </div>
-
-    <div class = "research2">
-    <section class="system-diagrams">
-    <p>With this in mind, we started designing our first design, using 3 linear actuators, some string, and some rubber bands. Since then we have 
-        continued doing research to develop a final product.</p>
-    </section>
-    </div>
+      <p>
+      Once we loaded the model, as a .h file (common method for loading data onto embedded systems that don’t have storage), we can take that model, 
+      input our current set of sensor readings, and get an output that classifies it as 0-4. That 0-4 output determines what grip we do by only 
+      actuating groups of fingers.
+     </p>
+     </section>
+     </div>
     
     
-    <section class="key">
-      <h3>Key Mechanical Components</h3>
-      
+    <section class="with-soft">
+      <h3>Using the Pico for Software (and also, C++)</h3>
     </section>
     
-      <div class="msystems">
-    <section class="timeline">
-      <div class="info-box">
-        <h3 class="title">Actuation System</h3>
-        <p class="more">
-          The most critical part of the design was the actuation system.I used linear actuators going to a cable drive system on the 
-          face of the hand. We chose to use linear actuators because it was the easiest motion to use to curl the fingers.
-        </p>
-      </div>
-
-      <div class="info-box">
-        <h3 class="title">Flexion System</h3>
-        <p class="more">
-          Flexion System: To complement the actuation system, I also created a flexion system. Its purpose was to counteract 
-          the linear actuator, bringing the hand back to rest after the actuator returns itself to neutral.
-
-        </p>
-      </div>
-
-      <div class="info-box">
-        <h3 class="title">Mounting System</h3>
-        <p class="more">
-          Along with the main system, I also developed mounting systems to attach needed hardware to the fingers, wrist, forearm, bicep, and wrist.
-        </p>
-      </div>
-    </section>
+    <div class="prosandcons">
+    <table>
+      <tr>
+        <th>Benefits</th>
+        <th>Drawbacks</th>
+      </tr>
+      <tr>
+        <td>The Pico C++ SDK runs entirely off of CMake except for uploading the code to the Pico, so any and all libraries that can interface 
+          with CMake and the Pico C++ SDK are on the table. This made it extremely easy to setup (clone the files, add to CMake, and build).</td>
+        <td>The Pico is quite stressful to develop for, even though the C++ SDK is documented, it isn’t well documented, which makes the SDK 
+          really difficult to use and write, even though it was designed for the Pico. Originally we had our design in Arduino IDE for ease of 
+          development, but switching over to the C++ SDK was the right choice for the project even if it was difficult to develop for.
+      </td>
+      </tr>
+    </table>
     </div>
 
-
-      <div class="grips">
-    <section class="timeline">
-      <div class="info-box">
-        <h3 class="title">Resting</h3>
-        <p class="more">
-          This is the default zero-grip, all fingers are at rest (not straight, due to that causing discomfort). Whenever it is not actively 
-          gripping, this is the orientation the hand should be in.
-        </p>
-      </div>
-
-      <div class="info-box">
-        <h3 class="title">Pinch Grip</h3>
-        <p class="more">
-          A grip that uses thumb, forefinger, and middle finger to pinch, best for  gripping small objects.
-
-        </p>
-      </div>
-
-      <div class="info-box">
-        <h3 class="title">Fist Grip (No Thumb)</h3>
-        <p class="more">
-          A full first grip, with the exception of the thumb. It is used to grip longer objects that are harder to grip with a full fist.
-        </p>
-      </div>
-
-      <div class="info-box">
-        <h3 class="title">Fist Grip (Thumb)</h3>
-        <p class="more">
-           A full fist, used when gripping things for strength or for a full grip.
-        </p>
-      </div>
-
-    </section>
-    </div>
-
-
-
-    <section class="next">
-      <h3>Next Steps</h3>
-      <p> If this project is continued beyond this class, there are a few large mechanical changes that could vastly improve results. 
-        The first would be purchasing a slightly longer linear actuator with an encoder. The issue that we ran into was that our linear actuator 
-        was slightly too short, but the next step up was too long (since they didn’t have encoders, we couldn’t stop it part way). Having encoders
-         would allow us to stop it at variable distances and get how much torque the motor was using, allowing us to do more impressive things like
-        having more gentle grips for certain delicate objects. </p>
-        <p>
-        Another change that would be implemented is changing the elastic material used, as well as the driving material. I chose to use rubber 
-        bands as my elastic material to counteract cable drive, which posed problems with tensioning and wear over time. It would have been a 
-        better choice to use a more reliable material that would be able to sustain continuous use. Along with this, I would buy more expensive 
-        materials to create a more compliant product by making more pleasant surfaces, making it more convenient to wear.
-        </p>
+    <section class="mech-con">
+      <h3>How Firmware Connects with Mechanical</h3>
+      <p>
+        The Pico does all of the input into the motor drivers which drive the linear actuators. 
+      </p>
+      <p>
+        The Pico controls all of the linear actuators via PWM. The Pico will rapidly turn on and off its signal to mimic analog input behavior, 
+        where in our case instead of the linear actuator being only partially out due to an analog input, it repeatedly turns on and off to mimic 
+        that half actuated point, very similar to dimming LEDs. 
+      </p>
+      <p>
+        Depending on the motor driver, the Pico will send PWM signals or input signals and a separate PWM signal to drive the linear actuators to 
+        a specified distance. Due to constraints around our project, we had to rely solely off of PWM with no feedback (no encoders), so we had 
+        to trust that the distance measurement is generally what we expect.
+      </p>
+      <p>
+        The mechanical system assumes that the linear actuators are driven out entirely, and that you retract them to pull your fingers back. 
+        Knowing this, they had to be at max and on standby most of the time, and at lower values than max when you want to grab items.
+      </p>
     </section>
 
-    <!-- ================= NAVIGATION ================= 
-    <section class="overview">
-      <h3>Explore Other Systems</h3>
-      <a href="systems.html#electrical" class="components">Electrical</a>
-      <a href="systems.html#firmware" class="components">Firmware</a>
-      <a href="systems.html#software" class="components">Software</a>
+
+    <section class="ece-con">
+      <h3>How Firmware Connects with Electrical</h3>
+      <p>
+        Firmware was core to making the entire electrical system work. The electromyography sensors (EMG sensors) that we used were very trustworthy 
+        in receiving data, but constantly needed to be tuned. Once we did tune them, the Pico gave a very fine analog-to-digital conversion output 
+        (ADC output) ranging from 0-4096, usually peaking out around 3800 to let us see when sensors are actuating not only either on or off, but in 
+        the ranges in-between (muscle partially activated while other muscles are fully actuated).
+      </p>
+      <p>
+        The firmware was also responsible for all of the PWM output to the motor drivers. It took care of how much they should actuate.
+      </p>
+      <p>The Pico could not supply anything with voltage because our voltage source wouldn’t have been clean enough, so we decided to go with a 
+        separate 3VDC line into the Pico’s ADC_VREF (analog-to-digital conversion voltage reference) pin so that we could have enough current to 
+        supply all of the sensors with the voltage they need. The line specifically needed to be 3VDC because the Pico can only handle up to 3V on 
+        a properly referenced, clean voltage line, and if we were to use the Pico’s internal voltage reference, it would have been very noisy and 
+        would have messed with our data and our system.</p>
+      <p>The Pico wasn’t able to drive the motors on its own because the Pico can only output a max of 3.3V, so we needed our own 12V line to 
+        power the motors and their drivers.</p>
     </section>
-      -->
+
 
     <script src="scripts/main.js"></script>
   </body>

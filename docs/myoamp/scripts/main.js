@@ -59,6 +59,7 @@ window.addEventListener('load', () => {
   const caption = document.getElementById("caption");
 
   function update() {
+    const slideImg = document.getElementById("mechanical-slides");
     slideImg.src = slides[index].img;
     caption.textContent = slides[index].text;
   }

@@ -2,21 +2,23 @@
 <html lang="en-US"> <!--sets the language as HTML-->
   <head> <!--this is hidden - keywords-->
     <link href="styles/style.css" rel="stylesheet" />
+    <script src="scripts/main.js" defer></script>
     <meta charset="utf-8" /> <!--allows for most characters and languages-->
     <meta name="viewport" content="width=device-width" /> <!--sets the size of the page to the device screen/browser window-->
     <title>My test page</title> <!-- name/word associated with page (ex. what it will be named if favorited)-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
-    <script async src="scripts/main.js"></script>
+    
   </head>
+
   <body>
     <section class = "nav-bar">
       <nav>
         <ul class = "nav">
           <a href="index.html">Home</a>
           <li class="dropdown">
-            <a href = "#"> Systems </a>
+            <a href="#"> Systems </a>
             <ul class = "dropdown-menu">
               <li><a href = "mechanical_systems.html" class = "components" > Mechanical </a></li>
               <li><a href = "electrical.html" class = "components" > Electrical </a></li>
@@ -37,6 +39,7 @@
         </ul>
       </nav>
     </section>
+
       <img class="circuitboard" src="Images/circuitboard.png" alt="circuit board">
       <svg class="overlay" width="800" height="600">
 

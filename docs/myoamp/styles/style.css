@@ -702,7 +702,7 @@ video {
 }
 
 .research1{
-  margin: -500px 50px 0 0px;
+  margin: 0px 50px 0 0px;
 }
 .research1 p{
   font-size: 20px;
@@ -811,3 +811,110 @@ video {
   font-size: 20px;
 }
 
+.pico{
+  margin: 50px 0px 0px -700px;
+  text-align: left;
+}
+.pico h3{
+  padding:15px
+}
+.pico p{
+  font-size: 20px;
+  padding: 10px;
+}
+
+.picoimage{
+  border-radius: 20px;
+  margin: -550px 0px 0 500px;
+  width:275px;
+  height: auto;
+}
+
+.firm-intro{
+  text-align: right;
+  margin-left: 600px;
+  margin-top: 0px;
+}
+.firm-overview{
+  margin: 0px 0px 0px -700px;
+  text-align: left;
+}
+
+.firm-overview h3{
+  padding:15px
+}
+.firm-overview p{
+  font-size: 20px;
+  padding: 10px;
+}
+
+.fits h3{
+  font-size: 30px;
+  padding: 60px;
+  line-height: 1.75;
+  font-family: cursive;
+
+}
+
+
+.connection{
+  margin: -300px 0 0 0;
+}
+.connection p{
+  font-size: 20px;
+  padding: 0px;
+}
+.connection-title h3{
+  font-size: 30px;
+  margin: 0px 0 0px 0;
+}
+
+.connection2{
+  margin: -250px -600px 0 0;
+}
+.connection2 p{
+  font-size: 20px;
+  padding: 0px;
+}
+
+table {
+  border-collapse: collapse;
+  margin: -200px 100px -100px 0 ;      
+}
+
+.prosandcons{
+  margin:200px;
+}
+
+.with-soft h3{
+  margin:100px 0 0 -200px;
+}
+
+.mech-con{
+  margin: 0px 0px 0px -700px;
+  text-align: left;
+}
+
+.mech-con h3{
+  padding:30px;
+  margin: 0 0px 0 325px;
+}
+.mech-con p{
+  font-size: 20px;
+  padding: 10px;
+}
+
+.ece-con{
+  margin: 0px -200px 100px 0px;
+  text-align: right;
+}
+
+.ece-con h3{
+  padding:30px;
+  margin: 100px 0px 0 350px;
+}
+.ece-con p{
+  font-size: 20px;
+  padding: 10px;
+  margin: 0 0px 0 800px;
+}
