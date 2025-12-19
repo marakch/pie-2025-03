@@ -105,13 +105,60 @@
             </header>
             <p class="source" style="text-align:center;">
                 We settled on a gantry design and modified it to suit our specific needs. We also built our designed gantry and tested the
-            <a href="https://youtu.be/LB1Z8JuRBic"
-              target="_blank" rel="noopener noreferrer"
-              style="color: #5b75ca;">
-              movement 
-            </a>
             A large focus during this time was on the path planning for each move. When the gantry was still not prepared, we used the simulation code to plot how moves would occur and debugged the order of operations for each kind of move and edge case. Generating G-code from these planned move sequences was quite simple since one node of movement corresponded to one inch on the board. Once the gantry was ready, we calibrated it to move the correct distance for a given input, and practiced drawing basic shapes to validate our work. During this time, the Raspberry Pi was also configured with the repository, and we confirmed communication between both of our microcontrollers.
           </p>
+          <div class="video-wrapper" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin-bottom:2em;">
+            <video controls muted playsinline preload="metadata" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+              <source src="videos/mechanical1.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <span class="image fit">
+                <img
+                  src="images/timeline3.jpg"
+                  alt="End effector and magnet carriage"
+                  style="width:60% !important; height:auto; display:block; margin:0 auto;"
+                />
+              </span>
+            <p>
+                Path planning example:
+            </p>
+            <span class="image fit">
+                <img
+                  src="images/timeline4.jpg"
+                  alt="End effector and magnet carriage"
+                  style="width:60% !important; height:auto; display:block; margin:0 auto;"
+                />
+              </span>
+              <p>
+                G-code generated:
+            </p>
+            <span class="image fit">
+                <img
+                  src="images/timeline5.jpg"
+                  alt="End effector and magnet carriage"
+                  style="width:20% !important; height:auto; display:block; margin:0 auto;"
+                />
+              </span>
+              <p>
+                We also ordered all of our PCBs, as can be seen below:
+            </p>
+            <span class="image fit">
+                <img
+                  src="images/timeline6.jpg"
+                  alt="End effector and magnet carriage"
+                  style="width:60% !important; height:auto; display:block; margin:0 auto;"
+                />
+              </span>
+
+            <span class="image fit">
+                <img
+                  src="images/timeline7.jpg"
+                  alt="End effector and magnet carriage"
+                  style="width:60% !important; height:auto; display:block; margin:0 auto;"
+                />
+              </span>
+              <p>For our next sprint goal, we wanted to have a computer versus computer game and add the PCB to have computer versus human gameplay capabilities, where the human could physically move the pieces.
+</p>
 
           </div>
 
@@ -122,6 +169,7 @@
               <h2>Sprint 3</h2>
             </header>
             <p>
+                For sprint 3, we met our goal for the project of having a board that plays computer versus computer chess. By mounting the board on top of the gantry, printing and assembling the end-effector, and printing all the pieces, we were able to conduct games on the physical board. To get the software ready, we created a turn-based game loop for the physical board, ensured correct end-effector servo control, and debugged all G-code-related functions. For the next sprint, we aimed to get a board reset function done and to solder and mount our PCBs to achieve our stretch goal of detecting human movement and having a human versus computer chess.
             </p>
 
           </div>

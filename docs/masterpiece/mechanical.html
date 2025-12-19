@@ -51,11 +51,11 @@
               <h2>Overview</h2>
             </header>
             <p>
-              The heart of the mechanical system is a CoreXY gantry, scaled up from the typical size of a standard 3D printer so its end effector can reach the center of every square on the board, including capture and promotion squares. Mounted on the end effector of the gantry is a “third axis” servo with a rack and pinion to translate a magnet up and down, depending on whether the gantry is moving a piece. The gantry chassis is fully constructed using 1-inch aluminum extrusions and held together with 3D-printed brackets.
+The heart of the mechanical system is a CoreXY gantry, scaled up from the typical size of a standard 3D printer so its end effector can reach the center of every square on the board, including capture and promotion squares. Mounted on the end effector of the gantry is a “third axis” servo with a rack and pinion to translate a magnet up and down, depending on whether the gantry is moving a piece. This end effector system needed to be extremely reliable, avoiding binding, slipping, or any piece dropping over the course of a 30-minute game. The gantry chassis is fully constructed using 1-inch aluminum extrusions and held together with 3D-printed brackets.
             </p>
 
             <p>
-              Mounted on top of the gantry is the chessboard itself, made from a ⅛ inch thick sheet of plywood. The board is laser-cut to distinguish each of the 120 squares as well as the white and black squares. We added a black and white border around the entire playing field to visually separate the board from the squares. This piece also served as a reinforcement for the board, keeping it from bowing under the weight of the PCBs, and concealing all the mounting screws.
+Mounted on top of the gantry is the chessboard itself, made from a ⅛ inch thick sheet of chipboard (thin MDF). The board is laser-cut to distinguish each of the 120 squares as well as the white and black squares. We added a black and white border around the entire playing field to visually separate the board from the squares. This piece also served as a reinforcement for the board, keeping it from bowing under the weight of the PCBs, and concealing all the mounting screws.
             </p>
             
             <span class="image fit">
@@ -78,7 +78,7 @@
               <h2>Design Process</h2>
             </header>
               <ul>
-                <li>Gantry System over a Robot Arm Pick and Place System and Computer Vision or Two-Degree-of-Freedom Linkage System</li>
+                <li>Gantry System over a Robot Arm Pick and Place System and Computer Vision or Two-Degree-of-Freedom Linkage System (SCARA Mechanism)</li>
                     <ul style="list-style-type:square;">
                       <li>One of our goals was to keep the entire assembly contained with no visible moving components, emphasizing the “magic” of the automated movement.</li>
                       <li>A robot arm and camera would ruin the seamless aesthetic and “all-in-one” nature we were aiming for!</li>
@@ -180,7 +180,7 @@
           <p>The rails span beyond the 8×8 playing area, so the carriage can reach capture zones off to the side of the board. This lets us slide captured pieces completely off the main grid and keeps the motion path clean and collision-free.</p>
           
           <header style="text-align:center;">
-            <h5>Design and Fabrication Process</h5>
+            <h5>Design Process</h5>
           </header>
             <p>
               Starting with a drawing of a standard chessboard, we planned out the overall size of the playing field, taking into account the need for capture spaces and promotion squares. This extra constraint increased the size of our board from our standard 8 x 8 to a 12 x 10 board. Using a reference gantry assembly we found online, we roughly estimated how large the gantry should be, setting the square lengths to 2 inches.
@@ -377,7 +377,7 @@ We decided to use appropriately colored numbered squares to distinguish captured
               </span>
 
               <p>
-                To cut our big chessboard, we had to use the big Babson Foundry. When performing test-cuts, we realized that only the big laser cutter did not properly process our file and rastered everything evenly, and all the numbers and icons were not visible. This caused us to have to split our file into two passes, which increased our raster time from an hour to over two hours. The result at the end was absolutely stunning, and can be seen below.
+To cut our big chessboard, we had to use the big Babson Foundry laser cutter. When performing test-cuts, we realized that only the laser cutter did not properly process our file and rastered everything evenly, and all the numbers and icons were not visible. This caused us to have to split our file into two passes, which increased our raster time from an hour to over two hours. The result at the end was absolutely stunning, and can be seen below.
               </p>
 
               <span class="image fit">
