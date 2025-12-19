@@ -2,23 +2,21 @@
 <html lang="en-US"> <!--sets the language as HTML-->
   <head> <!--this is hidden - keywords-->
     <link href="styles/style.css" rel="stylesheet" />
-    <script src="scripts/main.js" defer></script>
     <meta charset="utf-8" /> <!--allows for most characters and languages-->
     <meta name="viewport" content="width=device-width" /> <!--sets the size of the page to the device screen/browser window-->
     <title>My test page</title> <!-- name/word associated with page (ex. what it will be named if favorited)-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
-    
+    <script async src="scripts/main.js"></script>
   </head>
-
   <body>
     <section class = "nav-bar">
       <nav>
         <ul class = "nav">
           <a href="index.html">Home</a>
           <li class="dropdown">
-            <a href="#"> Systems </a>
+            <a href = "#"> Systems </a>
             <ul class = "dropdown-menu">
               <li><a href = "mechanical_systems.html" class = "components" > Mechanical </a></li>
               <li><a href = "electrical.html" class = "components" > Electrical </a></li>
@@ -39,50 +37,6 @@
         </ul>
       </nav>
     </section>
-
-      <img class="circuitboard" src="Images/circuitboard.png" alt="circuit board">
-      <svg class="overlay" width="800" height="600">
-
-        <!-- Combined path for the dot -->
-        <path id="all" d="
-          M137 200 L137 240
-          L160 255 L130 255 L130 342 L165 342
-          L190 325 L190 360 L135 360
-          L150 377 L250 377 L250 340
-          L265 360 L279 360 L279 300
-          L313 332 L293 332 L293 390 L220 390
-          L302 400 L338 400"
-          fill="none" stroke="none"/>
-
-
-        <!-- Glow filter -->
-        <defs>
-          <filter id="glow" x="-50%" y="-50%" width="300%" height="300%">
-            <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="rgb(227,164,39)" />
-          </filter>
-        </defs>
-        <circle r="4" fill="rgb(230,88,18)" filter="url(#glow)">
-          <animateMotion dur="5.3s" repeatCount="indefinite">
-            <mpath href="#all"/>
-          </animateMotion>
-        </circle>
-
-        <!-- trailing effect - idk if it works -->
-        <circle r="4" fill="rgb(230,88,18)" opacity="0.8" filter="url(#glow)">
-          <animateMotion dur="5.3s" repeatCount="indefinite" begin="0.01s">
-            <mpath href="#all"/>
-          </animateMotion>
-        <circle r="4" fill="rgb(230,88,18)" opacity="0.5" filter="url(#glow)">
-          <animateMotion dur="5.3s" repeatCount="indefinite" begin="0.1s">
-            <mpath href="#all"/>
-          </animateMotion>
-        </circle>
-        <circle r="4" fill="rgb(230,88,18)" opacity="0.1" filter="url(#glow)">
-          <animateMotion dur="5.3s" repeatCount="indefinite" begin="0.15s">
-            <mpath href="#all"/>
-          </animateMotion>
-        </circle>
-
-      </svg>
+      
     </section>
   </body>

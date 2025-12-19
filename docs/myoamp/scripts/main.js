@@ -4,7 +4,8 @@ let myButton = document.querySelector("button");
 let myHeading = document.querySelector("h1");
 
 window.addEventListener('load', () => {
-  const img = document.querySelector('.slide-up');
+  const img = document.getElementById("prosthetic-hand");
+  console.log(img);
   img.style.transform = 'rotate(-45deg) translateX(-450px) translateY(-450px)'; // final position
   img.style.opacity = '1';
 });
@@ -59,9 +60,21 @@ window.addEventListener('load', () => {
   const caption = document.getElementById("caption");
 
   function update() {
-    const slideImg = document.getElementById("mechanical-slides");
-    slideImg.src = slides[index].img;
-    caption.textContent = slides[index].text;
+    const newElement = (index == 1) ? document.createElement("video") : document.createElement("img");
+    if (index == 1) {
+      newElement.controls = true;
+      newElement.width = 600;
+      const sourceElement = document.createElement("source");
+      sourceElement.src = slides[index].img;
+      sourceElement.type = "video/mp4";
+      newElement.appendChild(sourceElement);
+
+    } else {
+      newElement.src = slides[index].img;
+      newElement.textContent = slides[index].text;
+    }
+
+    slideContainer.children[0].replaceWith(newElement);
   }
 
   function next() {
