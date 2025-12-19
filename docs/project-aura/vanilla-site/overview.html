@@ -34,9 +34,6 @@
               >
             </li>
             <li class="nav-item">
-              <a href="design-process.html" class="nav-link">Design Process</a>
-            </li>
-            <li class="nav-item">
               <a href="mechanical.html" class="nav-link">Mechanical</a>
             </li>
             <li class="nav-item">
@@ -53,30 +50,10 @@
     <main id="main-content" class="page-content">
       <section class="section-padding">
         <div class="container">
-          <div class="text-center mb-12">
-            <h1 class="page-title">PROJECT OBJECTIVES</h1>
-            <h2 class="page-subtitle">OVERVIEW</h2>
-          </div>
-
-          <div class="overview-text">
-            <p>
-              Our design process felt like a sprint up a steep hill. We knew
-              from the start that even our MVP was pushing it, so the only way
-              to make progress was to move quickly, test ideas often, and follow
-              whatever paths created the least friction. We got each subsystem
-              working on its own first, almost like scattered puzzle pieces, and
-              then slowly brought them together into a single system. There were
-              plenty of moments when we disagreed about the final design and
-              couldn't settle on one direction, but each time we returned to the
-              MVP to figure out what was truly necessary. If something didn't
-              help us reach that minimal goal, we let it go.
-            </p>
-            <p>
-              Money pushed us to be creative too. Even after adding some of our
-              own funds, we still couldn't afford certain parts like a lidar. We
-              borrowed one, struggled with its integration with our cart, and
-              was eventually lucky enough to borrow a depth camera from another
-              team that better suited our needs.
+          <div class="text-center mb-16">
+            <h1 class="page-title">Overview</h1>
+            <p class="page-subtitle">
+              Project objectives, system diagrams, and design process
             </p>
           </div>
 
@@ -84,18 +61,21 @@
             <div class="objective-card">
               <h3>Mechanical</h3>
               <ul>
-                <li>[Mechanical objective placeholder 1]</li>
-                <li>[Mechanical objective placeholder 2]</li>
-                <li>[Mechanical objective placeholder 3]</li>
+                <li>
+                  Design a system that is able to drive with a heavy load of
+                  200lbs
+                </li>
+                <li>Create an ecosystem with ease of programming in mind</li>
+                <li>Drive uninterrupted for long periods of time (>30mins)</li>
               </ul>
             </div>
             <div class="objective-card">
               <h3>Electrical</h3>
               <ul>
                 <li>Robust wiring and soldering</li>
-                <li>Easily able to test parts individually for debugging</li>
+                <li>Create modular parts for easy testing and debugging</li>
                 <li>
-                  Clear electrical diagrams, so it can be easily understood by
+                  Design clear electrical diagrams that are easily understood by
                   others
                 </li>
               </ul>
@@ -103,21 +83,21 @@
             <div class="objective-card">
               <h3>Software</h3>
               <ul>
-                <li>[Software objective placeholder 1]</li>
-                <li>[Software objective placeholder 2]</li>
-                <li>[Software objective placeholder 3]</li>
+                <li>Support both manual and autonomous operations</li>
+                <li>Prioritize safety and fault tolerance</li>
+                <li>Be modular, reliable, and easy to extend</li>
               </ul>
             </div>
           </div>
 
-          <div class="card mt-12">
+          <div class="card mb-12">
             <h2 class="card-title">System Overview</h2>
             <div class="diagrams-grid">
               <div>
                 <h3 class="diagram-title">System Diagram</h3>
                 <div class="diagram-container">
                   <img
-                    src="assets/system-diagram.jpg"
+                    src="assets/sysdiagram.png"
                     alt="System Diagram showing the flow from Raspberry Pi through Depth Camera, UWB Modules, to Front Wheel Drive Modules"
                     class="diagram-image"
                   />
@@ -127,7 +107,7 @@
                 <h3 class="diagram-title">Data Flow & Energy Diagram</h3>
                 <div class="diagram-container">
                   <img
-                    src="assets/data-flow-energy-diagram.jpg"
+                    src="assets/Data Flow & Energy Diagram.png"
                     alt="Data Flow and Energy Diagram showing power distribution (black lines) and communication pathways (purple lines) between Raspberry Pi, sensors, motor controllers, and power systems"
                     class="diagram-image"
                   />
@@ -136,7 +116,219 @@
             </div>
           </div>
 
-          <div class="card mt-12">
+          <div class="card mb-12">
+            <h2 class="card-title">Design Process</h2>
+            <div class="design-overview">
+              <div class="text-content">
+                <p>
+                  Our design process felt like a sprint up a steep hill. We knew
+                  from the start that even our Minimum Viable Product (MVP) was
+                  pushing it, so the only way to make progress was to move
+                  quickly, test ideas often, and follow whatever paths created
+                  the least friction. We got each subsystem working on its own
+                  first, almost like scattered puzzle pieces, and then slowly
+                  brought them together into a single system. There were plenty
+                  of moments when we disagreed about the final design and
+                  couldn't settle on one direction, but each time we returned to
+                  the MVP to figure out what was truly necessary. If something
+                  didn't help us reach that minimal goal, we let it go.
+                </p>
+                <p>
+                  Money pushed us to be creative too. Even after adding some of
+                  our own funds, we still couldn't afford certain parts like a
+                  LiDAR. We borrowed one, struggled with its integration with
+                  our cart, and were eventually lucky enough to borrow a depth
+                  camera from another team that better suited our needs.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="design-decisions mb-12">
+            <h2 class="section-heading text-center">Key Design Decisions</h2>
+
+            <div class="decision-cards">
+              <div class="decision-card">
+                <div class="decision-header">
+                  <h3>Why ROS?</h3>
+                </div>
+                <p>
+                  We chose ROS 2 as the core software framework because it
+                  provides a robust, scalable foundation for robotics
+                  development while remaining fully open-source. ROS 2 naturally
+                  supports a publisher–subscriber architecture, which allows
+                  sensors, controllers, and behaviors to run as independent
+                  nodes that communicate through well-defined topics. Using ROS
+                  2 gave us several key advantages: Modularity: Each subsystem
+                  (vision, motor control, joystick input, safety checks) runs as
+                  its own node, making debugging and iteration much easier.
+                  Collaboration & Parallel Development: Multiple developers can
+                  work on separate nodes without interfering with each other.
+                  Networking Support: ROS 2 allows seamless communication
+                  between the Raspberry Pi on the robot and a development laptop
+                  over a network, enabling remote monitoring, debugging, and
+                  visualization. Simulation & Visualization: Built-in support
+                  for tools like RViz and Gazebo allows us to visualize sensor
+                  data and robot behavior before deploying changes to hardware.
+                  Scalability: The same software structure can scale from simple
+                  teleoperation to fully autonomous behavior without major
+                  redesign. The Raspberry Pi 4B runs the full ROS 2 stack and
+                  serves as the central compute unit, handling sensor input,
+                  control logic, and actuator commands.
+                </p>
+              </div>
+
+              <div class="decision-card">
+                <div class="decision-header">
+                  <h3>Why Front Wheel Swerve Drive?</h3>
+                </div>
+                <p>
+                  We chose to implement a front wheel swerve drive because it
+                  provides a highly mobile, technically challenging drivetrain.
+                  While we could have chosen to do front wheel steering with
+                  rear wheel drive, it would have caused lower maneuverability
+                  and difficulty retaining traction. A swerve drive also allows
+                  us to perform steering with Ackermann in mind. Ackermann is a
+                  characteristic in which one wheel steers less than the other,
+                  which helps improve maneuverability and reduces slippage.
+                  Having both drive and steer in the front also posed an
+                  exciting challenge to us for packaging and integration. It
+                  forced us to design mindfully and caused some unforeseen
+                  challenges later on that made us rethink a lot of parts.
+                </p>
+              </div>
+
+              <div class="decision-card">
+                <div class="decision-header">
+                  <h3>Why Depth Camera?</h3>
+                </div>
+                <p>
+                  We chose a depth camera over a 360-degree LiDAR because we
+                  couldn't find a good way to mount the LiDAR where it could
+                  actually see everything around the cart. The best we could do
+                  was place it in the front, which would have limited it to
+                  about 180 degrees of coverage. On top of that, the LiDAR we
+                  had access to was older and much harder to work with. It
+                  needed PoE and a more complicated setup, while the depth
+                  camera (a RealSense) connected cleanly over USB-C and already
+                  had a ROS2 integration we could use right away. The existing
+                  ROS2 publisher made it simple to get depth data streaming, so
+                  the depth camera ended up being the most practical choice for
+                  our system.
+                </p>
+              </div>
+
+              <div class="decision-card">
+                <div class="decision-header">
+                  <h3>Why switch from UWB to camera for human following</h3>
+                </div>
+                <p>
+                  We originally relied on UWB modules for human-following, but
+                  the system struggled in real environments. The estimated
+                  position would drift even when the person wasn't moving, and
+                  accuracy broke down whenever the robot approached certain
+                  angles. Metal components on the robot reflected the UWB signal
+                  heavily, and other parts blocked line-of-sight altogether,
+                  making the ranging data noisy and unreliable. After extensive
+                  calibration, filtering, and controlled testing, the
+                  limitations were still too severe for consistent tracking.
+                  This led us to pivot to a computer-vision approach using
+                  reflective tape, which provides stable, front-facing detection
+                  without the environmental interference that plagued UWB.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="next-steps mb-12">
+            <h2 class="section-heading text-center">Next Steps</h2>
+
+            <div class="decision-cards">
+              <div class="decision-card">
+                <div class="decision-header">
+                  <h3>Mechanical</h3>
+                </div>
+                <p>
+                  If we could redesign one thing for mechanical, we would focus
+                  on swapping our steering <strong>stepper motors</strong> with
+                  <strong>DC motors</strong> paired with
+                  <strong>absolute encoders</strong>. Steppers were chosen
+                  originally for precise movement without needing high
+                  speeds—Ackermann steering limits steering angles so we
+                  expected coarse steps to be sufficient.
+                </p>
+                <p>
+                  In practice, we discovered chain slipping unless we used a
+                  high microstep count (200 → 1600), which reduced effective
+                  steering speed by ~8×. The 18:80 sprocket gear choice provided
+                  torque but limited speed, and without encoders we had no way
+                  to detect or correct skips. Driving felt responsive but
+                  turning lagged; in autonomous mode quick user motions could
+                  make the cart lose track of the person.
+                </p>
+                <p>
+                  Switching to DC motors with absolute encoders would require a
+                  mechanical redesign and performance calculations to meet
+                  weight and torque requirements, but would allow faster
+                  steering, reliable skip detection, and closed-loop correction
+                  for more intuitive manual and autonomous control.
+                </p>
+              </div>
+
+              <div class="decision-card">
+                <div class="decision-header">
+                  <h3>Electrical</h3>
+                </div>
+                <p>
+                  If we could redesign one thing for electrical, we would focus
+                  on ensuring the whole system safely shuts down if the
+                  Raspberry Pi loses power. We experienced incidents where the
+                  PI's GPIO PWM defaulted to a 5V (256 step) value, which caused
+                  the motors to drive at full speed and risk collision.
+                </p>
+                <p>
+                  We initially mitigated this by wiring an e-stop into the drive
+                  system, but found the reaction time was insufficient to stop
+                  the cart from hitting nearby obstacles quickly. A more robust
+                  solution is to redesign the motor-controller power path so a
+                  loss of PI power disables the drive.
+                </p>
+                <p>
+                  The recommended approach is a high-side power relay controlled
+                  by the Pi: if the Pi loses power, the relay opens and cuts
+                  main power to the motor controllers, removing any chance of
+                  spurious PWM commanding the motors.
+                </p>
+              </div>
+
+              <div class="decision-card">
+                <div class="decision-header">
+                  <h3>Software</h3>
+                </div>
+                <p>
+                  If we could redesign one thing for software, it would be our
+                  approach to <strong>localization</strong>. Our switch from UWB
+                  to reflective tape for short-range human following solved
+                  immediate tracking issues but eliminated global or relative
+                  localization when the user is outside the camera's field of
+                  view.
+                </p>
+                <p>
+                  With reliable localization (for example using UWB modules or a
+                  GPS/mobile app hybrid), the cart could estimate the user's
+                  position even out of sight, allowing proactive movement and
+                  advanced features—e.g., autonomously driving the cart to a
+                  user's car. Any future solution must balance cost, accuracy,
+                  and robustness: GPS may be suitable for coarse localization
+                  while UWB offers better close-range accuracy for human
+                  following, so a hybrid or application-specific approach should
+                  be discussed.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card mb-12">
             <h2 class="card-title">Financial Breakdown</h2>
             <div id="financial-table-container"></div>
           </div>
@@ -174,4 +366,3 @@
     <script src="js/financial-table.js"></script>
   </body>
 </html>
-

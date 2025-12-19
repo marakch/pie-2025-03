@@ -123,4 +123,40 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   });
+
+  // ============================================
+  // Scroll reveal (adds .in-view to elements with .reveal when they enter viewport)
+  // ============================================
+  (function () {
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    );
+    const revealEls = document.querySelectorAll(".reveal");
+    if (!revealEls.length) return;
+
+    if (prefersReduced && prefersReduced.matches) {
+      // Respect reduced motion: show elements immediately
+      revealEls.forEach((el) => el.classList.add("in-view"));
+      return;
+    }
+
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in-view");
+              obs.unobserve(entry.target);
+            }
+          });
+        },
+        { root: null, rootMargin: "0px 0px -10% 0px", threshold: 0.12 }
+      );
+
+      revealEls.forEach((el) => io.observe(el));
+    } else {
+      // Fallback: reveal immediately
+      revealEls.forEach((el) => el.classList.add("in-view"));
+    }
+  })();
 });

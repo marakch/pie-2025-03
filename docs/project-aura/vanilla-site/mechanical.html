@@ -29,9 +29,6 @@
               <a href="overview.html" class="nav-link">Overview</a>
             </li>
             <li class="nav-item">
-              <a href="design-process.html" class="nav-link">Design Process</a>
-            </li>
-            <li class="nav-item">
               <a href="mechanical.html" class="nav-link nav-link-active"
                 >Mechanical</a
               >
@@ -51,15 +48,22 @@
       <section class="section-padding">
         <div class="container">
           <div class="text-center mb-16">
-            <h1 class="page-title">Mechanical Overview</h1>
+            <h1 class="page-title">Mechanical</h1>
             <p class="page-subtitle">
               How we made the frame, mounts, and more!
             </p>
           </div>
 
           <div class="mechanical-content">
-            <div class="card mb-12">
+            <div class="card mb-12 reveal">
               <h2 class="card-title">Swerve Front Wheel Drive System</h2>
+              <div class="diagram-container mb-8">
+                <img
+                  src="assets/swerve.jpeg"
+                  alt="Swerve front wheel drive system showing independent steering wheels"
+                  class="diagram-image"
+                />
+              </div>
               <div class="text-content">
                 <p>
                   We designed a swerve front wheel drive system for project
@@ -71,8 +75,15 @@
             </div>
 
             <div class="mechanical-grid">
-              <div class="card">
+              <div class="card reveal">
                 <h3 class="card-subtitle">Drive System</h3>
+                <div class="diagram-container mb-4">
+                  <img
+                    src="assets/motor.png"
+                    alt="24V DC motor for drive system"
+                    class="diagram-image"
+                  />
+                </div>
                 <div class="text-content">
                   <p>
                     The two wheels are driven by two MY1016Z6 24V DC motors with
@@ -84,8 +95,15 @@
                 </div>
               </div>
 
-              <div class="card">
+              <div class="card reveal">
                 <h3 class="card-subtitle">Power System</h3>
+                <div class="diagram-container mb-4">
+                  <img
+                    src="assets/battery.jpeg"
+                    alt="24V LiFePO4 battery power system"
+                    class="diagram-image"
+                  />
+                </div>
                 <div class="text-content">
                   <p>
                     The whole system is powered by a limeUSB 24V 25Ah 2C LiFePO4
@@ -95,8 +113,15 @@
                 </div>
               </div>
 
-              <div class="card">
+              <div class="card reveal">
                 <h3 class="card-subtitle">Encoders</h3>
+                <div class="diagram-container mb-4">
+                  <img
+                    src="assets/rotary-encoder.jpeg"
+                    alt="LPD3806 rotary encoder mounted on wheel shaft"
+                    class="diagram-image"
+                  />
+                </div>
                 <div class="text-content">
                   <p>
                     We connected two LPD3806 encoders to the ⅜'' wheel shafts on
@@ -107,8 +132,15 @@
                 </div>
               </div>
 
-              <div class="card">
+              <div class="card reveal">
                 <h3 class="card-subtitle">Steering System</h3>
+                <div class="diagram-container mb-4">
+                  <img
+                    src="assets/chain-tensioner.jpeg"
+                    alt="Steering system with chain tensioner and sprockets"
+                    class="diagram-image"
+                  />
+                </div>
                 <div class="text-content">
                   <p>
                     Two Nema 23 2.4Nm steppers steer each wheel independently
@@ -121,19 +153,15 @@
                 </div>
               </div>
 
-              <div class="card">
-                <h3 class="card-subtitle">Wheels</h3>
-                <div class="text-content">
-                  <p>
-                    We chose a heavy-duty solid rubber wheel for our robot. The
-                    solid rubber wheels eliminated the risk of puncture under
-                    heavy load, making our robot safe under intense conditions.
-                  </p>
-                </div>
-              </div>
-
-              <div class="card">
+              <div class="card reveal">
                 <h3 class="card-subtitle">Materials & Fabrication</h3>
+                <div class="diagram-container mb-4">
+                  <img
+                    src="assets/swerve-mount.jpeg"
+                    alt="Swerve mount showing A36 steel fabrication and welding"
+                    class="diagram-image"
+                  />
+                </div>
                 <div class="text-content">
                   <p>
                     The wheel houses and motor mounts are made from A36 Mild
@@ -146,9 +174,27 @@
                   </p>
                 </div>
               </div>
+
+              <div class="card reveal">
+                <h3 class="card-subtitle">Wheels</h3>
+                <div class="diagram-container mb-4">
+                  <img
+                    src="assets/wheels-bearing-shaft.jpeg"
+                    alt="Heavy-duty solid rubber wheels with bearings and shaft"
+                    class="diagram-image"
+                  />
+                </div>
+                <div class="text-content">
+                  <p>
+                    We chose a heavy-duty solid rubber wheel for our robot. The
+                    solid rubber wheels eliminated the risk of puncture under
+                    heavy load, making our robot safe under intense conditions.
+                  </p>
+                </div>
+              </div>
             </div>
 
-            <div class="card mt-12">
+            <div class="card mt-12 reveal">
               <h2 class="card-title">Bearings & Shafts</h2>
               <div class="text-content">
                 <p>
@@ -159,6 +205,64 @@
                   whole drivetrain with enough redundancy for expected
                   situations.
                 </p>
+              </div>
+            </div>
+
+            <div class="design-decisions mb-12">
+              <h2 class="section-heading text-center">Challenges</h2>
+
+              <div class="decision-cards">
+                <div class="decision-card reveal">
+                  <div class="decision-header">
+                    <h3>Steering Stepper Mounting</h3>
+                  </div>
+                  <div class="problem-box reveal">
+                    <p>
+                      <strong>The Problem:</strong> Due to the size of the
+                      MY1016Z, the mounting of the steering steppers became a
+                      problem due to the space constraint on the robot. We
+                      initially mounted the steppers to the corners of the
+                      robot. However, it turns out to be very unstable and
+                      causes chain tensioning issues as the sprockets are too
+                      close to each other.
+                    </p>
+                  </div>
+                  <div class="solution-box reveal">
+                    <p>
+                      <strong>The Solution:</strong> We moved the stepper motors
+                      to the center of the robot and slightly reduced the
+                      maximum steering angle. This allows us to space the
+                      sprockets further from each other, giving us enough space
+                      to tension the chain without skipping.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="decision-card reveal">
+                  <div class="decision-header">
+                    <h3>Drivetrain Space issue</h3>
+                  </div>
+                  <div class="problem-box reveal">
+                    <p>
+                      <strong>The Problem:</strong> In order to minimize the
+                      resistance in steering, we designed the drivetrain to be
+                      as compact as possible. The compact size of the drivetrain
+                      led to problems with integrating the wheel, the wheel
+                      mount, and the wheel sprocket in the tight space without
+                      interference. We had trouble with the chain interfering
+                      with the bolts and the chain exploded.
+                    </p>
+                  </div>
+                  <div class="solution-box reveal">
+                    <p>
+                      <strong>The Solution:</strong> We tested multiple sprocket
+                      spacers and used the thinnest one that doesn't cause
+                      interference. We also used shorter bolts for mounting the
+                      drivetrain, maximizing the space for rotational
+                      components.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

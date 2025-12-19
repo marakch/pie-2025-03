@@ -57,7 +57,7 @@
             <div class="text-content">
               <p>
                 Our design process felt like a sprint up a steep hill. We knew
-                from the start that even our MVP was pushing it, so the only way
+                from the start that even our Minimum Viable Product (MVP) was pushing it, so the only way
                 to make progress was to move quickly, test ideas often, and
                 follow whatever paths created the least friction. We got each
                 subsystem working on its own first, almost like scattered puzzle
@@ -71,8 +71,8 @@
               <p>
                 Money pushed us to be creative too. Even after adding some of
                 our own funds, we still couldn't afford certain parts like a
-                lidar. We borrowed one, struggled with its integration with our
-                cart, and was eventually lucky enough to borrow a depth camera
+                LiDAR. We borrowed one, struggled with its integration with our
+                cart, and were eventually lucky enough to borrow a depth camera
                 from another team that better suited our needs.
               </p>
             </div>
@@ -92,10 +92,23 @@
 
               <div class="decision-card">
                 <div class="decision-header">
-                  <h3>Why Swerve?</h3>
+                  <h3>Why Front Wheel Swerve Drive?</h3>
                   <span class="decision-author">Addison and Kefan</span>
                 </div>
-                <p>[Placeholder - Addison and Kefan will add content here]</p>
+                <p>
+                  We chose to implement a front wheel swerve drive because it
+                  provides a highly mobile, technically challenging drivetrain.
+                  While we could have chosen to do front wheel steering with
+                  rear wheel drive, it would have caused lower maneuverability
+                  and difficulty retaining traction. A swerve drive also allows
+                  us to perform steering with Ackermann in mind. Ackermann is a
+                  characteristic in which one wheel steers less than the other,
+                  which helps improve maneuverability and reduces slippage.
+                  Having both drive and steer in the front also posed an
+                  exciting challenge to us for packaging and integration. It
+                  forced us to design mindfully and caused some unforeseen
+                  challenges later on that made us rethink a lot of parts.
+                </p>
               </div>
 
               <div class="decision-card">
@@ -103,11 +116,11 @@
                   <h3>Why Depth Camera?</h3>
                 </div>
                 <p>
-                  We chose a depth camera over a 360-degree lidar because we
-                  couldn't find a good way to mount the lidar where it could
+                  We chose a depth camera over a 360-degree LiDAR because we
+                  couldn't find a good way to mount the LiDAR where it could
                   actually see everything around the cart. The best we could do
                   was place it in the front, which would have limited it to
-                  about 180 degrees of coverage. On top of that, the lidar we
+                  about 180 degrees of coverage. On top of that, the LiDAR we
                   had access to was older and much harder to work with. It
                   needed PoE and a more complicated setup, while the depth
                   camera (a RealSense) connected cleanly over USB-C and already
