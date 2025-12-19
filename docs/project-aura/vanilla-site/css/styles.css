@@ -129,6 +129,101 @@ a:focus {
   outline-offset: 2px;
 }
 
+/* Motion system: concise, accessible utilities */
+:root {
+  --motion-duration-sm: 175ms;
+  --motion-duration-md: 300ms;
+  --motion-ease: cubic-bezier(0.2, 0.1, 0.08, 1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Reusable utilities */
+.fade-in {
+  animation: fadeIn var(--motion-duration-md) var(--motion-ease) both;
+  will-change: opacity;
+}
+
+.slide-up,
+.fade-in-up {
+  animation: slideUp var(--motion-duration-md) var(--motion-ease) both;
+  will-change: transform, opacity;
+}
+
+/* Small stagger helper for grouped content */
+.stagger > * {
+  opacity: 0;
+  transform: translateY(6px);
+  animation: slideUp var(--motion-duration-md) var(--motion-ease) both;
+}
+.stagger > *:nth-child(1) {
+  animation-delay: 60ms;
+}
+.stagger > *:nth-child(2) {
+  animation-delay: 120ms;
+}
+.stagger > *:nth-child(3) {
+  animation-delay: 180ms;
+}
+.stagger > *:nth-child(4) {
+  animation-delay: 240ms;
+}
+.stagger > *:nth-child(5) {
+  animation-delay: 300ms;
+}
+
+/* Hover lift for cards / interactive surfaces (very subtle) */
+.hover-lift {
+  transition: transform var(--motion-duration-sm) var(--motion-ease),
+    box-shadow var(--motion-duration-sm) var(--motion-ease);
+  transform: translateY(0);
+}
+.hover-lift:hover,
+.hover-lift:focus {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Smooth transitions for buttons/links */
+.anim-smooth {
+  transition: background-color var(--motion-duration-sm) var(--motion-ease),
+    color var(--motion-duration-sm) var(--motion-ease),
+    border-color var(--motion-duration-sm) var(--motion-ease),
+    transform var(--motion-duration-sm) var(--motion-ease);
+}
+
+/* Respect user's reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in,
+  .slide-up,
+  .fade-in-up,
+  .stagger > *,
+  .hover-lift,
+  .anim-smooth {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
 /* Container */
 .container {
   max-width: var(--container-max-width);
@@ -638,6 +733,56 @@ a:focus {
   color: var(--color-text-light);
   margin-bottom: var(--spacing-lg);
   flex-grow: 1;
+}
+
+/* Subtle hover/press lift for primary surfaces (only on hover-capable devices) */
+@media (hover: hover) and (pointer: fine) {
+  .section-card,
+  .card,
+  .decision-card,
+  .team-card,
+  .problem-box,
+  .solution-box {
+    transition: transform var(--motion-duration-sm) var(--motion-ease),
+      box-shadow var(--motion-duration-sm) var(--motion-ease);
+    will-change: transform, opacity;
+  }
+
+  .section-card:hover,
+  .card:hover,
+  .decision-card:hover,
+  .team-card:hover,
+  .problem-box:hover,
+  .solution-box:hover,
+  .section-card:focus-within,
+  .card:focus-within,
+  .decision-card:focus-within,
+  .team-card:focus-within,
+  .problem-box:focus-within,
+  .solution-box:focus-within {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+  }
+}
+
+/* Scroll reveal helper (use .reveal on elements you want to reveal on scroll) */
+.reveal {
+  opacity: 0;
+  transform: translateY(8px);
+  will-change: transform, opacity;
+}
+.reveal.in-view {
+  animation: slideUp var(--motion-duration-md) var(--motion-ease) both;
+}
+
+/* Reduced motion fallback: show content immediately */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
 }
 
 /* Overview Page */
@@ -1239,8 +1384,8 @@ a:focus {
 }
 
 .decision-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
 }
 
 .problem-box {

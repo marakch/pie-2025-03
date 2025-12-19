@@ -141,11 +141,11 @@
             <h2 class="section-heading text-center">Challenges</h2>
 
             <div class="decision-cards">
-              <div class="decision-card">
+              <div class="decision-card reveal">
                 <div class="decision-header">
                   <h3>Emergency stop did not fully cut power</h3>
                 </div>
-                <div class="problem-box">
+                <div class="problem-box reveal">
                   <p>
                     <strong>The Problem:</strong> We did not realize that the
                     GPIO ground on the drive controller was shared with the
@@ -154,7 +154,7 @@
                     behavior and resulted in the robot hitting a wall.
                   </p>
                 </div>
-                <div class="solution-box">
+                <div class="solution-box reveal">
                   <p>
                     <strong>The Solution:</strong> We redesigned the grounding
                     so there was only one ground connection. This ensured that
@@ -164,11 +164,11 @@
                 </div>
               </div>
 
-              <div class="decision-card">
+              <div class="decision-card reveal">
                 <div class="decision-header">
                   <h3>Wires unplugging during testing</h3>
                 </div>
-                <div class="problem-box">
+                <div class="problem-box reveal">
                   <p>
                     <strong>The Problem:</strong> Wires on the Raspberry Pi and
                     breadboard would frequently come loose while the robot was
@@ -176,7 +176,7 @@
                     were caused by software bugs or electrical failures.
                   </p>
                 </div>
-                <div class="solution-box">
+                <div class="solution-box reveal">
                   <p>
                     <strong>The Solution:</strong> We secured critical
                     connections using hot glue and reduced movement in the
@@ -186,11 +186,11 @@
                 </div>
               </div>
 
-              <div class="decision-card">
+              <div class="decision-card reveal">
                 <div class="decision-header">
                   <h3>Hard to debug electronics versus software issues</h3>
                 </div>
-                <div class="problem-box">
+                <div class="problem-box reveal">
                   <p>
                     <strong>The Problem:</strong> Our early setup used
                     solderless breadboards and unlabeled wires, which made it
@@ -198,7 +198,7 @@
                     electrical connections.
                   </p>
                 </div>
-                <div class="solution-box">
+                <div class="solution-box reveal">
                   <p>
                     <strong>The Solution:</strong> We created a clear step by
                     step debugging procedure and relied on a multimeter to check

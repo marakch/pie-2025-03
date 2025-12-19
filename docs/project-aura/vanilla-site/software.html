@@ -9,7 +9,10 @@
     />
     <title>Software/Firmware Overview - Project AURA</title>
     <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
   </head>
   <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -29,10 +32,20 @@
             <span class="hamburger"></span>
           </button>
           <ul class="nav-menu" id="nav-menu">
-            <li class="nav-item"><a href="overview.html" class="nav-link">Overview</a></li>
-            <li class="nav-item"><a href="mechanical.html" class="nav-link">Mechanical</a></li>
-            <li class="nav-item"><a href="electrical.html" class="nav-link">Electrical</a></li>
-            <li class="nav-item"><a href="software.html" class="nav-link nav-link-active">Software</a></li>
+            <li class="nav-item">
+              <a href="overview.html" class="nav-link">Overview</a>
+            </li>
+            <li class="nav-item">
+              <a href="mechanical.html" class="nav-link">Mechanical</a>
+            </li>
+            <li class="nav-item">
+              <a href="electrical.html" class="nav-link">Electrical</a>
+            </li>
+            <li class="nav-item">
+              <a href="software.html" class="nav-link nav-link-active"
+                >Software</a
+              >
+            </li>
           </ul>
         </div>
       </nav>
@@ -43,17 +56,23 @@
         <div class="container">
           <div class="text-center mb-16">
             <h1 class="page-title">Software</h1>
-            <p class="page-subtitle">ROS 2 Humble • Python • OpenCV • Raspberry Pi</p>
-            
+            <p class="page-subtitle">
+              ROS 2 Humble • Python • OpenCV • Raspberry Pi
+            </p>
+
             <div class="tech-stack-container">
-                <span class="tech-badge">ROS 2</span>
-                <span class="tech-badge">Python</span>
-                <span class="tech-badge">OpenCV</span>
-                <span class="tech-badge">Docker</span>
+              <span class="tech-badge">ROS 2</span>
+              <span class="tech-badge">Python</span>
+              <span class="tech-badge">OpenCV</span>
+              <span class="tech-badge">Docker</span>
             </div>
 
             <p style="margin-top: var(--spacing-md)">
-              <a href="https://github.com/Zaraius/AURA/tree/main" class="btn btn-outline" target="_blank">
+              <a
+                href="https://github.com/Zaraius/AURA/tree/main"
+                class="btn btn-outline"
+                target="_blank"
+              >
                 <i class="fab fa-github"></i> View Source Code
               </a>
             </p>
@@ -61,44 +80,77 @@
 
           <div class="card mb-12">
             <h2 class="card-title">System Design</h2>
-            
+
             <div class="text-content">
-                <p>
-                    AURA's software architecture is built on <strong>ROS 2 (Robot Operating System)</strong>, using a <strong>Publisher–Subscriber (Pub/Sub)</strong> pattern to separate sensing, decision-making, and actuation into independent modules.
-                </p>
-                <p>
-                    Each major capability (perception, safety checks, joystick input, and motor control) runs as its own <strong>ROS 2 node</strong> communicating over well-defined topics. This modular structure allows us to develop and debug subsystems independently while composing them into a complete robot behavior.
-                </p>
-                <p>
-                    In our final configuration, the <strong>Raspberry Pi 4B</strong> runs ROS 2 as the main onboard computer responsible for real-time motor and sensor control. ROS 2's networking capabilities allow high-level logic to optionally run on a development laptop, with seamless inter-machine communication handled automatically.
-                </p>
+              <p>
+                AURA's software architecture is built on
+                <strong>ROS 2 (Robot Operating System)</strong>, using a
+                <strong>Publisher–Subscriber (Pub/Sub)</strong> pattern to
+                separate sensing, decision-making, and actuation into
+                independent modules.
+              </p>
+              <p>
+                Each major capability (perception, safety checks, joystick
+                input, and motor control) runs as its own
+                <strong>ROS 2 node</strong> communicating over well-defined
+                topics. This modular structure allows us to develop and debug
+                subsystems independently while composing them into a complete
+                robot behavior.
+              </p>
+              <p>
+                In our final configuration, the
+                <strong>Raspberry Pi 4B</strong> runs ROS 2 as the main onboard
+                computer responsible for real-time motor and sensor control. ROS
+                2's networking capabilities allow high-level logic to optionally
+                run on a development laptop, with seamless inter-machine
+                communication handled automatically.
+              </p>
             </div>
 
             <div class="diagram-frame">
-                <img
-                    src="assets/SoftwareSystemDiagram.png"
-                    alt="Software System Diagram showing ROS2 nodes"
-                    class="diagram-image"
-                />
-                <p class="caption">Figure 1: High-level ROS node architecture and data flow.</p>
+              <img
+                src="assets/SoftwareSystemDiagram.png"
+                alt="Software System Diagram showing ROS2 nodes"
+                class="diagram-image"
+              />
+              <p class="caption">
+                Figure 1: High-level ROS node architecture and data flow.
+              </p>
             </div>
           </div>
 
-          <div class="card mb-12" style="width:100%; max-width:none;">
+          <div class="card mb-12" style="width: 100%; max-width: none">
             <h2 class="card-title">External Software Dependencies</h2>
-            <div style="width: 100%;">
-              <div class="text-content" style="width: 100%;">
+            <div style="width: 100%">
+              <div class="text-content" style="width: 100%">
                 <p>
-                  The AURA software stack is intentionally built from widely used, well-documented tools so that others can reproduce or extend our work:
+                  The AURA software stack is intentionally built from widely
+                  used, well-documented tools so that others can reproduce or
+                  extend our work:
                 </p>
                 <ul class="detail-list">
-                  <li><strong>Raspberry Pi OS:</strong> Base operating system running on a Raspberry Pi 4B.</li>
-                  <li><strong>ROS 2 (Humble):</strong> Robot middleware and communication framework that orchestrates all nodes.</li>
-                  <li><strong>OpenCV:</strong> Image processing and tracking, including thresholding, contour detection, and filtering.</li>
-                  <li><strong>pyrealsense2:</strong> Interface to the Intel RealSense depth camera for synchronized RGB, depth, and IR streams.</li>
+                  <li>
+                    <strong>Raspberry Pi OS:</strong> Base operating system
+                    running on a Raspberry Pi 4B.
+                  </li>
+                  <li>
+                    <strong>ROS 2 (Humble):</strong> Robot middleware and
+                    communication framework that orchestrates all nodes.
+                  </li>
+                  <li>
+                    <strong>OpenCV:</strong> Image processing and tracking,
+                    including thresholding, contour detection, and filtering.
+                  </li>
+                  <li>
+                    <strong>pyrealsense2:</strong> Interface to the Intel
+                    RealSense depth camera for synchronized RGB, depth, and IR
+                    streams.
+                  </li>
                 </ul>
                 <p>
-                  Together these dependencies give us a flexible platform capable of real-time control on the Pi while still supporting remote computation and visualization on a laptop when needed.
+                  Together these dependencies give us a flexible platform
+                  capable of real-time control on the Pi while still supporting
+                  remote computation and visualization on a laptop when needed.
                 </p>
               </div>
             </div>
@@ -108,44 +160,93 @@
             <h2 class="card-title">Depth Camera: Tracking &amp; Safety</h2>
             <div class="software-grid">
               <div class="text-content">
-                <h3 class="card-subtitle">Reflective Target Tracking Pipeline</h3>
+                <h3 class="card-subtitle">
+                  Reflective Target Tracking Pipeline
+                </h3>
                 <p>
-                  The robot uses an Intel RealSense depth camera both for human tracking and collision avoidance. A custom ROS 2 node, written in Python, interfaces with the camera using <code>pyrealsense2</code> and processes frames with OpenCV.
+                  The robot uses an Intel RealSense depth camera both for human
+                  tracking and collision avoidance. A custom ROS 2 node, written
+                  in Python, interfaces with the camera using
+                  <code>pyrealsense2</code> and processes frames with OpenCV.
                 </p>
                 <p>
-                  To keep the tracking system robust and lightweight, we used a reflective tracking approach: a traffic-cone reflective sleeve was cut into strips and attached to a belt worn by the user. Under the camera&rsquo;s infrared illumination, this material appears as a bright, easily isolated region without any complex machine learning.
+                  To keep the tracking system robust and lightweight, we used a
+                  reflective tracking approach: a traffic-cone reflective sleeve
+                  was cut into strips and attached to a belt worn by the user.
+                  Under the camera&rsquo;s infrared illumination, this material
+                  appears as a bright, easily isolated region without any
+                  complex machine learning.
                 </p>
                 <p>The tracking pipeline:</p>
                 <ul class="detail-list">
-                  <li>Capture synchronized IR + depth frames from the RealSense camera.</li>
-                  <li>Threshold the IR image to isolate highly reflective regions corresponding to the target belt.</li>
-                  <li>Apply morphological filtering to remove noise and stitch fragmented blobs.</li>
-                  <li>Detect contours and filter them by area and distance to reject spurious reflections.</li>
-                  <li>Fuse with depth data to compute the target&rsquo;s 3D position relative to the robot.</li>
+                  <li>
+                    Capture synchronized IR + depth frames from the RealSense
+                    camera.
+                  </li>
+                  <li>
+                    Threshold the IR image to isolate highly reflective regions
+                    corresponding to the target belt.
+                  </li>
+                  <li>
+                    Apply morphological filtering to remove noise and stitch
+                    fragmented blobs.
+                  </li>
+                  <li>
+                    Detect contours and filter them by area and distance to
+                    reject spurious reflections.
+                  </li>
+                  <li>
+                    Fuse with depth data to compute the target&rsquo;s 3D
+                    position relative to the robot.
+                  </li>
                 </ul>
                 <p>
-                  We use a <strong>Kalman filter</strong> to smooth noisy measurements and estimate both position and velocity. If the target is temporarily occluded, the filter continues predicting motion for up to ~0.5&nbsp;seconds (about 15 frames) before declaring the target lost and stopping the robot, avoiding jittery starts and stops.
+                  We use a <strong>Kalman filter</strong> to smooth noisy
+                  measurements and estimate both position and velocity. If the
+                  target is temporarily occluded, the filter continues
+                  predicting motion for up to ~0.5&nbsp;seconds (about 15
+                  frames) before declaring the target lost and stopping the
+                  robot, avoiding jittery starts and stops.
                 </p>
               </div>
-                <video controls autoplay loop muted>
-                  <source src="assets/camera_tracker.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
+              <video controls autoplay loop muted>
+                <source src="assets/camera_tracker.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             </div>
 
-            <div class="text-content" style="margin-top: var(--spacing-xl);">
-              <h3 class="card-subtitle">Obstacle Safety Using <code>/scan</code></h3>
+            <div class="text-content" style="margin-top: var(--spacing-xl)">
+              <h3 class="card-subtitle">
+                Obstacle Safety Using <code>/scan</code>
+              </h3>
               <p>
-                In parallel with tracking, the depth camera publishes a <strong>LaserScan-style</strong> message on <code>/scan</code> by sampling depth along the central row of the image. This effectively turns the camera into a virtual 2D lidar for frontal collision checking.
+                In parallel with tracking, the depth camera publishes a
+                <strong>LaserScan-style</strong> message on
+                <code>/scan</code> by sampling depth along the central row of
+                the image. This effectively turns the camera into a virtual 2D
+                lidar for frontal collision checking.
               </p>
               <p>For safety, our ROS 2 safety node enforces:</p>
               <ul class="detail-list">
-                <li><strong>Stop zone:</strong> If any object is detected within <strong>0.6&nbsp;m</strong> in front of the robot, forward motion is disabled.</li>
-                <li><strong>Pause following:</strong> Autonomous following is paused while an obstacle is too close.</li>
-                <li><strong>Escape only:</strong> The robot is only allowed to move backward until the area is clear.</li>
+                <li>
+                  <strong>Stop zone:</strong> If any object is detected within
+                  <strong>0.6&nbsp;m</strong> in front of the robot, forward
+                  motion is disabled.
+                </li>
+                <li>
+                  <strong>Pause following:</strong> Autonomous following is
+                  paused while an obstacle is too close.
+                </li>
+                <li>
+                  <strong>Escape only:</strong> The robot is only allowed to
+                  move backward until the area is clear.
+                </li>
               </ul>
               <p>
-                This safety logic is always active and applies to both <strong>manual joystick</strong> control and <strong>autonomous following</strong>, providing a consistent safety envelope regardless of mode.
+                This safety logic is always active and applies to both
+                <strong>manual joystick</strong> control and
+                <strong>autonomous following</strong>, providing a consistent
+                safety envelope regardless of mode.
               </p>
             </div>
           </div>
@@ -155,21 +256,47 @@
             <div class="software-grid">
               <div class="text-content">
                 <p>
-                  For manual and assisted control we used a <strong>Logitech F310</strong> joystick, connected via the standard ROS 2 <code>joy</code> package
-                  (<code>ros2 run joy joy_node</code>). This publishes joystick state to a topic that our teleop and autonomy nodes subscribe to.
+                  For manual and assisted control we used a
+                  <strong>Logitech F310</strong> joystick, connected via the
+                  standard ROS 2 <code>joy</code> package (<code
+                    >ros2 run joy joy_node</code
+                  >). This publishes joystick state to a topic that our teleop
+                  and autonomy nodes subscribe to.
                 </p>
-                <p>We designed the mapping to include multiple layers of safety:</p>
+                <p>
+                  We designed the mapping to include multiple layers of safety:
+                </p>
                 <ul class="detail-list">
-                  <li><strong>Left stick:</strong> Forward and backward linear motion.</li>
-                  <li><strong>Right stick:</strong> In-place turning / steering.</li>
-                  <li><strong>Right bumper (RB):</strong> Must be held for <strong>any</strong> manual motion; releasing it brings the robot to a stop.</li>
-                  <li><strong>Left bumper (LB):</strong> Must be held to allow <strong>autonomous velocity commands</strong> to reach the motors.</li>
+                  <li>
+                    <strong>Left stick:</strong> Forward and backward linear
+                    motion.
+                  </li>
+                  <li>
+                    <strong>Right stick:</strong> In-place turning / steering.
+                  </li>
+                  <li>
+                    <strong>Right bumper (RB):</strong> Must be held for
+                    <strong>any</strong> manual motion; releasing it brings the
+                    robot to a stop.
+                  </li>
+                  <li>
+                    <strong>Left bumper (LB):</strong> Must be held to allow
+                    <strong>autonomous velocity commands</strong> to reach the
+                    motors.
+                  </li>
                 </ul>
                 <p>
-                  As a result, the robot cannot move accidentally, and autonomous behavior only runs when the operator deliberately enables it by holding the correct bumper. This interlock pattern proved intuitive for new users and aligned well with our safety goals.
+                  As a result, the robot cannot move accidentally, and
+                  autonomous behavior only runs when the operator deliberately
+                  enables it by holding the correct bumper. This interlock
+                  pattern proved intuitive for new users and aligned well with
+                  our safety goals.
                 </p>
               </div>
-                <img src="assets/joystick.png" alt="Joystick Control and Safety Interlocks">
+              <img
+                src="assets/joystick.png"
+                alt="Joystick Control and Safety Interlocks"
+              />
             </div>
           </div>
 
@@ -179,81 +306,181 @@
               <div class="text-content">
                 <h3 class="card-subtitle">Cytron Motor Driver</h3>
                 <p>
-                  The robot is driven by a <strong>Cytron motor driver</strong> controlling two high-power DC motors. Each motor receives:
+                  The robot is driven by a
+                  <strong>Cytron motor driver</strong> controlling two
+                  high-power DC motors. Each motor receives:
                 </p>
                 <ul class="detail-list">
-                  <li>A <strong>PWM signal</strong> that sets the commanded speed.</li>
-                  <li>A <strong>digital direction signal</strong> that selects forward or reverse rotation.</li>
+                  <li>
+                    A <strong>PWM signal</strong> that sets the commanded speed.
+                  </li>
+                  <li>
+                    A <strong>digital direction signal</strong> that selects
+                    forward or reverse rotation.
+                  </li>
                 </ul>
                 <p>
-                  The Raspberry Pi generates these signals directly via its GPIO pins. PWM values are computed in software from joystick inputs or autonomous velocity commands, with additional scaling and ramping to limit acceleration and top speed for safety and reliability.
+                  The Raspberry Pi generates these signals directly via its GPIO
+                  pins. PWM values are computed in software from joystick inputs
+                  or autonomous velocity commands, with additional scaling and
+                  ramping to limit acceleration and top speed for safety and
+                  reliability.
                 </p>
 
-                <h3 class="card-subtitle" style="margin-top: var(--spacing-lg);">Encoders &amp; Odometry</h3>
+                <h3 class="card-subtitle" style="margin-top: var(--spacing-lg)">
+                  Encoders &amp; Odometry
+                </h3>
                 <p>
-                  Each drive wheel is equipped with a <strong>relative (incremental) rotary encoder</strong> that produces a digital pulse for each tick. The Raspberry Pi counts rising edges on dedicated GPIO pins to estimate:
+                  Each drive wheel is equipped with a
+                  <strong>relative (incremental) rotary encoder</strong> that
+                  produces a digital pulse for each tick. The Raspberry Pi
+                  counts rising edges on dedicated GPIO pins to estimate:
                 </p>
                 <ul class="detail-list">
                   <li>Wheel rotational velocity.</li>
                   <li>Relative distance traveled.</li>
-                  <li>Robot odometry for path planning and following behavior.</li>
+                  <li>
+                    Robot odometry for path planning and following behavior.
+                  </li>
                 </ul>
                 <p>
-                  At low and moderate speeds this approach works well, but at higher speeds we observed missed counts and even occasional decreases in the tick count. This is a limitation of using a non‑real‑time OS and software sampling for high-frequency encoder signals.
+                  At low and moderate speeds this approach works well, but at
+                  higher speeds we observed missed counts and even occasional
+                  decreases in the tick count. This is a limitation of using a
+                  non‑real‑time OS and software sampling for high-frequency
+                  encoder signals.
                 </p>
                 <p>
-                  Our key takeaway is that accurate high-speed odometry requires <strong>hardware interrupts or a dedicated microcontroller</strong> (e.g., STM32 or ESP32) or the use of <strong>absolute encoders</strong> with built-in counting. In this iteration we constrained the robot&rsquo;s top speed to stay within the Pi&rsquo;s reliable sampling window.
+                  Our key takeaway is that accurate high-speed odometry requires
+                  <strong
+                    >hardware interrupts or a dedicated microcontroller</strong
+                  >
+                  (e.g., STM32 or ESP32) or the use of
+                  <strong>absolute encoders</strong> with built-in counting. In
+                  this iteration we constrained the robot&rsquo;s top speed to
+                  stay within the Pi&rsquo;s reliable sampling window.
                 </p>
               </div>
-                <video controls autoplay loop mutedposter="assets/drivetrain-thumb.png" style="width:100%; border-radius:12px; margin-bottom:8px;">
-                  <source src="assets/manual_driving.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-                <p class="caption">Manual driving demonstration—motors, Cytron driver, and encoder feedback in action.</p>
+              <video
+                controls
+                autoplay
+                loop
+                mutedposter="assets/drivetrain-thumb.png"
+                style="width: 100%; border-radius: 12px; margin-bottom: 8px"
+              >
+                <source src="assets/manual_driving.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <p class="caption">
+                Manual driving demonstration—motors, Cytron driver, and encoder
+                feedback in action.
+              </p>
             </div>
           </div>
 
           <div class="design-decisions mb-12">
-            <h2 class="section-heading text-center">Engineering Challenges & Iterations</h2>
+            <h2 class="section-heading text-center">
+              Engineering Challenges & Iterations
+            </h2>
 
             <div class="decision-cards">
-              
-              <div class="decision-card">
+              <div class="decision-card reveal">
                 <div class="decision-header">
-                  <h3><i class="fas fa-satellite-dish" style="color:var(--color-primary); margin-right:10px;"></i> UWB Localization Failure</h3>
+                  <h3>
+                    <i
+                      class="fas fa-satellite-dish"
+                      style="color: var(--color-primary); margin-right: 10px"
+                    ></i>
+                    UWB Localization Failure
+                  </h3>
                 </div>
-                <div class="problem-box">
-                    <p><strong>The Problem:</strong> We attempted to use 4 Ultra-Wideband (UWB) modules to track the user. However, readings were highly inconsistent. We encountered significant signal multipath interference from the metal motor mounts and Non-Line-of-Sight (NLOS) errors, causing the robot to lose the target even within range.</p>
+                <div class="problem-box reveal">
+                  <p>
+                    <strong>The Problem:</strong> We attempted to use 4
+                    Ultra-Wideband (UWB) modules to track the user. However,
+                    readings were highly inconsistent. We encountered
+                    significant signal multipath interference from the metal
+                    motor mounts and Non-Line-of-Sight (NLOS) errors, causing
+                    the robot to lose the target even within range.
+                  </p>
                 </div>
-                <div class="solution-box">
-                    <p><strong>The Pivot:</strong> Signal calibration and Kalman filtering were insufficient to solve the hardware interference. We determined that the UWB anchor geometry was too constrained for robust triangulation. We pivoted to a <strong>Computer Vision</strong> approach using OpenCV, which proved far more reliable for dynamic object tracking.</p>
+                <div class="solution-box reveal">
+                  <p>
+                    <strong>The Pivot:</strong> Signal calibration and Kalman
+                    filtering were insufficient to solve the hardware
+                    interference. We determined that the UWB anchor geometry was
+                    too constrained for robust triangulation. We pivoted to a
+                    <strong>Computer Vision</strong> approach using OpenCV,
+                    which proved far more reliable for dynamic object tracking.
+                  </p>
                 </div>
               </div>
 
-              <div class="decision-card">
+              <div class="decision-card reveal">
                 <div class="decision-header">
-                   <h3><i class="fas fa-tachometer-alt" style="color:var(--color-primary); margin-right:10px;"></i> Encoder Sampling Rate</h3>
+                  <h3>
+                    <i
+                      class="fas fa-tachometer-alt"
+                      style="color: var(--color-primary); margin-right: 10px"
+                    ></i>
+                    Encoder Sampling Rate
+                  </h3>
                 </div>
-                <div class="problem-box">
-                    <p><strong>The Problem:</strong> We used simple rotary encoders connected directly to Raspberry Pi GPIO pins. At high speeds, the robot's odometry became irrational—counts would lag or even decrease. We identified this as a hardware limitation: the Raspberry Pi's OS is not real-time, and the CPU could not sample the GPIO pins fast enough to catch every encoder tick.</p>
+                <div class="problem-box reveal">
+                  <p>
+                    <strong>The Problem:</strong> We used simple rotary encoders
+                    connected directly to Raspberry Pi GPIO pins. At high
+                    speeds, the robot's odometry became irrational—counts would
+                    lag or even decrease. We identified this as a hardware
+                    limitation: the Raspberry Pi's OS is not real-time, and the
+                    CPU could not sample the GPIO pins fast enough to catch
+                    every encoder tick.
+                  </p>
                 </div>
-                <div class="solution-box">
-                    <p><strong>The Lesson:</strong> Software optimization (increasing timer priority) was insufficient. We learned that high-speed odometry requires hardware interrupts or a dedicated microcontroller (like an STM32 or ESP32) to handle tick counting off the main CPU. For this iteration, we optimized our max speed to remain within the Pi's reliable sampling window.</p>
+                <div class="solution-box reveal">
+                  <p>
+                    <strong>The Lesson:</strong> Software optimization
+                    (increasing timer priority) was insufficient. We learned
+                    that high-speed odometry requires hardware interrupts or a
+                    dedicated microcontroller (like an STM32 or ESP32) to handle
+                    tick counting off the main CPU. For this iteration, we
+                    optimized our max speed to remain within the Pi's reliable
+                    sampling window.
+                  </p>
                 </div>
               </div>
 
-              <div class="decision-card">
+              <div class="decision-card reveal">
                 <div class="decision-header">
-                   <h3><i class="fas fa-microchip" style="color:var(--color-primary); margin-right:10px;"></i> Thread Starvation</h3>
+                  <h3>
+                    <i
+                      class="fas fa-microchip"
+                      style="color: var(--color-primary); margin-right: 10px"
+                    ></i>
+                    Thread Starvation
+                  </h3>
                 </div>
-                <div class="problem-box">
-                    <p><strong>The Problem:</strong> Our initial code ran in a single loop. Because stepper motors require a specific sequence of "step" signals (High/Low) in a blocking for loop, the steering mechanism would "hog" the CPU. This caused the drive motors to pause while the wheels were turning, resulting in jerky, sequential movement.</p>
+                <div class="problem-box reveal">
+                  <p>
+                    <strong>The Problem:</strong> Our initial code ran in a
+                    single loop. Because stepper motors require a specific
+                    sequence of "step" signals (High/Low) in a blocking for
+                    loop, the steering mechanism would "hog" the CPU. This
+                    caused the drive motors to pause while the wheels were
+                    turning, resulting in jerky, sequential movement.
+                  </p>
                 </div>
-                <div class="solution-box">
-                    <p><strong>The Solution:</strong> We refactored the codebase to utilize <strong>Python threading</strong>. We moved the stepper control and drive motor control into separate, independent execution threads. This allowed for concurrent actuation, enabling the robot to steer and drive simultaneously for smooth motion.</p>
+                <div class="solution-box reveal">
+                  <p>
+                    <strong>The Solution:</strong> We refactored the codebase to
+                    utilize <strong>Python threading</strong>. We moved the
+                    stepper control and drive motor control into separate,
+                    independent execution threads. This allowed for concurrent
+                    actuation, enabling the robot to steer and drive
+                    simultaneously for smooth motion.
+                  </p>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
